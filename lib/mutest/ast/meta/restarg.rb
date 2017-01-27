@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Node meta information mixin
     module Meta
-
       # Metadata for restarg nodes
       class Restarg
         include NamedChildren, Concord.new(:node)
@@ -11,7 +10,6 @@ module Mutest
 
         public :name
       end # Restarg
-
     end # Meta
   end # AST
 end # Mutest

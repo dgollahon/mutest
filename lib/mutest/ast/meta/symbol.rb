@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Node meta information mixin
     module Meta
-
       # Metadata for symbol nodes
       class Symbol
         include NamedChildren, Concord.new(:node)

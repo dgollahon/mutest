@@ -2,7 +2,6 @@ module Mutest
   class Mutator
     class Node
       module NamedValue
-
         # Mutation emitter to handle constant assignment nodes
         class ConstantAssignment < Node
           children :cbase, :name, :value

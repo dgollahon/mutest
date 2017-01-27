@@ -1,7 +1,6 @@
 module Mutest
   # Parallel execution engine of arbitrary payloads
   module Parallel
-
     # Driver for parallelized execution
     class Driver
       include Concord.new(:binding)
@@ -86,6 +85,5 @@ module Mutest
         :payload
       )
     end # Status
-
   end # Parallel
 end # Mutest

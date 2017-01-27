@@ -17,7 +17,6 @@ module Mutest
       N_SELF              = s(:self)
       N_ZSUPER            = s(:zsuper)
       N_EMPTY_SUPER       = s(:super)
-
     end # Nodes
   end # AST
 end # Mutest

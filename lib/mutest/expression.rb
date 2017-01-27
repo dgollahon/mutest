@@ -1,5 +1,4 @@
 module Mutest
-
   # Abstract base class for match expression
   class Expression
     include AbstractType, Adamantium::Flat

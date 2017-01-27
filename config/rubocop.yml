@@ -256,13 +256,6 @@ Metrics/LineLength:
 Style/AndOr:
   Enabled: false
 
-# Offense count: 37
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines
-Style/EmptyLinesAroundModuleBody:
-  Enabled: false
-
 # Offense count: 150
 # Cop supports --auto-correct.
 Style/FirstMethodArgumentLineBreak:

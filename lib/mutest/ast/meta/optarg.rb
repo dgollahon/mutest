@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Node meta information mixin
     module Meta
-
       # Metadata for optional argument nodes
       class Optarg
         include NamedChildren, Concord.new(:node)
@@ -20,7 +19,6 @@ module Mutest
           !name.to_s.start_with?(UNDERSCORE)
         end
       end # Optarg
-
     end # Meta
   end # AST
 end # Mutest

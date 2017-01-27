@@ -1,7 +1,6 @@
 module Mutest
   # AST helpers
   module AST
-
     # Find last node satisfying predicate (as block)
     #
     # @return [Parser::AST::Node]
@@ -41,6 +40,5 @@ module Mutest
       end
     end
     private_class_method :walk
-
   end # AST
 end # Mutest

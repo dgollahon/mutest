@@ -12,5 +12,4 @@ module RbBug
   def self.call
     rb_bug('%s', :string, 'test bug')
   end
-
 end # RbBug

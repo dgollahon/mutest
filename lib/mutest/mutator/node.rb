@@ -1,5 +1,4 @@
 module Mutest
-
   # Generator for mutations
   class Mutator
     # Abstract base class for node mutators

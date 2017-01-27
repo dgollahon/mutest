@@ -1,9 +1,7 @@
 module Mutest
   module AST
-
     # Helper methods to define named children
     module NamedChildren
-
       # Hook called when module gets included
       #
       # @param [Class, Module] host
@@ -18,7 +16,6 @@ module Mutest
 
       # Methods mixed int ot instance level
       module InstanceMethods
-
         private
 
         # Mutated nodes children
@@ -27,12 +24,10 @@ module Mutest
         def children
           node.children
         end
-
       end # InstanceMethods
 
       # Methods mixed in at class level
       module ClassMethods
-
         private
 
         # Define named child
@@ -85,7 +80,6 @@ module Mutest
           define_method(name, &block)
           private(name)
         end
-
       end # ClassMethods
     end # NamedChildren
   end # AST

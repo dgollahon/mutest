@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Node meta information mixin
     module Meta
-
       # Metadata for send nodes
       class Send
         include NamedChildren, Concord.new(:node), NodePredicates

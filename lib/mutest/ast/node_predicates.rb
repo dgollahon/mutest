@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Module for node predicates
     module NodePredicates
-
       Types::ALL.each do |type|
         fail "method: #{type} is already defined" if instance_methods(true).include?(type)
 
@@ -13,7 +12,6 @@ module Mutest
         end
         private name
       end
-
     end # NodePredicates
   end # AST
 end # Mutest

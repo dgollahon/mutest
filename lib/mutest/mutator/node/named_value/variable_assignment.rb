@@ -2,7 +2,6 @@ module Mutest
   class Mutator
     class Node
       module NamedValue
-
         # Mutation emitter to handle variable assignment nodes
         class VariableAssignment < Node
           children :name, :value

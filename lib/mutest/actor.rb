@@ -1,7 +1,6 @@
 module Mutest
   # A minimal actor implementation
   module Actor
-
     # Error raised when actor signalling protocol is violated
     class ProtocolError < RuntimeError
     end # ProtocolError

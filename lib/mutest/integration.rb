@@ -1,5 +1,4 @@
 module Mutest
-
   # Abstract base class mutest test framework integrations
   class Integration
     include AbstractType, Adamantium::Flat, Concord.new(:config)

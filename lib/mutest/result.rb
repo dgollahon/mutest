@@ -1,7 +1,6 @@
 module Mutest
   # Namespace and mixin module for results
   module Result
-
     # Coverage mixin
     module Coverage
       FULL_COVERAGE = Rational(1).freeze
@@ -21,7 +20,6 @@ module Mutest
 
     # Class level mixin
     module ClassMethods
-
       # Generate a sum method from name and collection
       #
       # @param [Symbol] name
