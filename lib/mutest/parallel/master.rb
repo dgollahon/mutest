@@ -64,7 +64,9 @@ module Mutest
       #
       # @return [undefined]
       def handle(message)
-        type, payload = message.type, message.payload
+        type    = message.type
+        payload = message.payload
+
         method = MAP.fetch(type) do
           fail Actor::ProtocolError, "Unexpected message: #{type.inspect}"
         end

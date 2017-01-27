@@ -43,7 +43,8 @@ module XSpec
     end
 
     def validate_block_arity(observation, yields)
-      expected, observed = yields.length, observation.block.arity
+      expected = yields.length
+      observed = observation.block.arity
 
       # block allows anything we can skip the check
       return if observed.equal?(-1)
