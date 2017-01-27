@@ -282,12 +282,6 @@ Style/FirstMethodArgumentLineBreak:
 Style/IndentHash:
   EnforcedStyle: special_inside_parentheses
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Width.
-Style/IndentationWidth:
-  Enabled: false
-
 # Offense count: 21
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
