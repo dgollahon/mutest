@@ -256,11 +256,6 @@ Metrics/LineLength:
 Style/AndOr:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ElseAlignment:
-  Enabled: false
-
 # Offense count: 27
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
