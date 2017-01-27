@@ -23,13 +23,6 @@
   expected_errors:
     "Regexp::Syntax::Ruby::V233 does not implement: [escape:codepoint]":
      - regexp_parser/test/parser/test_escapes.rb
-- name: auom
-  namespace: AUOM
-  repo_uri: 'https://github.com/mbj/auom.git'
-  repo_ref: 'origin/master'
-  mutation_coverage: true
-  mutation_generation: true
-  expected_errors: {}
 - name: axiom
   namespace: Axiom
   repo_uri: 'https://github.com/dkubb/axiom.git'
