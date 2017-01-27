@@ -93,7 +93,8 @@ RSpec.describe Mutest::Env::Bootstrap do
         # Fix Class#name so other specs do not see this one
         class << invalid_class
           undef :name
-          def name; end
+          def name
+          end
         end
       end
 
@@ -150,7 +151,8 @@ RSpec.describe Mutest::Env::Bootstrap do
         # Fix Class#name so other specs do not see this one
         class << invalid_class
           undef :name
-          def name; end
+          def name
+          end
         end
       end
 

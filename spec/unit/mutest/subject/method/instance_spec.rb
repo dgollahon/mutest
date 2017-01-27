@@ -20,7 +20,8 @@ RSpec.describe Mutest::Subject::Method::Instance do
         @bar = :boo
       end
 
-      def foo; end
+      def foo
+      end
 
       def self.name
         'Test'
@@ -81,7 +82,8 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
     let(:scope) do
       Class.new do
         include Memoizable
-        def foo; end
+        def foo
+        end
         memoize :foo
       end
     end

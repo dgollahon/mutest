@@ -11,7 +11,8 @@ module Mutest
           # Emit mutations
           #
           # @return [undefined]
-          def dispatch; end
+          def dispatch
+          end
         end # Nil
       end # Literal
     end # Node

@@ -263,13 +263,6 @@ Style/AndOr:
 Style/EmptyLinesAroundModuleBody:
   Enabled: false
 
-# Offense count: 17
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Enabled: false
-
 # Offense count: 150
 # Cop supports --auto-correct.
 Style/FirstMethodArgumentLineBreak:

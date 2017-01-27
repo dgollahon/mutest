@@ -28,7 +28,8 @@ module Mutest
       # Initialize null color
       #
       # @return [undefined]
-      def initialize; end
+      def initialize
+      end
     end.new
 
     RED   = Color.new(31)
