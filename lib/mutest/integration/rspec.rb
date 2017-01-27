@@ -21,7 +21,7 @@ module Mutest
     # :reek:TooManyConstants
     class Rspec < self
       ALL_EXPRESSION       = Expression::Namespace::Recursive.new(scope_name: nil)
-      EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/.freeze
+      EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/
       LOCATION_DELIMITER   = ':'.freeze
       EXIT_SUCCESS         = 0
       CLI_OPTIONS          = IceNine.deep_freeze(%w[spec --fail-fast])

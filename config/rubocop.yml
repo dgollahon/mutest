@@ -273,8 +273,3 @@ Style/LambdaCall:
 # SupportedStyles: skip_modifier_ifs, always
 Style/Next:
   Enabled: false
-
-# Offense count: 11
-# Cop supports --auto-correct.
-Style/RedundantFreeze:
-  Enabled: false

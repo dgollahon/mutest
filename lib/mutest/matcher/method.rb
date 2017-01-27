@@ -8,7 +8,7 @@ module Mutest
 
       # Methods within rbx kernel directory are precompiled and their source
       # cannot be accessed via reading source location. Same for methods created by eval.
-      BLACKLIST = %r{\A(kernel/|\(eval\)\z)}.freeze
+      BLACKLIST = %r{\A(kernel/|\(eval\)\z)}
 
       SOURCE_LOCATION_WARNING_FORMAT =
         '%s does not have a valid source location, unable to emit subject'.freeze

@@ -20,7 +20,7 @@ module MutestSpec
     end
 
     class Extractor < DelegateClass(IO)
-      PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/.freeze
+      PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/
 
       include Equalizer.new(:whitelist, :seen, :io), Memoizable
 

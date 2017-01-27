@@ -3,8 +3,8 @@ module Mutest
   class Expression
     include AbstractType, Adamantium::Flat
 
-    fragment             = /[A-Za-z][A-Za-z\d_]*/.freeze
-    SCOPE_NAME_PATTERN   = /(?<scope_name>#{fragment}(?:#{SCOPE_OPERATOR}#{fragment})*)/.freeze
+    fragment             = /[A-Za-z][A-Za-z\d_]*/
+    SCOPE_NAME_PATTERN   = /(?<scope_name>#{fragment}(?:#{SCOPE_OPERATOR}#{fragment})*)/
     SCOPE_SYMBOL_PATTERN = '(?<scope_symbol>[.#])'.freeze
 
     private_constant(*constants(false))
