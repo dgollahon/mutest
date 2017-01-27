@@ -1,5 +1,4 @@
 Mutest::Meta::Example.add :begin do
-
   source 'true; false'
   # Mutation of each statement in block
   mutation 'true; true'
@@ -13,7 +12,6 @@ Mutest::Meta::Example.add :begin do
 end
 
 Mutest::Meta::Example.add :begin do
-
   source s(:begin, s(:true))
   # Mutation of each statement in block
   mutation s(:begin, s(:nil))

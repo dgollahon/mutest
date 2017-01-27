@@ -45,7 +45,6 @@ RSpec.describe Mutest::Subject::Method::Instance do
   end
 
   describe '#prepare' do
-
     let(:context) do
       Mutest::Context.new(scope, instance_double(Pathname))
     end
@@ -75,7 +74,6 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
   end
 
   describe '#prepare' do
-
     let(:context) do
       Mutest::Context.new(scope, double('Source Path'))
     end

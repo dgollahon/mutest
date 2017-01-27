@@ -12,7 +12,6 @@ RSpec.describe Mutest::Actor::Mailbox do
 
     its(:sender) { should eql(Mutest::Actor::Sender.new(condition_variable, mutex, [])) }
     its(:receiver) { should eql(Mutest::Actor::Receiver.new(condition_variable, mutex, [])) }
-
   end
 
   describe '#bind' do

@@ -256,13 +256,6 @@ Metrics/LineLength:
 Style/AndOr:
   Enabled: false
 
-# Offense count: 27
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, no_empty_lines
-Style/EmptyLinesAroundBlockBody:
-  Enabled: false
-
 # Offense count: 254
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

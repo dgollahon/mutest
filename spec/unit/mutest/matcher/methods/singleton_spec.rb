@@ -19,7 +19,6 @@ RSpec.describe Mutest::Matcher::Methods::Singleton, '#call' do
 
       def self.method_c; end
       private_class_method :method_c
-
     end
   end
 

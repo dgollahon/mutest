@@ -120,7 +120,6 @@ RSpec.describe Mutest::Mutation do
   end
 
   describe '#identification' do
-
     subject { object.identification }
 
     it { should eql('test:subject:8771a') }

@@ -1,5 +1,4 @@
 RSpec.describe Mutest::Integration do
-
   let(:class_under_test) do
     Class.new(described_class)
   end
@@ -27,7 +26,6 @@ RSpec.describe Mutest::Integration do
 end
 
 RSpec.describe Mutest::Integration::Null do
-
   let(:object) { described_class.new(Mutest::Config::DEFAULT) }
 
   describe '#all_tests' do

@@ -2,14 +2,12 @@ RSpec.describe Mutest::Diff do
   let(:object) { described_class }
 
   describe '.build' do
-
     subject { object.build(old_string, new_string) }
 
     let(:old_string) { "foo\nbar" }
     let(:new_string) { "bar\nbaz" }
 
     it { should eql(Mutest::Diff.new(%w[foo bar], %w[bar baz])) }
-
   end
 
   describe '#colorized_diff' do

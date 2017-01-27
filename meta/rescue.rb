@@ -8,7 +8,6 @@ Mutest::Meta::Example.add :rescue do
   mutation 'begin; rescue ExceptionA, ExceptionB => error; false; end'
   mutation 'begin; rescue ExceptionA, ExceptionB => error; nil; end'
   mutation 'begin; true; end'
-
 end
 
 Mutest::Meta::Example.add :rescue do

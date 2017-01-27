@@ -28,7 +28,6 @@ RSpec.describe Mutest::Parallel::Worker do
     let(:actor_names) { [:worker] }
 
     context 'when receiving :job command' do
-
       before do
         expect(processor).to receive(:call).with(payload).and_return(result_payload)
 
