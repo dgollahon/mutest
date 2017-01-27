@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :op_asgn do
+Mutest::Meta::Example.add :op_asgn do
   source '@a.b += 1'
 
   singleton_mutations

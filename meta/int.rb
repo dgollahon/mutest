@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :int do
+Mutest::Meta::Example.add :int do
   source '10'
 
   singleton_mutations

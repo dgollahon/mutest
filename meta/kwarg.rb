@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :kwarg do
+Mutest::Meta::Example.add :kwarg do
   source 'def foo(bar:); end'
 
   mutation 'def foo; end'

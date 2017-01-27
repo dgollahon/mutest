@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :dstr do
+Mutest::Meta::Example.add :dstr do
   source '"foo#{bar}baz"'
 
   singleton_mutations

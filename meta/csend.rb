@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :csend do
+Mutest::Meta::Example.add :csend do
   source 'a&.b'
 
   singleton_mutations

@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :regexp_alternation_meta do
+Mutest::Meta::Example.add :regexp_alternation_meta do
   source '/\A(foo|bar|baz)\z/'
 
   singleton_mutations

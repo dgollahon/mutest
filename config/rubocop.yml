@@ -96,7 +96,7 @@ SymbolArray:
 
 # Align if/else blocks with the variable assignment
 EndAlignment:
-  AlignWith: variable
+  EnforcedStyleAlignWith: variable
 
 # Prefer #kind_of? over #is_a?
 ClassCheck:
@@ -180,3 +180,8 @@ Send:
 
 Lint/UnifiedInteger:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+  # Ignore RSpec DSL
+  - spec/**/*

@@ -11,7 +11,7 @@ ClassVariable:
 ControlParameter:
   enabled: true
   exclude:
-  - Mutant::Expression#match_length
+  - Mutest::Expression#match_length
 DataClump:
   enabled: true
   exclude: []
@@ -31,8 +31,8 @@ IrresponsibleModule:
 LongParameterList:
   enabled: true
   exclude:
-  - Mutant::Matcher::Method::Instance#self.build
-  - Mutant::Meta::Example::DSL # 3 vars
+  - Mutest::Matcher::Method::Instance#self.build
+  - Mutest::Meta::Example::DSL # 3 vars
   max_params: 2
 LongYieldList:
   enabled: true
@@ -41,14 +41,14 @@ LongYieldList:
 NestedIterators:
   enabled: true
   exclude:
-  - Mutant#self.singleton_subclass_instance
-  - Mutant::CLI#parse
-  - Mutant::Mutator::Node::Arguments#emit_argument_mutations
-  - Mutant::Mutator::Node::Resbody#mutate_captures
-  - Mutant::Mutator::Util::Array::Element#dispatch
-  - Mutant::Parallel::Master#run
-  - Mutant::RequireHighjack#self.call
-  - Mutant::Selector::Expression#call
+  - Mutest#self.singleton_subclass_instance
+  - Mutest::CLI#parse
+  - Mutest::Mutator::Node::Arguments#emit_argument_mutations
+  - Mutest::Mutator::Node::Resbody#mutate_captures
+  - Mutest::Mutator::Util::Array::Element#dispatch
+  - Mutest::Parallel::Master#run
+  - Mutest::RequireHighjack#self.call
+  - Mutest::Selector::Expression#call
   - Parser::Lexer#self.new
   max_allowed_nesting: 1
   ignore_iterators: []
@@ -57,38 +57,38 @@ NilCheck:
 RepeatedConditional:
   enabled: true
   exclude:
-  - Mutant::Mutator
-  - Mutant::Meta::Example::DSL
+  - Mutest::Mutator
+  - Mutest::Meta::Example::DSL
   max_ifs: 1
 TooManyInstanceVariables:
   enabled: true
   exclude:
-  - Mutant::Mutator # 4 vars
-  - Mutant::Parallel::Master # 4 vars
-  - Mutant::Meta::Example::DSL # 4 vars
+  - Mutest::Mutator # 4 vars
+  - Mutest::Parallel::Master # 4 vars
+  - Mutest::Meta::Example::DSL # 4 vars
   max_instance_variables: 3
 TooManyMethods:
   enabled: true
   exclude:
-  - Mutant::CLI
-  - Mutant::Mutator::Node
-  - Mutant::Parallel::Master
+  - Mutest::CLI
+  - Mutest::Mutator::Node
+  - Mutest::Parallel::Master
   max_methods: 10
 TooManyStatements:
   enabled: true
   exclude:
-  - Mutant::CLI#add_debug_options
-  - Mutant::CLI#add_environment_options
-  - Mutant::Reporter::CLI::Printer::Config#run
-  - Mutant::Reporter::CLI::Printer::EnvProgress#run
-  - Mutant::Runner#run_driver
-  - Mutant::Zombifier::File#self.find
+  - Mutest::CLI#add_debug_options
+  - Mutest::CLI#add_environment_options
+  - Mutest::Reporter::CLI::Printer::Config#run
+  - Mutest::Reporter::CLI::Printer::EnvProgress#run
+  - Mutest::Runner#run_driver
+  - Mutest::Zombifier::File#self.find
   max_statements: 7
 UncommunicativeMethodName:
   enabled: true
   exclude:
-  - Mutant::AST::Sexp#s
-  - Mutant::Mutation#sha1
+  - Mutest::AST::Sexp#s
+  - Mutest::Mutation#sha1
   reject:
   - !ruby/regexp /^[a-z]$/
   - !ruby/regexp /[0-9]$/
@@ -123,15 +123,15 @@ UnusedParameters:
 UtilityFunction:
   enabled: true
   exclude:
-  - Mutant::AST::Sexp#s
-  - Mutant::Actor::Env#new_mailbox
-  - Mutant::CLI#reporter
-  - Mutant::Integration::Null#call
-  - Mutant::Integration::Rspec#parse_example
-  - Mutant::Integration::Rspec#parse_expression # intentional, private
-  - Mutant::Meta::Example::Verification#format_mutations # intentional, private
-  - Mutant::Reporter::CLI::Format::Progressive#new_buffer
-  - Mutant::Reporter::CLI::Printer::StatusProgressive#object # False positive calls super
-  - Mutant::Repository::Diff#tracks? # intentional, private
-  - Mutant::Repository::Diff#within_working_directory? # intentional, private
+  - Mutest::AST::Sexp#s
+  - Mutest::Actor::Env#new_mailbox
+  - Mutest::CLI#reporter
+  - Mutest::Integration::Null#call
+  - Mutest::Integration::Rspec#parse_example
+  - Mutest::Integration::Rspec#parse_expression # intentional, private
+  - Mutest::Meta::Example::Verification#format_mutations # intentional, private
+  - Mutest::Reporter::CLI::Format::Progressive#new_buffer
+  - Mutest::Reporter::CLI::Printer::StatusProgressive#object # False positive calls super
+  - Mutest::Repository::Diff#tracks? # intentional, private
+  - Mutest::Repository::Diff#within_working_directory? # intentional, private
   max_helper_calls: 0

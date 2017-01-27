@@ -1,4 +1,4 @@
-RSpec.describe Mutant do
+RSpec.describe Mutest do
   let(:object) { described_class }
 
   describe '.ci?' do

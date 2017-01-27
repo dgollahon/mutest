@@ -1,10 +1,10 @@
-Mutant::Meta::Example.add :return do
+Mutest::Meta::Example.add :return do
   source 'return'
 
   singleton_mutations
 end
 
-Mutant::Meta::Example.add :return do
+Mutest::Meta::Example.add :return do
   source 'return foo'
 
   singleton_mutations

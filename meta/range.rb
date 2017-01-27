@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :irange do
+Mutest::Meta::Example.add :irange do
   source '1..100'
 
   singleton_mutations
@@ -17,7 +17,7 @@ Mutant::Meta::Example.add :irange do
   mutation '1..-100'
 end
 
-Mutant::Meta::Example.add :erange do
+Mutest::Meta::Example.add :erange do
   source '1...100'
 
   singleton_mutations

@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :regexp_greedy_zero_or_more do
+Mutest::Meta::Example.add :regexp_greedy_zero_or_more do
   source '/\d*/'
 
   singleton_mutations

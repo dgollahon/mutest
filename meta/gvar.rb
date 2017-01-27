@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :gvar do
+Mutest::Meta::Example.add :gvar do
   source '$a'
 
   singleton_mutations

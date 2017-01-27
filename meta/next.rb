@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :next do
+Mutest::Meta::Example.add :next do
   source 'next true'
 
   singleton_mutations

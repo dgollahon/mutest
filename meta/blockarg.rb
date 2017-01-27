@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :blockarg do
+Mutest::Meta::Example.add :blockarg do
   source 'foo { |&bar| }'
 
   singleton_mutations

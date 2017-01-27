@@ -1,8 +1,8 @@
-Mutant::Meta::Example.add :or_asgn do
+Mutest::Meta::Example.add :or_asgn do
   source 'a ||= 1'
 
   singleton_mutations
-  mutation 'a__mutant__ ||= 1'
+  mutation 'a__mutest__ ||= 1'
   mutation 'a ||= nil'
   mutation 'a ||= self'
   mutation 'a ||= 0'
@@ -10,7 +10,7 @@ Mutant::Meta::Example.add :or_asgn do
   mutation 'a ||= 2'
 end
 
-Mutant::Meta::Example.add :or_asgn do
+Mutest::Meta::Example.add :or_asgn do
   source '@a ||= 1'
 
   singleton_mutations
@@ -21,13 +21,13 @@ Mutant::Meta::Example.add :or_asgn do
   mutation '@a ||= 2'
 end
 
-Mutant::Meta::Example.add :or_asgn do
+Mutest::Meta::Example.add :or_asgn do
   source 'Foo ||= nil'
 
   singleton_mutations
 end
 
-Mutant::Meta::Example.add :or_asgn do
+Mutest::Meta::Example.add :or_asgn do
   source '@a ||= self.bar'
 
   singleton_mutations
@@ -36,7 +36,7 @@ Mutant::Meta::Example.add :or_asgn do
   mutation '@a ||= bar'
 end
 
-Mutant::Meta::Example.add :or_asgn do
+Mutest::Meta::Example.add :or_asgn do
   source 'foo[:bar] ||= 1'
 
   singleton_mutations

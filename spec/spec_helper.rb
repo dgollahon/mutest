@@ -8,7 +8,7 @@ if ENV['COVERAGE'] == 'true'
     add_filter 'spec'
     add_filter 'vendor'
     add_filter 'test_app'
-    add_filter 'lib/mutant.rb' # simplecov bug not seeing default block is executed
+    add_filter 'lib/mutest.rb' # simplecov bug not seeing default block is executed
 
     minimum_coverage 100
   end
@@ -16,7 +16,7 @@ end
 
 # Require warning support first in order to catch any warnings emitted during boot
 require_relative './support/warning'
-$stderr = MutantSpec::Warning::EXTRACTOR
+$stderr = MutestSpec::Warning::EXTRACTOR
 
 require 'tempfile'
 require 'concord'
@@ -24,16 +24,16 @@ require 'anima'
 require 'adamantium'
 require 'devtools/spec_helper'
 require 'unparser/cli'
-require 'mutant'
-require 'mutant/meta'
+require 'mutest'
+require 'mutest/meta'
 
 $LOAD_PATH << File.join(TestApp.root, 'lib')
 
 require 'test_app'
 
 module Fixtures
-  TEST_CONFIG = Mutant::Config::DEFAULT.with(reporter: Mutant::Reporter::Null.new)
-  TEST_ENV    = Mutant::Env::Bootstrap.(TEST_CONFIG)
+  TEST_CONFIG = Mutest::Config::DEFAULT.with(reporter: Mutest::Reporter::Null.new)
+  TEST_ENV    = Mutest::Env::Bootstrap.(TEST_CONFIG)
 end # Fixtures
 
 module ParserHelper
@@ -46,13 +46,13 @@ module ParserHelper
   end
 
   def parse_expression(string)
-    Mutant::Config::DEFAULT.expression_parser.(string)
+    Mutest::Config::DEFAULT.expression_parser.(string)
   end
 end # ParserHelper
 
 module MessageHelper
   def message(*arguments)
-    Mutant::Actor::Message.new(*arguments)
+    Mutest::Actor::Message.new(*arguments)
   end
 end # MessageHelper
 
@@ -61,10 +61,10 @@ RSpec.configure do |config|
   config.include(CompressHelper)
   config.include(MessageHelper)
   config.include(ParserHelper)
-  config.include(Mutant::AST::Sexp)
+  config.include(Mutest::AST::Sexp)
 
   config.after(:suite) do
     $stderr = STDERR
-    MutantSpec::Warning.assert_no_warnings
+    MutestSpec::Warning.assert_no_warnings
   end
 end

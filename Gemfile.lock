@@ -1,5 +1,6 @@
-PATH
-  remote: .
+GIT
+  remote: https://github.com/mbj/mutant.git
+  revision: 24f6d42fa2b3d30fbf206169d08383972c803242
   specs:
     mutant (0.8.12)
       abstract_type (~> 0.0.7)
@@ -20,6 +21,26 @@ PATH
     mutant-rspec (0.8.12)
       mutant (~> 0.8.12)
       rspec-core (>= 3.4.0, < 3.6.0)
+
+PATH
+  remote: .
+  specs:
+    mutest (0.8.12)
+      abstract_type (~> 0.0.7)
+      adamantium (~> 0.2.0)
+      anima (~> 0.3.0)
+      ast (~> 2.2)
+      concord (~> 0.1.5)
+      diff-lcs (~> 1.2)
+      equalizer (~> 0.0.9)
+      ice_nine (~> 0.11.1)
+      memoizable (~> 0.4.2)
+      morpher (~> 0.2.6)
+      parallel (~> 1.3)
+      parser (~> 2.3.1, >= 2.3.1.4)
+      procto (~> 0.0.2)
+      regexp_parser (~> 0.4.1)
+      unparser (~> 0.2.5)
 
 GEM
   remote: https://rubygems.org/
@@ -46,7 +67,7 @@ GEM
       equalizer (~> 0.0.9)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devtools (0.1.15)
+    devtools (0.1.16)
       adamantium (~> 0.2.0)
       anima (~> 0.3.0)
       concord (~> 0.1.5)
@@ -60,7 +81,7 @@ GEM
       rspec (~> 3.5.0)
       rspec-core (~> 3.5.4)
       rspec-its (~> 1.2.0)
-      rubocop (~> 0.46.0)
+      rubocop (~> 0.47.0)
       simplecov (~> 0.12.0)
       yard (~> 0.9.1)
       yardstick (~> 0.9.9)
@@ -68,18 +89,18 @@ GEM
     docile (1.1.5)
     equalizer (0.0.11)
     erubis (2.7.0)
-    ffi (1.9.14)
+    ffi (1.9.17)
     flay (2.8.1)
       erubis (~> 2.7.0)
       path_expander (~> 1.0)
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.0)
-    flog (4.4.0)
+    flog (4.4.1)
       path_expander (~> 1.0)
       ruby_parser (~> 3.1, > 3.1.0)
       sexp_processor (~> 4.4)
     ice_nine (0.11.2)
-    json (2.0.2)
+    json (2.0.3)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     morpher (0.2.6)
@@ -97,13 +118,13 @@ GEM
     path_expander (1.0.1)
     powerpack (0.1.1)
     procto (0.0.3)
-    rainbow (2.1.0)
+    rainbow (2.2.1)
     rake (11.3.0)
-    reek (4.5.2)
+    reek (4.5.4)
       codeclimate-engine-rb (~> 0.4.0)
       parser (~> 2.3.1, >= 2.3.1.2)
       rainbow (~> 2.0)
-    regexp_parser (0.4.1)
+    regexp_parser (0.4.2)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -120,14 +141,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
-    rubocop (0.46.0)
-      parser (>= 2.3.1.1, < 3.0)
+    rubocop (0.47.1)
+      parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    ruby_parser (3.8.3)
+    ruby_parser (3.8.4)
       sexp_processor (~> 4.1)
     sexp_processor (4.7.0)
     simplecov (0.12.0)
@@ -136,7 +157,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     thread_safe (0.3.5)
-    unicode-display_width (1.1.1)
+    unicode-display_width (1.1.3)
     unparser (0.2.5)
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2.0)
@@ -150,7 +171,7 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    yard (0.9.5)
+    yard (0.9.8)
     yardstick (0.9.9)
       yard (~> 0.8, >= 0.8.7.2)
 
@@ -159,9 +180,10 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.10)
-  devtools (~> 0.1.12)
+  devtools (~> 0.1.16)
   ffi (~> 1.9.6)
   mutant!
+  mutest!
 
 BUNDLED WITH
-   1.13.6
+   1.13.2
