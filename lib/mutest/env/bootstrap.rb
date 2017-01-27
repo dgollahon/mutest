@@ -113,10 +113,11 @@ module Mutest
       #
       # @return [undefined]
       def initialize_matchable_scopes
-        scopes = ObjectSpace.each_object(Module).each_with_object([]) do |scope, aggregate|
-          expression = expression(scope) || next
-          aggregate << Scope.new(scope, expression)
-        end
+        scopes =
+          ObjectSpace.each_object(Module).each_with_object([]) do |scope, aggregate|
+            expression = expression(scope) || next
+            aggregate << Scope.new(scope, expression)
+          end
 
         @matchable_scopes = scopes.sort_by { |scope| scope.expression.syntax }
       end

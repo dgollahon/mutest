@@ -267,14 +267,6 @@ Style/IndentHash:
 Style/LambdaCall:
   Enabled: false
 
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedTypes, EnforcedStyle, SupportedStyles.
-# SupportedTypes: block, case, class, if, kwbegin, module
-# SupportedStyles: same_line, new_line
-Style/MultilineAssignmentLayout:
-  Enabled: false
-
 # Offense count: 12
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, MinBodyLength, SupportedStyles.

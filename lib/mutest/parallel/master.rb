@@ -67,9 +67,10 @@ module Mutest
         type    = message.type
         payload = message.payload
 
-        method = MAP.fetch(type) do
-          fail Actor::ProtocolError, "Unexpected message: #{type.inspect}"
-        end
+        method =
+          MAP.fetch(type) do
+            fail Actor::ProtocolError, "Unexpected message: #{type.inspect}"
+          end
         __send__(method, payload)
       end
 

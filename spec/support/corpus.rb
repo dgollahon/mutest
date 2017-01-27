@@ -297,32 +297,33 @@ module MutestSpec
         end
       end # ErrorWhitelist
 
-      LOADER = Morpher.build do
-        s(:block,
-          s(:guard, s(:primitive, Array)),
-          s(:map,
-            s(:block,
-              s(:guard, s(:primitive, Hash)),
-              s(:hash_transform,
-                s(:key_symbolize, :repo_uri,            s(:guard, s(:primitive, String))),
-                s(:key_symbolize, :repo_ref,            s(:guard, s(:primitive, String))),
-                s(:key_symbolize, :name,                s(:guard, s(:primitive, String))),
-                s(:key_symbolize, :namespace,           s(:guard, s(:primitive, String))),
-                s(:key_symbolize, :mutation_coverage,
-                  s(:guard, s(:or, s(:primitive, TrueClass), s(:primitive, FalseClass)))),
-                s(:key_symbolize, :mutation_generation,
-                  s(:guard, s(:or, s(:primitive, TrueClass), s(:primitive, FalseClass)))),
-                s(:key_symbolize, :expected_errors,
-                  s(:block,
-                    s(:guard, s(:primitive, Hash)),
-                    s(:custom,
-                      [
-                        ->(hash) { hash.map { |key, values| [key, values.map(&Pathname.method(:new))] }.to_h },
-                        ->(hash) { hash.map { |key, values| [key, values.map(&:to_s)]                 }.to_h }
-                      ]),
-                    s(:load_attribute_hash, s(:param, ErrorWhitelist))))),
-              s(:anima_load, Project))))
-      end
+      LOADER =
+        Morpher.build do
+          s(:block,
+            s(:guard, s(:primitive, Array)),
+            s(:map,
+              s(:block,
+                s(:guard, s(:primitive, Hash)),
+                s(:hash_transform,
+                  s(:key_symbolize, :repo_uri,            s(:guard, s(:primitive, String))),
+                  s(:key_symbolize, :repo_ref,            s(:guard, s(:primitive, String))),
+                  s(:key_symbolize, :name,                s(:guard, s(:primitive, String))),
+                  s(:key_symbolize, :namespace,           s(:guard, s(:primitive, String))),
+                  s(:key_symbolize, :mutation_coverage,
+                    s(:guard, s(:or, s(:primitive, TrueClass), s(:primitive, FalseClass)))),
+                  s(:key_symbolize, :mutation_generation,
+                    s(:guard, s(:or, s(:primitive, TrueClass), s(:primitive, FalseClass)))),
+                  s(:key_symbolize, :expected_errors,
+                    s(:block,
+                      s(:guard, s(:primitive, Hash)),
+                      s(:custom,
+                        [
+                          ->(hash) { hash.map { |key, values| [key, values.map(&Pathname.method(:new))] }.to_h },
+                          ->(hash) { hash.map { |key, values| [key, values.map(&:to_s)]                 }.to_h }
+                        ]),
+                      s(:load_attribute_hash, s(:param, ErrorWhitelist))))),
+                s(:anima_load, Project))))
+        end
 
       ALL = LOADER.call(YAML.load_file(ROOT.join('spec', 'integrations.yml')))
     end # Project
