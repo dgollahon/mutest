@@ -18,9 +18,7 @@ module Mutest
       fail ArgumentError, 'block expected' unless block_given?
       path = []
       walk(node, [node]) do |candidate, stack|
-        if predicate.call(candidate)
-          path = stack.dup
-        end
+        path = stack.dup if predicate.call(candidate)
       end
       path
     end

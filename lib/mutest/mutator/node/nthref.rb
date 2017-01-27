@@ -13,9 +13,7 @@ module Mutest
         #
         # @return [undefined]
         def dispatch
-          unless number.equal?(1)
-            emit_number(number - 1)
-          end
+          emit_number(number - 1) unless number.equal?(1)
           emit_number(number + 1)
         end
       end # NthRef
