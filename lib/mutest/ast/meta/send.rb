@@ -40,7 +40,7 @@ module Mutest
         # @return [Boolean]
         def attribute_assignment?
           !Types::METHOD_OPERATORS.include?(selector) &&
-          selector.to_s.end_with?(ATTRIBUTE_ASSIGNMENT_SELECTOR_SUFFIX)
+            selector.to_s.end_with?(ATTRIBUTE_ASSIGNMENT_SELECTOR_SUFFIX)
         end
 
         # Test if AST node is an index assign

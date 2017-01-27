@@ -34,9 +34,9 @@ module Mutest
           #
           # @return [Boolean]
           def match?(node)
-            n_def?(node)                           &&
-            node.location.line.equal?(source_line) &&
-            node.children.fetch(NAME_INDEX).equal?(method_name)
+            n_def?(node) &&
+              node.location.line.equal?(source_line) &&
+              node.children.fetch(NAME_INDEX).equal?(method_name)
           end
 
           # Evaluator specialized for memoized instance methods
