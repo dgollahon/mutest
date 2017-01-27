@@ -4,7 +4,6 @@ module Mutest
       class Literal
         # Mutator for nil literals
         class Nil < self
-
           handle(:nil)
 
           private
@@ -13,7 +12,6 @@ module Mutest
           #
           # @return [undefined]
           def dispatch; end
-
         end # Nil
       end # Literal
     end # Node

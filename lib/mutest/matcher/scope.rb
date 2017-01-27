@@ -33,7 +33,6 @@ module Mutest
       def effective_matchers
         MATCHERS.map { |matcher| matcher.new(scope) }
       end
-
     end # Scope
   end # Matcher
 end # Mutest

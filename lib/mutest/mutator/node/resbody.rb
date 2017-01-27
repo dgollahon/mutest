@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Mutator for resbody nodes
       class Resbody < self
-
         handle(:resbody)
 
         children :captures, :assignment, :body
@@ -29,7 +28,6 @@ module Mutest
             emit_captures(s(:array, *matchers))
           end
         end
-
       end # Resbody
     end # Node
   end # Mutator

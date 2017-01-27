@@ -115,6 +115,5 @@ module Mutest
     def namespaced_node(source_path)
       s(:module, s(:const, nil, namespace), ::Parser::CurrentRuby.parse(source_path.read))
     end
-
   end # Zombifier
 end # Mutest

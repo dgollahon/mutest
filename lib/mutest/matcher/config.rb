@@ -76,7 +76,6 @@ module Mutest
               .join(ENUM_DELIMITER)
           ]
       end
-
     end # Config
   end # Matcher
 end # Mutest

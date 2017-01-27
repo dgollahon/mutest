@@ -4,7 +4,6 @@ module Mutest
       class Printer
         # Printer for mutation config
         class Config < self
-
           # Report configuration
           #
           # @param [Mutest::Config] config
@@ -18,7 +17,6 @@ module Mutest
             info 'Includes:        %s',      object.includes
             info 'Requires:        %s',      object.requires
           end
-
         end # Config
       end # Printer
     end # CLI

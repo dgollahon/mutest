@@ -10,7 +10,6 @@ module Mutest
 
           # Mapper from `Parser::AST::Node` to `Regexp::Expression`
           class ASTToExpression < Transformer::ASTToExpression
-
             private
 
             # Transform node into root expression

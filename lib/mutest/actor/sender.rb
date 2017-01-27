@@ -18,7 +18,6 @@ module Mutest
 
         self
       end
-
     end # Sender
   end # Actor
 end # Mutest

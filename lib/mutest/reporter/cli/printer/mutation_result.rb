@@ -6,7 +6,6 @@ module Mutest
         #
         # :reek:TooManyConstants
         class MutationResult < self
-
           delegate :mutation, :test_result
 
           DIFF_ERROR_MESSAGE =
@@ -121,7 +120,6 @@ module Mutest
           def original_node
             mutation.subject.node
           end
-
         end # MutationResult
       end # Printer
     end # CLI

@@ -54,6 +54,5 @@ module Mutest
     ensure
       $stderr = original
     end
-
   end # WarningFilter
 end # Mutest

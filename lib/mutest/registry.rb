@@ -39,6 +39,5 @@ module Mutest
         fail RegistryError, "No entry for: #{type.inspect}"
       end
     end
-
   end # Registry
 end # Mutest

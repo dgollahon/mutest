@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # Dsym mutator
       class Dsym < Generic
-
         handle(:dsym)
 
         private
@@ -16,7 +14,6 @@ module Mutest
           super()
           emit_singletons
         end
-
       end # Dsym
     end # Node
   end # Mutator

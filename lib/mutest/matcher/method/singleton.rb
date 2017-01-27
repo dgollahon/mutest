@@ -3,7 +3,6 @@ module Mutest
     class Method
       # Matcher for singleton methods
       class Singleton < self
-
         # New singleton method matcher
         #
         # @param [Class, Module] scope
@@ -80,7 +79,6 @@ module Mutest
             name = node.children.fetch(NAME_INDEX)
             name.to_s.eql?(context.unqualified_name)
           end
-
         end # Evaluator
 
         private_constant(*constants(false))

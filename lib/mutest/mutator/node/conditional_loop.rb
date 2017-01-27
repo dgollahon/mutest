@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for while expressions
       class ConditionalLoop < self
-
         handle(:until, :while)
 
         children :condition, :body
@@ -21,7 +19,6 @@ module Mutest
           emit_body(nil)
           emit_body(N_RAISE)
         end
-
       end # ConditionalLoop
     end # Node
   end # Mutator

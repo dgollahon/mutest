@@ -17,7 +17,6 @@ module Mutest
         def possible_top_level?
           base.nil? || n_cbase?(base)
         end
-
       end # Const
     end # Meta
   end # AST

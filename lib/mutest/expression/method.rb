@@ -1,6 +1,5 @@
 module Mutest
   class Expression
-
     # Explicit method expression
     class Method < self
       include Anima.new(
@@ -50,7 +49,6 @@ module Mutest
       def scope
         Object.const_get(scope_name)
       end
-
     end # Method
   end # Expression
 end # Mutest

@@ -55,6 +55,5 @@ module Mutest
         tests:   tests
       )
     end
-
   end # Env
 end # Mutest

@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutation emitter to handle const nodes
       class Const < self
-
         handle(:const)
 
         private
@@ -19,7 +17,6 @@ module Mutest
             mutate_child(index) if child.instance_of?(::Parser::AST::Node)
           end
         end
-
       end # Const
     end # Node
   end # Mutator

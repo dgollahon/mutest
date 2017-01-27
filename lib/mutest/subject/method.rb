@@ -2,7 +2,6 @@ module Mutest
   class Subject
     # Abstract base class for method subjects
     class Method < self
-
       # Method name
       #
       # @return [Expression]
@@ -38,7 +37,6 @@ module Mutest
       def scope
         context.scope
       end
-
     end # Method
   end # Subject
 end # Mutest

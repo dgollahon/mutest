@@ -173,7 +173,6 @@ module Mutest
       def sink
         config.sink
       end
-
     end # Master
   end # Parallel
 end # Mutest

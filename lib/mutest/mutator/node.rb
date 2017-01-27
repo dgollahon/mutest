@@ -2,7 +2,6 @@ module Mutest
 
   # Generator for mutations
   class Mutator
-
     # Abstract base class for node mutators
     class Node < self
       include AbstractType, Unparser::Constants
@@ -163,7 +162,6 @@ module Mutest
           yield child, index unless children.one?
         end
       end
-
     end # Node
   end # Mutator
 end # Mutest

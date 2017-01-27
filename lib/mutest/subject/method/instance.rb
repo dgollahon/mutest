@@ -3,7 +3,6 @@ module Mutest
     class Method
       # Instance method subjects
       class Instance < self
-
         NAME_INDEX = 0
         SYMBOL     = '#'.freeze
 
@@ -37,7 +36,6 @@ module Mutest
           def wrap_node(mutest)
             s(:begin, mutest, s(:send, nil, :memoize, s(:args, s(:sym, name))))
           end
-
         end # Memoized
       end # Instance
     end # Method

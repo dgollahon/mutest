@@ -62,7 +62,6 @@ module Mutest
 
         # Format for progressive non rewindable output
         class Progressive < self
-
           REPORT_FREQUENCY = 1.0
           REPORT_DELAY     = 1 / REPORT_FREQUENCY
 
@@ -88,7 +87,6 @@ module Mutest
           def new_buffer
             StringIO.new
           end
-
         end # Progressive
 
         # Format for framed rewindable output
@@ -131,7 +129,6 @@ module Mutest
             buffer = StringIO.new
             buffer << tput.restore
           end
-
         end # Framed
       end # Format
     end # CLI

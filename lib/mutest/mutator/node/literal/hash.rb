@@ -4,7 +4,6 @@ module Mutest
       class Literal
         # Mutator for hash literals
         class Hash < self
-
           handle(:hash)
 
           private
@@ -32,7 +31,6 @@ module Mutest
 
           # Mutator for hash pairs
           class Pair < Node
-
             handle(:pair)
 
             children :key, :value
@@ -46,7 +44,6 @@ module Mutest
               emit_key_mutations
               emit_value_mutations
             end
-
           end # Pair
         end # Hash
       end # Literal

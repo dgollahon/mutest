@@ -4,7 +4,6 @@ module Mutest
       class Literal < self
         # Abstract mutator for boolean literals
         class Boolean < self
-
           private
 
           MAP = {
@@ -21,7 +20,6 @@ module Mutest
             emit_nil
             emit(s(MAP.fetch(node.type)))
           end
-
         end # Boolean
       end # Literal
     end # Node

@@ -34,7 +34,6 @@ module Mutest
           end
         end
       end
-
     end # Receiver
   end # Actor
 end # Mutest

@@ -18,6 +18,5 @@ module Mutest
     def call(path)
       @cache[path] ||= ::Parser::CurrentRuby.parse(path.read)
     end
-
   end # Parser
 end # Mutest

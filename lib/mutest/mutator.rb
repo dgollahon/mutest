@@ -1,7 +1,6 @@
 module Mutest
   # Generator for mutations
   class Mutator
-
     REGISTRY = Registry.new
 
     include Adamantium::Flat, Concord.new(:input, :parent), AbstractType, Procto.call(:output)
@@ -86,6 +85,5 @@ module Mutest
     def dup_input
       input.dup
     end
-
   end # Mutator
 end # Mutest

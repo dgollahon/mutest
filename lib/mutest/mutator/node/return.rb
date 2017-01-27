@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Mutator for return statements
       class Return < self
-
         handle(:return)
 
         children :value
@@ -19,7 +18,6 @@ module Mutest
           emit(value)
           emit_value_mutations
         end
-
       end # Return
     end # Node
   end # Mutator

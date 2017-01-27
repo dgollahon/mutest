@@ -10,7 +10,6 @@ module Mutest
         children :name
 
         public :name
-
       end # Symbol
     end # Meta
   end # AST

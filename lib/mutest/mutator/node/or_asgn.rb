@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # OrAsgn mutator
       class OrAsgn < self
-
         handle(:or_asgn)
 
         children :left, :right
@@ -22,7 +20,6 @@ module Mutest
             AST::Types::ASSIGNABLE_VARIABLES.include?(node.type)
           end
         end
-
       end # OrAsgn
     end # Node
   end # Mutator

@@ -90,6 +90,5 @@ module Mutest
     def wrap_node(node)
       node
     end
-
   end # Subject
 end # Mutest

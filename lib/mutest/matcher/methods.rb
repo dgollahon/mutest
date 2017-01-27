@@ -80,7 +80,6 @@ module Mutest
           scope.singleton_class
         end
         memoize :candidate_scope, freezer: :noop
-
       end # Singleton
 
       # Matcher for instance methods
@@ -104,7 +103,6 @@ module Mutest
         def candidate_scope
           scope
         end
-
       end # Instance
     end # Methods
   end # Matcher

@@ -107,6 +107,5 @@ module Mutest
       end.format(line)
     end
     private_class_method :colorize_line
-
   end # Diff
 end # Mutest

@@ -4,7 +4,6 @@ module Mutest
       class Printer
         # Subject result printer
         class SubjectResult < self
-
           delegate :subject, :alive_mutation_results, :tests
 
           # Run report printer
@@ -17,7 +16,6 @@ module Mutest
             end
             visit_collection(MutationResult, alive_mutation_results)
           end
-
         end # SubjectResult
       end # Printer
     end # CLI

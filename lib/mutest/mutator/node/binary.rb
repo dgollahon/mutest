@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Mutation emitter to handle binary connectives
       class Binary < self
-
         INVERSE = {
           and: :or,
           or:  :and
@@ -59,7 +58,6 @@ module Mutest
         def emit_left_negation
           emit(s(node.type, n_not(left), right))
         end
-
       end # Binary
     end # Node
   end # Mutator

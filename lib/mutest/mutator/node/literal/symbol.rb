@@ -4,7 +4,6 @@ module Mutest
       class Literal < self
         # Mutator for symbol literals
         class Symbol < self
-
           handle(:sym)
 
           children :value
@@ -20,7 +19,6 @@ module Mutest
             emit_singletons
             Util::Symbol.call(value).each(&method(:emit_type))
           end
-
         end # Symbol
       end # Literal
     end # Node

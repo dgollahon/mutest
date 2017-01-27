@@ -4,7 +4,6 @@ module Mutest
       class Literal < self
         # Mutator for array literals
         class Array < self
-
           handle(:array)
 
           private
@@ -31,7 +30,6 @@ module Mutest
               mutate_child(index)
             end
           end
-
         end # Array
       end # Literal
     end # Node

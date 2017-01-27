@@ -34,6 +34,5 @@ module Mutest
     RED   = Color.new(31)
     GREEN = Color.new(32)
     BLUE  = Color.new(34)
-
   end # Color
 end # Mutest

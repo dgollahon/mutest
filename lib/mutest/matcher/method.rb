@@ -126,7 +126,6 @@ module Mutest
       end # Evaluator
 
       private_constant(*constants(false))
-
     end # Method
   end # Matcher
 end # Mutest

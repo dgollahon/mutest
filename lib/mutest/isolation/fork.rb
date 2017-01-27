@@ -66,7 +66,6 @@ module Mutest
           yield
         end
       end
-
     end # Fork
   end # Isolation
 end # Mutest

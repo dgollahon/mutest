@@ -4,7 +4,6 @@ module Mutest
       class Literal < self
         # Mutator for regexp literals
         class Regex < self
-
           handle(:regexp)
 
           # No input can ever be matched with this
@@ -70,7 +69,6 @@ module Mutest
           def body
             children.slice(0...-1)
           end
-
         end # Regex
       end # Literal
     end # Node

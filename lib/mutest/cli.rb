@@ -191,6 +191,5 @@ module Mutest
     def add_matcher(attribute, value)
       with(matcher: config.matcher.add(attribute, value))
     end
-
   end # CLI
 end # Mutest

@@ -4,10 +4,8 @@ module Mutest
       class Send
         # Base mutator for index operations
         class Index < self
-
           # Mutator for index assignments
           class Assign < self
-
             define_named_child(:value, -1)
 
             INDEX_RANGE = (2..-2).freeze
@@ -41,7 +39,6 @@ module Mutest
             def emit_index_read
               emit_type(receiver, :[], *children[INDEX_RANGE])
             end
-
           end # Assign
         end # Index
       end # Send

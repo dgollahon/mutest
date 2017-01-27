@@ -84,7 +84,6 @@ module Mutest
             n_const?(receiver)    &&
             Const.new(receiver).name.equal?(:Proc)
         end
-
       end # Send
     end # Meta
   end # AST

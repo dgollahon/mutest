@@ -69,7 +69,6 @@ module Mutest
           )
         )
       end
-
     end # Worker
   end # Parallel
 end # Mutest

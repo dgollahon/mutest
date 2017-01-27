@@ -3,7 +3,6 @@ module Mutest
     class Method
       # Matcher for instance methods
       class Instance < self
-
         # Dispatching builder, detects memoizable case
         #
         # @param [Class, Module] scope
@@ -54,7 +53,6 @@ module Mutest
                 .unmemoized_instance_method(method_name)
                 .source_location
             end
-
           end # Memoized
         end # Evaluator
 

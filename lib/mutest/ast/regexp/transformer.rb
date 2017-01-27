@@ -130,7 +130,6 @@ module Mutest
 
           # Table mapping ast types to object information for regexp domain
           class Table
-
             # Coerce array of mapping information into structured table
             #
             # @param [Array(Symbol, Array, Class<Regexp::Expression>)]

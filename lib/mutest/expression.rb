@@ -52,6 +52,5 @@ module Mutest
       names = anima.attribute_names
       new(Hash[names.zip(names.map(&match.method(:[])))])
     end
-
   end # Expression
 end # Mutest

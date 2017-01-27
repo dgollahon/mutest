@@ -77,6 +77,5 @@ module Mutest
     def config
       env.config
     end
-
   end # Runner
 end # Mutest

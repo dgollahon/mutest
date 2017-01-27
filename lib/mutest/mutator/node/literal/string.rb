@@ -4,7 +4,6 @@ module Mutest
       class Literal
         # Mutator for string literals
         class String < self
-
           handle(:str)
 
           private
@@ -15,7 +14,6 @@ module Mutest
           def dispatch
             emit_singletons
           end
-
         end # String
       end # Literal
     end # Node

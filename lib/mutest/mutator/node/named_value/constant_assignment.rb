@@ -5,7 +5,6 @@ module Mutest
 
         # Mutation emitter to handle constant assignment nodes
         class ConstantAssignment < Node
-
           children :cbase, :name, :value
 
           handle :casgn
@@ -37,7 +36,6 @@ module Mutest
               emit_name(name.upcase)
             end
           end
-
         end # ConstantAssignment
       end # NamedValue
     end # Node

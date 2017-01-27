@@ -105,7 +105,6 @@ module Mutest
       def amount_subjects
         env.subjects.length
       end
-
     end # Env
 
     # Test result
@@ -181,7 +180,6 @@ module Mutest
         mutation_results.select(&:success?)
       end
       memoize :killed_mutation_results
-
     end # Subject
 
     # Mutation result
@@ -211,7 +209,6 @@ module Mutest
       def success?
         mutation.class.success?(test_result)
       end
-
     end # Mutation
   end # Result
 end # Mutest

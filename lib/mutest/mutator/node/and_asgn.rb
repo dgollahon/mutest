@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # AndAsgn mutator
       class AndAsgn < self
-
         handle(:and_asgn)
 
         children :left, :right
@@ -21,7 +19,6 @@ module Mutest
           end
           emit_right_mutations
         end
-
       end # AndAsgn
     end # Node
   end # Mutator

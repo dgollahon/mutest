@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Namespace for define mutations
       class Define < self
-
         private
 
         # Emit mutations
@@ -55,22 +54,17 @@ module Mutest
 
         # Mutator for instance method defines
         class Instance < self
-
           handle :def
 
           children :name, :arguments, :body
-
         end # Instance
 
         # Mutator for singleton method defines
         class Singleton < self
-
           handle :defs
 
           children :subject, :name, :arguments, :body
-
         end # Singleton
-
       end # Define
     end # Node
   end # Mutator

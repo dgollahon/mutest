@@ -20,7 +20,6 @@ module Mutest
     #
     # :reek:TooManyConstants
     class Rspec < self
-
       ALL_EXPRESSION       = Expression::Namespace::Recursive.new(scope_name: nil)
       EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/.freeze
       LOCATION_DELIMITER   = ':'.freeze
@@ -144,7 +143,6 @@ module Mutest
           examples.keep_if(&predicate)
         end
       end
-
     end # Rspec
   end # Integration
 end # Mutest

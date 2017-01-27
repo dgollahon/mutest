@@ -126,7 +126,6 @@ module XSpec
         exception = expectation.exception
         fail exception if exception
       end
-
     end # Verifier
   end # MessageExpectation
 

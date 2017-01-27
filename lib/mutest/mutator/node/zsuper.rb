@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for super without parentheses
       class ZSuper < self
-
         handle(:zsuper)
 
         private
@@ -16,7 +14,6 @@ module Mutest
           emit_singletons
           emit(N_EMPTY_SUPER)
         end
-
       end # ZSuper
     end # Node
   end # Mutator

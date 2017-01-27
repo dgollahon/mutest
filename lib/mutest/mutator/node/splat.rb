@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Mutator for splat nodes
       class Splat < self
-
         handle :splat
 
         children :expression
@@ -18,7 +17,6 @@ module Mutest
           emit_expression_mutations
           emit(expression)
         end
-
       end # Splat
     end # Node
   end # Mutator

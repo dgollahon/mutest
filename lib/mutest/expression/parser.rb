@@ -59,7 +59,6 @@ module Mutest
           aggregate << expression if expression
         end
       end
-
     end # Parser
   end # Expression
 end # Mutest

@@ -4,7 +4,6 @@ module Mutest
       class Send
         # Mutator for attribute assignments
         class AttributeAssignment < self
-
           ATTRIBUTE_RANGE = (0..-2).freeze
           private_constant(*constants(false))
 
@@ -33,7 +32,6 @@ module Mutest
           def emit_attribute_read
             emit_type(receiver, selector[ATTRIBUTE_RANGE].to_sym)
           end
-
         end # AttributeAssignment
       end # Send
     end # Node

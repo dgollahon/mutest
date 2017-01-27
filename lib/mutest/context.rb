@@ -86,6 +86,5 @@ module Mutest
       scope.name.split(NAMESPACE_DELIMITER)
     end
     memoize :name_nesting
-
   end # Context
 end # Mutest

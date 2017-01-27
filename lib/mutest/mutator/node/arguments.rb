@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Mutator for arguments node
       class Arguments < self
-
         handle(:args)
 
         private
@@ -68,7 +67,6 @@ module Mutest
             n_mlhs?(child)
           end
         end
-
       end # Arguments
     end # Node
   end # Mutator

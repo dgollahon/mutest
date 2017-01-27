@@ -4,7 +4,6 @@ module Mutest
       class Printer
         # Test result reporter
         class TestResult < self
-
           delegate :tests, :runtime
 
           STATUS_FORMAT = '- %d @ runtime: %s'.freeze
@@ -22,7 +21,6 @@ module Mutest
             puts(OUTPUT_HEADER)
             puts(object.output)
           end
-
         end # TestResult
       end # Printer
     end # CLI

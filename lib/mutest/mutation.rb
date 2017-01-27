@@ -82,27 +82,20 @@ module Mutest
 
     # Evil mutation that should case mutations to fail tests
     class Evil < self
-
       SYMBOL            = 'evil'.freeze
       TEST_PASS_SUCCESS = false
-
     end # Evil
 
     # Neutral mutation that should not cause mutations to fail tests
     class Neutral < self
-
       SYMBOL            = 'neutral'.freeze
       TEST_PASS_SUCCESS = true
-
     end # Neutral
 
     # Noop mutation, special case of neutral
     class Noop < Neutral
-
       SYMBOL            = 'noop'.freeze
       TEST_PASS_SUCCESS = true
-
     end # Noop
-
   end # Mutation
 end # Mutest

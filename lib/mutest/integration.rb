@@ -51,7 +51,6 @@ module Mutest
 
     # Null integration that never kills a mutation
     class Null < self
-
       # Available tests for integration
       #
       # @return [Enumerable<Test>]
@@ -72,7 +71,6 @@ module Mutest
           tests:   tests
         )
       end
-
     end # Null
   end # Integration
 end # Mutest

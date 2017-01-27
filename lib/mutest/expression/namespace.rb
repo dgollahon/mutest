@@ -48,12 +48,10 @@ module Mutest
             0
           end
         end
-
       end # Recursive
 
       # Exact namespace expression
       class Exact < self
-
         MATCHER = Matcher::Scope
         private_constant(*constants(false))
 
@@ -71,7 +69,6 @@ module Mutest
         # @return [String]
         alias_method :syntax, :scope_name
         public :syntax
-
       end # Exact
     end # Namespace
   end # Expression

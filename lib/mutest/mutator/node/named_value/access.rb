@@ -5,7 +5,6 @@ module Mutest
 
         # Mutation emitter to handle named value access nodes
         class Access < Node
-
           handle(:gvar, :cvar, :lvar, :self)
 
           private
@@ -49,7 +48,6 @@ module Mutest
               name.slice(NAME_RANGE).to_sym
             end
           end # Ivar
-
         end # Access
       end # NamedValue
     end # Node

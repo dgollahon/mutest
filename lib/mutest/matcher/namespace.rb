@@ -36,7 +36,6 @@ module Mutest
       def match?(scope)
         expression.prefix?(scope.expression)
       end
-
     end # Namespace
   end # Matcher
 end # Mutest
