@@ -86,7 +86,7 @@ module MutestSpec
           .inject(DEFAULT_MUTATION_COUNT, :+)
 
         took = Time.now - start
-        puts MUTATION_GENERATION_MESSAGE % [total, took, total / took]
+        puts format(MUTATION_GENERATION_MESSAGE, total, took, total / took)
         self
       end
 
@@ -227,7 +227,7 @@ module MutestSpec
       #
       def finish(path, _index, count)
         MUTEX.synchronize do
-          puts FINISH_MESSAGE % [count, path]
+          puts format(FINISH_MESSAGE, count, path)
         end
       end
 

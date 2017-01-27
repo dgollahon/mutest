@@ -98,11 +98,12 @@ module Mutest
       def parse_example(example, index)
         metadata = example.metadata
 
-        id = TEST_ID_FORMAT % {
+        id = format(
+          TEST_ID_FORMAT,
           index:       index,
           location:    metadata.fetch(:location),
           description: metadata.fetch(:full_description)
-        }
+        )
 
         Test.new(
           expression: parse_expression(metadata),
