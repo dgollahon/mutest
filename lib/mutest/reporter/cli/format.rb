@@ -3,7 +3,6 @@ module Mutest
     class CLI
       # CLI output format
       #
-      # rubocop:disable FormatString
       class Format
         include AbstractType, Anima.new(:tty)
 

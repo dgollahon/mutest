@@ -86,8 +86,6 @@ module XSpec
 
   class MessageExpectation
     include Anima.new(:receiver, :selector, :arguments, :reaction)
-
-    # rubocop:disable ParameterLists
     def self.parse(receiver:, selector:, arguments: [], reaction: nil)
       new(
         receiver:  receiver,

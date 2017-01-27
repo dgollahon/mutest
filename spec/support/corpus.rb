@@ -235,7 +235,6 @@ module MutestSpec
       #
       # @param [Array<String>] arguments
       #
-      # rubocop:disable GuardClause - guard clause without else does not make sense
       def system(arguments)
         return if Kernel.system(*arguments)
 
