@@ -25,7 +25,7 @@ module Mutest
         Chain.new(effective_matchers).call(env)
       end
 
-    private
+      private
 
       # Effective matchers
       #

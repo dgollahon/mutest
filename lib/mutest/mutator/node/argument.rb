@@ -10,7 +10,7 @@ module Mutest
 
         children :name
 
-      private
+        private
 
         # Emit mutations
         #
@@ -46,7 +46,7 @@ module Mutest
 
           children :name, :default
 
-        private
+          private
 
           # Emit mutations
           #

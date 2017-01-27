@@ -42,7 +42,7 @@ module Mutest
           )
         end
 
-      private
+        private
 
         # Set original source
         #

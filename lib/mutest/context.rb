@@ -77,7 +77,7 @@ module Mutest
     # @return [Module|Class]
     attr_reader :scope
 
-  private
+    private
 
     # Nesting of names in scope
     #

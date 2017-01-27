@@ -60,7 +60,7 @@ module Mutest
         # your contribution is that close!
         handle(*(unsupported_nodes + unsupported_regexp_nodes))
 
-      private
+        private
 
         # Emit mutations
         #

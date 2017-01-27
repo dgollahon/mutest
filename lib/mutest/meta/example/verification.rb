@@ -28,7 +28,7 @@ module Mutest
           )
         end
 
-      private
+        private
 
         # Unexpected mutations
         #

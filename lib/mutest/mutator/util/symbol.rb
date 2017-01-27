@@ -7,7 +7,7 @@ module Mutest
 
         POSTFIX = '__mutest__'.freeze
 
-      private
+        private
 
         # Emit mutations
         #

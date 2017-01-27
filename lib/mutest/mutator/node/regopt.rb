@@ -9,7 +9,7 @@ module Mutest
 
         handle(:regopt)
 
-      private
+        private
 
         # Emit mutations
         #

@@ -7,7 +7,7 @@ module Mutest
 
         handle(:block_pass, :cbase)
 
-      private
+        private
 
         # Emit mutations
         #

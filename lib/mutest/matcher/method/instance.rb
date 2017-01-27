@@ -27,7 +27,7 @@ module Mutest
           SUBJECT_CLASS = Subject::Method::Instance
           NAME_INDEX    = 0
 
-        private
+          private
 
           # Check if node is matched
           #
@@ -44,7 +44,7 @@ module Mutest
           class Memoized < self
             SUBJECT_CLASS = Subject::Method::Instance::Memoized
 
-          private
+            private
 
             # Source location
             #

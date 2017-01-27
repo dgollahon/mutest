@@ -19,7 +19,7 @@ module Mutest
       # Methods mixed int ot instance level
       module InstanceMethods
 
-      private
+        private
 
         # Mutated nodes children
         #
@@ -33,7 +33,7 @@ module Mutest
       # Methods mixed in at class level
       module ClassMethods
 
-      private
+        private
 
         # Define named child
         #

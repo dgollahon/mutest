@@ -34,7 +34,7 @@ module Mutest
     # @return [Config]
     attr_reader :config
 
-  private
+    private
 
     # Parse the command-line options
     #

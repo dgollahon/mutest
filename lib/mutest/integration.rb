@@ -40,7 +40,7 @@ module Mutest
     # @return [Enumerable<Test>]
     abstract_method :all_tests
 
-  private
+    private
 
     # Expression parser
     #

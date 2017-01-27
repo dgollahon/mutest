@@ -249,13 +249,6 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Max: 120
 
-# Offense count: 135
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles, IndentationWidth.
-# SupportedStyles: outdent, indent
-Style/AccessModifierIndentation:
-  EnforcedStyle: outdent
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

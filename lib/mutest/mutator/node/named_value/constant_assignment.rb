@@ -10,7 +10,7 @@ module Mutest
 
           handle :casgn
 
-        private
+          private
 
           # Emit mutations
           #

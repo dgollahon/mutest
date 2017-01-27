@@ -9,7 +9,7 @@ module Mutest
 
         children :left, :operation, :right
 
-      private
+        private
 
         # Emit mutations
         #

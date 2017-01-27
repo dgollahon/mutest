@@ -8,7 +8,7 @@ module Mutest
 
         children :send, :arguments, :body
 
-      private
+        private
 
         # Emit mutations
         #

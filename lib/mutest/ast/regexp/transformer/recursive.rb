@@ -30,7 +30,7 @@ module Mutest
               [:regexp_capture_group,         [:group,     :capture,     '('],    ::Regexp::Expression::Group::Capture]
             )
 
-          private
+            private
 
             # Transform nodes and their children into expressions
             #

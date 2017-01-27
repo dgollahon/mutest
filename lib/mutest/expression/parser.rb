@@ -45,7 +45,7 @@ module Mutest
         end
       end
 
-    private
+      private
 
       # Expressions parsed from input
       #

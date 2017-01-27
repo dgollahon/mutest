@@ -19,7 +19,7 @@ module Mutest
     # @return [Result::Env]
     attr_reader :result
 
-  private
+    private
 
     # Run mutation analysis
     #

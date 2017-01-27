@@ -15,7 +15,7 @@ module Mutest
         fail ProtocolError
       end
 
-    private
+      private
 
       # Try a blocking receive
       #

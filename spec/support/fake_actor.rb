@@ -66,7 +66,7 @@ module FakeActor
       mailbox(:current)
     end
 
-  private
+    private
 
     def next_name
       @mailbox_names.shift.tap do |name|

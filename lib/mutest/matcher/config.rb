@@ -42,7 +42,7 @@ module Mutest
         with(attribute => public_send(attribute) + [value])
       end
 
-    private
+      private
 
       # Present attributes
       #

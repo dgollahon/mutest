@@ -8,7 +8,7 @@ module Mutest
 
         children :regexp
 
-      private
+        private
 
         # Emit mutations
         #

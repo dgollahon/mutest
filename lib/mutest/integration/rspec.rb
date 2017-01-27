@@ -78,7 +78,7 @@ module Mutest
       end
       memoize :all_tests
 
-    private
+      private
 
       # Index of available tests
       #

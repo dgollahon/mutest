@@ -30,7 +30,7 @@ module Mutest
       end
       private_class_method :define_named_child
 
-    private
+      private
 
       # Node to mutate
       #

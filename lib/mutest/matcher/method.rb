@@ -46,7 +46,7 @@ module Mutest
           [subject].compact
         end
 
-      private
+        private
 
         # Test if method should be skipped
         #

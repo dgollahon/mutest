@@ -46,7 +46,7 @@ module Mutest
         end
       end
 
-    private
+      private
 
       # Scope object
       #

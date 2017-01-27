@@ -9,7 +9,7 @@ module Mutest
 
         children :condition
 
-      private
+        private
 
         # Emit mutations
         #

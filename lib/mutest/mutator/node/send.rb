@@ -52,7 +52,7 @@ module Mutest
           }
         )
 
-      private
+        private
 
         # Emit mutations
         #

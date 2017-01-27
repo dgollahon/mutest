@@ -6,7 +6,7 @@ module Mutest
 
           handle(:csend)
 
-        private
+          private
 
           # Emit mutations
           #

@@ -31,7 +31,7 @@ module Mutest
         end until handle(mailbox.receiver.call)
       end
 
-    private
+      private
 
       # Handle job
       #

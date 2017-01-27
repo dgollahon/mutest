@@ -20,7 +20,7 @@ module Mutest
             visit_collection(SubjectProgress, active_subject_results)
           end
 
-        private
+          private
 
           # Print worker status
           #

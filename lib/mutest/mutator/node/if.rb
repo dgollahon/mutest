@@ -8,7 +8,7 @@ module Mutest
 
         children :condition, :if_branch, :else_branch
 
-      private
+        private
 
         # Emit mutations
         #

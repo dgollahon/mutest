@@ -11,7 +11,7 @@ module Mutest
 
           PREFIX = '__mutest__'.freeze
 
-        private
+          private
 
           # Emit mutations
           #

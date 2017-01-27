@@ -7,7 +7,7 @@ module Mutest
 
           handle(:float)
 
-        private
+          private
 
           # Emit mutations
           #

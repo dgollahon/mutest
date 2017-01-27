@@ -6,7 +6,7 @@ module Mutest
 
         handle(:mlhs)
 
-      private
+        private
 
         # Emit mutations
         #

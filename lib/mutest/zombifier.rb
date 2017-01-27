@@ -36,7 +36,7 @@ module Mutest
       self
     end
 
-  private
+    private
 
     # Original require method
     #

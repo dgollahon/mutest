@@ -27,7 +27,7 @@ module Mutest
             super()
           end
 
-        private
+          private
 
           # Memoizer node for mutest
           #

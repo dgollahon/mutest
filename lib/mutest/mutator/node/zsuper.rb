@@ -7,7 +7,7 @@ module Mutest
 
         handle(:zsuper)
 
-      private
+        private
 
         # Emit mutations
         #

@@ -21,7 +21,7 @@ module Mutest
           NAME_INDEX       = 1
           RECEIVER_WARNING = 'Can only match :defs on :self or :const got %p unable to match'.freeze
 
-        private
+          private
 
           # Test for node match
           #

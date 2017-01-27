@@ -15,7 +15,7 @@ module Mutest
         ).call(env)
       end
 
-    private
+      private
 
       # The matched scopes
       #

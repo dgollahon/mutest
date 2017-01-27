@@ -23,7 +23,7 @@ module Mutest
 
             children :options
 
-          private
+            private
 
             # Covnert node into expression
             #

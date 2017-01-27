@@ -42,7 +42,7 @@ module Mutest
         Matcher::Filter.new(methods_matcher, ->(subject) { subject.expression.eql?(self) })
       end
 
-    private
+      private
 
       # Scope object
       #

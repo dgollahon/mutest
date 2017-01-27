@@ -40,7 +40,7 @@ module Mutest
         # @return [self]
         abstract_method :run
 
-      private
+        private
 
         # Status color
         #

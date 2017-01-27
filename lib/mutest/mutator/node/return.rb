@@ -8,7 +8,7 @@ module Mutest
 
         children :value
 
-      private
+        private
 
         # Emit mutations
         #

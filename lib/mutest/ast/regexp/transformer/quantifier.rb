@@ -13,7 +13,7 @@ module Mutest
               ast(expression.min, expression.max)
             end
 
-          private
+            private
 
             # Custom `type` for quantifiers which use `mode` instead of `type`
             #
@@ -45,7 +45,7 @@ module Mutest
               regexp_possessive_interval:     [:interval,     '+',  :possessive]
             }.map { |ast_type, arguments| [ast_type, Quantifier.new(*arguments)] }.to_h)
 
-          private
+            private
 
             # Transform ast into quantifier attached to expression
             #

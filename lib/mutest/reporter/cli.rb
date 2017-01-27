@@ -71,7 +71,7 @@ module Mutest
         self
       end
 
-    private
+      private
 
       # Write output frame
       #

@@ -49,7 +49,7 @@ module Mutest
         !stdout.empty?
       end
 
-    private
+      private
 
       # Test if path is tracked in repository
       #

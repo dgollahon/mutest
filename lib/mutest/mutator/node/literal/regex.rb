@@ -10,7 +10,7 @@ module Mutest
           # No input can ever be matched with this
           NULL_REGEXP_SOURCE = 'nomatch\A'.freeze
 
-        private
+          private
 
           # Original regexp options
           #

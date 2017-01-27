@@ -5,7 +5,7 @@ module Mutest
         # Abstract mutator for boolean literals
         class Boolean < self
 
-        private
+          private
 
           MAP = {
             true:  :false,

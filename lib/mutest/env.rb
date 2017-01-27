@@ -29,7 +29,7 @@ module Mutest
       )
     end
 
-  private
+    private
 
     # Kill mutation under isolation with integration
     #

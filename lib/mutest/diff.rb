@@ -54,7 +54,7 @@ module Mutest
     end
     private_class_method :lines
 
-  private
+    private
 
     # Diffs between old and new
     #

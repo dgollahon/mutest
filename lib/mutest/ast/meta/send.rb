@@ -66,7 +66,7 @@ module Mutest
           Const.new(receiver).possible_top_level?
         end
 
-      private
+        private
 
         # Test if node is `proc { ... }`
         #

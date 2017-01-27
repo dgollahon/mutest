@@ -172,7 +172,7 @@ module Mutest
         alive_mutation_results.length
       end
 
-    private
+      private
 
       # Killed mutation results
       #

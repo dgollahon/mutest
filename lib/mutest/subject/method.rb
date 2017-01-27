@@ -30,7 +30,7 @@ module Mutest
       end
       memoize :match_expressions
 
-    private
+      private
 
       # The scope
       #

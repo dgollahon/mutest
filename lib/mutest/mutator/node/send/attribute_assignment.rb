@@ -8,7 +8,7 @@ module Mutest
           ATTRIBUTE_RANGE = (0..-2).freeze
           private_constant(*constants(false))
 
-        private
+          private
 
           # Emit mutations
           #

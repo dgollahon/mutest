@@ -73,7 +73,7 @@ module Mutest
     # @return [Enumerable<Expression>]
     abstract_method :match_expressions
 
-  private
+    private
 
     # Neutral mutation
     #

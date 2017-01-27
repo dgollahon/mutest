@@ -8,7 +8,7 @@ module Mutest
 
         children :expression
 
-      private
+        private
 
         # Emit mutations
         #

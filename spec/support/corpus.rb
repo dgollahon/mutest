@@ -117,7 +117,7 @@ module MutestSpec
       end
       memoize :checkout
 
-    private
+      private
 
       # Count mutations and check error results against whitelist
       #

@@ -45,7 +45,7 @@ module MutestSpec
       end
       memoize :warnings
 
-    private
+      private
 
       def add(warning)
         return if whitelist.any?(&warning.public_method(:end_with?))

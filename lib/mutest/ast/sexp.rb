@@ -3,7 +3,7 @@ module Mutest
     # Mixin for node sexp syntax
     module Sexp
 
-    private
+      private
 
       # Build node
       #

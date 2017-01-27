@@ -33,7 +33,7 @@ module Mutest
 
       end # SubjectPrefix
 
-    private
+      private
 
       # Predicate returning false on expression ignored subject
       #

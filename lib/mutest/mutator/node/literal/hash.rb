@@ -7,7 +7,7 @@ module Mutest
 
           handle(:hash)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -37,7 +37,7 @@ module Mutest
 
             children :key, :value
 
-          private
+            private
 
             # Emit mutations
             #

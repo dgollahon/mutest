@@ -7,7 +7,7 @@ module Mutest
 
           handle(:nil)
 
-        private
+          private
 
           # Emit mutations
           #

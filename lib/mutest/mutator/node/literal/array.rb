@@ -7,7 +7,7 @@ module Mutest
 
           handle(:array)
 
-        private
+          private
 
           # Emit mutations
           #

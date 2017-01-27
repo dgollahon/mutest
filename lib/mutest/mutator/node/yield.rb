@@ -7,7 +7,7 @@ module Mutest
 
         handle(:yield)
 
-      private
+        private
 
         # Emit mutations
         #

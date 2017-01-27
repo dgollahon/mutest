@@ -7,7 +7,7 @@ module Mutest
 
         handle(:kwbegin)
 
-      private
+        private
 
         # Emit mutations
         #

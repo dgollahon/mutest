@@ -8,7 +8,7 @@ module Mutest
 
         children :captures, :assignment, :body
 
-      private
+        private
 
         # Emit mutations
         #

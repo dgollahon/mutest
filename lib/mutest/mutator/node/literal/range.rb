@@ -15,7 +15,7 @@ module Mutest
 
           handle(*MAP.keys)
 
-        private
+          private
 
           # Emit mutations
           #

@@ -57,7 +57,7 @@ module Mutest
             puts(FOOTER)
           end
 
-        private
+          private
 
           # Print mutation details
           #

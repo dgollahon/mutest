@@ -24,7 +24,7 @@ module XSpec
       new(event_list)
     end
 
-  private
+    private
 
     def return(_, value)
       value
@@ -112,7 +112,7 @@ module XSpec
         expectation.reaction.call(observation)
       end
 
-    private
+      private
 
       def assert_expected_attribute(name)
         error("#{name} mismatch") unless observation.public_send(name).eql?(expectation.public_send(name))

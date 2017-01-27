@@ -23,7 +23,7 @@ module Mutest
         ).call(env)
       end
 
-    private
+      private
 
       # method matcher class
       #
@@ -62,7 +62,7 @@ module Mutest
       class Singleton < self
         MATCHER = Matcher::Method::Singleton
 
-      private
+        private
 
         # Method object on scope
         #
@@ -87,7 +87,7 @@ module Mutest
       class Instance < self
         MATCHER = Matcher::Method::Instance
 
-      private
+        private
 
         # Method object on scope
         #

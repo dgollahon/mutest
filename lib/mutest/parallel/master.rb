@@ -29,7 +29,7 @@ module Mutest
         @index       = 0
       end
 
-    private
+      private
 
       # Run work loop
       #

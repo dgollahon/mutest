@@ -8,7 +8,7 @@ module Mutest
 
           handle(:gvar, :cvar, :lvar, :self)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -33,7 +33,7 @@ module Mutest
               super()
             end
 
-          private
+            private
 
             # Emit instance variable as attribute send
             #

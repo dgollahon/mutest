@@ -21,7 +21,7 @@ module Mutest
           mutate_else_body
         end
 
-      private
+        private
 
         # Mutate child by name
         #

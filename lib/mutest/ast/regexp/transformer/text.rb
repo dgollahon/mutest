@@ -35,7 +35,7 @@ module Mutest
               [:regexp_meta_sequence_escape,  %i[escape meta_sequence],  ::Regexp::Expression::EscapeSequence::Control]
             )
 
-          private
+            private
 
             # Transform node to expression with text value
             #

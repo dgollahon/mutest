@@ -45,7 +45,7 @@ module Mutest
           end
         end # Output
 
-      private
+        private
 
         # Format object with printer
         #
@@ -80,7 +80,7 @@ module Mutest
             format(Printer::StatusProgressive, status)
           end
 
-        private
+          private
 
           # New buffer
           #
@@ -118,7 +118,7 @@ module Mutest
             format(Printer::Status, status)
           end
 
-        private
+          private
 
           # New buffer
           #

@@ -12,7 +12,7 @@ module Mutest
 
             INDEX_RANGE = (2..-2).freeze
 
-          private
+            private
 
             # Emit mutations
             #

@@ -47,7 +47,7 @@ module Mutest
         self
       end
 
-    private
+      private
 
       # Return previous results
       #

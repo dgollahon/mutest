@@ -16,11 +16,11 @@ RSpec.describe Mutest::Matcher::Methods::Instance, '#call' do
 
       def method_a; end
 
-    protected
+      protected
 
       def method_b; end
 
-    private
+      private
 
       def method_c; end
     end

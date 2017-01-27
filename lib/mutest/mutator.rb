@@ -31,7 +31,7 @@ module Mutest
     # @return [Set<Parser::AST::Node>]
     attr_reader :output
 
-  private
+    private
 
     # Initialize object
     #

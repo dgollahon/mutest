@@ -8,7 +8,7 @@ module Mutest
         # Element presence mutator
         class Presence < Util
 
-        private
+          private
 
           # Emit element presence mutations
           #
@@ -26,7 +26,7 @@ module Mutest
         # Array element mutator
         class Element < Util
 
-        private
+          private
 
           # Emit mutations
           #

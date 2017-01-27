@@ -7,7 +7,7 @@ module Mutest
 
         children :klass, :parent, :body
 
-      private
+        private
 
         # Emit mutations only for class body
         #

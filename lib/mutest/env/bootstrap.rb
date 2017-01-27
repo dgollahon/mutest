@@ -65,7 +65,7 @@ module Mutest
         )
       end
 
-    private
+      private
 
       # Configured mutest integration
       #

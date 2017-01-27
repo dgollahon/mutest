@@ -4,7 +4,7 @@ module Mutest
       # Namespace for define mutations
       class Define < self
 
-      private
+        private
 
         # Emit mutations
         #

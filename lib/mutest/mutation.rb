@@ -63,7 +63,7 @@ module Mutest
       self
     end
 
-  private
+    private
 
     # SHA1 sum of source and subject identification
     #
