@@ -34,20 +34,20 @@ module SharedContext
   # rubocop:disable MethodLength
   # rubocop:disable AbcSize
   def setup_shared_context
-    let(:env)              { instance_double(Mutant::Env, config: config, subjects: [subject_a], mutations: mutations) }
-    let(:job_a)            { Mutant::Parallel::Job.new(index: 0, payload: mutation_a)                                  }
-    let(:job_b)            { Mutant::Parallel::Job.new(index: 1, payload: mutation_b)                                  }
-    let(:test_a)           { instance_double(Mutant::Test, identification: 'test-a')                                   }
+    let(:env)              { instance_double(Mutest::Env, config: config, subjects: [subject_a], mutations: mutations) }
+    let(:job_a)            { Mutest::Parallel::Job.new(index: 0, payload: mutation_a)                                  }
+    let(:job_b)            { Mutest::Parallel::Job.new(index: 1, payload: mutation_b)                                  }
+    let(:test_a)           { instance_double(Mutest::Test, identification: 'test-a')                                   }
     let(:output)           { StringIO.new                                                                              }
     let(:mutations)        { [mutation_a, mutation_b]                                                                  }
     let(:mutation_a_node)  { s(:false)                                                                                 }
     let(:mutation_b_node)  { s(:nil)                                                                                   }
-    let(:mutation_b)       { Mutant::Mutation::Evil.new(subject_a, mutation_b_node)                                    }
-    let(:mutation_a)       { Mutant::Mutation::Evil.new(subject_a, mutation_a_node)                                    }
+    let(:mutation_b)       { Mutest::Mutation::Evil.new(subject_a, mutation_b_node)                                    }
+    let(:mutation_a)       { Mutest::Mutation::Evil.new(subject_a, mutation_a_node)                                    }
     let(:subject_a_node)   { s(:true)                                                                                  }
 
     let(:status) do
-      Mutant::Parallel::Status.new(
+      Mutest::Parallel::Status.new(
         active_jobs: [].to_set,
         payload:     env_result,
         done:        true
@@ -55,15 +55,15 @@ module SharedContext
     end
 
     let(:config) do
-      Mutant::Config::DEFAULT.with(
+      Mutest::Config::DEFAULT.with(
         jobs:     1,
-        reporter: Mutant::Reporter::Null.new
+        reporter: Mutest::Reporter::Null.new
       )
     end
 
     let(:subject_a) do
       instance_double(
-        Mutant::Subject,
+        Mutest::Subject,
         node:           subject_a_node,
         source:         Unparser.unparse(subject_a_node),
         identification: 'subject-a'
@@ -75,7 +75,7 @@ module SharedContext
     end
 
     let(:env_result) do
-      Mutant::Result::Env.new(
+      Mutest::Result::Env.new(
         env:             env,
         runtime:         4.0,
         subject_results: [subject_a_result]
@@ -83,21 +83,21 @@ module SharedContext
     end
 
     let(:mutation_a_result) do
-      Mutant::Result::Mutation.new(
+      Mutest::Result::Mutation.new(
         mutation:    mutation_a,
         test_result: mutation_a_test_result
       )
     end
 
     let(:mutation_b_result) do
-      Mutant::Result::Mutation.new(
+      Mutest::Result::Mutation.new(
         mutation:    mutation_a,
         test_result: mutation_b_test_result
       )
     end
 
     let(:mutation_a_test_result) do
-      Mutant::Result::Test.new(
+      Mutest::Result::Test.new(
         tests:   [test_a],
         passed:  false,
         runtime: 1.0,
@@ -106,7 +106,7 @@ module SharedContext
     end
 
     let(:mutation_b_test_result) do
-      Mutant::Result::Test.new(
+      Mutest::Result::Test.new(
         tests:   [test_a],
         passed:  false,
         runtime: 1.0,
@@ -115,7 +115,7 @@ module SharedContext
     end
 
     let(:subject_a_result) do
-      Mutant::Result::Subject.new(
+      Mutest::Result::Subject.new(
         subject:          subject_a,
         tests:            [test_a],
         mutation_results: [mutation_a_result, mutation_b_result]

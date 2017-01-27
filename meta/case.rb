@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :case do
+Mutest::Meta::Example.add :case do
   source <<-RUBY
     case
     when true
@@ -30,7 +30,7 @@ Mutant::Meta::Example.add :case do
 end
 
 # rubocop:disable Metrics/BlockLength
-Mutant::Meta::Example.add :case do
+Mutest::Meta::Example.add :case do
   source <<-RUBY
     case condition
     when A

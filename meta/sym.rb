@@ -1,6 +1,6 @@
-Mutant::Meta::Example.add :sym do
+Mutest::Meta::Example.add :sym do
   source ':foo'
 
   singleton_mutations
-  mutation ':foo__mutant__'
+  mutation ':foo__mutest__'
 end

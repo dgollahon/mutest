@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :regexp_root_expression do
+Mutest::Meta::Example.add :regexp_root_expression do
   source '/^/'
 
   singleton_mutations

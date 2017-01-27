@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :until do
+Mutest::Meta::Example.add :until do
   source 'until true; foo; bar; end'
 
   singleton_mutations

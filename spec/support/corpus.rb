@@ -1,9 +1,9 @@
 require 'morpher'
 require 'anima'
-require 'mutant'
+require 'mutest'
 
 # @api private
-module MutantSpec
+module MutestSpec
   ROOT = Pathname.new(__FILE__).parent.parent.parent
 
   # Namespace module for corpus testing
@@ -51,10 +51,10 @@ module MutantSpec
         checkout
         Dir.chdir(repo_path) do
           Bundler.with_clean_env do
-            install_mutant
+            install_mutest
             system(
               %W[
-                bundle exec mutant
+                bundle exec mutest
                 --use rspec
                 --include lib
                 --require #{name}
@@ -150,18 +150,18 @@ module MutantSpec
 
         return DEFAULT_MUTATION_COUNT unless node
 
-        Mutant::Mutator.mutate(node).length
+        Mutest::Mutator.mutate(node).length
       end
 
-      # Install mutant
+      # Install mutest
       #
       # @return [undefined]
-      def install_mutant
+      def install_mutest
         return if noinstall?
         relative = ROOT.relative_path_from(repo_path)
         repo_path.join('Gemfile').open('a') do |file|
-          file << "gem 'mutant', path: '#{relative}'\n"
-          file << "gem 'mutant-rspec', path: '#{relative}'\n"
+          file << "gem 'mutest', path: '#{relative}'\n"
+          file << "gem 'mutest-rspec', path: '#{relative}'\n"
           file << "eval_gemfile File.expand_path('#{relative.join('Gemfile.shared')}')\n"
         end
         lockfile = repo_path.join('Gemfile.lock')
@@ -328,4 +328,4 @@ module MutantSpec
       ALL = LOADER.call(YAML.load_file(ROOT.join('spec', 'integrations.yml')))
     end # Project
   end # Corpus
-end # MutantSpec
+end # MutestSpec

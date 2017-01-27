@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :lvar do
+Mutest::Meta::Example.add :lvar do
   source 'a = nil; a'
 
   mutation 'a = nil; nil'
@@ -7,7 +7,7 @@ Mutant::Meta::Example.add :lvar do
   # TODO: fix invalid AST
   #   These ASTs are not valid and should NOT be emitted
   #   Mutations of lvarasgn need to be special cased to avoid this.
-  mutation s(:begin, s(:lvasgn, :a__mutant__, s(:nil)), s(:lvar, :a))
+  mutation s(:begin, s(:lvasgn, :a__mutest__, s(:nil)), s(:lvar, :a))
   mutation s(:begin, s(:nil), s(:lvar, :a))
   mutation s(:begin, s(:self), s(:lvar, :a))
   mutation s(:lvar, :a)

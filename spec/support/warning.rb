@@ -3,7 +3,7 @@ require 'equalizer'
 require 'memoizable'
 require 'ice_nine'
 
-module MutantSpec
+module MutestSpec
   class Warning
     def self.assert_no_warnings
       return if EXTRACTOR.warnings.empty?
@@ -57,7 +57,7 @@ module MutantSpec
     end
 
     warnings  = Pathname.new(__dir__).join('warnings.yml').freeze
-    whitelist = IceNine.deep_freeze(YAML.load(warnings.read))
+    whitelist = IceNine.deep_freeze(YAML.safe_load(warnings.read))
 
     EXTRACTOR = Extractor.new(STDERR, whitelist)
   end

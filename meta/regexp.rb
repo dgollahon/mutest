@@ -1,11 +1,11 @@
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source '/foo/'
 
   singleton_mutations
   regexp_mutations
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source '/#{foo.bar}n/'
 
   singleton_mutations
@@ -17,7 +17,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/#{self}n/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source '/#{foo}/'
 
   singleton_mutations
@@ -27,7 +27,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/#{nil}/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source '/#{foo}#{nil}/'
 
   singleton_mutations
@@ -37,7 +37,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/#{self}#{nil}/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source '//'
 
   singleton_mutations
@@ -46,7 +46,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/nomatch\A/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source 'true if /foo/'
 
   singleton_mutations
@@ -64,7 +64,7 @@ Mutant::Meta::Example.add :regexp do
   mutation 'true if /nomatch\A/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutest::Meta::Example.add :regexp do
   source '/(?(1)(foo)(bar))/'
 
   singleton_mutations
@@ -77,8 +77,8 @@ Pathname
   .each(&Kernel.public_method(:require))
 
 # Re-register examples for all regular expression nodes for node_type `:regexp`
-Mutant::Meta::Example::ALL.each do |example|
+Mutest::Meta::Example::ALL.each do |example|
   next unless example.node_type.to_s.start_with?('regexp_')
 
-  Mutant::Meta::Example::ALL << example.with(node_type: :regexp)
+  Mutest::Meta::Example::ALL << example.with(node_type: :regexp)
 end

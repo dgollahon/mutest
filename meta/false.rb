@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :false do
+Mutest::Meta::Example.add :false do
   source 'false'
 
   mutation 'nil'

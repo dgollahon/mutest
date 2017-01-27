@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :regexp_eos_anchor do
+Mutest::Meta::Example.add :regexp_eos_anchor do
   source '/\z/'
 
   singleton_mutations

@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :regopt do
+Mutest::Meta::Example.add :regopt do
   source '/foo/ixom'
 
   singleton_mutations

@@ -1,4 +1,4 @@
-require 'mutant/actor'
+require 'mutest/actor'
 
 # A fake actor used from specs
 module FakeActor
@@ -26,7 +26,7 @@ module FakeActor
     end
 
     def add(name, *message_arguments, &block)
-      messages << Expectation.new(name, Mutant::Actor::Message.new(*message_arguments), block)
+      messages << Expectation.new(name, Mutest::Actor::Message.new(*message_arguments), block)
       self
     end
 
@@ -87,7 +87,7 @@ module FakeActor
     end
 
     def bind(sender)
-      Mutant::Actor::Binding.new(self, sender)
+      Mutest::Actor::Binding.new(self, sender)
     end
   end # Mailbox
 

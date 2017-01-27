@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :yield do
+Mutest::Meta::Example.add :yield do
   source 'yield true'
 
   singleton_mutations

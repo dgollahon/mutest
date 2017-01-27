@@ -1,4 +1,4 @@
-Mutant::Meta::Example.add :ensure do
+Mutest::Meta::Example.add :ensure do
   source 'begin; rescue; ensure; true; end'
 
   singleton_mutations
