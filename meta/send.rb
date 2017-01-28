@@ -784,3 +784,29 @@ Mutest::Meta::Example.add :send do
   mutation 'a === self'
   mutation 'a.kind_of?(b)'
 end
+
+Mutest::Meta::Example.add :send do
+  source 'a.grep(b)'
+
+  singleton_mutations
+  mutation 'a'
+  mutation 'b'
+  mutation 'self.grep(b)'
+  mutation 'a.grep'
+  mutation 'a.grep(nil)'
+  mutation 'a.grep(self)'
+  mutation 'a.grep_v(b)'
+end
+
+Mutest::Meta::Example.add :send do
+  source 'a.grep_v(b)'
+
+  singleton_mutations
+  mutation 'a'
+  mutation 'b'
+  mutation 'self.grep_v(b)'
+  mutation 'a.grep_v'
+  mutation 'a.grep_v(nil)'
+  mutation 'a.grep_v(self)'
+  mutation 'a.grep(b)'
+end
