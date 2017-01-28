@@ -180,7 +180,7 @@ Options:
       it_should_behave_like 'a cli parser'
 
       it 'configures expected coverage' do
-        expect(subject.config.jobs).to eql(0)
+        expect(subject.config.jobs).to be(0)
       end
     end
 

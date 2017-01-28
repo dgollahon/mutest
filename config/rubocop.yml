@@ -294,12 +294,6 @@ RSpec/VerifiedDoubles:
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-RSpec/BeEql:
-  Exclude:
-    - 'spec/unit/mutest/cli_spec.rb'
-    - 'spec/unit/mutest/reporter/sequence_spec.rb'
-
 # Offense count: 5
 RSpec/DescribeClass:
   Exclude:
