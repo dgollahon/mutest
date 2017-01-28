@@ -51,6 +51,11 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
         Mutest::Mutation::Evil.new(
           object,
           s(:begin,
+            s(:def, :foo, s(:args), s(:zsuper)), s(:send, nil, :memoize, s(:args, s(:sym, :foo))))
+        ),
+        Mutest::Mutation::Evil.new(
+          object,
+          s(:begin,
             s(:def, :foo, s(:args), nil), s(:send, nil, :memoize, s(:args, s(:sym, :foo))))
         )
       ]
