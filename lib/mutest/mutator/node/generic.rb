@@ -41,6 +41,7 @@ module Mutest
           regexp_digit_type
           regexp_eol_anchor
           regexp_eos_ob_eol_anchor
+          regexp_greedy_one_or_more
           regexp_greedy_zero_or_more
           regexp_hex_type
           regexp_nondigit_type
@@ -48,7 +49,9 @@ module Mutest
           regexp_nonspace_type
           regexp_nonword_boundary_anchor
           regexp_nonword_type
+          regexp_possessive_one_or_more
           regexp_possessive_zero_or_more
+          regexp_reluctant_one_or_more
           regexp_reluctant_zero_or_more
           regexp_root_expression
           regexp_space_type
