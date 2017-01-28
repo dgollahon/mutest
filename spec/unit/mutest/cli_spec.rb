@@ -24,7 +24,7 @@ RSpec.describe Mutest::CLI do
     let(:env)       { instance_double(Mutest::Env)                                   }
 
     before do
-      expect(Mutest::CLI).to receive(:call).with(arguments).and_return(config)
+      expect(described_class).to receive(:call).with(arguments).and_return(config)
       expect(Mutest::Env::Bootstrap).to receive(:call).with(config).and_return(env)
       expect(Mutest::Runner).to receive(:call).with(env).and_return(report)
     end

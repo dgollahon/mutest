@@ -17,7 +17,7 @@ RSpec.describe Mutest::Context do
     end
 
     context 'with Class as scope' do
-      let(:scope) { Mutest::Context }
+      let(:scope) { described_class }
 
       let(:expected) do
         s(:class,

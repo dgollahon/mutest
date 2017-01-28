@@ -298,14 +298,6 @@ RSpec/DescribeClass:
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Configuration parameters: SkipBlocks.
-RSpec/DescribedClass:
-  Exclude:
-    - 'spec/unit/mutest/cli_spec.rb'
-    - 'spec/unit/mutest/context_spec.rb'
-    - 'spec/unit/mutest/diff_spec.rb'
-
 # Offense count: 89
 # Configuration parameters: CustomIncludeMethods.
 RSpec/EmptyExampleGroup:

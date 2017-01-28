@@ -7,7 +7,7 @@ RSpec.describe Mutest::Diff do
     let(:old_string) { "foo\nbar" }
     let(:new_string) { "bar\nbaz" }
 
-    it { is_expected.to eql(Mutest::Diff.new(%w[foo bar], %w[bar baz])) }
+    it { is_expected.to eql(described_class.new(%w[foo bar], %w[bar baz])) }
   end
 
   describe '#colorized_diff' do
