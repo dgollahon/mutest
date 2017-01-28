@@ -59,7 +59,7 @@ RSpec.describe Mutest::Context do
       Unparser.unparse(subject)
     end
 
-    it 'should create correct source' do
+    it 'creates correct source' do
       expect(generated_source).to eql(expected_source)
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe Mutest::Context do
     context 'with top level constant name' do
       let(:scope) { TestApp }
 
-      it 'should return the unqualified name' do
+      it 'returns the unqualified name' do
         is_expected.to eql('TestApp')
       end
 
@@ -78,7 +78,7 @@ RSpec.describe Mutest::Context do
     end
 
     context 'with scoped constant name' do
-      it 'should return the unqualified name' do
+      it 'returns the unqualified name' do
         is_expected.to eql('Literal')
       end
 

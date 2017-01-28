@@ -324,14 +324,6 @@ RSpec/EmptyExampleGroup:
     - 'spec/unit/mutest/reporter/cli/printer_spec.rb'
     - 'spec/unit/mutest/reporter/cli_spec.rb'
 
-# Offense count: 6
-# Configuration parameters: CustomTransform, IgnoredWords.
-RSpec/ExampleWording:
-  Exclude:
-    - 'spec/unit/mutest/context_spec.rb'
-    - 'spec/unit/mutest/integration/rspec_spec.rb'
-    - 'spec/unit/mutest/mutator_spec.rb'
-
 # Offense count: 13
 # Configuration parameters: CustomTransform, IgnoreMethods.
 RSpec/FilePath:

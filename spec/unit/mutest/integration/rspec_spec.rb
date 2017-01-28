@@ -169,7 +169,7 @@ RSpec.describe Mutest::Integration::Rspec do
     context 'on unsuccessful exit' do
       let(:exit_status) { 1 }
 
-      it 'should return failed result' do
+      it 'returns failed result' do
         expect(subject).to eql(
           Mutest::Result::Test.new(
             output:  'the-test-output',
@@ -184,7 +184,7 @@ RSpec.describe Mutest::Integration::Rspec do
     context 'on successful exit' do
       let(:exit_status) { 0 }
 
-      it 'should return passed result' do
+      it 'returns passed result' do
         expect(subject).to eql(
           Mutest::Result::Test.new(
             output:  'the-test-output',
