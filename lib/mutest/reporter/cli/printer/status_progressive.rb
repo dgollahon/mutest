@@ -31,7 +31,7 @@ module Mutest
             )
           end
 
-        private
+          private
 
           # Object being printed
           #

@@ -3,12 +3,11 @@ module Mutest
     class Node
       # Emitter for perl style match current line node
       class MatchCurrentLine < self
-
         handle :match_current_line
 
         children :regexp
 
-      private
+        private
 
         # Emit mutations
         #
@@ -17,7 +16,6 @@ module Mutest
           emit_singletons
           emit_regexp_mutations
         end
-
       end # MatchCurrentLine
     end # Node
   end # Mutator

@@ -1,5 +1,4 @@
 RSpec.describe Mutest::Actor::Message do
-
   let(:type)    { instance_double(Symbol) }
   let(:payload) { instance_double(Object) }
 

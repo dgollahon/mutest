@@ -39,7 +39,7 @@ module MutestSpec
       state.file?
     end
 
-  private
+    private
 
     def state
       file_system.state(pathname.to_s)

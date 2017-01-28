@@ -37,7 +37,6 @@ module Mutest
           stdout if exitstatus.success?
         end
         private_class_method :capture
-
       end # Tput
     end # CLI
   end # Reporter

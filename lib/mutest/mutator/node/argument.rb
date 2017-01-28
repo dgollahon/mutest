@@ -1,7 +1,6 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for required arguments
       class Argument < self
         handle(:arg, :kwarg)
@@ -10,7 +9,7 @@ module Mutest
 
         children :name
 
-      private
+        private
 
         # Emit mutations
         #
@@ -36,7 +35,6 @@ module Mutest
 
         # Mutator for optional arguments
         class Optional < self
-
           TYPE_MAP = IceNine.deep_freeze(
             optarg:   :arg,
             kwoptarg: :kwarg
@@ -46,7 +44,7 @@ module Mutest
 
           children :name, :default
 
-        private
+          private
 
           # Emit mutations
           #
@@ -63,9 +61,7 @@ module Mutest
           def emit_required_mutation
             emit(s(TYPE_MAP.fetch(node.type), name))
           end
-
         end # Optional
-
       end # Argument
     end # Node
   end # Mutator

@@ -1,7 +1,6 @@
 module Mutest
   # Generator for mutations
   class Mutator
-
     REGISTRY = Registry.new
 
     include Adamantium::Flat, Concord.new(:input, :parent), AbstractType, Procto.call(:output)
@@ -31,7 +30,7 @@ module Mutest
     # @return [Set<Parser::AST::Node>]
     attr_reader :output
 
-  private
+    private
 
     # Initialize object
     #
@@ -86,6 +85,5 @@ module Mutest
     def dup_input
       input.dup
     end
-
   end # Mutator
 end # Mutest

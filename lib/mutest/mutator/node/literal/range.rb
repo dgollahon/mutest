@@ -2,10 +2,8 @@ module Mutest
   class Mutator
     class Node
       class Literal
-
         # Abstract literal range mutator
         class Range < self
-
           MAP = {
             irange: :erange,
             erange: :irange
@@ -15,7 +13,7 @@ module Mutest
 
           handle(*MAP.keys)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -33,7 +31,6 @@ module Mutest
           def emit_inverse
             emit(s(MAP.fetch(node.type), *children))
           end
-
         end # Range
       end # Literal
     end # Node

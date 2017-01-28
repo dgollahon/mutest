@@ -15,7 +15,6 @@ module Mutest
       def call(subject)
         diff.touches?(subject.source_path, subject.source_lines)
       end
-
     end # SubjectFilter
 
     # Diff between two objects in repository
@@ -49,7 +48,7 @@ module Mutest
         !stdout.empty?
       end
 
-    private
+      private
 
       # Test if path is tracked in repository
       #
@@ -76,7 +75,6 @@ module Mutest
         working_directory = config.pathname.pwd
         path.ascend { |parent| return true if working_directory.eql?(parent) }
       end
-
     end # Diff
   end # Repository
 end # Mutest

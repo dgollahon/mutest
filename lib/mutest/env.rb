@@ -29,7 +29,7 @@ module Mutest
       )
     end
 
-  private
+    private
 
     # Kill mutation under isolation with integration
     #
@@ -55,6 +55,5 @@ module Mutest
         tests:   tests
       )
     end
-
   end # Env
 end # Mutest

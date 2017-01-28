@@ -79,7 +79,6 @@ RSpec.describe Mutest::Parallel::Master do
   end
 
   describe '.call' do
-
     before do
       expect(Mutest::Parallel::Worker).to receive(:run).with(
         mailbox:   actor_env.mailbox(:worker_a),

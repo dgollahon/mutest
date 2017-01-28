@@ -2,8 +2,7 @@ module Mutest
   module AST
     # Mixin for node sexp syntax
     module Sexp
-
-    private
+      private
 
       # Build node
       #
@@ -22,7 +21,6 @@ module Mutest
       def n_not(node)
         s(:send, node, :!)
       end
-
     end # Sexp
   end # AST
 end # Mutest

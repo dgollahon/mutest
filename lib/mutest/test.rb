@@ -10,6 +10,5 @@ module Mutest
     #
     # @return [String]
     alias_method :identification, :id
-
   end # Test
 end # Mutest

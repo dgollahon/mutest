@@ -1,7 +1,6 @@
 module Mutest
   # A minimal actor implementation
   module Actor
-
     # Error raised when actor signalling protocol is violated
     class ProtocolError < RuntimeError
     end # ProtocolError
@@ -31,7 +30,6 @@ module Mutest
       def self.new(_type, _payload = Undefined)
         super
       end
-
     end # Message
 
     # Binding to other actors sender for simple RPC
@@ -49,7 +47,6 @@ module Mutest
         fail ProtocolError, "Expected #{type} but got #{message.type}" unless type.equal?(message.type)
         message.payload
       end
-
     end # Binding
   end # Actor
 end # Mutest

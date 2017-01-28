@@ -7,7 +7,6 @@ module Mutest
     #
     # Only useful for debugging.
     class None < self
-
       # Call block in no isolation
       #
       # @return [Object]
@@ -19,7 +18,6 @@ module Mutest
       rescue => exception
         raise Error, exception
       end
-
     end # None
   end # Isolation
 end # Mutest

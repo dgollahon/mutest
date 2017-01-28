@@ -28,7 +28,7 @@ module Mutest
               )
             )
 
-          private
+            private
 
             # Transform node into expression
             #

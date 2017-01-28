@@ -15,7 +15,7 @@ module Mutest
         fail ProtocolError
       end
 
-    private
+      private
 
       # Try a blocking receive
       #
@@ -34,7 +34,6 @@ module Mutest
           end
         end
       end
-
     end # Receiver
   end # Actor
 end # Mutest

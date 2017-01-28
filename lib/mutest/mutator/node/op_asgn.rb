@@ -1,15 +1,13 @@
 module Mutest
   class Mutator
     class Node
-
       # OpAsgn mutator
       class OpAsgn < self
-
         handle(:op_asgn)
 
         children :left, :operation, :right
 
-      private
+        private
 
         # Emit mutations
         #
@@ -46,7 +44,6 @@ module Mutest
           emit(s(:send, left, operation, right))
           emit(s(:send, left.children.first, :"#{left.children.last}=", right))
         end
-
       end # OpAsgn
     end # Node
   end # Mutator

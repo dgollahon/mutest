@@ -31,15 +31,17 @@ module Mutest
         end until handle(mailbox.receiver.call)
       end
 
-    private
+      private
 
       # Handle job
       #
       # @param [Message] message
       #
       # @return [Boolean]
-      def handle(message)
-        type, payload = message.type, message.payload
+      def handle(message) # rubocop:disable Metrics/MethodLength
+        type    = message.type
+        payload = message.payload
+
         case message.type
         when :job
           handle_job(payload)
@@ -69,7 +71,6 @@ module Mutest
           )
         )
       end
-
     end # Worker
   end # Parallel
 end # Mutest

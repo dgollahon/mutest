@@ -21,7 +21,7 @@ module Mutest
               ::Regexp::Expression::Alternative.new(0, 0, 0)
             )
 
-          private
+            private
 
             # Transform ast into expression
             #

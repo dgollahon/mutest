@@ -3,10 +3,9 @@ module Mutest
     class Node
       # Mutator for multiple assignment left hand side nodes
       class MLHS < self
-
         handle(:mlhs)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -16,7 +15,6 @@ module Mutest
             delete_child(index)
           end
         end
-
       end # MLHS
     end # Node
   end # Mutator

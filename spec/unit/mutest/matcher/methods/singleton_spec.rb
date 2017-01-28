@@ -3,23 +3,28 @@ RSpec.describe Mutest::Matcher::Methods::Singleton, '#call' do
   let(:env)    { Fixtures::TEST_ENV                    }
 
   let(:class_under_test) do
-    parent = Module.new do
-      def method_d; end
+    parent =
+      Module.new do
+        def method_d
+        end
 
-      def method_e; end
-    end
+        def method_e
+        end
+      end
 
     Class.new do
       extend parent
 
-      def self.method_a; end
+      def self.method_a
+      end
 
-      def self.method_b; end
+      def self.method_b
+      end
       class << self; protected :method_b; end
 
-      def self.method_c; end
+      def self.method_c
+      end
       private_class_method :method_c
-
     end
   end
 

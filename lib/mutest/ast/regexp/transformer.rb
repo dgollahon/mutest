@@ -54,7 +54,7 @@ module Mutest
 
           include Concord.new(:expression), Procto.call, AST::Sexp, AbstractType, Adamantium
 
-        private
+          private
 
           # Node with provided children using node type constructed in `type`
           #
@@ -106,7 +106,7 @@ module Mutest
             transform.freeze
           end
 
-        private
+          private
 
           # Transformation of ast into expression
           #
@@ -130,7 +130,6 @@ module Mutest
 
           # Table mapping ast types to object information for regexp domain
           class Table
-
             # Coerce array of mapping information into structured table
             #
             # @param [Array(Symbol, Array, Class<Regexp::Expression>)]
@@ -163,7 +162,7 @@ module Mutest
             end
           end # Table
 
-        private
+          private
 
           # Lookup expression token given node type
           #

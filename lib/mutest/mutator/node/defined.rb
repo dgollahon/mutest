@@ -3,12 +3,11 @@ module Mutest
     class Node
       # Namespace for `defined?` mutations
       class Defined < self
-
         handle(:defined?)
 
         children :expression
 
-      private
+        private
 
         # Emit mutations
         #
@@ -19,7 +18,6 @@ module Mutest
 
           emit_expression_mutations { |node| !n_self?(node) }
         end
-
       end # Defined
     end # Node
   end # Mutator

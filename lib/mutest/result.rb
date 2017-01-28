@@ -1,7 +1,6 @@
 module Mutest
   # Namespace and mixin module for results
   module Result
-
     # Coverage mixin
     module Coverage
       FULL_COVERAGE = Rational(1).freeze
@@ -21,7 +20,6 @@ module Mutest
 
     # Class level mixin
     module ClassMethods
-
       # Generate a sum method from name and collection
       #
       # @param [Symbol] name
@@ -105,7 +103,6 @@ module Mutest
       def amount_subjects
         env.subjects.length
       end
-
     end # Env
 
     # Test result
@@ -172,7 +169,7 @@ module Mutest
         alive_mutation_results.length
       end
 
-    private
+      private
 
       # Killed mutation results
       #
@@ -181,7 +178,6 @@ module Mutest
         mutation_results.select(&:success?)
       end
       memoize :killed_mutation_results
-
     end # Subject
 
     # Mutation result
@@ -211,7 +207,6 @@ module Mutest
       def success?
         mutation.class.success?(test_result)
       end
-
     end # Mutation
   end # Result
 end # Mutest

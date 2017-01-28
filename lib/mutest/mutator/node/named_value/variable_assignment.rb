@@ -2,10 +2,8 @@ module Mutest
   class Mutator
     class Node
       module NamedValue
-
         # Mutation emitter to handle variable assignment nodes
         class VariableAssignment < Node
-
           children :name, :value
 
           map = {
@@ -21,7 +19,7 @@ module Mutest
 
           handle(*MAP.keys)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -42,7 +40,6 @@ module Mutest
               emit_name(:"#{prefix}#{name}")
             end
           end
-
         end # VariableAssignment
       end # NamedValue
     end # Node

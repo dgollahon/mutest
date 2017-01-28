@@ -19,7 +19,7 @@ module Mutest
     # @return [Result::Env]
     attr_reader :result
 
-  private
+    private
 
     # Run mutation analysis
     #
@@ -77,6 +77,5 @@ module Mutest
     def config
       env.config
     end
-
   end # Runner
 end # Mutest

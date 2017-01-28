@@ -1,7 +1,6 @@
 module Mutest
   # Require highjack
   module RequireHighjack
-
     # Install require callback
     #
     # @param [Module] target
@@ -21,6 +20,5 @@ module Mutest
         end
       end
     end
-
   end # RequireHighjack
 end # Mutest

@@ -1,8 +1,6 @@
 RSpec.describe Mutest::WarningFilter do
   before do
-    if RUBY_ENGINE.eql?('rbx')
-      skip 'Disabled because expected warnings are from MRI'
-    end
+    skip 'Disabled because expected warnings are from MRI' if RUBY_ENGINE.eql?('rbx')
   end
 
   let(:object) { described_class.new(target) }
@@ -68,18 +66,19 @@ RSpec.describe Mutest::WarningFilter do
     end
 
     it 'returns warnings generated within block' do
-      warnings = object.use do
-        # rubocop:disable Security/Eval
-        eval(<<-RUBY)
-          Class.new do
-            def foo
-            end
+      warnings =
+        object.use do
+          # rubocop:disable Security/Eval
+          eval(<<-RUBY)
+            Class.new do
+              def foo
+              end
 
-            def foo
+              def foo
+              end
             end
-          end
-        RUBY
-      end
+          RUBY
+        end
       expect(warnings).to eql(
         [
           "(eval):5: warning: method redefined; discarding old foo\n",

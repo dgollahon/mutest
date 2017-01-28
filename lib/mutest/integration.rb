@@ -1,5 +1,4 @@
 module Mutest
-
   # Abstract base class mutest test framework integrations
   class Integration
     include AbstractType, Adamantium::Flat, Concord.new(:config)
@@ -40,7 +39,7 @@ module Mutest
     # @return [Enumerable<Test>]
     abstract_method :all_tests
 
-  private
+    private
 
     # Expression parser
     #
@@ -51,7 +50,6 @@ module Mutest
 
     # Null integration that never kills a mutation
     class Null < self
-
       # Available tests for integration
       #
       # @return [Enumerable<Test>]
@@ -72,7 +70,6 @@ module Mutest
           tests:   tests
         )
       end
-
     end # Null
   end # Integration
 end # Mutest

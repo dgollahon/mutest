@@ -14,7 +14,6 @@ module Mutest
           matcher.call(env)
         end
       end
-
     end # Chain
   end # Matcher
 end # Mutest

@@ -27,7 +27,6 @@ module Mutest
         end
       end
       memoize :generated
-
     end # Example
   end # Meta
 end # Mutest

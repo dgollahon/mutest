@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Node meta information mixin
     module Meta
-
       # Metadata for const nodes
       class Const
         include NamedChildren, Concord.new(:node), NodePredicates
@@ -17,7 +16,6 @@ module Mutest
         def possible_top_level?
           base.nil? || n_cbase?(base)
         end
-
       end # Const
     end # Meta
   end # AST

@@ -20,7 +20,8 @@ RSpec.describe Mutest::Subject::Method::Instance do
         @bar = :boo
       end
 
-      def foo; end
+      def foo
+      end
 
       def self.name
         'Test'
@@ -45,7 +46,6 @@ RSpec.describe Mutest::Subject::Method::Instance do
   end
 
   describe '#prepare' do
-
     let(:context) do
       Mutest::Context.new(scope, instance_double(Pathname))
     end
@@ -75,7 +75,6 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
   end
 
   describe '#prepare' do
-
     let(:context) do
       Mutest::Context.new(scope, double('Source Path'))
     end
@@ -83,7 +82,8 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
     let(:scope) do
       Class.new do
         include Memoizable
-        def foo; end
+        def foo
+        end
         memoize :foo
       end
     end

@@ -24,7 +24,7 @@ module XSpec
       new(event_list)
     end
 
-  private
+    private
 
     def return(_, value)
       value
@@ -43,7 +43,8 @@ module XSpec
     end
 
     def validate_block_arity(observation, yields)
-      expected, observed = yields.length, observation.block.arity
+      expected = yields.length
+      observed = observation.block.arity
 
       # block allows anything we can skip the check
       return if observed.equal?(-1)
@@ -86,8 +87,6 @@ module XSpec
 
   class MessageExpectation
     include Anima.new(:receiver, :selector, :arguments, :reaction)
-
-    # rubocop:disable ParameterLists
     def self.parse(receiver:, selector:, arguments: [], reaction: nil)
       new(
         receiver:  receiver,
@@ -112,7 +111,7 @@ module XSpec
         expectation.reaction.call(observation)
       end
 
-    private
+      private
 
       def assert_expected_attribute(name)
         error("#{name} mismatch") unless observation.public_send(name).eql?(expectation.public_send(name))
@@ -126,7 +125,6 @@ module XSpec
         exception = expectation.exception
         fail exception if exception
       end
-
     end # Verifier
   end # MessageExpectation
 

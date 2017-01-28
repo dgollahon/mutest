@@ -4,7 +4,6 @@ module Mutest
       class Printer
         # Printer for runner status
         class Status < self
-
           delegate(:active_jobs, :payload)
 
           ACTIVE_JOB_HEADER = 'Active Jobs:'.freeze
@@ -20,7 +19,7 @@ module Mutest
             visit_collection(SubjectProgress, active_subject_results)
           end
 
-        private
+          private
 
           # Print worker status
           #
@@ -43,7 +42,6 @@ module Mutest
               active_subjects.include?(subject_result.subject)
             end
           end
-
         end # Status
       end # Printer
     end # CLI

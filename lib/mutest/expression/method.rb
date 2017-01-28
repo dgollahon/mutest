@@ -1,6 +1,5 @@
 module Mutest
   class Expression
-
     # Explicit method expression
     class Method < self
       include Anima.new(
@@ -23,7 +22,7 @@ module Mutest
 
       private_constant(*constants(false))
 
-      REGEXP = /\A#{SCOPE_NAME_PATTERN}#{SCOPE_SYMBOL_PATTERN}#{METHOD_NAME_PATTERN}\z/.freeze
+      REGEXP = /\A#{SCOPE_NAME_PATTERN}#{SCOPE_SYMBOL_PATTERN}#{METHOD_NAME_PATTERN}\z/
 
       # Syntax of expression
       #
@@ -42,7 +41,7 @@ module Mutest
         Matcher::Filter.new(methods_matcher, ->(subject) { subject.expression.eql?(self) })
       end
 
-    private
+      private
 
       # Scope object
       #
@@ -50,7 +49,6 @@ module Mutest
       def scope
         Object.const_get(scope_name)
       end
-
     end # Method
   end # Expression
 end # Mutest

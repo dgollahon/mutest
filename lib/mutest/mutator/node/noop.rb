@@ -1,13 +1,11 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutation emitter to handle noop nodes
       class Noop < self
-
         handle(:block_pass, :cbase)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -15,7 +13,6 @@ module Mutest
         def dispatch
           # noop
         end
-
       end # Noop
     end # Node
   end # Mutator

@@ -3,10 +3,9 @@ module Mutest
     class Node
       class Send
         class Conditional < self
-
           handle(:csend)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -15,7 +14,6 @@ module Mutest
             super()
             emit(s(:send, *children))
           end
-
         end # Conditional
       end # Send
     end # Node

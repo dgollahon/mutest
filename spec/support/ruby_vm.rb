@@ -34,7 +34,7 @@ module MutestSpec
         self
       end
 
-    private
+      private
 
       def match?(observation)
         observation.type.eql?(self.class) && observation.payload.eql?(expected_payload)
@@ -71,7 +71,7 @@ module MutestSpec
       expected_events.empty?
     end
 
-  private
+    private
 
     def handle_event(observation)
       fail "Unexpected event: #{observation.type} / #{observation.payload}" if expected_events.empty?

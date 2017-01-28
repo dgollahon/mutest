@@ -41,7 +41,7 @@ module Mutest
             end
           end
 
-        private
+          private
 
           # Mutations processed per second
           #

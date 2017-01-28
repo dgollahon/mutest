@@ -7,7 +7,6 @@ module Mutest
 
     # Mutation example
     class Example
-
       # rubocop:disable MutableConstant
       ALL = []
 
@@ -29,7 +28,6 @@ module Mutest
       class << self
         undef_method :add
       end
-
     end # Example
   end # Meta
 end # Mutest

@@ -1,13 +1,11 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for when nodes
       class When < self
-
         handle(:when)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -56,7 +54,6 @@ module Mutest
         def body_index
           children.length - 1
         end
-
       end # When
     end # Node
   end # Mutator

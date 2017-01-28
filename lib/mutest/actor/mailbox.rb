@@ -26,7 +26,6 @@ module Mutest
       def bind(other)
         Binding.new(self, other)
       end
-
     end # Mailbox
   end # Actor
 end # Mutest

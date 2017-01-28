@@ -14,11 +14,12 @@ module Mutest
       def self.build(output)
         tput = Tput.detect
         tty = output.respond_to?(:tty?) && output.tty?
-        format = if !Mutest.ci? && tty && tput
-          Format::Framed.new(tty:  tty, tput: tput)
-        else
-          Format::Progressive.new(tty: tty)
-        end
+        format =
+          if !Mutest.ci? && tty && tput
+            Format::Framed.new(tty:  tty, tput: tput)
+          else
+            Format::Progressive.new(tty: tty)
+          end
         new(output, format)
       end
 
@@ -71,7 +72,7 @@ module Mutest
         self
       end
 
-    private
+      private
 
       # Write output frame
       #
@@ -81,7 +82,6 @@ module Mutest
       def write(frame)
         output.write(frame)
       end
-
     end # CLI
   end # Reporter
 end # Mutest

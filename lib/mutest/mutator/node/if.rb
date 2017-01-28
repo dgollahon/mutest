@@ -3,12 +3,11 @@ module Mutest
     class Node
       # Mutator for if nodes
       class If < self
-
         handle(:if)
 
         children :condition, :if_branch, :else_branch
 
-      private
+        private
 
         # Emit mutations
         #
@@ -52,7 +51,6 @@ module Mutest
           emit_else_branch_mutations
           emit_type(condition, nil, else_branch)
         end
-
       end # If
     end # Node
   end # Mutator

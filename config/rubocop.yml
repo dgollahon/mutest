@@ -1,187 +1,275 @@
-inherit_from: ../.rubocop.yml
-
-# Avoid parameter lists longer than five parameters.
-ParameterLists:
-  Max: 3
-  CountKeywordArgs: true
-
-# Avoid more than `Max` levels of nesting.
-BlockNesting:
-  Max: 3
-
-# Align with the style guide.
-CollectionMethods:
-  Enabled: true
-  PreferredMethods:
-    collect:  'map'
-    inject:   'reduce'
-    find:     'detect'
-    find_all: 'select'
-
-AccessModifierIndentation:
-  EnforcedStyle: outdent
-
-# Limit line length
-LineLength:
-  Max: 120
-
-# Disable documentation checking until a class needs to be documented once
-Documentation:
+---
+AllCops:
+  Exclude:
+  - 'test_app/**/*'
+  - 'tmp/**/*'
+  - vendor/**/*
+  DisplayCopNames: true
+  TargetRubyVersion: 2.2
+# This ends up being too spammy
+Style/Documentation:
   Enabled: false
-
-# Permit
-#
-#     boolean_check? or fail
-#
-# Reject
-#
-#     if foo or bar
-#       ...
-#     end
-AndOr:
-  EnforcedStyle: conditionals
-
-# Do not favor modifier if/unless usage when you have a single-line body
-IfUnlessModifier:
-  Enabled: false
-
-# Allow case equality operator (in limited use within the specs)
-CaseEquality:
-  Enabled: false
-
-# Constants do not always have to use SCREAMING_SNAKE_CASE
-ConstantName:
-  Enabled: false
-
-# Not all trivial readers/writers can be defined with attr_* methods
-TrivialAccessors:
-  Enabled: false
-
-# Allow empty lines around class body
-EmptyLinesAroundClassBody:
-  Enabled: false
-
-# Allow empty lines around module body
-EmptyLinesAroundModuleBody:
-  Enabled: false
-
-# Allow empty lines around block body
-EmptyLinesAroundBlockBody:
-  Enabled: false
-
-# Allow multiple line operations to not require indentation
-MultilineOperationIndentation:
-  Enabled: false
-
-# Prefer String#% over Kernel#sprintf
-FormatString:
-  EnforcedStyle: percent
-
-# Use square brackets for literal Array objects
-PercentLiteralDelimiters:
+Style/ExtraSpacing:
+  AllowForAlignment: true
+Metrics/LineLength:
+  Max: 100
+Metrics/BlockLength:
+  Exclude:
+  # Ignore migration DSL
+  - db/migrations/**/*
+  # Ignore RSpec DSL
+  - spec/**/*
+  # Ignore Rake task DSL
+  - Rakefile
+Style/IfUnlessModifier:
+  MaxLineLength: 100
+Style/Next:
+  EnforcedStyle: always
+Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%':  '{}'
     '%i': '[]'
-    '%q': ()
-    '%Q': ()
+    '%I': '[]'
+    '%q': '{}'
+    '%Q': '{}'
     '%r': '{}'
     '%s': ()
     '%w': '[]'
     '%W': '[]'
     '%x': ()
-
-# Use %i[...] for arrays of symbols
-SymbolArray:
+Style/TrivialAccessors:
+  ExactNameMatch: false
+Style/SymbolArray:
   Enabled: true
-
-# Align if/else blocks with the variable assignment
-EndAlignment:
-  EnforcedStyleAlignWith: variable
-
-# Prefer #kind_of? over #is_a?
-ClassCheck:
-  EnforcedStyle: kind_of?
-
-# Do not prefer double quotes to be used when %q or %Q is more appropriate
-UnneededPercentQ:
-  Enabled: false
-
-# Allow a maximum ABC score
-Metrics/AbcSize:
-  Max: 21.02
-
-# Do not prefer lambda.call(...) over lambda.(...)
-LambdaCall:
-  Enabled: false
-
-# Buggy cop, returns false positive for our code base
-NonLocalExitFromIterator:
-  Enabled: false
-
-# To allow alignment of similar expressions we want to allow more than one
-# space around operators:
-#
-# let(:a) { bar    + something }
-# let(:b) { foobar + something }
-#
-SpaceAroundOperators:
-  Enabled: false
-
-# We use parallel assignments with great success
-ParallelAssignment:
-  Enabled: false
-
-# Allow additional specs
-ExtraSpacing:
-  AllowForAlignment: true
-
-# Buggy
-FormatParameterMismatch:
-  Enabled: false
-
-# Different preference
-SignalException:
-  EnforcedStyle: semantic
-
-# Do not use `alias`
-Alias:
-  EnforcedStyle: prefer_alias_method
-
-# Teaching people to ignore singleton class is pointless
-RedundantFreeze:
-  Enabled: false
-
-# Do not waste my horizontal or vertical space
-IndentArray:
-  Enabled: false
-
-# Prefer
-#
-#     some_receiver
-#       .foo
-#       .bar
-#       .baz
-#
-# Over
-#
-#     some_receiver.foo
-#                  .bar
-#                  .baz
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+Style/CollectionMethods:
+  Enabled: true
+Style/Send:
+  Enabled: true
+Style/AutoResourceCleanup:
+  Enabled: true
+Style/FirstArrayElementLineBreak:
+  Enabled: true
+Style/FirstHashElementLineBreak:
+  Enabled: true
+Style/FirstMethodArgumentLineBreak:
+  Enabled: true
+Style/FirstMethodParameterLineBreak:
+  Enabled: true
+Style/MultilineArrayBraceLayout:
+  Enabled: true
+Style/MultilineAssignmentLayout:
+  EnforcedStyle: new_line
+  Enabled: true
+Style/MultilineHashBraceLayout:
+  Enabled: true
+Style/MultilineMethodCallBraceLayout:
+  Enabled: true
+Style/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+Style/OptionHash:
+  Enabled: true
+Style/StringMethods:
+  Enabled: true
+Style/IndentArray:
+  EnforcedStyle: consistent
+Style/IndentHash:
+  EnforcedStyle: consistent
 MultilineMethodCallIndentation:
   EnforcedStyle: indented
-
-# Align keys and values in a multiline hash
-AlignHash:
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/AlignHash:
   EnforcedColonStyle: table
+Style/SignalException:
+  EnforcedStyle: semantic
+Style/SingleLineBlockParams:
+  Enabled: false
+# We prefer being able to write
+#
+#   foo(*%w[bar baz qux norf hello goodbye])
+#
+# over
+#
+#   foo('bar', 'baz', 'qux', 'norf', 'hello', 'goodbye')
+#
+# because
+#
+#   1. the `%w` signals that all elements are strings without interpolation
+#   2. the `%w` case is more compact
+#
+# The only exception is method invocations with a single argument. These
+# cases should be `foo('bar')` and never `foo(*%w[bar])`
+#
+Lint/UnneededSplatExpansion:
+  Enabled: false
+# We only use guard clauses when it guards two or more statements:
+#
+#    # bad
+#    def foo
+#      return if bar
+#
+#      baz
+#    end
+#
+#    # good
+#    def foo
+#      baz if bar
+#    end
+#
+# This includes conditionals with an `else` branch:
+#
+#    # bad
+#    def foo
+#      return qux if bar
+#
+#      baz
+#    end
+#
+#    # good
+#    def foo
+#      if bar
+#        qux
+#      else
+#        baz
+#      end
+#    end
+#
+# It is up to the author of the code in question if the condition concerns
+# exactly two statements
+#
+#    # ok
+#    def foo
+#      return if bar
+#
+#      baz
+#      qux
+#    end
+#
+#    # also ok
+#    def foo
+#      if bar
+#        baz
+#        qux
+#      end
+#    end
+#
+# Use a guard clause if more than two statements are being guarded by the conditional
+#
+#    # bad
+#    def foo
+#      if bar
+#        baz
+#        qux
+#        norf
+#      end
+#    end
+#
+#    # good
+#    def foo
+#      return if bar
+#
+#      baz
+#      qux
+#      norf
+#    end
+Style/GuardClause:
+  Enabled: false
+# Prefer writing an empty method on two lines
+#
+#    # good
+#    def foo
+#    end
+#
+#    # bar
+#    def foo; end
+#
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+# RuboCop disables end alignment by default. Explanation:
+#
+#     The end alignment cops are in the Lint category because the bad
+#     indentation could be something more serious than just a style issue.
+#     It could be a mistake in which keyword you think you're matching with the end.
+#     (ruby -w warns for these too, by the way.) So for this reason I don't think
+#     we can add auto-correct for these cops.
+#
+# From https://github.com/bbatsov/rubocop/pull/1789#issuecomment-92308357
+#
+# I think we have more than enough tools that sound the alarms if we have
+# such an obvious mistake like mismatched tokens.
+#
+#   - Our specs are likely to fail
+#   - RuboCop will flag it regardless, it just doesn't autocorrect it by default
+#   - Ruby will emit a warning which we configure to fail our specs
+#
+# So I think it is safe to enable autocorrect for end alignment cops because it
+# does not seem unsafe and it improves workflow to be able to autocorrect alignment
+Lint/DefEndAlignment:
+  AutoCorrect: true
+# See explanation for `Lint/DefEndAlignment`
+Lint/EndAlignment:
+  AutoCorrect: true
 
-# Prefer `public_send` and `__send__` over `send`
-Send:
-  Enabled: true
+# TODO is inlined so that it takes precedence.
 
+# This configuration was generated by
+# `rubocop --auto-gen-config --exclude-limit 0`
+# on 2017-01-27 00:08:49 -0800 using RuboCop version 0.47.1.
+# The point is for the user to remove these configuration records
+# one by one as the offenses are removed from the code base.
+# Note that changes in the inspected code, or installation of new
+# versions of RuboCop, may require this file to be generated again.
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith, AutoCorrect.
+# SupportedStylesAlignWith: keyword, variable, start_of_line
+
+# Offense count: 4
+# Cop supports --auto-correct.
 Lint/UnifiedInteger:
   Enabled: false
 
-Metrics/BlockLength:
-  Exclude:
-  # Ignore RSpec DSL
-  - spec/**/*
+# Offense count: 10
+Metrics/AbcSize:
+  Max: 20
+
+# Offense count: 84
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 120
+
+# Offense count: 7
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: always, conditionals
+Style/AndOr:
+  Enabled: false
+
+# Offense count: 150
+# Cop supports --auto-correct.
+Style/FirstMethodArgumentLineBreak:
+  Enabled: false
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: SupportedStyles, IndentationWidth.
+# SupportedStyles: special_inside_parentheses, consistent, align_braces
+Style/IndentHash:
+  EnforcedStyle: special_inside_parentheses
+
+# Offense count: 21
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: call, braces
+Style/LambdaCall:
+  Enabled: false
+
+# Offense count: 12
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, MinBodyLength, SupportedStyles.
+# SupportedStyles: skip_modifier_ifs, always
+Style/Next:
+  Enabled: false

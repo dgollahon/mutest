@@ -45,7 +45,7 @@ module Mutest
         end
       end
 
-    private
+      private
 
       # Expressions parsed from input
       #
@@ -59,7 +59,6 @@ module Mutest
           aggregate << expression if expression
         end
       end
-
     end # Parser
   end # Expression
 end # Mutest

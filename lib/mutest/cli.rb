@@ -34,7 +34,7 @@ module Mutest
     # @return [Config]
     attr_reader :config
 
-  private
+    private
 
     # Parse the command-line options
     #
@@ -46,12 +46,13 @@ module Mutest
     #
     # @return [undefined]
     def parse(arguments)
-      opts = OptionParser.new do |builder|
-        builder.banner = 'usage: mutest [options] MATCH_EXPRESSION ...'
-        %i[add_environment_options add_mutation_options add_filter_options add_debug_options].each do |name|
-          __send__(name, builder)
+      opts =
+        OptionParser.new do |builder|
+          builder.banner = 'usage: mutest [options] MATCH_EXPRESSION ...'
+          %i[add_environment_options add_mutation_options add_filter_options add_debug_options].each do |name|
+            __send__(name, builder)
+          end
         end
-      end
 
       parse_match_expressions(opts.parse!(arguments))
     rescue OptionParser::ParseError => error
@@ -191,6 +192,5 @@ module Mutest
     def add_matcher(attribute, value)
       with(matcher: config.matcher.add(attribute, value))
     end
-
   end # CLI
 end # Mutest

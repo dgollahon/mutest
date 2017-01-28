@@ -3,26 +3,32 @@ RSpec.describe Mutest::Matcher::Methods::Instance, '#call' do
   let(:env)    { Fixtures::TEST_ENV                    }
 
   let(:class_under_test) do
-    parent = Module.new do
-      def method_d; end
+    parent =
+      Module.new do
+        def method_d
+        end
 
-      def method_e; end
-    end
+        def method_e
+        end
+      end
 
     Class.new do
       include parent
 
       private :method_d
 
-      def method_a; end
+      def method_a
+      end
 
-    protected
+      protected
 
-      def method_b; end
+      def method_b
+      end
 
-    private
+      private
 
-      def method_c; end
+      def method_c
+      end
     end
   end
 

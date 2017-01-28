@@ -1,7 +1,6 @@
 module Mutest
   class Mutator
     class Node
-
       # Namespace for send mutators
       # rubocop:disable ClassLength
       class Send < self
@@ -52,7 +51,7 @@ module Mutest
           }
         )
 
-      private
+        private
 
         # Emit mutations
         #
@@ -250,7 +249,6 @@ module Mutest
             meta.attribute_assignment?
           )
         end
-
       end # Send
     end # Node
   end # Mutator

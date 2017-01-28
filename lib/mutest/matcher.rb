@@ -10,6 +10,5 @@ module Mutest
     # @return [Enumerable<Subject>]
     #
     abstract_method :call
-
   end # Matcher
 end # Mutest

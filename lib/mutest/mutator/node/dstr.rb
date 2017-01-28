@@ -1,13 +1,11 @@
 module Mutest
   class Mutator
     class Node
-
       # Dstr mutator
       class Dstr < Generic
-
         handle(:dstr)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -16,7 +14,6 @@ module Mutest
           super()
           emit_singletons
         end
-
       end # Dstr
     end # Node
   end # Mutator

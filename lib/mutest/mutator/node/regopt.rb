@@ -1,15 +1,13 @@
 module Mutest
   class Mutator
     class Node
-
       # Regular expression options mutation
       class Regopt < self
-
         MUTATED_FLAGS = IceNine.deep_freeze(%i[i])
 
         handle(:regopt)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -24,7 +22,6 @@ module Mutest
         def mutated_flags
           (children - MUTATED_FLAGS)
         end
-
       end # Regopt
     end # Node
   end # Mutator

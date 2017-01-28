@@ -6,7 +6,7 @@ module Mutest
         class AlternationMeta < Node
           handle(:regexp_alternation_meta)
 
-        private
+          private
 
           # Dispatch mutations
           #

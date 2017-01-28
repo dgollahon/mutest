@@ -1,13 +1,11 @@
 module Mutest
   class Mutator
     class Node
-
       # Yield mutator
       class Yield < Generic
-
         handle(:yield)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -17,7 +15,6 @@ module Mutest
           emit_singletons
           children.each_index(&method(:delete_child))
         end
-
       end # Yield
     end # Node
   end # Mutator

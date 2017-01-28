@@ -3,7 +3,6 @@ module Mutest
     class Method
       # Matcher for singleton methods
       class Singleton < self
-
         # New singleton method matcher
         #
         # @param [Class, Module] scope
@@ -21,7 +20,7 @@ module Mutest
           NAME_INDEX       = 1
           RECEIVER_WARNING = 'Can only match :defs on :self or :const got %p unable to match'.freeze
 
-        private
+          private
 
           # Test for node match
           #
@@ -80,7 +79,6 @@ module Mutest
             name = node.children.fetch(NAME_INDEX)
             name.to_s.eql?(context.unqualified_name)
           end
-
         end # Evaluator
 
         private_constant(*constants(false))

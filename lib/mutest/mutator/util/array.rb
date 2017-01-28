@@ -1,14 +1,11 @@
 module Mutest
   class Mutator
     class Util
-
       # Mutators that mutates an array of inputs
       class Array < self
-
         # Element presence mutator
         class Presence < Util
-
-        private
+          private
 
           # Emit element presence mutations
           #
@@ -20,13 +17,11 @@ module Mutest
               emit(dup)
             end
           end
-
         end # Presence
 
         # Array element mutator
         class Element < Util
-
-        private
+          private
 
           # Emit mutations
           #
@@ -40,7 +35,6 @@ module Mutest
               end
             end
           end
-
         end # Element
       end # Array
     end # Util

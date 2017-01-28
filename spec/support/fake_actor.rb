@@ -11,9 +11,7 @@ module FakeActor
     end
 
     def verify(other)
-      unless eql?(other)
-        fail "Got:\n#{other.inspect}\nExpected:\n#{inspect}"
-      end
+      fail "Got:\n#{other.inspect}\nExpected:\n#{inspect}" unless eql?(other)
       block.call(other.message) if block
     end
   end # Expectation
@@ -66,7 +64,7 @@ module FakeActor
       mailbox(:current)
     end
 
-  private
+    private
 
     def next_name
       @mailbox_names.shift.tap do |name|

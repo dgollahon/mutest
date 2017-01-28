@@ -42,7 +42,7 @@ module Mutest
         with(attribute => public_send(attribute) + [value])
       end
 
-    private
+      private
 
       # Present attributes
       #
@@ -68,15 +68,14 @@ module Mutest
       #
       # @return [String]
       def format_attribute(attribute_name)
-        ATTRIBUTE_FORMAT %
-          [
-            attribute_name,
-            public_send(attribute_name)
-              .map(&PRESENTATIONS.fetch(attribute_name))
-              .join(ENUM_DELIMITER)
-          ]
+        format(
+          ATTRIBUTE_FORMAT,
+          attribute_name,
+          public_send(attribute_name)
+            .map(&PRESENTATIONS.fetch(attribute_name))
+            .join(ENUM_DELIMITER)
+        )
       end
-
     end # Config
   end # Matcher
 end # Mutest

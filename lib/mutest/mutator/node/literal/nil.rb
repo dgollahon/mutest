@@ -4,16 +4,15 @@ module Mutest
       class Literal
         # Mutator for nil literals
         class Nil < self
-
           handle(:nil)
 
-        private
+          private
 
           # Emit mutations
           #
           # @return [undefined]
-          def dispatch; end
-
+          def dispatch
+          end
         end # Nil
       end # Literal
     end # Node

@@ -7,7 +7,7 @@ module Mutest
 
       # Recursive namespace expression
       class Recursive < self
-        REGEXP = /\A#{SCOPE_NAME_PATTERN}?\*\z/.freeze
+        REGEXP = /\A#{SCOPE_NAME_PATTERN}?\*\z/
 
         # Initialize object
         #
@@ -48,16 +48,14 @@ module Mutest
             0
           end
         end
-
       end # Recursive
 
       # Exact namespace expression
       class Exact < self
-
         MATCHER = Matcher::Scope
         private_constant(*constants(false))
 
-        REGEXP = /\A#{SCOPE_NAME_PATTERN}\z/.freeze
+        REGEXP = /\A#{SCOPE_NAME_PATTERN}\z/
 
         # Matcher matcher on expression
         #
@@ -71,7 +69,6 @@ module Mutest
         # @return [String]
         alias_method :syntax, :scope_name
         public :syntax
-
       end # Exact
     end # Namespace
   end # Expression

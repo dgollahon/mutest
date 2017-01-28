@@ -4,10 +4,9 @@ module Mutest
       class Literal < self
         # Mutator for fixnum literals
         class Fixnum < self
-
           handle(:int)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -30,7 +29,6 @@ module Mutest
           def value
             children.first
           end
-
         end # Fixnum
       end # Literal
     end # Node

@@ -1,5 +1,4 @@
 RSpec.describe Mutest::Subject::Method::Singleton do
-
   let(:object)  { described_class.new(context, node) }
   let(:node)    { s(:defs, s(:self), :foo, s(:args)) }
 
@@ -9,7 +8,8 @@ RSpec.describe Mutest::Subject::Method::Singleton do
 
   let(:scope) do
     Class.new do
-      def self.foo; end
+      def self.foo
+      end
 
       def self.name
         'Test'
@@ -34,7 +34,6 @@ RSpec.describe Mutest::Subject::Method::Singleton do
   end
 
   describe '#prepare' do
-
     subject { object.prepare }
 
     it 'undefines method on scope' do

@@ -3,7 +3,6 @@ module Mutest
     class Node
       # Mutator for rescue nodes
       class Rescue < self
-
         handle :rescue
 
         children :body
@@ -21,7 +20,7 @@ module Mutest
           mutate_else_body
         end
 
-      private
+        private
 
         # Mutate child by name
         #
@@ -64,7 +63,6 @@ module Mutest
           emit_else_body_mutations
           emit_concat(else_body)
         end
-
       end # Rescue
     end # Node
   end # Mutator

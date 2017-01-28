@@ -54,7 +54,7 @@ module Mutest
     end
     private_class_method :lines
 
-  private
+    private
 
     # Diffs between old and new
     #
@@ -107,6 +107,5 @@ module Mutest
       end.format(line)
     end
     private_class_method :colorize_line
-
   end # Diff
 end # Mutest

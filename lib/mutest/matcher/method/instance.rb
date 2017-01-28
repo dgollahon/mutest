@@ -3,7 +3,6 @@ module Mutest
     class Method
       # Matcher for instance methods
       class Instance < self
-
         # Dispatching builder, detects memoizable case
         #
         # @param [Class, Module] scope
@@ -27,7 +26,7 @@ module Mutest
           SUBJECT_CLASS = Subject::Method::Instance
           NAME_INDEX    = 0
 
-        private
+          private
 
           # Check if node is matched
           #
@@ -35,16 +34,16 @@ module Mutest
           #
           # @return [Boolean]
           def match?(node)
-            n_def?(node)                           &&
-            node.location.line.equal?(source_line) &&
-            node.children.fetch(NAME_INDEX).equal?(method_name)
+            n_def?(node) &&
+              node.location.line.equal?(source_line) &&
+              node.children.fetch(NAME_INDEX).equal?(method_name)
           end
 
           # Evaluator specialized for memoized instance methods
           class Memoized < self
             SUBJECT_CLASS = Subject::Method::Instance::Memoized
 
-          private
+            private
 
             # Source location
             #
@@ -54,7 +53,6 @@ module Mutest
                 .unmemoized_instance_method(method_name)
                 .source_location
             end
-
           end # Memoized
         end # Evaluator
 

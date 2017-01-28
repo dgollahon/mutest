@@ -1,13 +1,11 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for begin nodes
       class Begin < self
-
         handle(:begin)
 
-      private
+        private
 
         # Emit mutations
         #

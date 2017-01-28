@@ -20,7 +20,7 @@ module MutestSpec
     end
 
     class Extractor < DelegateClass(IO)
-      PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/.freeze
+      PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/
 
       include Equalizer.new(:whitelist, :seen, :io), Memoizable
 
@@ -45,7 +45,7 @@ module MutestSpec
       end
       memoize :warnings
 
-    private
+      private
 
       def add(warning)
         return if whitelist.any?(&warning.public_method(:end_with?))

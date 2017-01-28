@@ -28,7 +28,7 @@ module Mutest
           )
         end
 
-      private
+        private
 
         # Unexpected mutations
         #
@@ -79,7 +79,6 @@ module Mutest
           example.expected - mutations.map(&:node)
         end
         memoize :missing
-
       end # Verification
     end # Example
   end # Meta

@@ -1,13 +1,11 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for super with parentheses
       class Super < self
-
         handle(:super)
 
-      private
+        private
 
         # Emit mutations
         #
@@ -20,7 +18,6 @@ module Mutest
             delete_child(index)
           end
         end
-
       end # Super
     end # Node
   end # Mutator

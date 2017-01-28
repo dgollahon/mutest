@@ -28,7 +28,7 @@ module Mutest
             print_stats
           end
 
-        private
+          private
 
           # Print stats
           #

@@ -25,7 +25,7 @@ module Mutest
         Chain.new(effective_matchers).call(env)
       end
 
-    private
+      private
 
       # Effective matchers
       #
@@ -33,7 +33,6 @@ module Mutest
       def effective_matchers
         MATCHERS.map { |matcher| matcher.new(scope) }
       end
-
     end # Scope
   end # Matcher
 end # Mutest

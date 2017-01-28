@@ -77,7 +77,7 @@ module Mutest
     # @return [Module|Class]
     attr_reader :scope
 
-  private
+    private
 
     # Nesting of names in scope
     #
@@ -86,6 +86,5 @@ module Mutest
       scope.name.split(NAMESPACE_DELIMITER)
     end
     memoize :name_nesting
-
   end # Context
 end # Mutest

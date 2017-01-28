@@ -65,7 +65,7 @@ module Mutest
         )
       end
 
-    private
+      private
 
       # Configured mutest integration
       #
@@ -113,10 +113,11 @@ module Mutest
       #
       # @return [undefined]
       def initialize_matchable_scopes
-        scopes = ObjectSpace.each_object(Module).each_with_object([]) do |scope, aggregate|
-          expression = expression(scope) || next
-          aggregate << Scope.new(scope, expression)
-        end
+        scopes =
+          ObjectSpace.each_object(Module).each_with_object([]) do |scope, aggregate|
+            expression = expression(scope) || next
+            aggregate << Scope.new(scope, expression)
+          end
 
         @matchable_scopes = scopes.sort_by { |scope| scope.expression.syntax }
       end
@@ -151,7 +152,7 @@ module Mutest
       # @return [undefined]
       def semantics_warning(format, options)
         message = format % options
-        warn(SEMANTICS_MESSAGE_FORMAT % { message: message })
+        warn(format(SEMANTICS_MESSAGE_FORMAT, message: message))
       end
     end # Bootstrap
   end # Env

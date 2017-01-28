@@ -1,7 +1,6 @@
 module Mutest
   # AST helpers
   module AST
-
     # Find last node satisfying predicate (as block)
     #
     # @return [Parser::AST::Node]
@@ -18,9 +17,7 @@ module Mutest
       fail ArgumentError, 'block expected' unless block_given?
       path = []
       walk(node, [node]) do |candidate, stack|
-        if predicate.call(candidate)
-          path = stack.dup
-        end
+        path = stack.dup if predicate.call(candidate)
       end
       path
     end
@@ -43,6 +40,5 @@ module Mutest
       end
     end
     private_class_method :walk
-
   end # AST
 end # Mutest

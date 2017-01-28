@@ -9,6 +9,5 @@ module Mutest
     #
     # @return [Enumerable<Test>]
     abstract_method :call
-
   end # Selector
 end # Mutest

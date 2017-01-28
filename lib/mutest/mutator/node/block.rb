@@ -3,12 +3,11 @@ module Mutest
     class Node
       # Emitter for mutations on 19 blocks
       class Block < self
-
         handle(:block)
 
         children :send, :arguments, :body
 
-      private
+        private
 
         # Emit mutations
         #
@@ -46,7 +45,6 @@ module Mutest
 
           emit(s(:send, send, body_meta.selector, *body_meta.arguments))
         end
-
       end # Block
     end # Node
   end # Mutator

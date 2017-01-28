@@ -51,7 +51,6 @@ module Mutest
             @next_index += 1
           end
         end
-
       end # Array
     end # Source
   end # Parallel

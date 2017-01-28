@@ -24,6 +24,5 @@ module Mutest
     %i[fail_fast zombie].each do |name|
       define_method(:"#{name}?") { public_send(name) }
     end
-
   end # Config
 end # Mutest

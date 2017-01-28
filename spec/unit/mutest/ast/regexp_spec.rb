@@ -70,9 +70,7 @@ module RegexpSpec
 
         include_context 'regexp transformation'
 
-        unless regexp.encoding.name.eql?('ASCII-8BIT')
-          include_context 'regexp round trip'
-        end
+        include_context 'regexp round trip' unless regexp.encoding.name.eql?('ASCII-8BIT')
       end
     end
   end

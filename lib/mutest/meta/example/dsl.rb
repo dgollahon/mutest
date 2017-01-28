@@ -42,7 +42,7 @@ module Mutest
           )
         end
 
-      private
+        private
 
         # Set original source
         #
@@ -101,7 +101,6 @@ module Mutest
             fail "Cannot coerce to node: #{input.inspect}"
           end
         end
-
       end # DSL
     end # Example
   end # Meta

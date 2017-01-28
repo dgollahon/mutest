@@ -2,13 +2,11 @@ module Mutest
   class Mutator
     class Node
       module NamedValue
-
         # Mutation emitter to handle named value access nodes
         class Access < Node
-
           handle(:gvar, :cvar, :lvar, :self)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -33,7 +31,7 @@ module Mutest
               super()
             end
 
-          private
+            private
 
             # Emit instance variable as attribute send
             #
@@ -49,7 +47,6 @@ module Mutest
               name.slice(NAME_RANGE).to_sym
             end
           end # Ivar
-
         end # Access
       end # NamedValue
     end # Node

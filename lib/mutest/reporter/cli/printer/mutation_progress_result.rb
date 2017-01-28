@@ -14,7 +14,7 @@ module Mutest
             char(success? ? SUCCESS : FAILURE)
           end
 
-        private
+          private
 
           # Write colorized char
           #

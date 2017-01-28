@@ -13,7 +13,6 @@ module Mutest
     end
 
     NONE = Class.new(self) do
-
       # Format null color
       #
       # @param [String] text
@@ -29,13 +28,12 @@ module Mutest
       # Initialize null color
       #
       # @return [undefined]
-      def initialize; end
-
+      def initialize
+      end
     end.new
 
     RED   = Color.new(31)
     GREEN = Color.new(32)
     BLUE  = Color.new(34)
-
   end # Color
 end # Mutest

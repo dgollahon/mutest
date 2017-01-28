@@ -20,9 +20,8 @@ module Mutest
     #
     # :reek:TooManyConstants
     class Rspec < self
-
       ALL_EXPRESSION       = Expression::Namespace::Recursive.new(scope_name: nil)
-      EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/.freeze
+      EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/
       LOCATION_DELIMITER   = ':'.freeze
       EXIT_SUCCESS         = 0
       CLI_OPTIONS          = IceNine.deep_freeze(%w[spec --fail-fast])
@@ -78,7 +77,7 @@ module Mutest
       end
       memoize :all_tests
 
-    private
+      private
 
       # Index of available tests
       #
@@ -99,11 +98,12 @@ module Mutest
       def parse_example(example, index)
         metadata = example.metadata
 
-        id = TEST_ID_FORMAT % {
+        id = format(
+          TEST_ID_FORMAT,
           index:       index,
           location:    metadata.fetch(:location),
           description: metadata.fetch(:full_description)
-        }
+        )
 
         Test.new(
           expression: parse_expression(metadata),
@@ -144,7 +144,6 @@ module Mutest
           examples.keep_if(&predicate)
         end
       end
-
     end # Rspec
   end # Integration
 end # Mutest

@@ -73,7 +73,7 @@ module Mutest
     # @return [Enumerable<Expression>]
     abstract_method :match_expressions
 
-  private
+    private
 
     # Neutral mutation
     #
@@ -90,6 +90,5 @@ module Mutest
     def wrap_node(node)
       node
     end
-
   end # Subject
 end # Mutest

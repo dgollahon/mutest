@@ -23,7 +23,7 @@ module Mutest
         ).call(env)
       end
 
-    private
+      private
 
       # method matcher class
       #
@@ -62,7 +62,7 @@ module Mutest
       class Singleton < self
         MATCHER = Matcher::Method::Singleton
 
-      private
+        private
 
         # Method object on scope
         #
@@ -80,14 +80,13 @@ module Mutest
           scope.singleton_class
         end
         memoize :candidate_scope, freezer: :noop
-
       end # Singleton
 
       # Matcher for instance methods
       class Instance < self
         MATCHER = Matcher::Method::Instance
 
-      private
+        private
 
         # Method object on scope
         #
@@ -104,7 +103,6 @@ module Mutest
         def candidate_scope
           scope
         end
-
       end # Instance
     end # Methods
   end # Matcher

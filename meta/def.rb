@@ -64,7 +64,6 @@ Mutest::Meta::Example.add :def do
 
   # Failing body
   mutation 'def a; raise; end'
-
 end
 
 Mutest::Meta::Example.add :def do
@@ -84,7 +83,6 @@ Mutest::Meta::Example.add :def do
   mutation 'def foo; end'
 
   mutation 'def foo; raise; end'
-
 end
 
 Mutest::Meta::Example.add :def do
@@ -103,7 +101,6 @@ Mutest::Meta::Example.add :def do
 
   # Mutation of body
   mutation 'def foo(a, b); raise; end'
-
 end
 
 Mutest::Meta::Example.add :def do
@@ -192,7 +189,6 @@ Mutest::Meta::Example.add :def do
 end
 
 Mutest::Meta::Example.add :def do
-
   source 'def self.foo(a, b); end'
 
   # Deletion of each argument

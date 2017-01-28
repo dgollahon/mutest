@@ -83,7 +83,7 @@ module Mutest
               [:regexp_dot_meta,                 [:meta,     :dot,              '.'],            ::Regexp::Expression::CharacterType::Any]
             )
 
-          private
+            private
 
             # Transform ast into expression
             #

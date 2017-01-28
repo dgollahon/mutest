@@ -4,10 +4,9 @@ module Mutest
       class Literal < self
         # Mutator for float literals
         class Float < self
-
           handle(:float)
 
-        private
+          private
 
           # Emit mutations
           #
@@ -39,7 +38,6 @@ module Mutest
 
             [0.0, 1.0, -original]
           end
-
         end # Float
       end # Literal
     end # Node

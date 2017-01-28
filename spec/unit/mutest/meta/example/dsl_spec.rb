@@ -21,9 +21,10 @@ RSpec.describe Mutest::Meta::Example::DSL do
 
       specify do
         # Kill mutations to warnings
-        warnings = Mutest::WarningFilter.use do
-          should eql(expected_example)
-        end
+        warnings =
+          Mutest::WarningFilter.use do
+            should eql(expected_example)
+          end
         expect(warnings).to eql([])
       end
     end

@@ -19,7 +19,6 @@ module Mutest
       def delay
         reporters.map(&:delay).min
       end
-
     end # Sequence
   end # Reporter
 end # Mutest

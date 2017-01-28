@@ -29,7 +29,7 @@ module Mutest
         @index       = 0
       end
 
-    private
+      private
 
       # Run work loop
       #
@@ -64,10 +64,13 @@ module Mutest
       #
       # @return [undefined]
       def handle(message)
-        type, payload = message.type, message.payload
-        method = MAP.fetch(type) do
-          fail Actor::ProtocolError, "Unexpected message: #{type.inspect}"
-        end
+        type    = message.type
+        payload = message.payload
+
+        method =
+          MAP.fetch(type) do
+            fail Actor::ProtocolError, "Unexpected message: #{type.inspect}"
+          end
         __send__(method, payload)
       end
 
@@ -173,7 +176,6 @@ module Mutest
       def sink
         config.sink
       end
-
     end # Master
   end # Parallel
 end # Mutest

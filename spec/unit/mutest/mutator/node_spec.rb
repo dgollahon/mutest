@@ -5,9 +5,7 @@ Mutest::Meta::Example::ALL.each.group_by(&:node_type).each do |type, examples|
     it "generates the correct mutations on #{toplevel_nodes} toplevel examples" do
       examples.each do |example|
         verification = example.verification
-        unless verification.success?
-          fail verification.error_report
-        end
+        fail verification.error_report unless verification.success?
       end
     end
   end

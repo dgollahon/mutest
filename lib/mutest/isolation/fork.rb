@@ -33,9 +33,10 @@ module Mutest
       #
       # @return [undefined]
       def parent(reader, writer, &block)
-        pid = process.fork do
-          child(reader, writer, &block)
-        end
+        pid =
+          process.fork do
+            child(reader, writer, &block)
+          end
 
         writer.close
         marshal.load(reader)
@@ -66,7 +67,6 @@ module Mutest
           yield
         end
       end
-
     end # Fork
   end # Isolation
 end # Mutest

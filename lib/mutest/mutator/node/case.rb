@@ -1,15 +1,13 @@
 module Mutest
   class Mutator
     class Node
-
       # Mutator for case nodes
       class Case < self
-
         handle(:case)
 
         children :condition
 
-      private
+        private
 
         # Emit mutations
         #
@@ -43,7 +41,6 @@ module Mutest
           mutate_child(else_index)
           emit_child_update(else_index, nil)
         end
-
       end # Case
     end # Node
   end # Mutator

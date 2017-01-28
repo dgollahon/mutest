@@ -8,7 +8,6 @@ module Mutest
 
           # Mapper from `Regexp::Expression` to `Parser::AST::Node`
           class ExpressionToAST < Transformer::ExpressionToAST
-
             # Transform options group into node
             #
             # @return [Parser::AST::Node]
@@ -23,7 +22,7 @@ module Mutest
 
             children :options
 
-          private
+            private
 
             # Covnert node into expression
             #

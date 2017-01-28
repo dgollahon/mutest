@@ -1,11 +1,10 @@
 module Mutest
-
   # Abstract base class for match expression
   class Expression
     include AbstractType, Adamantium::Flat
 
-    fragment             = /[A-Za-z][A-Za-z\d_]*/.freeze
-    SCOPE_NAME_PATTERN   = /(?<scope_name>#{fragment}(?:#{SCOPE_OPERATOR}#{fragment})*)/.freeze
+    fragment             = /[A-Za-z][A-Za-z\d_]*/
+    SCOPE_NAME_PATTERN   = /(?<scope_name>#{fragment}(?:#{SCOPE_OPERATOR}#{fragment})*)/
     SCOPE_SYMBOL_PATTERN = '(?<scope_symbol>[.#])'.freeze
 
     private_constant(*constants(false))
@@ -52,6 +51,5 @@ module Mutest
       names = anima.attribute_names
       new(Hash[names.zip(names.map(&match.method(:[])))])
     end
-
   end # Expression
 end # Mutest

@@ -1,6 +1,5 @@
 module Mutest
   class Reporter
-
     # Null reporter
     class Null < self
       include Equalizer.new
@@ -10,7 +9,6 @@ module Mutest
           self
         end
       end
-
     end # Null
   end # Reporter
 end # Mutest

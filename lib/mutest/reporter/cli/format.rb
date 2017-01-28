@@ -3,7 +3,6 @@ module Mutest
     class CLI
       # CLI output format
       #
-      # rubocop:disable FormatString
       class Format
         include AbstractType, Anima.new(:tty)
 
@@ -45,7 +44,7 @@ module Mutest
           end
         end # Output
 
-      private
+        private
 
         # Format object with printer
         #
@@ -62,7 +61,6 @@ module Mutest
 
         # Format for progressive non rewindable output
         class Progressive < self
-
           REPORT_FREQUENCY = 1.0
           REPORT_DELAY     = 1 / REPORT_FREQUENCY
 
@@ -80,7 +78,7 @@ module Mutest
             format(Printer::StatusProgressive, status)
           end
 
-        private
+          private
 
           # New buffer
           #
@@ -88,7 +86,6 @@ module Mutest
           def new_buffer
             StringIO.new
           end
-
         end # Progressive
 
         # Format for framed rewindable output
@@ -118,7 +115,7 @@ module Mutest
             format(Printer::Status, status)
           end
 
-        private
+          private
 
           # New buffer
           #
@@ -131,7 +128,6 @@ module Mutest
             buffer = StringIO.new
             buffer << tput.restore
           end
-
         end # Framed
       end # Format
     end # CLI

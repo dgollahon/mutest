@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Node meta information mixin
     module Meta
-
       # Metadata for send nodes
       class Send
         include NamedChildren, Concord.new(:node), NodePredicates
@@ -40,7 +39,7 @@ module Mutest
         # @return [Boolean]
         def attribute_assignment?
           !Types::METHOD_OPERATORS.include?(selector) &&
-          selector.to_s.end_with?(ATTRIBUTE_ASSIGNMENT_SELECTOR_SUFFIX)
+            selector.to_s.end_with?(ATTRIBUTE_ASSIGNMENT_SELECTOR_SUFFIX)
         end
 
         # Test if AST node is an index assign
@@ -66,7 +65,7 @@ module Mutest
           Const.new(receiver).possible_top_level?
         end
 
-      private
+        private
 
         # Test if node is `proc { ... }`
         #
@@ -84,7 +83,6 @@ module Mutest
             n_const?(receiver)    &&
             Const.new(receiver).name.equal?(:Proc)
         end
-
       end # Send
     end # Meta
   end # AST

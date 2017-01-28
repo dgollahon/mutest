@@ -18,5 +18,4 @@ RSpec.describe Mutest::AST::Meta::Optarg do
       it { should be false }
     end
   end
-
 end

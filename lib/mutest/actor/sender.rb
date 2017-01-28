@@ -1,6 +1,5 @@
 module Mutest
   module Actor
-
     # Sender for messages to acting thread
     class Sender
       include Adamantium::Flat, Concord.new(:condition_variable, :mutex, :messages)
@@ -18,7 +17,6 @@ module Mutest
 
         self
       end
-
     end # Sender
   end # Actor
 end # Mutest

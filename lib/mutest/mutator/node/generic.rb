@@ -1,10 +1,8 @@
 module Mutest
   class Mutator
     class Node
-
       # Generic mutator
       class Generic < self
-
         unsupported_nodes = %i[
           ensure
           redo
@@ -60,7 +58,7 @@ module Mutest
         # your contribution is that close!
         handle(*(unsupported_nodes + unsupported_regexp_nodes))
 
-      private
+        private
 
         # Emit mutations
         #
@@ -70,7 +68,6 @@ module Mutest
             mutate_child(index) if child.instance_of?(::Parser::AST::Node)
           end
         end
-
       end # Generic
     end # Node
   end # Mutator

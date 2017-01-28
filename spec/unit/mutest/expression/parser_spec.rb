@@ -43,14 +43,14 @@ RSpec.describe Mutest::Expression::Parser do
       let(:test_a) do
         Class.new(Mutest::Expression) do
           include Anima.new
-          const_set(:REGEXP, /\Atest-syntax\z/.freeze)
+          const_set(:REGEXP, /\Atest-syntax\z/)
         end
       end
 
       let(:test_b) do
         Class.new(Mutest::Expression) do
           include Anima.new
-          const_set(:REGEXP, /^test-syntax$/.freeze)
+          const_set(:REGEXP, /^test-syntax$/)
         end
       end
 

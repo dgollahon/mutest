@@ -5,7 +5,7 @@ module Mutest
       class Literal < self
         include AbstractType
 
-      private
+        private
 
         # Emit values
         #
