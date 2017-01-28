@@ -38,6 +38,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('concord',       '~> 0.1.5')
   gem.add_runtime_dependency('regexp_parser', '~> 0.4.1')
 
+  gem.add_development_dependency('rubocop-rspec', '~> 1.10.0')
   gem.add_development_dependency('devtools', '~> 0.1.16')
   gem.add_development_dependency('bundler',  '~> 1.10')
   gem.add_development_dependency('ffi',      '~> 1.9.6')
