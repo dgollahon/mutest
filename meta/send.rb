@@ -810,3 +810,17 @@ Mutest::Meta::Example.add :send do
   mutation 'a.grep_v(self)'
   mutation 'a.grep(b)'
 end
+
+Mutest::Meta::Example.add :send do
+  source 'select'
+
+  singleton_mutations
+  mutation 'reject'
+end
+
+Mutest::Meta::Example.add :send do
+  source 'reject'
+
+  singleton_mutations
+  mutation 'select'
+end
