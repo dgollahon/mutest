@@ -12,7 +12,7 @@ RSpec.describe Mutest::Parallel::Source::Array do
 
     context 'when there is a next job' do
       it 'returns that job' do
-        should be(job_a)
+        is_expected.to be(job_a)
       end
 
       it 'does not return the same job twice' do
@@ -35,13 +35,13 @@ RSpec.describe Mutest::Parallel::Source::Array do
     subject { object.next? }
 
     context 'when there is a next job' do
-      it { should be(true) }
+      it { is_expected.to be(true) }
     end
 
     context 'when there is no next job' do
       let(:jobs) { [] }
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
   end
 end

@@ -1,5 +1,7 @@
 RSpec.describe Mutest::Selector::Expression do
   describe '#call' do
+    subject { object.call(mutation_subject) }
+
     let(:object) { described_class.new(integration) }
 
     let(:subject_class) do
@@ -24,36 +26,34 @@ RSpec.describe Mutest::Selector::Expression do
     let(:test_b)           { instance_double(Mutest::Test, expression: parse_expression('SubjectB')) }
     let(:test_c)           { instance_double(Mutest::Test, expression: parse_expression('SubjectC')) }
 
-    subject { object.call(mutation_subject) }
-
     context 'without available tests' do
       let(:all_tests) { [] }
 
-      it { should eql([]) }
+      it { is_expected.to eql([]) }
     end
 
     context 'without qualifying tests' do
       let(:all_tests) { [test_c] }
 
-      it { should eql([]) }
+      it { is_expected.to eql([]) }
     end
 
     context 'with qualifying tests for first match expression' do
       let(:all_tests) { [test_a] }
 
-      it { should eql([test_a]) }
+      it { is_expected.to eql([test_a]) }
     end
 
     context 'with qualifying tests for second match expression' do
       let(:all_tests) { [test_b] }
 
-      it { should eql([test_b]) }
+      it { is_expected.to eql([test_b]) }
     end
 
     context 'with qualifying tests for the first and second match expression' do
       let(:all_tests) { [test_a, test_b] }
 
-      it { should eql([test_a]) }
+      it { is_expected.to eql([test_a]) }
     end
   end
 end

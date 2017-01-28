@@ -6,7 +6,7 @@
 #
 # Until mutest gets boot time mutation support there is no
 # way to to avoid this.
-RSpec.describe 'Mutest::Result::ClassMethods' do
+RSpec.describe 'Mutest::Result::ClassMethods' do # rubocop:disable RSpec/DescribeClass
   let(:infected_class) do
     Class.new do
       include Adamantium::Flat, Concord::Public.new(:collection)
@@ -17,13 +17,13 @@ RSpec.describe 'Mutest::Result::ClassMethods' do
   end
 
   describe '#sum' do
+    subject { apply }
+
     let(:object) { infected_class.new(collection) }
 
     def apply
       object.length
     end
-
-    subject { apply }
 
     before do
       # memoization behavior
@@ -37,13 +37,13 @@ RSpec.describe 'Mutest::Result::ClassMethods' do
     context 'empty collection' do
       let(:collection) { [] }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
 
     context 'non-emtpy collection' do
       let(:collection) { [[1], [2, 3]] }
 
-      it { should be(3) }
+      it { is_expected.to be(3) }
     end
   end
 end

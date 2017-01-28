@@ -24,7 +24,7 @@ RSpec.describe Mutest::CLI do
     let(:env)       { instance_double(Mutest::Env)                                   }
 
     before do
-      expect(Mutest::CLI).to receive(:call).with(arguments).and_return(config)
+      expect(described_class).to receive(:call).with(arguments).and_return(config)
       expect(Mutest::Env::Bootstrap).to receive(:call).with(config).and_return(env)
       expect(Mutest::Runner).to receive(:call).with(env).and_return(report)
     end
@@ -61,9 +61,9 @@ RSpec.describe Mutest::CLI do
   end
 
   describe '.new' do
-    let(:object) { described_class }
-
     subject { object.new(arguments) }
+
+    let(:object) { described_class }
 
     # Defaults
     let(:expected_integration)    { Mutest::Integration::Null        }
@@ -180,7 +180,7 @@ Options:
       it_should_behave_like 'a cli parser'
 
       it 'configures expected coverage' do
-        expect(subject.config.jobs).to eql(0)
+        expect(subject.config.jobs).to be(0)
       end
     end
 

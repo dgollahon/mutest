@@ -1,5 +1,7 @@
 describe Mutest::Repository::Diff do
   describe '#touches?' do
+    subject { object.touches?(path, line_range) }
+
     let(:object) do
       described_class.new(
         config: config,
@@ -24,8 +26,6 @@ describe Mutest::Repository::Diff do
     let(:path)       { Pathname.new('/foo/bar.rb')      }
     let(:line_range) { 1..2                             }
 
-    subject { object.touches?(path, line_range) }
-
     shared_context 'test if git tracks the file' do
       before do
         expect(config.kernel).to receive(:system)
@@ -42,10 +42,10 @@ describe Mutest::Repository::Diff do
       let(:path) { Pathname.new('/baz/bar.rb') }
 
       before do
-        expect(config.kernel).to_not receive(:system)
+        expect(config.kernel).not_to receive(:system)
       end
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
 
     context 'when file is NOT tracked in repository' do
@@ -53,7 +53,7 @@ describe Mutest::Repository::Diff do
 
       include_context 'test if git tracks the file'
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
 
     context 'when file is tracked in repository' do
@@ -92,13 +92,13 @@ describe Mutest::Repository::Diff do
         context 'on empty stdout' do
           let(:stdout_empty?) { true }
 
-          it { should be(false) }
+          it { is_expected.to be(false) }
         end
 
         context 'on non empty stdout' do
           let(:stdout_empty?) { false }
 
-          it { should be(true) }
+          it { is_expected.to be(true) }
         end
       end
     end

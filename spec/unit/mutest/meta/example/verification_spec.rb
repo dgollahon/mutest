@@ -23,26 +23,26 @@ RSpec.describe Mutest::Meta::Example::Verification do
     subject { object.success? }
 
     context 'when generated nodes equal expected nodes' do
-      it { should be(true) }
+      it { is_expected.to be(true) }
     end
 
     context 'when expected node is missing' do
       let(:expected_nodes) { [s(:false)] }
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
 
     context 'when there is extra generated node' do
       let(:generated_nodes) { [s(:false)] }
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
 
     context 'when there is no diff to original source' do
       let(:expected_nodes)  { [s(:true)] }
       let(:generated_nodes) { [s(:true)] }
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
   end
 
@@ -62,7 +62,7 @@ RSpec.describe Mutest::Meta::Example::Verification do
       let(:expected_nodes) { [s(:false), s(:nil)] }
 
       specify do
-        should eql(strip_indent(<<-'REPORT'))
+        is_expected.to eql(strip_indent(<<-'REPORT'))
           ---
           file: foo.rb
           original_ast: s(:true)
@@ -82,7 +82,7 @@ RSpec.describe Mutest::Meta::Example::Verification do
       let(:generated_nodes) { [s(:false), s(:nil)] }
 
       specify do
-        should eql(strip_indent(<<-'REPORT'))
+        is_expected.to eql(strip_indent(<<-'REPORT'))
           ---
           file: foo.rb
           original_ast: s(:true)
@@ -103,7 +103,7 @@ RSpec.describe Mutest::Meta::Example::Verification do
       let(:generated_nodes) { [s(:true)] }
 
       specify do
-        should eql(strip_indent(<<-'REPORT'))
+        is_expected.to eql(strip_indent(<<-'REPORT'))
           ---
           file: foo.rb
           original_ast: s(:true)

@@ -5,7 +5,7 @@ RSpec.describe Mutest::Expression::Namespace::Exact do
   describe '#matcher' do
     subject { object.matcher }
 
-    it { should eql(Mutest::Matcher::Scope.new(TestApp::Literal)) }
+    it { is_expected.to eql(Mutest::Matcher::Scope.new(TestApp::Literal)) }
   end
 
   describe '#match_length' do
@@ -14,13 +14,13 @@ RSpec.describe Mutest::Expression::Namespace::Exact do
     context 'when other is an equivalent expression' do
       let(:other) { parse_expression(object.syntax) }
 
-      it { should be(object.syntax.length) }
+      it { is_expected.to be(object.syntax.length) }
     end
 
     context 'when other is an unequivalent expression' do
       let(:other) { parse_expression('Foo*') }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
   end
 end

@@ -1,5 +1,7 @@
 RSpec.describe Mutest::Runner do
   describe '.call' do
+    subject { described_class.call(env) }
+
     let(:reporter)    { instance_double(Mutest::Reporter, delay: delay) }
     let(:driver)      { instance_double(Mutest::Parallel::Driver)       }
     let(:delay)       { instance_double(Float)                          }
@@ -29,6 +31,8 @@ RSpec.describe Mutest::Runner do
     before do
       allow(env).to receive(:method).with(:kill).and_return(parallel_config.processor)
       allow(kernel).to receive(:method).with(:sleep).and_return(sleep)
+      expect(reporter).to receive(:start).with(env).ordered
+      expect(Mutest::Parallel).to receive(:async).with(parallel_config).and_return(driver).ordered
     end
 
     let(:parallel_config) do
@@ -40,13 +44,6 @@ RSpec.describe Mutest::Runner do
         source:    Mutest::Parallel::Source::Array.new(env.mutations)
       )
     end
-
-    before do
-      expect(reporter).to receive(:start).with(env).ordered
-      expect(Mutest::Parallel).to receive(:async).with(parallel_config).and_return(driver).ordered
-    end
-
-    subject { described_class.call(env) }
 
     context 'when report iterations are done' do
       let(:status_a) { instance_double(Mutest::Parallel::Status, done: false)                     }
@@ -65,7 +62,7 @@ RSpec.describe Mutest::Runner do
       end
 
       it 'returns env result' do
-        should be(env_result)
+        is_expected.to be(env_result)
       end
     end
   end

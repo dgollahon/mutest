@@ -7,13 +7,13 @@ RSpec.describe Mutest::Diff do
     let(:old_string) { "foo\nbar" }
     let(:new_string) { "bar\nbaz" }
 
-    it { should eql(Mutest::Diff.new(%w[foo bar], %w[bar baz])) }
+    it { is_expected.to eql(described_class.new(%w[foo bar], %w[bar baz])) }
   end
 
   describe '#colorized_diff' do
-    let(:object) { described_class.new(old, new) }
-
     subject { object.colorized_diff }
+
+    let(:object) { described_class.new(old, new) }
 
     context 'when there is a diff at begin of hunk' do
       let(:old) { %w[foo bar] }
@@ -28,7 +28,7 @@ RSpec.describe Mutest::Diff do
         ].join
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -37,16 +37,16 @@ RSpec.describe Mutest::Diff do
       let(:old) { '' }
       let(:new) { '' }
 
-      it { should be(nil) }
+      it { is_expected.to be(nil) }
 
       it_should_behave_like 'an idempotent method'
     end
   end
 
   describe '#diff' do
-    let(:object) { described_class.new(old, new) }
-
     subject { object.diff }
+
+    let(:object) { described_class.new(old, new) }
 
     context 'when there is a diff at begin and end' do
       let(:old) { %w[foo bar foo] }
@@ -63,7 +63,7 @@ RSpec.describe Mutest::Diff do
         STR
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -81,7 +81,7 @@ RSpec.describe Mutest::Diff do
         STR
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -99,7 +99,7 @@ RSpec.describe Mutest::Diff do
         STR
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -122,7 +122,7 @@ RSpec.describe Mutest::Diff do
         STR
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -145,7 +145,7 @@ RSpec.describe Mutest::Diff do
         STR
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -168,7 +168,7 @@ RSpec.describe Mutest::Diff do
         STR
       end
 
-      it { should eql(expectation) }
+      it { is_expected.to eql(expectation) }
 
       it_should_behave_like 'an idempotent method'
     end
@@ -177,7 +177,7 @@ RSpec.describe Mutest::Diff do
       let(:old) { '' }
       let(:new) { '' }
 
-      it { should be(nil) }
+      it { is_expected.to be(nil) }
 
       it_should_behave_like 'an idempotent method'
     end

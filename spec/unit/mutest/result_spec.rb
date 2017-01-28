@@ -25,7 +25,7 @@ RSpec.describe Mutest::Result do
     subject { object.overhead }
 
     it 'returns difference between runtime and killtime' do
-      should eql(2.0)
+      is_expected.to be(2.0)
     end
   end
 end

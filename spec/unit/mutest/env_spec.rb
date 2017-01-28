@@ -1,5 +1,7 @@
 RSpec.describe Mutest::Env do
   context '#kill' do
+    subject { object.kill(mutation) }
+
     let(:object) do
       described_class.new(
         actor_env:        Mutest::Actor::Env.new(Thread),
@@ -37,11 +39,9 @@ RSpec.describe Mutest::Env do
       )
     end
 
-    subject { object.kill(mutation) }
-
     shared_examples_for 'mutation kill' do
       specify do
-        should eql(
+        is_expected.to eql(
           Mutest::Result::Mutation.new(
             mutation:    mutation,
             test_result: test_result

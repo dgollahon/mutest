@@ -130,7 +130,7 @@ RSpec.describe Mutest::Integration::Rspec do
   describe '#all_tests' do
     subject { object.all_tests }
 
-    it { should eql(all_tests) }
+    it { is_expected.to eql(all_tests) }
   end
 
   describe '#setup' do
@@ -143,7 +143,7 @@ RSpec.describe Mutest::Integration::Rspec do
       end
     end
 
-    it { should be(object) }
+    it { is_expected.to be(object) }
   end
 
   describe '#call' do
@@ -155,21 +155,19 @@ RSpec.describe Mutest::Integration::Rspec do
       end
 
       object.setup
-    end
 
-    let(:tests) { [all_tests.fetch(0)] }
-
-    before do
       expect(world).to receive(:ordered_example_groups) do
         filtered_examples.values.flatten
       end
       expect(rspec_runner).to receive(:run_specs).with([example_a]).and_return(exit_status)
     end
 
+    let(:tests) { [all_tests.fetch(0)] }
+
     context 'on unsuccessful exit' do
       let(:exit_status) { 1 }
 
-      it 'should return failed result' do
+      it 'returns failed result' do
         expect(subject).to eql(
           Mutest::Result::Test.new(
             output:  'the-test-output',
@@ -184,7 +182,7 @@ RSpec.describe Mutest::Integration::Rspec do
     context 'on successful exit' do
       let(:exit_status) { 0 }
 
-      it 'should return passed result' do
+      it 'returns passed result' do
         expect(subject).to eql(
           Mutest::Result::Test.new(
             output:  'the-test-output',

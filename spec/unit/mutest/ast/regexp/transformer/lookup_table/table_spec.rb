@@ -9,9 +9,9 @@ RSpec.describe Mutest::AST::Regexp::Transformer::LookupTable::Table do
     )
   end
 
-  its(:token) { should eql(Regexp::Token.new(:thing, :fake)) }
+  its(:token) { is_expected.to eql(Regexp::Token.new(:thing, :fake)) }
 
-  its(:regexp_class) { should be(expression_class) }
+  its(:regexp_class) { is_expected.to be(expression_class) }
 
   it 'exposes list of types' do
     expect(table.types).to eql([:regexp_fake_thing])

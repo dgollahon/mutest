@@ -12,7 +12,7 @@ RSpec.describe Mutest::Mutator do
       end
     end
 
-    it 'should register mutator' do
+    it 'registers mutator' do
       expect(subject.mutate(s(:send), s(:parent))).to eql([s(:parent)].to_set)
     end
   end

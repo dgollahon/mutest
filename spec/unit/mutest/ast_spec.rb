@@ -16,7 +16,7 @@ RSpec.describe Mutest::AST do
     context 'when no node matches' do
       let(:block) { ->(_) { false } }
 
-      it { should eql([]) }
+      it { is_expected.to eql([]) }
     end
 
     context 'when called without block' do

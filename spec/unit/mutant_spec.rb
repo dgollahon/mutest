@@ -10,6 +10,6 @@ RSpec.describe Mutest do
       expect(ENV).to receive(:key?).with('CI').and_return(value)
     end
 
-    it { should be(value) }
+    it { is_expected.to be(value) }
   end
 end

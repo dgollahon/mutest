@@ -2,24 +2,26 @@ RSpec.describe Mutest::Expression do
   let(:parser) { Mutest::Config::DEFAULT.expression_parser }
 
   describe '#prefix?' do
-    let(:object) { parser.call('Foo*') }
-
     subject { object.prefix?(other) }
+
+    let(:object) { parser.call('Foo*') }
 
     context 'when object is a prefix of other' do
       let(:other) { parser.call('Foo::Bar') }
 
-      it { should be(true) }
+      it { is_expected.to be(true) }
     end
 
     context 'when other is not a prefix of other' do
       let(:other) { parser.call('Bar') }
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
   end
 
   describe '.try_parse' do
+    subject { object.try_parse(input) }
+
     let(:object) do
       Class.new(described_class) do
         include Anima.new(:foo)
@@ -28,18 +30,16 @@ RSpec.describe Mutest::Expression do
       end
     end
 
-    subject { object.try_parse(input) }
-
     context 'on successful parse' do
       let(:input) { 'foo' }
 
-      it { should eql(object.new(foo: 'foo')) }
+      it { is_expected.to eql(object.new(foo: 'foo')) }
     end
 
     context 'on unsuccessful parse' do
       let(:input) { 'bar' }
 
-      it { should be(nil) }
+      it { is_expected.to be(nil) }
     end
   end
 end

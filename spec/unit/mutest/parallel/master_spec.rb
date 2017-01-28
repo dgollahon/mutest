@@ -20,7 +20,7 @@ RSpec.describe Mutest::Parallel::Master do
   end
 
   shared_examples_for 'master behavior' do
-    it { should eql(actor_env.mailbox(:master).sender) }
+    it { is_expected.to eql(actor_env.mailbox(:master).sender) }
 
     it 'has expected results in sink' do
       subject
@@ -154,7 +154,7 @@ RSpec.describe Mutest::Parallel::Master do
           message_sequence.add(:parent,   :stop)
         end
 
-        it { should eql(actor_env.mailbox(:master).sender) }
+        it { is_expected.to eql(actor_env.mailbox(:master).sender) }
 
         it 'consumes all messages' do
           expect { subject }.to change(&message_sequence.method(:consumed?)).from(false).to(true)

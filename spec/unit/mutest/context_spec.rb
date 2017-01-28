@@ -13,11 +13,11 @@ RSpec.describe Mutest::Context do
           s(:str, 'test'))
       end
 
-      it { should eql(expected) }
+      it { is_expected.to eql(expected) }
     end
 
     context 'with Class as scope' do
-      let(:scope) { Mutest::Context }
+      let(:scope) { described_class }
 
       let(:expected) do
         s(:class,
@@ -26,7 +26,7 @@ RSpec.describe Mutest::Context do
           s(:str, 'test'))
       end
 
-      it { should eql(expected) }
+      it { is_expected.to eql(expected) }
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe Mutest::Context do
   describe '#identification' do
     subject { object.identification }
 
-    it { should eql(scope.name) }
+    it { is_expected.to eql(scope.name) }
   end
 
   describe '#root' do
@@ -59,7 +59,7 @@ RSpec.describe Mutest::Context do
       Unparser.unparse(subject)
     end
 
-    it 'should create correct source' do
+    it 'creates correct source' do
       expect(generated_source).to eql(expected_source)
     end
   end
@@ -70,16 +70,16 @@ RSpec.describe Mutest::Context do
     context 'with top level constant name' do
       let(:scope) { TestApp }
 
-      it 'should return the unqualified name' do
-        should eql('TestApp')
+      it 'returns the unqualified name' do
+        is_expected.to eql('TestApp')
       end
 
       it_should_behave_like 'an idempotent method'
     end
 
     context 'with scoped constant name' do
-      it 'should return the unqualified name' do
-        should eql('Literal')
+      it 'returns the unqualified name' do
+        is_expected.to eql('Literal')
       end
 
       it_should_behave_like 'an idempotent method'
@@ -92,12 +92,12 @@ RSpec.describe Mutest::Context do
     context 'on toplevel scope' do
       let(:scope) { TestApp }
 
-      it { should eql([parse_expression('TestApp*')]) }
+      it { is_expected.to eql([parse_expression('TestApp*')]) }
     end
 
     context 'on nested scope' do
       specify do
-        should eql(
+        is_expected.to eql(
           [
             parse_expression('TestApp::Literal*'),
             parse_expression('TestApp*')

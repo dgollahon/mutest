@@ -21,12 +21,12 @@ RSpec.describe Mutest::Meta::Example do
   describe '#source' do
     subject { object.source }
 
-    it { should eql('true') }
+    it { is_expected.to eql('true') }
   end
 
   describe '#verification' do
     subject { object.verification }
 
-    it { should eql(Mutest::Meta::Example::Verification.new(object, mutations)) }
+    it { is_expected.to eql(Mutest::Meta::Example::Verification.new(object, mutations)) }
   end
 end

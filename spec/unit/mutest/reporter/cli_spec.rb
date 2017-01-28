@@ -70,31 +70,31 @@ RSpec.describe Mutest::Reporter::CLI do
       end
 
       context 'and tput is available' do
-        it { should eql(described_class.new(output, framed_format)) }
+        it { is_expected.to eql(described_class.new(output, framed_format)) }
       end
 
       context 'and tput is not available' do
         let(:tput) { nil }
 
-        it { should eql(described_class.new(output, progressive_format)) }
+        it { is_expected.to eql(described_class.new(output, progressive_format)) }
       end
     end
 
     context 'when on CI' do
       let(:ci?) { true }
-      it { should eql(described_class.new(output, progressive_format)) }
+      it { is_expected.to eql(described_class.new(output, progressive_format)) }
     end
 
     context 'when output is not a tty?' do
       let(:tty?) { false }
-      it { should eql(described_class.new(output, progressive_format)) }
+      it { is_expected.to eql(described_class.new(output, progressive_format)) }
     end
 
     context 'when output does not respond to #tty?' do
       let(:output) { instance_double(IO) }
       let(:tty?)   { false               }
 
-      it { should eql(described_class.new(output, progressive_format)) }
+      it { is_expected.to eql(described_class.new(output, progressive_format)) }
     end
   end
 
@@ -109,7 +109,7 @@ RSpec.describe Mutest::Reporter::CLI do
   describe '#delay' do
     subject { object.delay }
 
-    it { should eql(0.05) }
+    it { is_expected.to be(0.05) }
   end
 
   describe '#start' do

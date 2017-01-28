@@ -23,7 +23,7 @@ RSpec.describe Mutest::Reporter::Sequence do
 
   describe '#delay' do
     it 'returns the lowest value' do
-      expect(object.delay).to eql(1.0)
+      expect(object.delay).to be(1.0)
     end
   end
 end

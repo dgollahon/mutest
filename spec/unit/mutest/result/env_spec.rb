@@ -33,18 +33,18 @@ RSpec.describe Mutest::Result::Env do
     context 'when coverage matches expectation' do
       let(:killed) { 1 }
 
-      it { should be(true) }
+      it { is_expected.to be(true) }
     end
 
     context 'when coverage does not match expectation' do
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
   end
 
   describe '#failed_subject_results' do
     subject { object.failed_subject_results }
 
-    it { should eql([]) }
+    it { is_expected.to eql([]) }
   end
 
   describe '#coverage' do
@@ -53,30 +53,30 @@ RSpec.describe Mutest::Result::Env do
     context 'when there are no results' do
       let(:results) { 0 }
 
-      it { should eql(Rational(1)) }
+      it { is_expected.to eql(Rational(1)) }
     end
 
     context 'when there are no kills' do
-      it { should eql(Rational(0)) }
+      it { is_expected.to eql(Rational(0)) }
     end
 
     context 'when there are kills' do
       let(:killed)  { 1 }
       let(:results) { 2 }
 
-      it { should eql(Rational(1, 2)) }
+      it { is_expected.to eql(Rational(1, 2)) }
     end
   end
 
   describe '#amount_mutations' do
     subject { object.amount_mutations }
 
-    it { should eql(1) }
+    it { is_expected.to be(1) }
   end
 
   describe '#amount_subjects' do
     subject { object.amount_subjects }
 
-    it { should eql(1) }
+    it { is_expected.to be(1) }
   end
 end

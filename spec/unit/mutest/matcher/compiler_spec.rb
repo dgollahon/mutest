@@ -1,4 +1,6 @@
 RSpec.describe Mutest::Matcher::Compiler, '#call' do
+  subject { object.call(matcher_config.with(attributes)) }
+
   let(:object)         { described_class                  }
   let(:matcher_config) { Mutest::Matcher::Config::DEFAULT }
   let(:expression_a)   { parse_expression('Foo*')         }
@@ -16,14 +18,12 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
     Morpher.compile(s(:and, s(:negate, s(:or)), s(:and)))
   end
 
-  subject { object.call(matcher_config.with(attributes)) }
-
   context 'on empty config' do
     let(:attributes) { {} }
 
     let(:expected_positive_matcher) { Mutest::Matcher::Chain.new([]) }
 
-    it { should eql(expected_matcher) }
+    it { is_expected.to eql(expected_matcher) }
   end
 
   context 'on config with match expression' do
@@ -44,7 +44,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
     let(:subject_filter_predicates)    { []                                      }
 
     context 'and no other constraints' do
-      it { should eql(expected_matcher) }
+      it { is_expected.to eql(expected_matcher) }
     end
 
     context 'and ignore expressions' do
@@ -56,7 +56,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
         [Mutest::Matcher::Compiler::SubjectPrefix.new(expression_b)]
       end
 
-      it { should eql(expected_matcher) }
+      it { is_expected.to eql(expected_matcher) }
     end
 
     context 'and subject filters' do
@@ -70,7 +70,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
         [subject_filter]
       end
 
-      it { should eql(expected_matcher) }
+      it { is_expected.to eql(expected_matcher) }
     end
   end
 end

@@ -23,7 +23,7 @@ RSpec.describe Mutest::Meta::Example::DSL do
         # Kill mutations to warnings
         warnings =
           Mutest::WarningFilter.use do
-            should eql(expected_example)
+            is_expected.to eql(expected_example)
           end
         expect(warnings).to eql([])
       end

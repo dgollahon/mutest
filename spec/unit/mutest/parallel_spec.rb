@@ -11,6 +11,6 @@ RSpec.describe Mutest::Parallel do
       expect(described_class::Master).to receive(:call).with(config).and_return(master)
     end
 
-    it { should eql(described_class::Driver.new(mailbox.bind(master))) }
+    it { is_expected.to eql(described_class::Driver.new(mailbox.bind(master))) }
   end
 end

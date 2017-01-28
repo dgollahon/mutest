@@ -10,16 +10,16 @@ RSpec.describe Mutest::Actor::Mailbox do
   describe '.new' do
     subject { described_class.new }
 
-    its(:sender) { should eql(Mutest::Actor::Sender.new(condition_variable, mutex, [])) }
-    its(:receiver) { should eql(Mutest::Actor::Receiver.new(condition_variable, mutex, [])) }
+    its(:sender)   { is_expected.to eql(Mutest::Actor::Sender.new(condition_variable, mutex, []))   }
+    its(:receiver) { is_expected.to eql(Mutest::Actor::Receiver.new(condition_variable, mutex, [])) }
   end
 
   describe '#bind' do
+    subject { object.bind(other) }
+
     let(:object) { described_class.new                    }
     let(:other)  { instance_double(Mutest::Actor::Sender) }
 
-    subject { object.bind(other) }
-
-    it { should eql(Mutest::Actor::Binding.new(object, other)) }
+    it { is_expected.to eql(Mutest::Actor::Binding.new(object, other)) }
   end
 end

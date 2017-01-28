@@ -2,9 +2,9 @@ RSpec.describe Mutest::Parser do
   let(:object) { described_class.new }
 
   describe '#call' do
-    let(:path) { instance_double(Pathname) }
-
     subject { object.call(path) }
+
+    let(:path) { instance_double(Pathname) }
 
     before do
       expect(path).to receive(:read)
