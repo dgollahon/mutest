@@ -352,12 +352,6 @@ RSpec/MessageExpectation:
 RSpec/MessageSpies:
   EnforcedStyle: receive
 
-# Offense count: 2
-RSpec/MultipleDescribes:
-  Exclude:
-    - 'spec/unit/mutest/integration_spec.rb'
-    - 'spec/unit/mutest/subject/method/instance_spec.rb'
-
 # Offense count: 5
 RSpec/MultipleExpectations:
   Max: 3
@@ -398,5 +392,5 @@ RSpec/VerifiedDoubles:
     - 'spec/unit/mutest/reporter/cli/printer_spec.rb'
     - 'spec/unit/mutest/repository/subject_filter_spec.rb'
     - 'spec/unit/mutest/result/mutation_spec.rb'
-    - 'spec/unit/mutest/subject/method/instance_spec.rb'
+    - 'spec/unit/mutest/subject/method/instance/memoized_spec.rb'
     - 'spec/unit/mutest/subject_spec.rb'
