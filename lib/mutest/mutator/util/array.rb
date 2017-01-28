@@ -28,7 +28,7 @@ module Mutest
           # @return [undefined]
           def dispatch
             input.each_with_index do |element, index|
-              Mutator.mutate(element).each do |mutation|
+              mutate(element).each do |mutation|
                 dup = dup_input
                 dup[index] = mutation
                 emit(dup)

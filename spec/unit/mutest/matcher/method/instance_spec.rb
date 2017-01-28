@@ -17,6 +17,10 @@ RSpec.describe Mutest::Matcher::Method::Instance, '#call' do
     )
   end
 
+  let(:ignores) do
+    Mutest::Ignores.new([])
+  end
+
   def name
     node.children.fetch(0)
   end

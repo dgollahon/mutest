@@ -1,6 +1,9 @@
 RSpec.describe Mutest::Subject::Method::Instance::Memoized do
-  let(:object)  { described_class.new(context, node) }
-  let(:context) { double('Context')                  }
+  let(:object) { described_class.new(context, node) }
+
+  let(:context) do
+    double('Context', source_path: 'source_path', method: ->(_) {})
+  end
 
   let(:node) do
     s(:def, :foo, s(:args))
@@ -10,7 +13,11 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
     subject { object.prepare }
 
     let(:context) do
-      Mutest::Context.new(scope, double('Source Path'))
+      Mutest::Context.new(
+        scope,
+        double('Source Path'),
+        instance_double(Mutest::Ignores)
+      )
     end
 
     let(:scope) do
@@ -33,7 +40,7 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
     it_should_behave_like 'a command method'
   end
 
-  describe '#mutations', mutest_expression: 'Mutest::Subject#mutations' do
+  describe '#mutations', mutant_expression: 'Mutest::Subject#mutations' do
     subject { object.mutations }
 
     let(:expected) do

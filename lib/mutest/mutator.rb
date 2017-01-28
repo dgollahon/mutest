@@ -3,7 +3,10 @@ module Mutest
   class Mutator
     REGISTRY = Registry.new
 
-    include Adamantium::Flat, Concord.new(:input, :parent), AbstractType, Procto.call(:output)
+    include Adamantium::Flat,
+            Concord.new(:input, :filter, :parent),
+            AbstractType,
+            Procto.call(:output)
 
     # Lookup and invoke dedicated AST mutator
     #
@@ -11,8 +14,10 @@ module Mutest
     # @param parent [nil,Mutest::Mutator::Node]
     #
     # @return [Set<Parser::AST::Node>]
-    def self.mutate(node, parent = nil)
-      self::REGISTRY.lookup(node.type).call(node, parent)
+    #
+    # :reek:LongParameterList
+    def self.mutate(node, filter = ->(_) {}, parent = nil)
+      self::REGISTRY.lookup(node.type).call(node, filter, parent)
     end
 
     # Register node class handler
@@ -35,16 +40,21 @@ module Mutest
     # Initialize object
     #
     # @param [Object] input
+    # @param [#call] mutation filter
     # @param [Object] parent
     # @param [#call(node)] block
     #
     # @return [undefined]
-    def initialize(_input, _parent = nil)
+    def initialize(_input, _filter, _parent = nil)
       super
 
       @output = Set.new
 
-      dispatch
+      dispatch unless disabled?
+    end
+
+    def disabled?
+      filter.call(input)
     end
 
     # Test if generated object is not guarded from emitting
@@ -82,8 +92,8 @@ module Mutest
     # Mutate child nodes within source path
     #
     # @return [Set<Parser::AST::Node>]
-    def mutate(*args)
-      self.class.mutate(*args)
+    def mutate(node, parent = nil)
+      self.class.mutate(node, filter, parent)
     end
 
     # Run input with mutator
@@ -101,7 +111,7 @@ module Mutest
     def mutate_with(mutator, nodes, &block)
       block ||= method(:emit)
 
-      mutator.call(nodes).each(&block)
+      mutator.call(nodes, filter).each(&block)
     end
   end # Mutator
 end # Mutest

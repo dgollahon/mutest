@@ -2,10 +2,7 @@ RSpec.describe Mutest::Subject::Method::Instance do
   let(:object)  { described_class.new(context, node) }
 
   let(:context) do
-    Mutest::Context.new(
-      scope,
-      instance_double(Pathname)
-    )
+    Mutest::Context.new(scope, instance_double(Pathname), instance_double(Mutest::Ignores))
   end
 
   let(:node) do
@@ -49,7 +46,7 @@ RSpec.describe Mutest::Subject::Method::Instance do
     subject { object.prepare }
 
     let(:context) do
-      Mutest::Context.new(scope, instance_double(Pathname))
+      Mutest::Context.new(scope, instance_double(Pathname), instance_double(Mutest::Ignores))
     end
 
     it 'undefines method on scope' do

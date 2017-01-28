@@ -28,7 +28,7 @@ RSpec.describe Mutest::Mutator::Node do
     end
 
     def apply
-      klass.call(s(:and, s(:true), s(:true)))
+      klass.call(s(:and, s(:true), s(:true)), ->(_) {})
     end
 
     specify do
