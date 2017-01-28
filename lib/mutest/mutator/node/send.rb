@@ -37,6 +37,8 @@ module Mutest
           reverse_map:   %i[map each],
           reverse_merge: %i[merge],
           sample:        %i[first last],
+          grep:          %i[grep_v],
+          grep_v:        %i[grep],
           send:          %i[public_send __send__],
           shift:         %i[first],
           to_a:          %i[to_ary to_set],
