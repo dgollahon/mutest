@@ -48,6 +48,8 @@ module Mutest
           regexp_nonspace_type
           regexp_nonword_boundary_anchor
           regexp_nonword_type
+          regexp_possessive_zero_or_more
+          regexp_reluctant_zero_or_more
           regexp_root_expression
           regexp_space_type
           regexp_word_boundary_anchor
