@@ -625,7 +625,7 @@ Mutest::Meta::Example.add :send do
   mutation 'self[*bar]'
 end
 
-(Mutest::AST::Types::BINARY_METHOD_OPERATORS - %i[=~ <= >= < > == != eql?]).each do |operator|
+(Mutest::AST::Types::BINARY_METHOD_OPERATORS - %i[=~ <= >= < > == != eql? ===]).each do |operator|
   Mutest::Meta::Example.add :send do
     source "true #{operator} false"
 
@@ -770,4 +770,17 @@ Mutest::Meta::Example.add :send do
   mutation '//.match?(a)'
   mutation '//'
   mutation '/nomatch\A/.match(a)'
+end
+
+Mutest::Meta::Example.add :send do
+  source 'a === b'
+
+  singleton_mutations
+  mutation 'a'
+  mutation 'nil === b'
+  mutation 'self === b'
+  mutation 'b'
+  mutation 'a === nil'
+  mutation 'a === self'
+  mutation 'a.kind_of?(b)'
 end
