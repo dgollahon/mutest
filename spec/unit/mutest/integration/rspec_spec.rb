@@ -155,16 +155,14 @@ RSpec.describe Mutest::Integration::Rspec do
       end
 
       object.setup
-    end
 
-    let(:tests) { [all_tests.fetch(0)] }
-
-    before do
       expect(world).to receive(:ordered_example_groups) do
         filtered_examples.values.flatten
       end
       expect(rspec_runner).to receive(:run_specs).with([example_a]).and_return(exit_status)
     end
+
+    let(:tests) { [all_tests.fetch(0)] }
 
     context 'on unsuccessful exit' do
       let(:exit_status) { 1 }

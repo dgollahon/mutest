@@ -377,12 +377,6 @@ RSpec/NestedGroups:
     - 'spec/unit/mutest/repository/diff_spec.rb'
     - 'spec/unit/mutest/runner/sink_spec.rb'
 
-# Offense count: 4
-RSpec/ScatteredSetup:
-  Exclude:
-    - 'spec/unit/mutest/integration/rspec_spec.rb'
-    - 'spec/unit/mutest/runner_spec.rb'
-
 # Offense count: 18
 # Configuration parameters: IgnoreSymbolicNames.
 RSpec/VerifiedDoubles:

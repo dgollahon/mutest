@@ -31,6 +31,8 @@ RSpec.describe Mutest::Runner do
     before do
       allow(env).to receive(:method).with(:kill).and_return(parallel_config.processor)
       allow(kernel).to receive(:method).with(:sleep).and_return(sleep)
+      expect(reporter).to receive(:start).with(env).ordered
+      expect(Mutest::Parallel).to receive(:async).with(parallel_config).and_return(driver).ordered
     end
 
     let(:parallel_config) do
@@ -41,11 +43,6 @@ RSpec.describe Mutest::Runner do
         sink:      Mutest::Runner::Sink.new(env),
         source:    Mutest::Parallel::Source::Array.new(env.mutations)
       )
-    end
-
-    before do
-      expect(reporter).to receive(:start).with(env).ordered
-      expect(Mutest::Parallel).to receive(:async).with(parallel_config).and_return(driver).ordered
     end
 
     context 'when report iterations are done' do
