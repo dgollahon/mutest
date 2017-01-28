@@ -73,6 +73,9 @@ Mutest::Meta::Example.add :rescue do
 
   # Failing body
   mutation 'def a; raise; end'
+
+  # Superclass implementation
+  mutation 'def a; super; end'
 end
 
 Mutest::Meta::Example.add :rescue do
