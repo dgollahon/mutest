@@ -5,7 +5,7 @@
 # it.
 #
 # Until mutest gets boot time mutation support there is no
-# way to to avoid this.
+# way to avoid this.
 RSpec.describe 'Mutest::Result::ClassMethods' do # rubocop:disable RSpec/DescribeClass
   let(:infected_class) do
     Class.new do
