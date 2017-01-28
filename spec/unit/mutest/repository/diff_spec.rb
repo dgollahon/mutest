@@ -42,7 +42,7 @@ describe Mutest::Repository::Diff do
       let(:path) { Pathname.new('/baz/bar.rb') }
 
       before do
-        expect(config.kernel).to_not receive(:system)
+        expect(config.kernel).not_to receive(:system)
       end
 
       it { is_expected.to be(false) }

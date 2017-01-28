@@ -395,14 +395,6 @@ RSpec/NestedGroups:
     - 'spec/unit/mutest/repository/diff_spec.rb'
     - 'spec/unit/mutest/runner/sink_spec.rb'
 
-# Offense count: 2
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: not_to, to_not
-RSpec/NotToNot:
-  Exclude:
-    - 'spec/integration/mutest/isolation/fork_spec.rb'
-    - 'spec/unit/mutest/repository/diff_spec.rb'
-
 # Offense count: 4
 RSpec/ScatteredSetup:
   Exclude:
