@@ -19,6 +19,6 @@ RSpec.describe Mutest::Matcher::Chain, '#call' do
   end
 
   it 'returns concatenated matches' do
-    should eql([subject_a, subject_b])
+    is_expected.to eql([subject_a, subject_b])
   end
 end

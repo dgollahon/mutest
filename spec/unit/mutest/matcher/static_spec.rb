@@ -6,6 +6,6 @@ RSpec.describe Mutest::Matcher::Static, '#call' do
   subject { object.call(env) }
 
   it 'returns its predefined subjects' do
-    should be(subjects)
+    is_expected.to be(subjects)
   end
 end

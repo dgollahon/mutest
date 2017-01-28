@@ -16,7 +16,7 @@ RSpec.describe Mutest::Actor::Receiver do
         expect(messages).to receive(:shift).and_return(message).ordered
       end
 
-      it { should be(message) }
+      it { is_expected.to be(message) }
     end
 
     context 'when messages initially contains no message' do
@@ -32,7 +32,7 @@ RSpec.describe Mutest::Actor::Receiver do
       end
 
       it 'waits for message' do
-        should be(message)
+        is_expected.to be(message)
       end
     end
 

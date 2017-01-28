@@ -54,7 +54,7 @@ RSpec.describe Mutest::Result::Subject do
     }.each do |name, expected|
       context(name) do
         include_context(name)
-        it { should eql(expected) }
+        it { is_expected.to eql(expected) }
       end
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe Mutest::Result::Subject do
     }.each do |name, expected|
       context(name) do
         include_context(name)
-        it { should be(expected) }
+        it { is_expected.to be(expected) }
       end
     end
   end
@@ -86,7 +86,7 @@ RSpec.describe Mutest::Result::Subject do
     }.each do |name, expected|
       context(name) do
         include_context(name)
-        it { should be(expected) }
+        it { is_expected.to be(expected) }
       end
     end
   end
@@ -102,7 +102,7 @@ RSpec.describe Mutest::Result::Subject do
     }.each do |name, expected|
       context(name) do
         include_context(name)
-        it { should be(expected) }
+        it { is_expected.to be(expected) }
       end
     end
   end

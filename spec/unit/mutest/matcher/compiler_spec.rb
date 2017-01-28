@@ -23,7 +23,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
 
     let(:expected_positive_matcher) { Mutest::Matcher::Chain.new([]) }
 
-    it { should eql(expected_matcher) }
+    it { is_expected.to eql(expected_matcher) }
   end
 
   context 'on config with match expression' do
@@ -44,7 +44,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
     let(:subject_filter_predicates)    { []                                      }
 
     context 'and no other constraints' do
-      it { should eql(expected_matcher) }
+      it { is_expected.to eql(expected_matcher) }
     end
 
     context 'and ignore expressions' do
@@ -56,7 +56,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
         [Mutest::Matcher::Compiler::SubjectPrefix.new(expression_b)]
       end
 
-      it { should eql(expected_matcher) }
+      it { is_expected.to eql(expected_matcher) }
     end
 
     context 'and subject filters' do
@@ -70,7 +70,7 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
         [subject_filter]
       end
 
-      it { should eql(expected_matcher) }
+      it { is_expected.to eql(expected_matcher) }
     end
   end
 end

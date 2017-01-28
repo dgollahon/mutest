@@ -5,13 +5,13 @@ RSpec.describe Mutest::Expression::Namespace::Recursive do
   describe '#matcher' do
     subject { object.matcher }
 
-    it { should eql(Mutest::Matcher::Namespace.new(object)) }
+    it { is_expected.to eql(Mutest::Matcher::Namespace.new(object)) }
   end
 
   describe '#syntax' do
     subject { object.syntax }
 
-    it { should eql(input) }
+    it { is_expected.to eql(input) }
   end
 
   describe '#match_length' do
@@ -20,44 +20,44 @@ RSpec.describe Mutest::Expression::Namespace::Recursive do
     context 'when other is an equivalent expression' do
       let(:other) { parse_expression(object.syntax) }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
 
     context 'when other expression describes a shorter prefix' do
       let(:other) { parse_expression('TestApp') }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
 
     context 'when other expression describes adjacent namespace' do
       let(:other) { parse_expression('TestApp::LiteralFoo') }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
 
     context 'when other expression describes root namespace' do
       let(:other) { parse_expression('TestApp::Literal') }
 
-      it { should be(16) }
+      it { is_expected.to be(16) }
     end
 
     context 'when other expression describes a longer prefix' do
       context 'on constants' do
         let(:other) { parse_expression('TestApp::Literal::Deep') }
 
-        it { should be(input[0..-2].length) }
+        it { is_expected.to be(input[0..-2].length) }
       end
 
       context 'on singleton method' do
         let(:other) { parse_expression('TestApp::Literal.foo') }
 
-        it { should be(input[0..-2].length) }
+        it { is_expected.to be(input[0..-2].length) }
       end
 
       context 'on instance method' do
         let(:other) { parse_expression('TestApp::Literal#foo') }
 
-        it { should be(input[0..-2].length) }
+        it { is_expected.to be(input[0..-2].length) }
       end
     end
   end

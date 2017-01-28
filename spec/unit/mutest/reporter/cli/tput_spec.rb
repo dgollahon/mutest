@@ -25,14 +25,14 @@ RSpec.describe Mutest::Reporter::CLI::Tput do
     end
 
     context 'when all tput commands are supported' do
-      its(:prepare) { should eql('[reset][sc]') }
-      its(:restore) { should eql('[rc][ed]')    }
+      its(:prepare) { is_expected.to eql('[reset][sc]') }
+      its(:restore) { is_expected.to eql('[rc][ed]')    }
     end
 
     context 'when tput reset fails' do
       let(:tput_reset?) { false }
 
-      it { should be(nil) }
+      it { is_expected.to be(nil) }
     end
 
     context 'when ed fails' do
@@ -41,8 +41,8 @@ RSpec.describe Mutest::Reporter::CLI::Tput do
       before do
         expect_command('tput cd', '[cd]', tput_cd?)
       end
-      its(:prepare) { should eql('[reset][sc]') }
-      its(:restore) { should eql('[rc][cd]')    }
+      its(:prepare) { is_expected.to eql('[reset][sc]') }
+      its(:restore) { is_expected.to eql('[rc][cd]')    }
     end
   end
 end

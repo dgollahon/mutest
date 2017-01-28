@@ -21,7 +21,7 @@ RSpec.describe Mutest::Integration do
         .with('mutest/integration/null')
     end
 
-    it { should be(Mutest::Integration::Null) }
+    it { is_expected.to be(Mutest::Integration::Null) }
   end
 end
 
@@ -31,7 +31,7 @@ RSpec.describe Mutest::Integration::Null do
   describe '#all_tests' do
     subject { object.all_tests }
 
-    it { should eql([]) }
+    it { is_expected.to eql([]) }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -42,7 +42,7 @@ RSpec.describe Mutest::Integration::Null do
     subject { object.call(tests) }
 
     it 'returns test result' do
-      should eql(
+      is_expected.to eql(
         Mutest::Result::Test.new(
           output:  '',
           passed:  true,

@@ -18,7 +18,7 @@ RSpec.describe Mutest::Result::Mutation do
   describe '#runtime' do
     subject { object.runtime }
 
-    it { should eql(1.0) }
+    it { is_expected.to be(1.0) }
   end
 
   describe '#success?' do
@@ -32,6 +32,6 @@ RSpec.describe Mutest::Result::Mutation do
         .and_return(result)
     end
 
-    it { should be(result) }
+    it { is_expected.to be(result) }
   end
 end

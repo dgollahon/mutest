@@ -38,7 +38,7 @@ RSpec.describe Mutest::Env::Bootstrap do
   end
 
   shared_examples_for 'bootstrap call' do
-    it { should eql(expected_env) }
+    it { is_expected.to eql(expected_env) }
   end
 
   def expect_warning

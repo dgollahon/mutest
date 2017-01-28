@@ -4,11 +4,11 @@ RSpec.describe Mutest::AST::Regexp, '.supported?' do
   let(:expression) { described_class.parse(regexp) }
   let(:regexp)     { /foo/                         }
 
-  it { should be(true) }
+  it { is_expected.to be(true) }
 
   context 'conditional regular expressions' do
     let(:regexp) { /((?(1)(foo)(bar)))/ }
 
-    it { should be(false) }
+    it { is_expected.to be(false) }
   end
 end

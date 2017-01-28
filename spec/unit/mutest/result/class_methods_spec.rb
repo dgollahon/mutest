@@ -37,13 +37,13 @@ RSpec.describe 'Mutest::Result::ClassMethods' do # rubocop:disable RSpec/Describ
     context 'empty collection' do
       let(:collection) { [] }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
 
     context 'non-emtpy collection' do
       let(:collection) { [[1], [2, 3]] }
 
-      it { should be(3) }
+      it { is_expected.to be(3) }
     end
   end
 end

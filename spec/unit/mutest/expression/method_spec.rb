@@ -12,13 +12,13 @@ RSpec.describe Mutest::Expression::Method do
     context 'when other is an equivalent expression' do
       let(:other) { parse_expression(object.syntax) }
 
-      it { should be(object.syntax.length) }
+      it { is_expected.to be(object.syntax.length) }
     end
 
     context 'when other is an unequivalent expression' do
       let(:other) { parse_expression('Foo*') }
 
-      it { should be(0) }
+      it { is_expected.to be(0) }
     end
   end
 

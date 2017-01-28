@@ -18,7 +18,7 @@ RSpec.describe Mutest::Actor::Binding do
 
     context 'when return type equals request type' do
       let(:response_type) { type }
-      it { should be(payload) }
+      it { is_expected.to be(payload) }
     end
 
     context 'when return type NOT equals request type' do

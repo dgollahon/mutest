@@ -45,7 +45,7 @@ RSpec.describe Mutest::Parallel::Worker do
         subject
       end
 
-      it { should be(described_class) }
+      it { is_expected.to be(described_class) }
 
       it 'consumes all messages' do
         expect { subject }.to change(&message_sequence.method(:consumed?)).from(false).to(true)

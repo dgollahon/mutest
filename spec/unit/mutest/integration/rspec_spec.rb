@@ -130,7 +130,7 @@ RSpec.describe Mutest::Integration::Rspec do
   describe '#all_tests' do
     subject { object.all_tests }
 
-    it { should eql(all_tests) }
+    it { is_expected.to eql(all_tests) }
   end
 
   describe '#setup' do
@@ -143,7 +143,7 @@ RSpec.describe Mutest::Integration::Rspec do
       end
     end
 
-    it { should be(object) }
+    it { is_expected.to be(object) }
   end
 
   describe '#call' do

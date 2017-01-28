@@ -33,19 +33,19 @@ RSpec.describe Mutest::Subject do
   describe '#identification' do
     subject { object.identification }
 
-    it { should eql('SubjectA:source_path:1') }
+    it { is_expected.to eql('SubjectA:source_path:1') }
   end
 
   describe '#source_line' do
     subject { object.source_line }
 
-    it { should be(1) }
+    it { is_expected.to be(1) }
   end
 
   describe '#source_lines' do
     subject { object.source_lines }
 
-    it { should eql(1..2) }
+    it { is_expected.to eql(1..2) }
   end
 
   describe '#prepare' do
@@ -57,7 +57,7 @@ RSpec.describe Mutest::Subject do
   describe '#node' do
     subject { object.node }
 
-    it { should be(node) }
+    it { is_expected.to be(node) }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -73,7 +73,7 @@ RSpec.describe Mutest::Subject do
     let(:mutation_b) { instance_double(Parser::AST::Node, :mutation_b) }
 
     it 'generates neutral and evil mutations' do
-      should eql([
+      is_expected.to eql([
         Mutest::Mutation::Neutral.new(object, node),
         Mutest::Mutation::Evil.new(object, mutation_a),
         Mutest::Mutation::Evil.new(object, mutation_b)

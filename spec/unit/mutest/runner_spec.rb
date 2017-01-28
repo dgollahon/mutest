@@ -65,7 +65,7 @@ RSpec.describe Mutest::Runner do
       end
 
       it 'returns env result' do
-        should be(env_result)
+        is_expected.to be(env_result)
       end
     end
   end

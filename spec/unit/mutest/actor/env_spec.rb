@@ -19,7 +19,7 @@ RSpec.describe Mutest::Actor::Env do
     end
 
     it 'returns sender' do
-      should be(mailbox.sender)
+      is_expected.to be(mailbox.sender)
     end
 
     it 'yields actor' do

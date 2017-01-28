@@ -20,7 +20,7 @@ RSpec.describe Mutest::Subject::Method::Singleton do
   describe '#expression' do
     subject { object.expression }
 
-    it { should eql(parse_expression('Test.foo')) }
+    it { is_expected.to eql(parse_expression('Test.foo')) }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -28,7 +28,7 @@ RSpec.describe Mutest::Subject::Method::Singleton do
   describe '#match_expression' do
     subject { object.match_expressions }
 
-    it { should eql(%w[Test.foo Test*].map(&method(:parse_expression))) }
+    it { is_expected.to eql(%w[Test.foo Test*].map(&method(:parse_expression))) }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -46,6 +46,6 @@ RSpec.describe Mutest::Subject::Method::Singleton do
   describe '#source' do
     subject { object.source }
 
-    it { should eql("def self.foo\nend") }
+    it { is_expected.to eql("def self.foo\nend") }
   end
 end

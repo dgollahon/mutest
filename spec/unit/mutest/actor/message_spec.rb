@@ -8,15 +8,15 @@ RSpec.describe Mutest::Actor::Message do
     context 'with one argument' do
       let(:arguments) { [type] }
 
-      its(:type)    { should be(type) }
-      its(:payload) { should be(Mutest::Actor::Undefined) }
+      its(:type)    { is_expected.to be(type)                     }
+      its(:payload) { is_expected.to be(Mutest::Actor::Undefined) }
     end
 
     context 'with two arguments' do
       let(:arguments) { [type, payload] }
 
-      its(:type)    { should be(type)    }
-      its(:payload) { should be(payload) }
+      its(:type)    { is_expected.to be(type)    }
+      its(:payload) { is_expected.to be(payload) }
     end
   end
 end

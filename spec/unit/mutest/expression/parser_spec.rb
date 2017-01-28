@@ -18,7 +18,7 @@ RSpec.describe Mutest::Expression::Parser do
     context 'on a valid expression' do
       let(:input) { 'Foo' }
 
-      it { should eql(Mutest::Expression::Namespace::Exact.new(scope_name: 'Foo')) }
+      it { is_expected.to eql(Mutest::Expression::Namespace::Exact.new(scope_name: 'Foo')) }
     end
   end
 
@@ -28,13 +28,13 @@ RSpec.describe Mutest::Expression::Parser do
     context 'on nonsense' do
       let(:input) { 'foo bar' }
 
-      it { should be(nil) }
+      it { is_expected.to be(nil) }
     end
 
     context 'on a valid expression' do
       let(:input) { 'Foo' }
 
-      it { should eql(Mutest::Expression::Namespace::Exact.new(scope_name: 'Foo')) }
+      it { is_expected.to eql(Mutest::Expression::Namespace::Exact.new(scope_name: 'Foo')) }
     end
 
     context 'on ambiguous expression' do

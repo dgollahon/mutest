@@ -28,6 +28,6 @@ RSpec.describe Mutest::Matcher::Scope, '#call' do
   end
 
   it 'concatenates subjects from matched singleton and instance methods' do
-    should eql([subject_a, subject_b])
+    is_expected.to eql([subject_a, subject_b])
   end
 end

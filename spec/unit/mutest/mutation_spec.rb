@@ -53,7 +53,7 @@ RSpec.describe Mutest::Mutation do
   describe '#code' do
     subject { object.code }
 
-    it { should eql('8771a') }
+    it { is_expected.to eql('8771a') }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -61,7 +61,7 @@ RSpec.describe Mutest::Mutation do
   describe '#original_source' do
     subject { object.original_source }
 
-    it { should eql('original') }
+    it { is_expected.to eql('original') }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -69,7 +69,7 @@ RSpec.describe Mutest::Mutation do
   describe '#source' do
     subject { object.source }
 
-    it { should eql('nil') }
+    it { is_expected.to eql('nil') }
 
     it_should_behave_like 'an idempotent method'
   end
@@ -88,13 +88,13 @@ RSpec.describe Mutest::Mutation do
       context 'when Result::Test#passed equals expectation' do
         let(:passed) { true }
 
-        it { should be(true) }
+        it { is_expected.to be(true) }
       end
 
       context 'when Result::Test#passed NOT equals expectation' do
         let(:passed) { false }
 
-        it { should be(false) }
+        it { is_expected.to be(false) }
       end
     end
 
@@ -108,13 +108,13 @@ RSpec.describe Mutest::Mutation do
       context 'when Result::Test#passed equals expectation' do
         let(:passed) { true }
 
-        it { should be(false) }
+        it { is_expected.to be(false) }
       end
 
       context 'when Result::Test#passed NOT equals expectation' do
         let(:passed) { false }
 
-        it { should be(true) }
+        it { is_expected.to be(true) }
       end
     end
   end
@@ -122,7 +122,7 @@ RSpec.describe Mutest::Mutation do
   describe '#identification' do
     subject { object.identification }
 
-    it { should eql('test:subject:8771a') }
+    it { is_expected.to eql('test:subject:8771a') }
 
     it_should_behave_like 'an idempotent method'
   end

@@ -41,7 +41,7 @@ RSpec.describe Mutest::Env do
 
     shared_examples_for 'mutation kill' do
       specify do
-        should eql(
+        is_expected.to eql(
           Mutest::Result::Mutation.new(
             mutation:    mutation,
             test_result: test_result

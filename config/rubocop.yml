@@ -350,12 +350,6 @@ RSpec/FilePath:
     - 'spec/unit/mutest/matcher/scope_spec.rb'
     - 'spec/unit/mutest/matcher/static_spec.rb'
 
-# Offense count: 191
-# Configuration parameters: SupportedStyles.
-# SupportedStyles: is_expected, should
-RSpec/ImplicitExpect:
-  EnforcedStyle: should
-
 # Offense count: 5
 # Configuration parameters: AssignmentOnly.
 RSpec/InstanceVariable:

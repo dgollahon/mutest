@@ -13,7 +13,7 @@ RSpec.describe Mutest::Context do
           s(:str, 'test'))
       end
 
-      it { should eql(expected) }
+      it { is_expected.to eql(expected) }
     end
 
     context 'with Class as scope' do
@@ -26,7 +26,7 @@ RSpec.describe Mutest::Context do
           s(:str, 'test'))
       end
 
-      it { should eql(expected) }
+      it { is_expected.to eql(expected) }
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe Mutest::Context do
   describe '#identification' do
     subject { object.identification }
 
-    it { should eql(scope.name) }
+    it { is_expected.to eql(scope.name) }
   end
 
   describe '#root' do
@@ -71,7 +71,7 @@ RSpec.describe Mutest::Context do
       let(:scope) { TestApp }
 
       it 'should return the unqualified name' do
-        should eql('TestApp')
+        is_expected.to eql('TestApp')
       end
 
       it_should_behave_like 'an idempotent method'
@@ -79,7 +79,7 @@ RSpec.describe Mutest::Context do
 
     context 'with scoped constant name' do
       it 'should return the unqualified name' do
-        should eql('Literal')
+        is_expected.to eql('Literal')
       end
 
       it_should_behave_like 'an idempotent method'
@@ -92,12 +92,12 @@ RSpec.describe Mutest::Context do
     context 'on toplevel scope' do
       let(:scope) { TestApp }
 
-      it { should eql([parse_expression('TestApp*')]) }
+      it { is_expected.to eql([parse_expression('TestApp*')]) }
     end
 
     context 'on nested scope' do
       specify do
-        should eql(
+        is_expected.to eql(
           [
             parse_expression('TestApp::Literal*'),
             parse_expression('TestApp*')

@@ -13,12 +13,12 @@ RSpec.describe Mutest::Matcher::Compiler::SubjectPrefix, '#call' do
   context 'when subject expression is prefixed by expression' do
     let(:subject_expression) { 'Foo::Bar' }
 
-    it { should be(true) }
+    it { is_expected.to be(true) }
   end
 
   context 'when subject expression is NOT prefixed by expression' do
     let(:subject_expression) { 'Bar' }
 
-    it { should be(false) }
+    it { is_expected.to be(false) }
   end
 end

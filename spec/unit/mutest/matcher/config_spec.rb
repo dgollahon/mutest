@@ -5,12 +5,12 @@ RSpec.describe Mutest::Matcher::Config do
     context 'on default config' do
       let(:object) { described_class::DEFAULT }
 
-      it { should eql('#<Mutest::Matcher::Config empty>') }
+      it { is_expected.to eql('#<Mutest::Matcher::Config empty>') }
     end
 
     context 'with one expression' do
       let(:object) { described_class::DEFAULT.add(:match_expressions, parse_expression('Foo')) }
-      it { should eql('#<Mutest::Matcher::Config match_expressions: [Foo]>') }
+      it { is_expected.to eql('#<Mutest::Matcher::Config match_expressions: [Foo]>') }
     end
 
     context 'with many expressions' do
@@ -20,7 +20,7 @@ RSpec.describe Mutest::Matcher::Config do
           .add(:match_expressions, parse_expression('Bar'))
       end
 
-      it { should eql('#<Mutest::Matcher::Config match_expressions: [Foo,Bar]>') }
+      it { is_expected.to eql('#<Mutest::Matcher::Config match_expressions: [Foo,Bar]>') }
     end
 
     context 'with match and ignore expression' do
@@ -30,7 +30,7 @@ RSpec.describe Mutest::Matcher::Config do
           .add(:ignore_expressions, parse_expression('Bar'))
       end
 
-      it { should eql('#<Mutest::Matcher::Config ignore_expressions: [Bar] match_expressions: [Foo]>') }
+      it { is_expected.to eql('#<Mutest::Matcher::Config ignore_expressions: [Bar] match_expressions: [Foo]>') }
     end
 
     context 'with subject filter' do
@@ -39,7 +39,7 @@ RSpec.describe Mutest::Matcher::Config do
           .add(:subject_filters, 'foo')
       end
 
-      it { should eql('#<Mutest::Matcher::Config subject_filters: ["foo"]>') }
+      it { is_expected.to eql('#<Mutest::Matcher::Config subject_filters: ["foo"]>') }
     end
   end
 end

@@ -9,13 +9,13 @@ RSpec.describe Mutest::Expression do
     context 'when object is a prefix of other' do
       let(:other) { parser.call('Foo::Bar') }
 
-      it { should be(true) }
+      it { is_expected.to be(true) }
     end
 
     context 'when other is not a prefix of other' do
       let(:other) { parser.call('Bar') }
 
-      it { should be(false) }
+      it { is_expected.to be(false) }
     end
   end
 
@@ -33,13 +33,13 @@ RSpec.describe Mutest::Expression do
     context 'on successful parse' do
       let(:input) { 'foo' }
 
-      it { should eql(object.new(foo: 'foo')) }
+      it { is_expected.to eql(object.new(foo: 'foo')) }
     end
 
     context 'on unsuccessful parse' do
       let(:input) { 'bar' }
 
-      it { should be(nil) }
+      it { is_expected.to be(nil) }
     end
   end
 end
