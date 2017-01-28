@@ -1,4 +1,6 @@
 RSpec.describe Mutest::Matcher::Compiler::SubjectPrefix, '#call' do
+  subject { object.call(_subject) }
+
   let(:object)   { described_class.new(parse_expression('Foo*')) }
 
   let(:_subject) do
@@ -7,8 +9,6 @@ RSpec.describe Mutest::Matcher::Compiler::SubjectPrefix, '#call' do
       expression: parse_expression(subject_expression)
     )
   end
-
-  subject { object.call(_subject) }
 
   context 'when subject expression is prefixed by expression' do
     let(:subject_expression) { 'Foo::Bar' }

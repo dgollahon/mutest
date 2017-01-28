@@ -22,6 +22,8 @@ RSpec.describe Mutest::Isolation::Fork do
   let(:nullio)            { instance_double(IO, :nullio)                }
 
   describe '#call' do
+    subject { object.call(&isolated_block) }
+
     let(:object) do
       described_class.new(
         devnull: devnull,
@@ -32,8 +34,6 @@ RSpec.describe Mutest::Isolation::Fork do
         stdout:  stdout
       )
     end
-
-    subject { object.call(&isolated_block) }
 
     let(:prefork_expectations) do
       [

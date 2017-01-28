@@ -1,5 +1,7 @@
 describe Mutest::Repository::Diff do
   describe '#touches?' do
+    subject { object.touches?(path, line_range) }
+
     let(:object) do
       described_class.new(
         config: config,
@@ -23,8 +25,6 @@ describe Mutest::Repository::Diff do
     let(:pwd)        { Pathname.new('/foo')             }
     let(:path)       { Pathname.new('/foo/bar.rb')      }
     let(:line_range) { 1..2                             }
-
-    subject { object.touches?(path, line_range) }
 
     shared_context 'test if git tracks the file' do
       before do

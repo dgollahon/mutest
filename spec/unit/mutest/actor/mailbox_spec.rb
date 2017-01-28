@@ -15,10 +15,10 @@ RSpec.describe Mutest::Actor::Mailbox do
   end
 
   describe '#bind' do
+    subject { object.bind(other) }
+
     let(:object) { described_class.new                    }
     let(:other)  { instance_double(Mutest::Actor::Sender) }
-
-    subject { object.bind(other) }
 
     it { is_expected.to eql(Mutest::Actor::Binding.new(object, other)) }
   end

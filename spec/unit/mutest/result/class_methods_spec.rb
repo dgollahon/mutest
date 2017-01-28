@@ -17,13 +17,13 @@ RSpec.describe 'Mutest::Result::ClassMethods' do # rubocop:disable RSpec/Describ
   end
 
   describe '#sum' do
+    subject { apply }
+
     let(:object) { infected_class.new(collection) }
 
     def apply
       object.length
     end
-
-    subject { apply }
 
     before do
       # memoization behavior

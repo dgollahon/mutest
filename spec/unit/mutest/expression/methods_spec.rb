@@ -2,9 +2,9 @@ RSpec.describe Mutest::Expression::Methods do
   let(:object) { described_class.new(attributes) }
 
   describe '#match_length' do
-    let(:attributes) { { scope_name: 'TestApp::Literal', scope_symbol: '#' } }
-
     subject { object.match_length(other) }
+
+    let(:attributes) { { scope_name: 'TestApp::Literal', scope_symbol: '#' } }
 
     context 'when other is an equivalent expression' do
       let(:other) { parse_expression(object.syntax) }

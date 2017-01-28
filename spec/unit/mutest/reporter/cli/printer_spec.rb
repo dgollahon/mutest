@@ -1,7 +1,7 @@
 RSpec.describe Mutest::Reporter::CLI::Printer do
-  let(:output) { StringIO.new }
-
   subject { class_under_test.call(output, reportable) }
+
+  let(:output) { StringIO.new }
 
   def self.it_reports(expectation)
     it 'writes expected report' do

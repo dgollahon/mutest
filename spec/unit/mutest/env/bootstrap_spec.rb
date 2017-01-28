@@ -60,10 +60,10 @@ RSpec.describe Mutest::Env::Bootstrap do
   end
 
   describe '#warn' do
+    subject { object.warn(expected_warning) }
+
     let(:object)           { described_class.new(config) }
     let(:expected_warning) { instance_double(String)     }
-
-    subject { object.warn(expected_warning) }
 
     before { expect_warning }
 

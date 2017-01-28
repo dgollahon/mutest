@@ -11,9 +11,9 @@ RSpec.describe Mutest::Diff do
   end
 
   describe '#colorized_diff' do
-    let(:object) { described_class.new(old, new) }
-
     subject { object.colorized_diff }
+
+    let(:object) { described_class.new(old, new) }
 
     context 'when there is a diff at begin of hunk' do
       let(:old) { %w[foo bar] }
@@ -44,9 +44,9 @@ RSpec.describe Mutest::Diff do
   end
 
   describe '#diff' do
-    let(:object) { described_class.new(old, new) }
-
     subject { object.diff }
+
+    let(:object) { described_class.new(old, new) }
 
     context 'when there is a diff at begin and end' do
       let(:old) { %w[foo bar foo] }

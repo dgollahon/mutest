@@ -5,9 +5,9 @@ RSpec.describe Mutest::Expression::Method do
   let(:singleton_method) { 'TestApp::Literal.string' }
 
   describe '#match_length' do
-    let(:input) { instance_method }
-
     subject { object.match_length(other) }
+
+    let(:input) { instance_method }
 
     context 'when other is an equivalent expression' do
       let(:other) { parse_expression(object.syntax) }

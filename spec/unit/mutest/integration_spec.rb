@@ -37,9 +37,9 @@ RSpec.describe Mutest::Integration::Null do
   end
 
   describe '#call' do
-    let(:tests) { instance_double(Array) }
-
     subject { object.call(tests) }
+
+    let(:tests) { instance_double(Array) }
 
     it 'returns test result' do
       is_expected.to eql(

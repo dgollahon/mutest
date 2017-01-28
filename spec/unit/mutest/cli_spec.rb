@@ -61,9 +61,9 @@ RSpec.describe Mutest::CLI do
   end
 
   describe '.new' do
-    let(:object) { described_class }
-
     subject { object.new(arguments) }
+
+    let(:object) { described_class }
 
     # Defaults
     let(:expected_integration)    { Mutest::Integration::Null        }

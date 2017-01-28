@@ -2,9 +2,9 @@ RSpec.describe Mutest::Expression do
   let(:parser) { Mutest::Config::DEFAULT.expression_parser }
 
   describe '#prefix?' do
-    let(:object) { parser.call('Foo*') }
-
     subject { object.prefix?(other) }
+
+    let(:object) { parser.call('Foo*') }
 
     context 'when object is a prefix of other' do
       let(:other) { parser.call('Foo::Bar') }
@@ -20,6 +20,8 @@ RSpec.describe Mutest::Expression do
   end
 
   describe '.try_parse' do
+    subject { object.try_parse(input) }
+
     let(:object) do
       Class.new(described_class) do
         include Anima.new(:foo)
@@ -27,8 +29,6 @@ RSpec.describe Mutest::Expression do
         const_set(:REGEXP, /(?<foo>foo)/)
       end
     end
-
-    subject { object.try_parse(input) }
 
     context 'on successful parse' do
       let(:input) { 'foo' }

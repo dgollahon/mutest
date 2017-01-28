@@ -340,10 +340,6 @@ RSpec/InstanceVariable:
   Exclude:
     - 'spec/unit/mutest/parallel/master_spec.rb'
 
-# Offense count: 25
-RSpec/LeadingSubject:
-  Enabled: false
-
 # Offense count: 93
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: allow, expect

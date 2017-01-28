@@ -1,4 +1,6 @@
 RSpec.describe Mutest::Matcher::Compiler, '#call' do
+  subject { object.call(matcher_config.with(attributes)) }
+
   let(:object)         { described_class                  }
   let(:matcher_config) { Mutest::Matcher::Config::DEFAULT }
   let(:expression_a)   { parse_expression('Foo*')         }
@@ -15,8 +17,6 @@ RSpec.describe Mutest::Matcher::Compiler, '#call' do
   let(:expected_predicate) do
     Morpher.compile(s(:and, s(:negate, s(:or)), s(:and)))
   end
-
-  subject { object.call(matcher_config.with(attributes)) }
 
   context 'on empty config' do
     let(:attributes) { {} }

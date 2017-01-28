@@ -1,5 +1,7 @@
 RSpec.describe Mutest::Selector::Expression do
   describe '#call' do
+    subject { object.call(mutation_subject) }
+
     let(:object) { described_class.new(integration) }
 
     let(:subject_class) do
@@ -23,8 +25,6 @@ RSpec.describe Mutest::Selector::Expression do
     let(:test_a)           { instance_double(Mutest::Test, expression: parse_expression('SubjectA')) }
     let(:test_b)           { instance_double(Mutest::Test, expression: parse_expression('SubjectB')) }
     let(:test_c)           { instance_double(Mutest::Test, expression: parse_expression('SubjectC')) }
-
-    subject { object.call(mutation_subject) }
 
     context 'without available tests' do
       let(:all_tests) { [] }

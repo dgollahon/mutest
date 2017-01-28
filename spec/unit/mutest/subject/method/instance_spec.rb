@@ -46,11 +46,11 @@ RSpec.describe Mutest::Subject::Method::Instance do
   end
 
   describe '#prepare' do
+    subject { object.prepare }
+
     let(:context) do
       Mutest::Context.new(scope, instance_double(Pathname))
     end
-
-    subject { object.prepare }
 
     it 'undefines method on scope' do
       expect { subject }.to change { scope.instance_methods.include?(:foo) }.from(true).to(false)
@@ -75,6 +75,8 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
   end
 
   describe '#prepare' do
+    subject { object.prepare }
+
     let(:context) do
       Mutest::Context.new(scope, double('Source Path'))
     end
@@ -87,8 +89,6 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
         memoize :foo
       end
     end
-
-    subject { object.prepare }
 
     it 'undefines memoizer' do
       expect { subject }.to change { scope.memoized?(:foo) }.from(true).to(false)
