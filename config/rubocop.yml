@@ -283,6 +283,10 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/VerifiedDoubles:
   IgnoreSymbolicNames: true
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/integration/mutest/**/*'
+
 
 # Inlining RSpec todos for the same reason as the RSpec ones
 
@@ -293,15 +297,6 @@ RSpec/VerifiedDoubles:
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
-
-# Offense count: 5
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/integration/mutest/corpus_spec.rb'
-    - 'spec/integration/mutest/null_spec.rb'
-    - 'spec/integration/mutest/rspec_spec.rb'
-    - 'spec/integration/mutest/test_mutator_handles_types_spec.rb'
-    - 'spec/unit/mutest/result/class_methods_spec.rb'
 
 # Offense count: 3
 # Configuration parameters: SkipBlocks.
