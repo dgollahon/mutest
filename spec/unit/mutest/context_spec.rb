@@ -30,9 +30,12 @@ RSpec.describe Mutest::Context do
     end
   end
 
-  let(:object)      { described_class.new(scope, source_path) }
-  let(:source_path) { instance_double(Pathname)               }
-  let(:scope)       { TestApp::Literal                        }
+  let(:source_path) { instance_double(Pathname) }
+  let(:scope)       { TestApp::Literal          }
+
+  let(:object) do
+    described_class.new(scope, source_path, Mutest::Ignores.new([]))
+  end
 
   describe '#identification' do
     subject { object.identification }
@@ -103,6 +106,35 @@ RSpec.describe Mutest::Context do
             parse_expression('TestApp*')
           ]
         )
+      end
+    end
+  end
+
+  describe '#ignore?' do
+    let(:object) do
+      described_class.new(scope, source_path, ignores)
+    end
+
+    let(:ignores) { instance_double(Mutest::Ignores) }
+    let(:node) { s(:node) }
+
+    before do
+      allow(ignores).to receive(:ignored?).with(node).and_return(ignore)
+    end
+
+    context 'when comment disables the node' do
+      let(:ignore) { true }
+
+      it 'ignores the node' do
+        expect(object.ignore?(node)).to be(true)
+      end
+    end
+
+    context 'when comment does not disable the node' do
+      let(:ignore) { false }
+
+      it 'ignores the node' do
+        expect(object.ignore?(node)).to be(false)
       end
     end
   end

@@ -15,8 +15,23 @@ module Mutest
     # @param [Pathname] path
     #
     # @return [AST::Node]
-    def call(path)
-      @cache[path] ||= ::Parser::CurrentRuby.parse(path.read)
+    def parse(path)
+      read(path).ast
+    end
+
+    # Extract comments from path
+    #
+    # @param [Pathname] path
+    #
+    # @return [Parser::Source::Comment]
+    def comments(path)
+      read(path).comments
+    end
+
+    private
+
+    def read(path)
+      @cache[path] ||= SourceFile.parse(path.read)
     end
   end # Parser
 end # Mutest

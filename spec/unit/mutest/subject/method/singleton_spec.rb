@@ -3,7 +3,7 @@ RSpec.describe Mutest::Subject::Method::Singleton do
   let(:node)    { s(:defs, s(:self), :foo, s(:args)) }
 
   let(:context) do
-    Mutest::Context.new(scope, instance_double(Pathname))
+    Mutest::Context.new(scope, instance_double(Pathname), instance_double(Mutest::Ignores))
   end
 
   let(:scope) do

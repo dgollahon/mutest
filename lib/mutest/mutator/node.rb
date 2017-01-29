@@ -54,7 +54,7 @@ module Mutest
       # @return [undefined]
       def mutate_child(index, &block)
         block ||= TAUTOLOGY
-        Mutator.mutate(children.fetch(index), self).each do |mutation|
+        mutate(children.fetch(index), self).each do |mutation|
           next unless block.call(mutation)
           emit_child_update(index, mutation)
         end

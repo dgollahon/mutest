@@ -25,6 +25,10 @@ RSpec.describe Mutest::Matcher::Method::Singleton, '#call' do
     node.children.fetch(2)
   end
 
+  let(:ignores) do
+    Mutest::Ignores.new([])
+  end
+
   context 'when also defined on lvar' do
     let(:scope) { base::DefinedOnLvar }
     let(:expected_warnings) do

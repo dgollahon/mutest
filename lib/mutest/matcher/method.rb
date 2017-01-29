@@ -1,6 +1,8 @@
 module Mutest
   class Matcher
     # Abstract base class for method matchers
+    #
+    # :reek:TooManyMethods { max_methods: 11 }
     class Method < self
       include AbstractType,
               Adamantium::Flat,
@@ -71,15 +73,23 @@ module Mutest
         #
         # @return [Context]
         def context
-          Context.new(scope, source_path)
+          Context.new(scope, source_path, ignores)
         end
 
         # Root source node
         #
         # @return [Parser::AST::Node]
         def ast
-          env.parser.call(source_path)
+          env.parser.parse(source_path)
         end
+
+        # Ignores for source file
+        #
+        # @return [Array<Mutest::Ignore>]
+        def ignores
+          Ignores.new(env.parser.comments(source_path))
+        end
+        memoize :ignores
 
         # Path to source
         #

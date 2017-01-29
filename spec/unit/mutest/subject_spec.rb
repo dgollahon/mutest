@@ -24,11 +24,12 @@ RSpec.describe Mutest::Subject do
   end
 
   let(:context) do
-    double(
-      'Context',
-      source_path: 'source_path'
-    )
+    double('Context', source_path: 'source_path').tap do |context|
+      allow(context).to receive(:method).with(:ignore?).and_return(ignore_predicate)
+    end
   end
+
+  let(:ignore_predicate) { ->(_) {} }
 
   describe '#identification' do
     subject { object.identification }
@@ -66,7 +67,10 @@ RSpec.describe Mutest::Subject do
     subject { object.mutations }
 
     before do
-      expect(Mutest::Mutator).to receive(:mutate).with(node).and_return([mutation_a, mutation_b])
+      expect(Mutest::Mutator)
+        .to receive(:mutate)
+        .with(node, ignore_predicate)
+        .and_return([mutation_a, mutation_b])
     end
 
     let(:mutation_a) { instance_double(Parser::AST::Node, :mutation_a) }
