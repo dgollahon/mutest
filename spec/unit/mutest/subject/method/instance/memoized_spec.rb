@@ -40,7 +40,7 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
     it_should_behave_like 'a command method'
   end
 
-  describe '#mutations', mutant_expression: 'Mutest::Subject#mutations' do
+  describe '#mutations', mutest_expression: 'Mutest::Subject#mutations' do
     subject { object.mutations }
 
     let(:expected) do

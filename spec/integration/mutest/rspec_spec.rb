@@ -1,4 +1,4 @@
-RSpec.describe 'rspec integration', mutant: false do
+RSpec.describe 'rspec integration', mutest: false do
   let(:base_cmd) { 'bundle exec mutest -I lib --require test_app --use rspec' }
 
   %w[3.4 3.5].each do |version|

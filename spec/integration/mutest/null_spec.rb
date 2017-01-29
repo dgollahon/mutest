@@ -1,4 +1,4 @@
-RSpec.describe 'null integration', mutant: false do
+RSpec.describe 'null integration', mutest: false do
   let(:base_cmd) { 'bundle exec mutest -I lib --require test_app "TestApp*"' }
 
   around do |example|
