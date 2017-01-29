@@ -6,6 +6,30 @@ Mutest::Meta::Example.add :def do
 end
 
 Mutest::Meta::Example.add :def do
+  source 'def foo(a); end'
+
+  mutation 'def foo; end'
+  mutation 'def foo(_a); end'
+  mutation 'def foo(**a); end'
+  mutation 'def foo(a); raise; end'
+  mutation 'def foo(a); super; end'
+end
+
+Mutest::Meta::Example.add :def do
+  source 'def foo(a = {}); end'
+
+  mutation 'def foo; end'
+  mutation 'def foo(**a); end'
+  mutation 'def foo(_a = {}); end'
+  mutation 'def foo(a); end'
+  mutation 'def foo(a = nil); end'
+  mutation 'def foo(a = self); end'
+  mutation 'def foo(a = {}); a = {}; end'
+  mutation 'def foo(a = {}); super; end'
+  mutation 'def foo(a = {}); raise; end'
+end
+
+Mutest::Meta::Example.add :def do
   source 'def foo(a, *b); nil; end'
 
   mutation 'def foo(a, *_b); nil; end'
@@ -105,6 +129,9 @@ Mutest::Meta::Example.add :def do
 
   # Deletion of all arguments
   mutation 'def foo; end'
+
+  # Hash type hint
+  mutation 'def foo(a, **b); end'
 
   # Rename each argument
   mutation 'def foo(_a, b); end'
@@ -219,6 +246,9 @@ Mutest::Meta::Example.add :def do
 
   # Deletion of all arguments
   mutation 'def self.foo; end'
+
+  # Hash type hint
+  mutation 'def self.foo(a, **b); end'
 
   # Rename each argument
   mutation 'def self.foo(_a, b); end'
