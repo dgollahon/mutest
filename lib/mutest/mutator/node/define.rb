@@ -34,9 +34,16 @@ module Mutest
         # @return [undefined]
         def emit_restarg_body_mutation
           arguments.children.each do |argument|
-            next unless n_restarg?(argument) && argument.children.one?
+            replacement =
+              if n_restarg?(argument)
+                s(:array)
+              elsif n_kwrestarg?(argument)
+                s(:hash)
+              end
 
-            emit_body_prepend(s(:lvasgn, AST::Meta::Restarg.new(argument).name, s(:array)))
+            next unless replacement && argument.children.one?
+
+            emit_body_prepend(s(:lvasgn, AST::Meta::Restarg.new(argument).name, replacement))
           end
         end
 
