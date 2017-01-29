@@ -5,6 +5,15 @@ require 'ice_nine'
 
 module MutestSpec
   class Warning
+    # Install our $stderr warning proxy only if the top level program is RSpec
+    #
+    # Mutest performs certain mutations which emit warnings that will obviously
+    # not be on our whitelist. We don't need to have enforce our warning assertions
+    # then anyways
+    def self.hook_under_rspec
+      $stderr = EXTRACTOR if $PROGRAM_NAME.end_with?('/rspec')
+    end
+
     def self.assert_no_warnings
       return if EXTRACTOR.warnings.empty?
 
