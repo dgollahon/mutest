@@ -824,3 +824,26 @@ Mutest::Meta::Example.add :send do
   singleton_mutations
   mutation 'select'
 end
+
+Mutest::Meta::Example.add :send do
+  source 'Array(a)'
+
+  singleton_mutations
+  mutation 'a'
+  mutation s(:send, nil, :Array)
+  mutation 'Array(nil)'
+  mutation 'Array(self)'
+  mutation '[a]'
+end
+
+Mutest::Meta::Example.add :send do
+  source 'foo.Array(a)'
+
+  singleton_mutations
+  mutation 'a'
+  mutation 'self.Array(a)'
+  mutation 'foo'
+  mutation 'foo.Array'
+  mutation 'foo.Array(nil)'
+  mutation 'foo.Array(self)'
+end

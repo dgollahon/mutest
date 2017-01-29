@@ -116,6 +116,7 @@ module Mutest
         def emit_selector_specific_mutations
           emit_const_get_mutation
           emit_integer_mutation
+          emit_array_mutation
           emit_dig_mutation
           emit_double_negation_mutation
           emit_lambda_mutation
@@ -189,6 +190,15 @@ module Mutest
           return unless selector.equal?(:to_i)
 
           emit(s(:send, nil, :Integer, receiver))
+        end
+
+        # Emit mutation from `Array(a)` to `[a]`
+        #
+        # @return [undefined]
+        def emit_array_mutation
+          return unless selector.equal?(:Array) && receiver.nil?
+
+          emit(s(:array, *arguments))
         end
 
         # Emit mutation from `const_get` to const literal
