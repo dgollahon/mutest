@@ -8,10 +8,10 @@ task('metrics:mutant').clear
 namespace :metrics do
   task mutant: :coverage do
     arguments = %w[
-      bundle exec mutant
+      bundle exec mutest
       --include lib
       --since HEAD~1
-      --require mutant
+      --require mutest
       --use rspec
       --zombie
     ]

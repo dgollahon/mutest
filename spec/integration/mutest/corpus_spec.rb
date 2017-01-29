@@ -1,4 +1,4 @@
-RSpec.describe 'Mutest on ruby corpus', mutant: false do
+RSpec.describe 'Mutest on ruby corpus', mutest: false do
   before do
     skip 'Corpus test is deactivated on < 2.1' if RUBY_VERSION < '2.1'
     skip 'Corpus test is deactivated on RBX' if RUBY_ENGINE.eql?('rbx')

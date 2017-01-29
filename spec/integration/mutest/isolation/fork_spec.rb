@@ -1,4 +1,4 @@
-RSpec.describe Mutest::Isolation::Fork, mutant: false do
+RSpec.describe Mutest::Isolation::Fork, mutest: false do
   specify do
     a = 1
     expect do
