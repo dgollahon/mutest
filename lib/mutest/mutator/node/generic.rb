@@ -16,7 +16,6 @@ module Mutest
           for
           xstr
           back_ref
-          restarg
           sclass
           match_with_lvasgn
           while_post

@@ -3,7 +3,7 @@ module Mutest
     class Node
       # Mutator for required arguments
       class Argument < self
-        handle(:arg, :kwarg, :kwrestarg)
+        handle(:arg, :restarg, :kwarg, :kwrestarg)
 
         UNDERSCORE = '_'.freeze
 
