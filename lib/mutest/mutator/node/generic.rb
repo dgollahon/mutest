@@ -9,7 +9,6 @@ module Mutest
           retry
           arg_expr
           blockarg
-          kwrestarg
           undef
           module
           empty

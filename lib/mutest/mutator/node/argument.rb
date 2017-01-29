@@ -3,7 +3,7 @@ module Mutest
     class Node
       # Mutator for required arguments
       class Argument < self
-        handle(:arg, :kwarg)
+        handle(:arg, :kwarg, :kwrestarg)
 
         UNDERSCORE = '_'.freeze
 
@@ -30,7 +30,7 @@ module Mutest
         #
         # @return [Boolean]
         def skip?
-          name.to_s.start_with?(UNDERSCORE)
+          name.nil? || name.to_s.start_with?(UNDERSCORE)
         end
 
         # Mutator for optional arguments
