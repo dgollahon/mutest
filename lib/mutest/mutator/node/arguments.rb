@@ -13,6 +13,7 @@ module Mutest
         def dispatch
           emit_argument_presence
           emit_argument_mutations
+          emit_hash_type_hint
           emit_mlhs_expansion
         end
 
@@ -45,6 +46,22 @@ module Mutest
         # @return [Boolean]
         def invalid_argument_replacement?(mutest, index)
           n_arg?(mutest) && children[0...index].any?(&method(:n_optarg?))
+        end
+
+        def emit_hash_type_hint
+          *first_args, last_arg = children
+
+          return unless last_arg && hintworthy_node?(last_arg)
+
+          last_name = last_arg.children.first
+
+          emit_type(*first_args, s(:kwrestarg, last_name)) unless last_name.to_s.start_with?('_')
+        end
+
+        # Is this a simple arg or arg={} ?
+        def hintworthy_node?(node)
+          n_arg?(node) ||
+            (n_optarg?(node) && node.children.last.eql?(s(:hash)))
         end
 
         # Emit mlhs expansions

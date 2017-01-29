@@ -19,6 +19,7 @@ Mutest::Meta::Example.add :block do
 
   singleton_mutations
   mutation 'foo'
+  mutation 'foo { |a, **b| }'
   mutation 'foo { |a, b| raise }'
   mutation 'foo { |a, _b| }'
   mutation 'foo { |_a, b| }'
@@ -32,6 +33,7 @@ Mutest::Meta::Example.add :block do
 
   singleton_mutations
   mutation 'foo { || }'
+  mutation 'foo { |(a, b), **c| }'
   mutation 'foo { |a, b, c| }'
   mutation 'foo { |(a, b), c| raise }'
   mutation 'foo { |(a), c| }'
