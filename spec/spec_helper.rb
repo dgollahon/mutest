@@ -16,7 +16,7 @@ end
 
 # Require warning support first in order to catch any warnings emitted during boot
 require_relative './support/warning'
-$stderr = MutestSpec::Warning::EXTRACTOR
+MutestSpec::Warning.hook_under_rspec
 
 require 'tempfile'
 require 'concord'
