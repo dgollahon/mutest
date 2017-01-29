@@ -8,6 +8,7 @@ end
 Mutest::Meta::Example.add :def do
   source 'def foo(a, *b); nil; end'
 
+  mutation 'def foo(a, *_b); nil; end'
   mutation 'def foo(a, *b); super; end'
   mutation 'def foo(_a, *b); nil; end'
   mutation 'def foo; nil; end'

@@ -9,7 +9,6 @@ module Mutest
           retry
           arg_expr
           blockarg
-          kwrestarg
           undef
           module
           empty
@@ -17,7 +16,6 @@ module Mutest
           for
           xstr
           back_ref
-          restarg
           sclass
           match_with_lvasgn
           while_post
