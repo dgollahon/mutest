@@ -72,18 +72,36 @@ module Mutest
       output << object
     end
 
-    # Run input with mutator
-    #
-    # @return [undefined]
-    def run(mutator)
-      mutator.call(input).each(&method(:emit))
-    end
-
     # Shortcut to create a new unfrozen duplicate of input
     #
     # @return [Object]
     def dup_input
       input.dup
+    end
+
+    # Mutate child nodes within source path
+    #
+    # @return [Set<Parser::AST::Node>]
+    def mutate(*args)
+      self.class.mutate(*args)
+    end
+
+    # Run input with mutator
+    #
+    # @return [undefined]
+    def run(mutator)
+      mutate_with(mutator, input)
+    end
+
+    # Mutate nodes using a specific mutator class
+    #
+    # @yield [Object] value emitted by provided mutator
+    #
+    # @return [undefined]
+    def mutate_with(mutator, nodes, &block)
+      block ||= method(:emit)
+
+      mutator.call(nodes).each(&block)
     end
   end # Mutator
 end # Mutest

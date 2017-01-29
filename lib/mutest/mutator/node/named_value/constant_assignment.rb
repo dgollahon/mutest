@@ -31,7 +31,7 @@ module Mutest
           #
           # @return [undefined]
           def mutate_name
-            Util::Symbol.call(name).each do |name|
+            mutate_with(Util::Symbol, name) do |name|
               emit_name(name.upcase)
             end
           end

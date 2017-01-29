@@ -23,7 +23,7 @@ module Mutest
         # @return [undefined]
         def mutate_captures
           return unless captures
-          Util::Array::Element.call(captures.children).each do |matchers|
+          mutate_with(Util::Array::Element, captures.children) do |matchers|
             next if matchers.any?(&method(:n_nil?))
             emit_captures(s(:array, *matchers))
           end
