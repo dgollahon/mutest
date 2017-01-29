@@ -17,7 +17,7 @@ module Mutest
           # @return [undefined]
           def dispatch
             emit_singletons
-            Util::Symbol.call(value).each(&method(:emit_type))
+            mutate_with(Util::Symbol, value, &method(:emit_type))
           end
         end # Symbol
       end # Literal

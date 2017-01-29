@@ -21,7 +21,7 @@ module Mutest
         # @return [undefined]
         def emit_argument_presence
           emit_type
-          Util::Array::Presence.call(children).each do |children|
+          mutate_with(Util::Array::Presence, children) do |children|
             emit_type(*children)
           end
         end
@@ -31,7 +31,7 @@ module Mutest
         # @return [undefined]
         def emit_argument_mutations
           children.each_with_index do |child, index|
-            Mutator.mutate(child).each do |mutest|
+            mutate(child).each do |mutest|
               next if invalid_argument_replacement?(mutest, index)
               emit_child_update(index, mutest)
             end
