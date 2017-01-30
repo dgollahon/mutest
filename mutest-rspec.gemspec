@@ -3,11 +3,11 @@ require File.expand_path('../lib/mutest/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name        = 'mutest-rspec'
   gem.version     = Mutest::VERSION.dup
-  gem.authors     = ['Markus Schirp']
-  gem.email       = ['mbj@schirp-dso.com']
+  gem.authors     = ['Daniel Gollahon', 'John Backus']
+  gem.email       = ['johncbackus@gmail.com', 'daniel.gollahon@gmail.com']
   gem.description = 'Rspec integration for mutest'
   gem.summary     = gem.description
-  gem.homepage    = 'https://github.com/mbj/mutest'
+  gem.homepage    = 'https://github.com/backus/mutest'
   gem.license     = 'MIT'
 
   gem.require_paths    = %w[lib]

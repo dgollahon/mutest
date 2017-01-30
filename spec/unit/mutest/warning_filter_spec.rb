@@ -1,8 +1,4 @@
 RSpec.describe Mutest::WarningFilter do
-  before do
-    skip 'Disabled because expected warnings are from MRI' if RUBY_ENGINE.eql?('rbx')
-  end
-
   let(:object) { described_class.new(target) }
 
   let(:target) do
