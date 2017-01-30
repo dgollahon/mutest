@@ -73,23 +73,20 @@ module Mutest
         #
         # @return [Context]
         def context
-          Context.new(scope, source_path, ignores)
+          Context.new(scope, source_file)
         end
 
         # Root source node
         #
         # @return [Parser::AST::Node]
         def ast
-          env.parser.parse(source_path)
+          source_file.ast
         end
 
-        # Ignores for source file
-        #
-        # @return [Array<Mutest::Ignore>]
-        def ignores
-          Ignores.new(env.parser.comments(source_path))
+        def source_file
+          env.parser.open(source_path)
         end
-        memoize :ignores
+        memoize :source_file
 
         # Path to source
         #

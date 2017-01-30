@@ -15,8 +15,7 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
     let(:context) do
       Mutest::Context.new(
         scope,
-        double('Source Path'),
-        instance_double(Mutest::Ignores)
+        instance_double(Mutest::SourceFile)
       )
     end
 

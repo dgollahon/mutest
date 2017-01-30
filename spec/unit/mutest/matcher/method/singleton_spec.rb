@@ -25,8 +25,11 @@ RSpec.describe Mutest::Matcher::Method::Singleton, '#call' do
     node.children.fetch(2)
   end
 
-  let(:ignores) do
-    Mutest::Ignores.new([])
+  let(:source_file) do
+    Mutest::SourceFile.new(
+      source_path,
+      *Parser::CurrentRuby.parse_with_comments(source_path.read)
+    )
   end
 
   context 'when also defined on lvar' do

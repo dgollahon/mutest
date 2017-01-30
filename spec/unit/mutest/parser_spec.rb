@@ -9,34 +9,16 @@ RSpec.describe Mutest::Parser do
       .and_return(source)
   end
 
-  describe '#parse' do
-    subject { object.parse(path) }
+  describe '#open' do
+    subject { object.open(path) }
 
-    it 'returns parsed source' do
-      expect(subject).to eql(s(:sym, :source))
+    it 'returns source file' do
+      expect(subject).to eql(Mutest::SourceFile.new(path, s(:sym, :source), nil))
     end
 
     it 'is idempotent' do
-      source = object.parse(path)
+      source = object.open(path)
       expect(subject).to be(source)
-    end
-  end
-
-  describe '#comments' do
-    let(:source) do
-      <<-RUBY
-      # This is the foo method
-      def foo
-        # this is an inline method
-      end
-      RUBY
-    end
-
-    it 'returns comments' do
-      expect(object.comments(path).map(&:text)).to contain_exactly(
-        '# This is the foo method',
-        '# this is an inline method'
-      )
     end
   end
 end

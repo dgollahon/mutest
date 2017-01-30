@@ -1,7 +1,7 @@
 module Mutest
   # An abstract context where mutations can be applied to.
   class Context
-    include Adamantium::Flat, Concord::Public.new(:scope, :source_path, :ignores)
+    include Adamantium::Flat, Concord::Public.new(:scope, :source_file)
     extend AST::Sexp
 
     NAMESPACE_DELIMITER = '::'.freeze
@@ -78,7 +78,11 @@ module Mutest
     attr_reader :scope
 
     def ignore?(node)
-      ignores.ignored?(node)
+      source_file.ignore?(node)
+    end
+
+    def source_path
+      source_file.path
     end
 
     private
