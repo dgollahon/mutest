@@ -23,8 +23,8 @@ RSpec.shared_examples_for 'a method matcher' do
     expect(context.scope).to eql(scope)
   end
 
-  it 'has the correct ignores in conext' do
-    expect(context.ignores).to eql(ignores)
+  it 'has the correct source_file in conext' do
+    expect(context.source_file).to eql(source_file)
   end
 
   it 'has source path in context' do

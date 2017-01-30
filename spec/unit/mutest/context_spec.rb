@@ -34,7 +34,7 @@ RSpec.describe Mutest::Context do
   let(:scope)       { TestApp::Literal          }
 
   let(:object) do
-    described_class.new(scope, source_path, Mutest::Ignores.new([]))
+    described_class.new(scope, instance_double(Mutest::SourceFile))
   end
 
   describe '#identification' do
@@ -112,14 +112,14 @@ RSpec.describe Mutest::Context do
 
   describe '#ignore?' do
     let(:object) do
-      described_class.new(scope, source_path, ignores)
+      described_class.new(scope, source_file)
     end
 
-    let(:ignores) { instance_double(Mutest::Ignores) }
+    let(:source_file) { instance_double(Mutest::SourceFile) }
     let(:node) { s(:node) }
 
     before do
-      allow(ignores).to receive(:ignored?).with(node).and_return(ignore)
+      allow(source_file).to receive(:ignore?).with(node).and_return(ignore)
     end
 
     context 'when comment disables the node' do
