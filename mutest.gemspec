@@ -4,10 +4,10 @@ require File.expand_path('../lib/mutest/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name        = 'mutest'
   gem.version     = Mutest::VERSION.dup
-  gem.authors     = ['John Backus']
-  gem.email       = ['johncbackus@gmail.com']
+  gem.authors     = ['Daniel Gollahon', 'John Backus']
+  gem.email       = ['johncbackus@gmail.com', 'daniel.gollahon@gmail.com']
   gem.description = 'Mutation testing for ruby'
-  gem.summary     = 'Mutation testing tool for ruby under MRI and Rubinius'
+  gem.summary     = gem.description
   gem.homepage    = 'https://github.com/backus/mutest'
   gem.license     = 'MIT'
 
