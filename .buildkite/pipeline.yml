@@ -1,0 +1,41 @@
+steps:
+  - command: "build/run 2.3.1 'rake metrics:coverage'"
+    label: ":rspec: RSpec"
+    agents:
+      - queue=elastic
+
+  - name: ':rspec: Corpus tests'
+    command: build/run 2.3.1 'rspec --pattern "**/corpus_spec.rb" --format documentation spec/integration'
+    agents:
+      - queue=elastic
+
+  - name: ':rspec: Integration tests'
+    command: build/run 2.3.1 'rspec --exclude-pattern "**/corpus_spec.rb" --format documentation spec/integration'
+    agents:
+      - queue=elastic
+
+  - name: ':skull: Mutest'
+    command: build/run 2.3.1 'rake metrics:mutant'
+    timeout_in_minutes: 10
+    agents:
+      - queue=elastic
+
+  - name: ':rubocop: Rubocop'
+    command: build/run 2.3.1 'rake metrics:rubocop'
+    agents:
+      - queue=elastic
+
+  - name: ':japanese_ogre: Flay'
+    command: build/run 2.3.1 'rake metrics:flay'
+    agents:
+      - queue=elastic
+
+  - name: ':imp: Flog'
+    command: build/run 2.3.1 'rake metrics:flog'
+    agents:
+      - queue=elastic
+
+  - name: ':hankey: Reek'
+    command: build/run 2.3.1 'rake metrics:reek'
+    agents:
+      - queue=elastic
