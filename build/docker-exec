@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [[ $# -ne 2 ]] ; then
+  echo 'build/docker-exec - run a command on a specified ruby version'
+  echo 'Usage:'
+  echo '  build/docker-exec 2.2.5 rake spec'
+  exit 1
+fi
+
+ruby_version="$1"
+bundled_command="$2"
+
+cp -r /app ..
+
+# Disable strict settings that break chruby
+set +o nounset
+set +o noglob
+
+source /usr/local/share/chruby/chruby.sh
+
+chruby "$ruby_version"
+
+# Reenable strict settings
+set -o nounset
+set -o noglob
+
+bundle --path /bundle
+
+bundle exec "$bundled_command"
