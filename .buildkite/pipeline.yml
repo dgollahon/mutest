@@ -21,6 +21,11 @@ steps:
     agents:
       - queue=elastic
 
+  - name: ':rspec: Corpus tests (auom)'
+    command: build/run 2.3.3 'rspec --tag corpus:auom'
+    agents:
+      - queue=elastic
+
   - name: ':rspec: Integration tests'
     command: build/run 2.3.3 'rspec --exclude-pattern "**/corpus_spec.rb" --format documentation spec/integration'
     agents:
