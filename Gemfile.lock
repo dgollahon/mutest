@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/backus/rubocop-devtools.git
+  revision: cafba9afd1e014a4b14c7ce06982960643823148
+  specs:
+    rubocop-devtools (0.0.1)
+      adamantium (~> 0.2.0)
+      anima (~> 0.3.0)
+      concord (~> 0.1.5)
+      ice_nine (~> 0.11.1)
+
+GIT
   remote: https://github.com/mbj/mutant.git
   revision: 24f6d42fa2b3d30fbf206169d08383972c803242
   specs:
@@ -199,6 +209,7 @@ DEPENDENCIES
   mutest!
   pry (~> 0.10)
   pry-byebug (~> 3.4)
+  rubocop-devtools!
   rubocop-rspec (~> 1.10.0)
 
 BUNDLED WITH

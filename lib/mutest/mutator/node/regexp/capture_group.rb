@@ -19,7 +19,7 @@ module Mutest
             emit(s(:regexp_passive_group, group))
             emit_group_mutations
           end
-        end # EndOfLineAnchor
+        end # CaptureGroup
       end # Regexp
     end # Node
   end # Mutator

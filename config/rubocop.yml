@@ -1,6 +1,7 @@
 ---
 require:
   - rubocop-rspec
+  - rubocop/devtools
 AllCops:
   Exclude:
   - 'test_app/**/*'
@@ -274,6 +275,10 @@ Style/LambdaCall:
 # Configuration parameters: EnforcedStyle, MinBodyLength, SupportedStyles.
 # SupportedStyles: skip_modifier_ifs, always
 Style/Next:
+  Enabled: false
+
+# Devtools Cops
+Devtools/GroupSingleLineLet:
   Enabled: false
 
 # RSpec Cops

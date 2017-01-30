@@ -26,7 +26,7 @@ module MutestSpec
       def initialize(warnings)
         super(MSG % warnings.join("\n"))
       end
-    end
+    end # UnexpectedWarnings
 
     class Extractor < DelegateClass(IO)
       PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/
@@ -63,11 +63,11 @@ module MutestSpec
       end
 
       attr_reader :whitelist, :seen, :io
-    end
+    end # Extractor
 
     warnings  = Pathname.new(__dir__).join('warnings.yml').freeze
     whitelist = IceNine.deep_freeze(YAML.safe_load(warnings.read))
 
     EXTRACTOR = Extractor.new(STDERR, whitelist)
-  end
-end
+  end # Warning
+end # MutestSpec
