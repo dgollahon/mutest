@@ -5,13 +5,13 @@ RSpec.describe 'Mutest on ruby corpus', mutest: false do
   end
 
   MutestSpec::Corpus::Project::ALL.select(&:mutation_generation).each do |project|
-    specify "#{project.name} does not fail on mutation generation" do
+    specify "#{project.name} does not fail on mutation generation", corpus: project.name do
       project.verify_mutation_generation
     end
   end
 
   MutestSpec::Corpus::Project::ALL.select(&:mutation_coverage).each do |project|
-    specify "#{project.name} does have expected mutation coverage" do
+    specify "#{project.name} does have expected mutation coverage", corpus: project.name do
       project.verify_mutation_coverage
     end
   end
