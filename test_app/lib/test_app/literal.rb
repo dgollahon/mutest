@@ -17,6 +17,11 @@ module TestApp
       'string'
     end
 
+    # mutest:disable
+    def disabled_string
+      'string'
+    end
+
     def self.string
       'string'
     end
