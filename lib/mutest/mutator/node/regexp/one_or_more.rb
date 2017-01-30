@@ -22,7 +22,7 @@ module Mutest
             emit_subject_mutations
             emit(subject)
           end
-        end # GreedyZeroOrMore
+        end # OneOrMore
       end # Regexp
     end # Node
   end # Mutator

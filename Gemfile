@@ -9,4 +9,5 @@ gem 'mutant', git: 'https://github.com/mbj/mutant.git'
 group :development do
   gem 'pry',        '~> 0.10'
   gem 'pry-byebug', '~> 3.4'
+  gem 'rubocop-devtools', git: 'https://github.com/backus/rubocop-devtools.git'
 end
