@@ -23,6 +23,15 @@ RSpec.shared_examples_for 'framework integration' do
     expect(Kernel.system(cli)).to be(true)
   end
 
+  specify 'it allows disabling mutations with an inline comment' do
+    cli = <<-CMD.split("\n").join(' ')
+      #{base_cmd}
+      TestApp::Literal#string
+      TestApp::Literal#disabled_string
+    CMD
+    expect(Kernel.system(cli)).to be(true)
+  end
+
   specify 'fails to kill mutations when they are not covered' do
     cli = "#{base_cmd} TestApp::Literal#uncovered_string"
     expect(Kernel.system(cli)).to be(false)
