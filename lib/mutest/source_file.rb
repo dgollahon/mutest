@@ -22,7 +22,7 @@ module Mutest
     # TODO: Support inline comment disable
     def ignore?(node)
       location = node.location
-      return false unless location.expression
+      return false unless location && location.expression
 
       disable_lines.include?(location.line)
     end
