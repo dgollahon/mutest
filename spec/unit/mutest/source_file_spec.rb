@@ -33,10 +33,14 @@ RSpec.describe Mutest::SourceFile do
     end
   end
 
-  it 'ignores nodes that do not have a location' do
+  it 'ignores nodes that do not have a line' do
     _, bar_method = *ast
     _, bar_method_args, = *bar_method
 
     expect(source_file.ignore?(bar_method_args)).to be(false)
+  end
+
+  it 'ignores nodes that do not have a location' do
+    expect(source_file.ignore?(s(:custom))).to be(false)
   end
 end
