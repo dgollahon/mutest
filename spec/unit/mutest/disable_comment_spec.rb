@@ -14,7 +14,43 @@ module Mutest
     end
 
     def disables?(from, to)
-      original == from && mutation == to
+      ContextFreeNode.new(original) == from &&
+        ContextFreeNode.new(mutation) == to
+    end
+
+    class ContextFreeNode
+      include Concord.new(:node), AST::Sexp
+
+      def ==(other)
+        if meta.bareword? || no_child_nodes?
+          node == other || as_lvar == other
+        else
+          other == matchable_node
+        end
+      end
+
+      private
+
+      def no_child_nodes?
+        node.children.none? { |child| child.instance_of?(::Parser::AST::Node) }
+      end
+
+      def matchable_node
+        children =
+          node.to_a.map do |child|
+            child.instance_of?(::Parser::AST::Node) ? self.class.new(child) : child
+          end
+
+        s(node.type, *children)
+      end
+
+      def as_lvar
+        s(:lvar, meta.selector)
+      end
+
+      def meta
+        Mutest::AST::Meta::Send.new(node)
+      end
     end
   end
 end
@@ -40,7 +76,7 @@ RSpec.describe Mutest::DisableComment do
     expect(disable_comment.disables?(original, mutation)).to be(true)
   end
 
-  it 'disables (send (lvar foo) :to_h) -> (send (lvar foo) :to_hash)' do
+  fit 'disables (send (lvar foo) :to_h) -> (send (lvar foo) :to_hash)' do
     original = Parser::CurrentRuby.parse('foo = nil; foo.to_h').to_a.last
     mutation = Parser::CurrentRuby.parse('foo = nil; foo.to_hash').to_a.last
 
