@@ -14,28 +14,23 @@ module Mutest
     end
 
     def disables?(from, to)
-      ContextFreeNode.new(original) == from &&
-        ContextFreeNode.new(mutation) == to
+      ContextFreeNode.new(original) == from && ContextFreeNode.new(mutation) == to
     end
 
     class ContextFreeNode
       include Concord.new(:node), AST::Sexp
 
       def ==(other)
-        if meta.bareword? || no_child_nodes?
-          node == other || as_lvar == other
+        if meta.bareword?
+          node.eql?(other) || as_lvar.eql?(other)
         else
-          other == matchable_node
+          other == wildcard_node
         end
       end
 
       private
 
-      def no_child_nodes?
-        node.children.none? { |child| child.instance_of?(::Parser::AST::Node) }
-      end
-
-      def matchable_node
+      def wildcard_node
         children =
           node.to_a.map do |child|
             child.instance_of?(::Parser::AST::Node) ? self.class.new(child) : child
@@ -49,7 +44,7 @@ module Mutest
       end
 
       def meta
-        Mutest::AST::Meta::Send.new(node)
+        AST::Meta::Send.new(node)
       end
     end
   end
@@ -58,6 +53,10 @@ end
 RSpec.describe Mutest::DisableComment do
   subject(:disable_comment) do
     described_class.parse('# mutest:disable foo.to_h ~> foo.to_hash')
+  end
+
+  def parse(source)
+    Parser::CurrentRuby.parse(source)
   end
 
   it 'parses comments' do
@@ -70,22 +69,43 @@ RSpec.describe Mutest::DisableComment do
   end
 
   it 'disables foo().to_h -> foo().to_hash' do
-    original = Parser::CurrentRuby.parse('foo.to_h')
-    mutation = Parser::CurrentRuby.parse('foo.to_hash')
+    original = parse('foo.to_h')
+    mutation = parse('foo.to_hash')
 
     expect(disable_comment.disables?(original, mutation)).to be(true)
   end
 
-  fit 'disables (send (lvar foo) :to_h) -> (send (lvar foo) :to_hash)' do
-    original = Parser::CurrentRuby.parse('foo = nil; foo.to_h').to_a.last
-    mutation = Parser::CurrentRuby.parse('foo = nil; foo.to_hash').to_a.last
+  it 'disables (send (lvar foo) :to_h) -> (send (lvar foo) :to_hash)' do
+    original = parse('foo = nil; foo.to_h').to_a.last
+    mutation = parse('foo = nil; foo.to_hash').to_a.last
 
     expect(disable_comment.disables?(original, mutation)).to be(true)
   end
 
   it 'does not disable bar.to_h -> bar.to_hash' do
-    original = Parser::CurrentRuby.parse('bar.to_h')
-    mutation = Parser::CurrentRuby.parse('bar.to_hash')
+    original = parse('bar.to_h')
+    mutation = parse('bar.to_hash')
+
+    expect(disable_comment.disables?(original, mutation)).to be(false)
+  end
+
+  it 'does not disable foo.to_h -> foo' do
+    original = parse('foo = nil; foo.to_h').to_a.last
+    mutation = parse('foo = nil; foo').to_a.last
+
+    expect(disable_comment.disables?(original, mutation)).to be(false)
+  end
+
+  it 'does not disable foo.to_h -> foo.to_a' do
+    original = parse('foo = nil; foo.to_h').to_a.last
+    mutation = parse('foo = nil; foo.to_a').to_a.last
+
+    expect(disable_comment.disables?(original, mutation)).to be(false)
+  end
+
+  it 'does not disable foo.wrong -> foo.to_hash' do
+    original = parse('foo = nil; foo.wrong').to_a.last
+    mutation = parse('foo = nil; foo.to_hash').to_a.last
 
     expect(disable_comment.disables?(original, mutation)).to be(false)
   end
