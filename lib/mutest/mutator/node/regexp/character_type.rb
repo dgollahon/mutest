@@ -20,7 +20,7 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(s(MAP.fetch(node.type)))
+            emit(:InvertCharacterType, s(MAP.fetch(node.type)))
           end
         end # CharacterType
       end # Regexp

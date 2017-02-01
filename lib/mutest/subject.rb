@@ -10,8 +10,8 @@ module Mutest
     # @return [undefined]
     def mutations
       [neutral_mutation].concat(
-        Mutator.mutate(node, context.method(:ignore?)).map do |mutant|
-          Mutation::Evil.new(self, wrap_node(mutant))
+        Mutator.mutate(node, context.method(:ignore?)).map do |change|
+          Mutation::Evil.new(self, wrap_node(change.object))
         end
       )
     end

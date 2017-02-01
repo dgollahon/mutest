@@ -14,7 +14,7 @@ module Mutest
           if body
             mutate_body
           else
-            emit_child_update(body_index, N_RAISE)
+            emit_child_update(body_index, Change.new(:ReplaceRaise, N_RAISE))
           end
           mutate_conditions
         end

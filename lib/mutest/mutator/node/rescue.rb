@@ -40,9 +40,9 @@ module Mutest
         # @return [undefined]
         def emit_concat(child)
           if body
-            emit(s(:begin, body, child))
+            emit(:InlineRescueBehavior, s(:begin, body, child))
           else
-            emit(child)
+            emit(:InlineRescueBehavior, child)
           end
         end
 
@@ -52,7 +52,7 @@ module Mutest
         def mutate_body
           return unless body
           emit_body_mutations
-          emit(body)
+          emit(:ReplaceWithBody, body)
         end
 
         # Emit else body mutations

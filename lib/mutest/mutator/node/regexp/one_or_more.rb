@@ -18,9 +18,9 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(s(MAP.fetch(node.type), 2, -1, subject))
+            emit(:IncrementQuantifier, s(MAP.fetch(node.type), 2, -1, subject))
             emit_subject_mutations
-            emit(subject)
+            emit(:RemoveQuantifier, subject)
           end
         end # OneOrMore
       end # Regexp

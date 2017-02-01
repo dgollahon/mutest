@@ -17,7 +17,9 @@ module Mutest
           # @return [undefined]
           def dispatch
             emit_singletons
-            mutate_with(Util::Symbol, value, &method(:emit_type))
+            mutate_with(Util::Symbol, value) do |mutation|
+              emit_type(:RenameSymbol, mutation)
+            end
           end
         end # Symbol
       end # Literal

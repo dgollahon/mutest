@@ -11,7 +11,7 @@ module Mutest
         #
         # @return [undefined]
         def dispatch
-          emit((input.to_s + POSTFIX).to_sym)
+          emit(:SymbolRename, (input.to_s + POSTFIX).to_sym)
         end
       end # Symbol
     end # Util

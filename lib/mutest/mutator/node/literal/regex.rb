@@ -27,8 +27,8 @@ module Mutest
             children.each_with_index do |child, index|
               mutate_child(index) unless n_str?(child)
             end
-            emit_type(options)
-            emit_type(s(:str, NULL_REGEXP_SOURCE), options)
+            emit_type(:EmptyRegexp, options)
+            emit_type(:ImpossibleRegexp, s(:str, NULL_REGEXP_SOURCE), options)
           end
 
           # Mutate regexp body
@@ -42,9 +42,9 @@ module Mutest
             return unless body.all?(&method(:n_str?))
             return unless AST::Regexp.supported?(body_expression)
 
-            mutate(body_ast).each do |mutation|
-              source = AST::Regexp.to_expression(mutation).to_s
-              emit_type(s(:str, source), options)
+            mutate(body_ast).each do |change|
+              source = AST::Regexp.to_expression(change.object).to_s
+              emit_type(change.tag, s(:str, source), options)
             end
           end
 

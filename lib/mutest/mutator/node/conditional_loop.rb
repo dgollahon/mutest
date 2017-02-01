@@ -16,8 +16,8 @@ module Mutest
           emit_singletons
           emit_condition_mutations
           emit_body_mutations if body
-          emit_body(nil)
-          emit_body(N_RAISE)
+          emit_body(:RemoveBody, nil)
+          emit_body(:ReplaceRaise, N_RAISE)
         end
       end # ConditionalLoop
     end # Node

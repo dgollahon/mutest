@@ -30,7 +30,7 @@ module Mutest
           #
           # @return [undefined]
           def emit_attribute_read
-            emit_type(receiver, selector[ATTRIBUTE_RANGE].to_sym)
+            emit_type(:RemoveAssignment, receiver, selector[ATTRIBUTE_RANGE].to_sym)
           end
         end # AttributeAssignment
       end # Send

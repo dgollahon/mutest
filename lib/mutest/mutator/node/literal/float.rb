@@ -17,26 +17,26 @@ module Mutest
             emit_special_cases
           end
 
-          SPECIAL = [
-            N_NAN,
-            N_NEGATIVE_INFINITY,
-            N_INFINITY
-          ].freeze
-
           # Emit special cases
           #
           # @return [undefined]
           def emit_special_cases
-            SPECIAL.each(&method(:emit))
+            emit(:NanFloat, N_NAN)
+            emit(:NegativeInfinityFloat, N_NEGATIVE_INFINITY)
+            emit(:InfinityFloat, N_INFINITY)
           end
 
-          # Values to mutate to
+          # Values to mutate to and corresponding labels
           #
-          # @return [Array]
-          def values
+          # @return [Hash]
+          def value_changes
             original = children.first
 
-            [0.0, 1.0, -original]
+            {
+              ReplaceWithZero: 0.0,
+              ReplaceWithOne:  1.0,
+              NegateValue:     -original
+            }
           end
         end # Float
       end # Literal

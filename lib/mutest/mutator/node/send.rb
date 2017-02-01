@@ -132,7 +132,10 @@ module Mutest
           RECEIVER_SELECTOR_REPLACEMENTS
             .fetch(receiver.children.last, EMPTY_HASH)
             .fetch(selector, EMPTY_ARRAY)
-            .each(&method(:emit_selector))
+            .each do |selector|
+              # TODO: extract an independent mutator to give these better labels
+              emit_selector(:EmitSelector, selector)
+            end
         end
 
         # Emit mutation from `!!foo` to `foo`
@@ -142,14 +145,14 @@ module Mutest
           return unless selector.equal?(:!) && n_send?(receiver)
 
           negated = AST::Meta::Send.new(meta.receiver)
-          emit(negated.receiver) if negated.selector.equal?(:!)
+          emit(:DoubleNegation, negated.receiver) if negated.selector.equal?(:!)
         end
 
         # Emit mutation from proc definition to lambda
         #
         # @return [undefined]
         def emit_lambda_mutation
-          emit(s(:send, nil, :lambda)) if meta.proc?
+          emit(:UseLambda, s(:send, nil, :lambda)) if meta.proc?
         end
 
         # Emit mutation for `#dig`
@@ -165,9 +168,9 @@ module Mutest
 
           fetch_mutation = s(:send, receiver, :fetch, head)
 
-          return emit(fetch_mutation) if tail.empty?
+          return emit(:UseFetch, fetch_mutation) if tail.empty?
 
-          emit(s(:send, fetch_mutation, :dig, *tail))
+          emit(:UseFetch, s(:send, fetch_mutation, :dig, *tail))
         end
 
         # Emit mutation `foo[n..-1]` -> `foo.drop(n)`
@@ -180,7 +183,7 @@ module Mutest
 
           return unless ending.eql?(s(:int, -1))
 
-          emit(s(:send, receiver, :drop, start))
+          emit(:UseDrop, s(:send, receiver, :drop, start))
         end
 
         # Emit mutation from `to_i` to `Integer(...)`
@@ -189,7 +192,7 @@ module Mutest
         def emit_integer_mutation
           return unless selector.equal?(:to_i)
 
-          emit(s(:send, nil, :Integer, receiver))
+          emit(:UseInteger, s(:send, nil, :Integer, receiver))
         end
 
         # Emit mutation from `Array(a)` to `[a]`
@@ -198,7 +201,7 @@ module Mutest
         def emit_array_mutation
           return unless selector.equal?(:Array) && receiver.nil?
 
-          emit(s(:array, *arguments))
+          emit(:UseArray, s(:array, *arguments))
         end
 
         # Emit mutation from `const_get` to const literal
@@ -207,28 +210,32 @@ module Mutest
         def emit_const_get_mutation
           return unless selector.equal?(:const_get) && n_sym?(arguments.first)
 
-          emit(s(:const, receiver, AST::Meta::Symbol.new(arguments.first).name))
+          emit(:UseConstSyntax, s(:const, receiver, AST::Meta::Symbol.new(arguments.first).name))
         end
 
         # Emit selector replacement
         #
         # @return [undefined]
         def emit_selector_replacement
-          SELECTOR_REPLACEMENTS.fetch(selector, EMPTY_ARRAY).each(&method(:emit_selector))
+          SELECTOR_REPLACEMENTS
+            .fetch(selector, EMPTY_ARRAY)
+            .each do |selector|
+              emit_selector(:ReplaceSelector, selector) # TODO
+            end
         end
 
         # Emit naked receiver mutation
         #
         # @return [undefined]
         def emit_naked_receiver
-          emit(receiver) if receiver
+          emit(:RemoveSelector, receiver) if receiver
         end
 
         # Mutate arguments
         #
         # @return [undefined]
         def mutate_arguments
-          emit_type(receiver, selector)
+          emit_type(:RemoveArguments, receiver, selector)
           remaining_children_with_index.each do |_node, index|
             mutate_child(index)
             delete_child(index)
@@ -240,7 +247,7 @@ module Mutest
         # @return [undefined]
         def emit_argument_propagation
           node = arguments.first
-          emit(node) if arguments.one? && !NOT_STANDALONE.include?(node.type)
+          emit(:ReplaceWithArgument, node) if arguments.one? && !NOT_STANDALONE.include?(node.type)
         end
 
         # Emit receiver mutations
@@ -258,7 +265,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_implicit_self
-          emit_receiver(nil) if n_self?(receiver) && !(
+          emit_receiver(:ImplicitReceiver, nil) if n_self?(receiver) && !(
             KEYWORDS.include?(selector)         ||
             METHOD_OPERATORS.include?(selector) ||
             meta.attribute_assignment?

@@ -23,7 +23,7 @@ module Mutest
         # @return [undefined]
         def emit_name_mutation
           return if skip?
-          emit_name(:"#{UNDERSCORE}#{name}")
+          emit_name(:RenameArgument, :"#{UNDERSCORE}#{name}")
         end
 
         # Test if argument mutation is skipped
@@ -59,7 +59,7 @@ module Mutest
           #
           # @return [undefined]
           def emit_required_mutation
-            emit(s(TYPE_MAP.fetch(node.type), name))
+            emit(:RemoveDefault, s(TYPE_MAP.fetch(node.type), name))
           end
         end # Optional
       end # Argument

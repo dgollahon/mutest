@@ -8,6 +8,10 @@ module Mutest
             AbstractType,
             Procto.call(:output)
 
+    class Change
+      include Concord::Public.new(:tag, :object)
+    end # Change
+
     # Lookup and invoke dedicated AST mutator
     #
     # @param node [Parser::AST::Node]
@@ -76,10 +80,10 @@ module Mutest
     # @param [Object] object
     #
     # @return [undefined]
-    def emit(object)
+    def emit(tag, object)
       return unless new?(object)
 
-      output << object
+      output << Change.new(tag, object)
     end
 
     # Shortcut to create a new unfrozen duplicate of input
@@ -108,10 +112,14 @@ module Mutest
     # @yield [Object] value emitted by provided mutator
     #
     # @return [undefined]
-    def mutate_with(mutator, nodes, &block)
-      block ||= method(:emit)
-
-      mutator.call(nodes, filter).each(&block)
+    def mutate_with(mutator, nodes)
+      mutator.call(nodes, filter).each do |change|
+        if block_given?
+          yield(change.object, change)
+        else
+          emit(change.tag, change.object)
+        end
+      end
     end
   end # Mutator
 end # Mutest

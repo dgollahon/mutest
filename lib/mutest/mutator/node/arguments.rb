@@ -21,9 +21,9 @@ module Mutest
         #
         # @return [undefined]
         def emit_argument_presence
-          emit_type
+          emit_type(:RemoveArguments)
           mutate_with(Util::Array::Presence, children) do |children|
-            emit_type(*children)
+            emit_type(:RemoveArgument, *children)
           end
         end
 
@@ -32,9 +32,9 @@ module Mutest
         # @return [undefined]
         def emit_argument_mutations
           children.each_with_index do |child, index|
-            mutate(child).each do |mutest|
-              next if invalid_argument_replacement?(mutest, index)
-              emit_child_update(index, mutest)
+            mutate(child).each do |change|
+              next if invalid_argument_replacement?(change.object, index)
+              emit_child_update(index, change)
             end
           end
         end
@@ -44,8 +44,8 @@ module Mutest
         # @param [Parser::AST::Node]
         #
         # @return [Boolean]
-        def invalid_argument_replacement?(mutest, index)
-          n_arg?(mutest) && children[0...index].any?(&method(:n_optarg?))
+        def invalid_argument_replacement?(mutant, index)
+          n_arg?(mutant) && children[0...index].any?(&method(:n_optarg?))
         end
 
         def emit_hash_type_hint
@@ -55,7 +55,7 @@ module Mutest
 
           last_name = last_arg.children.first
 
-          emit_type(*first_args, s(:kwrestarg, last_name)) unless last_name.to_s.start_with?('_')
+          emit_type(:AddKeywordArgSplat, *first_args, s(:kwrestarg, last_name)) unless last_name.to_s.start_with?('_')
         end
 
         # Is this a simple arg or arg={} ?
@@ -72,7 +72,7 @@ module Mutest
             dup_children = children.dup
             dup_children.delete_at(index)
             dup_children.insert(index, *child)
-            emit_type(*dup_children)
+            emit_type(:ExpandMLHS, *dup_children)
           end
         end
 

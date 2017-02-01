@@ -22,8 +22,8 @@ module Mutest
           mutate_child(index, &block)
         end
 
-        define_method(:"emit_#{name}") do |node|
-          emit_child_update(index, node)
+        define_method(:"emit_#{name}") do |label, node|
+          emit_child_update(index, Change.new(label, node))
         end
       end
       private_class_method :define_named_child
@@ -54,9 +54,9 @@ module Mutest
       # @return [undefined]
       def mutate_child(index, &block)
         block ||= TAUTOLOGY
-        mutate(children.fetch(index), self).each do |mutation|
-          next unless block.call(mutation)
-          emit_child_update(index, mutation)
+        mutate(children.fetch(index), self).each do |change|
+          next unless block.call(change.object)
+          emit_child_update(index, change)
         end
       end
 
@@ -68,7 +68,7 @@ module Mutest
       def delete_child(index)
         dup_children = children.dup
         dup_children.delete_at(index)
-        emit_type(*dup_children)
+        emit_type(:DeleteChild, *dup_children)
       end
 
       # Emit updated child
@@ -77,10 +77,10 @@ module Mutest
       # @param [Parser::AST::Node] node
       #
       # @return [undefined]
-      def emit_child_update(index, node)
+      def emit_child_update(index, change)
         new_children = children.dup
-        new_children[index] = node
-        emit_type(*new_children)
+        new_children[index] = change.object
+        emit_type(change.tag, *new_children)
       end
 
       # Emit a new AST node with same class as wrapped node
@@ -88,8 +88,8 @@ module Mutest
       # @param [Array<Parser::AST::Node>] children
       #
       # @return [undefined]
-      def emit_type(*children)
-        emit(::Parser::AST::Node.new(node.type, children))
+      def emit_type(label, *children)
+        emit(label, ::Parser::AST::Node.new(node.type, children))
       end
 
       # Emit singleton literals
@@ -104,14 +104,14 @@ module Mutest
       #
       # @return [undefined]
       def emit_self
-        emit(N_SELF)
+        emit(:SelfReplacement, N_SELF)
       end
 
       # Emit a literal nil
       #
       # @return [undefined]
       def emit_nil
-        emit(N_NIL) unless asgn_left?
+        emit(:NilReplacement, N_NIL) unless asgn_left?
       end
 
       # Parent node

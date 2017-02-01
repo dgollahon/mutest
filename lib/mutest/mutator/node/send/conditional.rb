@@ -12,7 +12,7 @@ module Mutest
           # @return [undefined]
           def dispatch
             super()
-            emit(s(:send, *children))
+            emit(:RemoveLonelyOperator, s(:send, *children))
           end
         end # Conditional
       end # Send

@@ -30,15 +30,15 @@ module Mutest
         #
         # @return [undefined]
         def emit_operator_mutations
-          emit(s(INVERSE.fetch(node.type), left, right))
+          emit(:InvertConditional, s(INVERSE.fetch(node.type), left, right))
         end
 
         # Emit promotions
         #
         # @return [undefined]
         def emit_promotions
-          emit(left)
-          emit(right)
+          emit(:RemoveRightCondition, left)
+          emit(:RemoveLeftCondition, right)
         end
 
         # Emit left negation
@@ -56,7 +56,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_left_negation
-          emit(s(node.type, n_not(left), right))
+          emit(:InvertLeftCondition, s(node.type, n_not(left), right))
         end
       end # Binary
     end # Node

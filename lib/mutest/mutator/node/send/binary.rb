@@ -12,10 +12,10 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(left)
+            emit(:RemoveRight, left)
             emit_left_mutations
             emit_selector_replacement
-            emit(right)
+            emit(:RemoveLeft, right)
             emit_right_mutations
             emit_not_equality_mutations
           end
@@ -26,8 +26,8 @@ module Mutest
           def emit_not_equality_mutations
             return unless operator.equal?(:'!=')
 
-            emit_not_equality_mutation(:eql?)
-            emit_not_equality_mutation(:equal?)
+            emit_not_equality_mutation(:NotEql, :eql?)
+            emit_not_equality_mutation(:NotEqual, :equal?)
           end
 
           # Emit negated method sends with specified operator
@@ -35,8 +35,8 @@ module Mutest
           # @param new_operator [Symbol] selector to be negated
           #
           # @return [undefined]
-          def emit_not_equality_mutation(new_operator)
-            emit(n_not(s(:send, left, new_operator, right)))
+          def emit_not_equality_mutation(label, new_operator)
+            emit(label, n_not(s(:send, left, new_operator, right)))
           end
         end # Binary
       end # Send

@@ -29,7 +29,7 @@ module Mutest
           #
           # @return [Parser::AST::Node]
           def emit_inverse
-            emit(s(MAP.fetch(node.type), *children))
+            emit(:InvertRangeType, s(MAP.fetch(node.type), *children))
           end
         end # Range
       end # Literal

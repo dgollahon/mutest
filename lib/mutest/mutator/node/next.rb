@@ -14,7 +14,7 @@ module Mutest
           super()
           emit_singletons
           children.each_index(&method(:delete_child))
-          emit(s(:break, *children))
+          emit(:ReplaceBreak, s(:break, *children))
         end
       end # Next
     end # Node

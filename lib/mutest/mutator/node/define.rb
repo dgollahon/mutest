@@ -12,9 +12,9 @@ module Mutest
           emit_arguments_mutations
           emit_optarg_body_assignments
           emit_restarg_body_mutation
-          emit_body(N_RAISE)
-          emit_body(N_ZSUPER)
-          emit_body(nil)
+          emit_body(:ReplaceRaise, N_RAISE)
+          emit_body(:ReplaceSuper, N_ZSUPER)
+          emit_body(:RemoveBody, nil)
           emit_body_mutations if body
         end
 
@@ -25,7 +25,7 @@ module Mutest
           arguments.children.each do |argument|
             next unless n_optarg?(argument) && AST::Meta::Optarg.new(argument).used?
 
-            emit_body_prepend(s(:lvasgn, *argument))
+            emit_body_prepend(:InlineOptional, s(:lvasgn, *argument))
           end
         end
 
@@ -43,7 +43,7 @@ module Mutest
 
             next unless replacement && argument.children.one?
 
-            emit_body_prepend(s(:lvasgn, AST::Meta::Restarg.new(argument).name, replacement))
+            emit_body_prepend(:InlineRestarg, s(:lvasgn, AST::Meta::Restarg.new(argument).name, replacement))
           end
         end
 
@@ -52,11 +52,11 @@ module Mutest
         # @param node [Parser::AST::Node]
         #
         # @return [undefined]
-        def emit_body_prepend(node)
+        def emit_body_prepend(label, node)
           if body
-            emit_body(s(:begin, node, body))
+            emit_body(label, s(:begin, node, body))
           else
-            emit_body(node)
+            emit_body(label, node)
           end
         end
 

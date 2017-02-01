@@ -12,7 +12,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           mutate_single_child do |child|
-            emit(child)
+            emit(:UnwrapBegin, child)
           end
         end
       end # Begin

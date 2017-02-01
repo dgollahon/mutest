@@ -14,7 +14,7 @@ module Mutest
             input.each_index do |index|
               dup = dup_input
               dup.delete_at(index)
-              emit(dup)
+              emit(:ArrayRemoval, dup)
             end
           end
         end # Presence
@@ -28,10 +28,10 @@ module Mutest
           # @return [undefined]
           def dispatch
             input.each_with_index do |element, index|
-              mutate(element).each do |mutation|
+              mutate(element).each do |change|
                 dup = dup_input
-                dup[index] = mutation
-                emit(dup)
+                dup[index] = change.object
+                emit(change.tag, dup)
               end
             end
           end

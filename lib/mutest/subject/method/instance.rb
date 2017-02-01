@@ -33,8 +33,8 @@ module Mutest
           # @param [Parser::AST::Node] mutest
           #
           # @return [Parser::AST::Node]
-          def wrap_node(mutest)
-            s(:begin, mutest, s(:send, nil, :memoize, s(:args, s(:sym, name))))
+          def wrap_node(mutant)
+            s(:begin, mutant, s(:send, nil, :memoize, s(:args, s(:sym, name))))
           end
         end # Memoized
       end # Instance

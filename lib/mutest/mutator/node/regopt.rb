@@ -13,7 +13,7 @@ module Mutest
         #
         # @return [undefined]
         def dispatch
-          emit_type(*mutated_flags)
+          emit_type(:RemoveCaseInsensitiveFlag, *mutated_flags)
         end
 
         # Altered flags array excluding case insensitive flag

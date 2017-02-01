@@ -12,7 +12,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons unless parent_node && n_const?(parent_node)
-          emit_type(nil, *children.drop(1))
+          emit_type(:RemoveNamespace, nil, *children.drop(1))
           children.each_with_index do |child, index|
             mutate_child(index) if child.instance_of?(::Parser::AST::Node)
           end

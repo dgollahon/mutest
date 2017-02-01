@@ -6,7 +6,7 @@ RSpec.describe Mutest::Mutator do
       handle :send
 
       def dispatch
-        emit(parent)
+        emit(:Label, parent)
       end
     end
   end
@@ -14,7 +14,7 @@ RSpec.describe Mutest::Mutator do
   describe '.handle' do
     it 'registers mutator' do
       mutations = subject.mutate(s(:send), ->(_) {}, s(:parent))
-      expect(mutations).to eql([s(:parent)].to_set)
+      expect(mutations).to eql([described_class::Change.new(:Label, s(:parent))].to_set)
     end
   end
 

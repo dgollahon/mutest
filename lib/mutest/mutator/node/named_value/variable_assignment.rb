@@ -37,7 +37,7 @@ module Mutest
             prefix, regexp = MAP.fetch(node.type)
             stripped = name.to_s.sub(regexp, EMPTY_STRING)
             mutate_with(Util::Symbol, stripped) do |name|
-              emit_name(:"#{prefix}#{name}")
+              emit_name(:PrefixVariable, :"#{prefix}#{name}")
             end
           end
         end # VariableAssignment

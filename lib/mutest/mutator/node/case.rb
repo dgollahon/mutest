@@ -39,7 +39,7 @@ module Mutest
           else_index = children.length - 1
           return unless else_branch
           mutate_child(else_index)
-          emit_child_update(else_index, nil)
+          emit_child_update(else_index, Change.new(:RemoveElse, nil))
         end
       end # Case
     end # Node

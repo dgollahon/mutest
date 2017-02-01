@@ -13,10 +13,10 @@ module Mutest
           # @return [undefined]
           def dispatch
             emit_singletons
-            emit_type
+            emit_type(:EmptyArray)
             mutate_body
             return unless children.one?
-            emit(children.first)
+            emit(:UnwrapArray, children.first)
           end
 
           # Mutate body
@@ -26,7 +26,7 @@ module Mutest
             children.each_index do |index|
               dup_children = children.dup
               dup_children.delete_at(index)
-              emit_type(*dup_children)
+              emit_type(:RemoveArrayElement, *dup_children)
               mutate_child(index)
             end
           end

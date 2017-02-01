@@ -14,7 +14,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
-          emit(N_TRUE)
+          emit(:ReplaceTrue, N_TRUE)
 
           emit_expression_mutations { |node| !n_self?(node) }
         end

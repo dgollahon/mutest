@@ -11,7 +11,9 @@ module Mutest
         #
         # @return [undefined]
         def emit_values
-          values.each(&method(:emit_type))
+          value_changes.each do |tag, value|
+            emit_type(tag, value)
+          end
         end
       end # Literal
     end # Node

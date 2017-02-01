@@ -31,18 +31,18 @@ module Mutest
         end
 
         def emit_lvar_mutation
-          emit(s(:send, s(:send, nil, *left), operation, right))
-          emit(s(:lvasgn, *left, right))
+          emit(:ReplaceCompoundWithOperator, s(:send, s(:send, nil, *left), operation, right))
+          emit(:ReplaceCompoundWithAssignment, s(:lvasgn, *left, right))
         end
 
         def emit_ivar_mutation
-          emit(s(:send, s(:ivar, *left), operation, right))
-          emit(s(:ivasgn, *left, right))
+          emit(:ReplaceCompoundWithOperator, s(:send, s(:ivar, *left), operation, right))
+          emit(:ReplaceCompoundWithAssignment, s(:ivasgn, *left, right))
         end
 
         def emit_send_mutation
-          emit(s(:send, left, operation, right))
-          emit(s(:send, left.children.first, :"#{left.children.last}=", right))
+          emit(:ReplaceCompoundWithOperator, s(:send, left, operation, right))
+          emit(:ReplaceCompoundWithAssignment, s(:send, left.children.first, :"#{left.children.last}=", right))
         end
       end # OpAsgn
     end # Node

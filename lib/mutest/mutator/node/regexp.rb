@@ -24,7 +24,7 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(s(:regexp_bos_anchor))
+            emit(:RegexpEndOfString, s(:regexp_bos_anchor))
           end
         end # BeginningOfLineAnchor
       end # Regexp

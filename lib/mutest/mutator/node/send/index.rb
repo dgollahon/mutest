@@ -19,7 +19,7 @@ module Mutest
               emit_naked_receiver
               emit_value_mutations
               emit_index_read
-              emit(value)
+              emit(:RemoveAssignment, value)
               mutate_indices
             end
 
@@ -37,7 +37,7 @@ module Mutest
             #
             # @return [undefined]
             def emit_index_read
-              emit_type(receiver, :[], *children[INDEX_RANGE])
+              emit_type(:BracketRead, receiver, :[], *children[INDEX_RANGE])
             end
           end # Assign
         end # Index

@@ -22,8 +22,8 @@ module Mutest
       #
       # @return [Enumerable<Mutest::Mutation>]
       def generated
-        Mutator.mutate(node).map do |node|
-          Mutation::Evil.new(self, node)
+        Mutator.mutate(node).map do |change|
+          Mutation::Evil.new(self, change.object)
         end
       end
       memoize :generated

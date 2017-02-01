@@ -16,11 +16,17 @@ module Mutest
             emit_values
           end
 
-          # Values to mutate to
+          # Values to mutate to and corresponding labels
           #
-          # @return [Array]
-          def values
-            [0, 1, -value, value + 1, value - 1]
+          # @return [Hash]
+          def value_changes
+            {
+              ReplaceWithZero: 0,
+              ReplaceWithOne:  1,
+              NegateValue:     -value,
+              IncrementValue:  value + 1,
+              DecrementValue:  value - 1
+            }
           end
 
           # Literal original value

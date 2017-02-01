@@ -13,7 +13,7 @@ module Mutest
           # @return [undefined]
           def dispatch
             emit_singletons
-            emit_type
+            emit_type(:EmptyHash)
             mutate_body
           end
 
@@ -25,7 +25,7 @@ module Mutest
               mutate_child(index)
               dup_children = children.dup
               dup_children.delete_at(index)
-              emit_type(*dup_children)
+              emit_type(:HashRemoval, *dup_children)
             end
           end
 

@@ -15,7 +15,7 @@ module Mutest
         def dispatch
           emit_singletons
           emit_expression_mutations
-          emit(expression)
+          emit(:RemoveSplat, expression)
         end
       end # Splat
     end # Node

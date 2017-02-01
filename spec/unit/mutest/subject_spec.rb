@@ -73,14 +73,14 @@ RSpec.describe Mutest::Subject do
         .and_return([mutation_a, mutation_b])
     end
 
-    let(:mutation_a) { instance_double(Parser::AST::Node, :mutation_a) }
-    let(:mutation_b) { instance_double(Parser::AST::Node, :mutation_b) }
+    let(:mutation_a) { Mutest::Mutator::Change.new(:Fake, instance_double(Parser::AST::Node, :mutation_a)) }
+    let(:mutation_b) { Mutest::Mutator::Change.new(:Fake, instance_double(Parser::AST::Node, :mutation_b)) }
 
     it 'generates neutral and evil mutations' do
       is_expected.to eql([
         Mutest::Mutation::Neutral.new(object, node),
-        Mutest::Mutation::Evil.new(object, mutation_a),
-        Mutest::Mutation::Evil.new(object, mutation_b)
+        Mutest::Mutation::Evil.new(object, mutation_a.object),
+        Mutest::Mutation::Evil.new(object, mutation_b.object)
       ])
     end
   end

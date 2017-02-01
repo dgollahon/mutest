@@ -16,7 +16,7 @@ module Mutest
           def dispatch
             return unless group
 
-            emit(s(:regexp_passive_group, group))
+            emit(:PassiveCaptureGroup, s(:regexp_passive_group, group))
             emit_group_mutations
           end
         end # CaptureGroup

@@ -18,9 +18,9 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(s(MAP.fetch(node.type), *children))
+            emit(:RegexpOneOrMore, s(MAP.fetch(node.type), *children))
             emit_subject_mutations
-            emit(subject)
+            emit(:RemoveQuantifier, subject)
           end
         end # ZeroOrMore
       end # Regexp

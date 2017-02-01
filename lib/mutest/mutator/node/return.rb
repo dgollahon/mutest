@@ -15,7 +15,7 @@ module Mutest
         def dispatch
           emit_singletons
           return unless value
-          emit(value)
+          emit(:RemoveExplicitReturn, value)
           emit_value_mutations
         end
       end # Return

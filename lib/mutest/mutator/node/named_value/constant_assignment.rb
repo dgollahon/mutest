@@ -24,7 +24,7 @@ module Mutest
           #
           # @return [undefined]
           def emit_remove_const
-            emit(s(:send, cbase, :remove_const, s(:sym, name)))
+            emit(:RemoveConst, s(:send, cbase, :remove_const, s(:sym, name)))
           end
 
           # Emit name mutations
@@ -32,7 +32,7 @@ module Mutest
           # @return [undefined]
           def mutate_name
             mutate_with(Util::Symbol, name) do |name|
-              emit_name(name.upcase)
+              emit_name(:UpcaseConstant, name.upcase)
             end
           end
         end # ConstantAssignment

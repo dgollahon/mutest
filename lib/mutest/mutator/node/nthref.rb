@@ -13,8 +13,8 @@ module Mutest
         #
         # @return [undefined]
         def dispatch
-          emit_number(number - 1) unless number.equal?(1)
-          emit_number(number + 1)
+          emit_number(:DecrementLiteral, number - 1) unless number.equal?(1)
+          emit_number(:IncrementLiteral, number + 1)
         end
       end # NthRef
     end # Node

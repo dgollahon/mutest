@@ -13,7 +13,7 @@ module Mutest
         #
         # @return [undefined]
         def dispatch
-          emit_assignment(nil)
+          emit_assignment(:RemoveRescueAssignment, nil)
           emit_body_mutations if body
           mutate_captures
         end
@@ -25,7 +25,7 @@ module Mutest
           return unless captures
           mutate_with(Util::Array::Element, captures.children) do |matchers|
             next if matchers.any?(&method(:n_nil?))
-            emit_captures(s(:array, *matchers))
+            emit_captures(:RemoveRescueCapture, s(:array, *matchers))
           end
         end
       end # Resbody

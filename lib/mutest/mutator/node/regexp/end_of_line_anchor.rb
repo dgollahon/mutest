@@ -12,7 +12,7 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(s(:regexp_eos_anchor))
+            emit(:RegexpEndOfString, s(:regexp_eos_anchor))
           end
         end # EndOfLineAnchor
       end # Regexp

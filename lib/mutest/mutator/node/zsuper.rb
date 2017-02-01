@@ -12,7 +12,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
-          emit(N_EMPTY_SUPER)
+          emit(:SuperWithoutArguments, N_EMPTY_SUPER)
         end
       end # ZSuper
     end # Node

@@ -14,7 +14,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
-          emit(send)
+          emit(:RemoveBlock, send)
           emit_send_mutations(&method(:n_send?))
           emit_arguments_mutations
 
@@ -25,11 +25,11 @@ module Mutest
         #
         # @return [undefined]
         def mutate_body
-          emit_body(nil)
-          emit_body(N_RAISE)
+          emit_body(:RemoveBody, nil)
+          emit_body(:ReplaceRaise, N_RAISE)
 
           return unless body
-          emit(body)
+          emit(:UnwrapBlock, body)
           emit_body_mutations
 
           mutate_body_receiver
@@ -43,7 +43,7 @@ module Mutest
 
           body_meta = AST::Meta::Send.new(body)
 
-          emit(s(:send, send, body_meta.selector, *body_meta.arguments))
+          emit(:ReplaceBlockWithSend, s(:send, send, body_meta.selector, *body_meta.arguments))
         end
       end # Block
     end # Node

@@ -18,7 +18,7 @@ module Mutest
           # @return [undefined]
           def dispatch
             emit_nil
-            emit(s(MAP.fetch(node.type)))
+            emit(:InvertBoolean, s(MAP.fetch(node.type)))
           end
         end # Boolean
       end # Literal

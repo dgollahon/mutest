@@ -37,7 +37,7 @@ module Mutest
             #
             # @return [undefined]
             def emit_attribute_read
-              emit(s(:send, nil, attribute_name))
+              emit(:ReplaceReader, s(:send, nil, attribute_name))
             end
 
             # Variable name without leading '@'
