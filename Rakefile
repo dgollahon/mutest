@@ -17,7 +17,7 @@ namespace :metrics do
     ]
     arguments.concat(%w[--jobs 4]) if ENV.key?('CIRCLECI')
 
-    arguments.concat(%w[-- Mutant*])
+    arguments.concat(%w[-- Mutest*])
 
     Kernel.system(*arguments) or fail 'Mutant task is not successful'
   end
