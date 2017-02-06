@@ -150,7 +150,7 @@ module Mutest
       # Write a semantics warning
       #
       # @return [undefined]
-      def semantics_warning(format, options)
+      def semantics_warning(format, **options)
         message = format % options
         warn(format(SEMANTICS_MESSAGE_FORMAT, message: message))
       end
