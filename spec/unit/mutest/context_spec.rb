@@ -110,6 +110,16 @@ RSpec.describe Mutest::Context do
     end
   end
 
+  describe '#source_path' do
+    let(:source_file) do
+      instance_double(Mutest::SourceFile, path: instance_double(Pathname))
+    end
+
+    it 'exposes source file path' do
+      expect(described_class.new(scope, source_file).source_path).to be(source_file.path)
+    end
+  end
+
   describe '#ignore?' do
     let(:object) do
       described_class.new(scope, source_file)
