@@ -40,13 +40,6 @@ module Mutest
       # @return [Parser::AST::Node]
       alias_method :dup_node, :dup_input
 
-      # Original nodes children
-      #
-      # @return [Array<Parser::AST::Node>]
-      def children
-        node.children
-      end
-
       # Dispatch on child index
       #
       # @param [Fixnum] index
