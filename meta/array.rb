@@ -4,7 +4,6 @@ Mutest::Meta::Example.add :array do
   singleton_mutations
   mutation 'true'
   mutation '[false]'
-  mutation '[nil]'
   mutation '[]'
 end
 
@@ -14,9 +13,7 @@ Mutest::Meta::Example.add :array do
   singleton_mutations
 
   # Mutation of each element in array
-  mutation '[nil, false]'
   mutation '[false, false]'
-  mutation '[true, nil]'
   mutation '[true, true]'
 
   # Remove each element of array once

@@ -4,5 +4,4 @@ Mutest::Meta::Example.add :cvasgn do
   singleton_mutations
   mutation '@@a__mutest__ = true'
   mutation '@@a = false'
-  mutation '@@a = nil'
 end

@@ -114,8 +114,6 @@ Mutest::Meta::Example.add :def do
   # Mutation of each statement in block
   mutation 'def foo; true; true; end'
   mutation 'def foo; false; false; end'
-  mutation 'def foo; true; nil; end'
-  mutation 'def foo; nil; false; end'
 
   # Remove statement in block
   mutation 'def foo; true; end'
@@ -161,7 +159,6 @@ Mutest::Meta::Example.add :def do
   mutation 'def foo(a, b = nil); end'
   mutation 'def foo; true; end'
   mutation 'def foo(a, b = nil); raise; end'
-  mutation 'def foo(a, b = nil); nil; end'
   mutation 'def foo(a, b = nil); false; end'
   mutation 'def foo(a); true; end'
   mutation 'def foo(a, b = nil); b = nil; true; end'
@@ -182,7 +179,6 @@ end
 Mutest::Meta::Example.add :def do
   source 'def foo(_unused = true); end'
 
-  mutation 'def foo(_unused = nil); end'
   mutation 'def foo(_unused = false); end'
   mutation 'def foo(_unused = true); raise; end'
   mutation 'def foo(_unused = true); super; end'
@@ -218,7 +214,6 @@ Mutest::Meta::Example.add :def do
   mutation 'def foo(a); end'
   mutation 'def foo(); end'
   mutation 'def foo(a = false); end'
-  mutation 'def foo(a = nil); end'
   mutation 'def foo(_a = true); end'
   mutation 'def foo(a = true); raise; end'
   mutation 'def foo(a = true); super; end'
@@ -231,8 +226,6 @@ Mutest::Meta::Example.add :def do
   # Body presence mutation
   mutation 'def self.foo; false; false; end'
   mutation 'def self.foo; true; true; end'
-  mutation 'def self.foo; true; nil; end'
-  mutation 'def self.foo; nil; false; end'
 
   # Body presence mutation
   mutation 'def self.foo; true; end'

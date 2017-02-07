@@ -21,12 +21,6 @@ Mutest::Meta::Example.add :case do
     else
     end
   RUBY
-  mutation <<-RUBY
-    case
-    when nil
-    else
-    end
-  RUBY
 end
 
 # rubocop:disable Metrics/BlockLength

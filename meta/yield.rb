@@ -3,6 +3,5 @@ Mutest::Meta::Example.add :yield do
 
   singleton_mutations
   mutation 'yield false'
-  mutation 'yield nil'
   mutation 'yield'
 end
