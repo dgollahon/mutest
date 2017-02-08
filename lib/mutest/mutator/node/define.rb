@@ -22,8 +22,8 @@ module Mutest
         #
         # @return [undefined]
         def emit_optarg_body_assignments
-          arguments.children.each do |argument|
-            next unless n_optarg?(argument) && AST::Meta::Optarg.new(argument).used?
+          used_arguments.each do |argument|
+            next unless n_optarg?(argument)
 
             emit_body_prepend(s(:lvasgn, *argument))
           end
@@ -33,7 +33,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_restarg_body_mutation
-          arguments.children.each do |argument|
+          used_arguments.each do |argument|
             replacement =
               if n_restarg?(argument)
                 s(:array)
@@ -45,6 +45,10 @@ module Mutest
 
             emit_body_prepend(s(:lvasgn, AST::Meta::Restarg.new(argument).name, replacement))
           end
+        end
+
+        def used_arguments
+          arguments.children.select { |arg| AST::Meta::Optarg.new(arg).used? }
         end
 
         # Emit valid body ASTs depending on instance body
