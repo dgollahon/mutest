@@ -174,7 +174,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_drop_mutation
-          return if !selector.equal?(:[]) || !arguments.one? || !n_irange?(arguments.first)
+          return if !selector.equal?(:[]) || !arguments.one? || !n_irange?(Mutest::Util.one(arguments))
 
           start, ending = *arguments.first
 
@@ -239,8 +239,11 @@ module Mutest
         #
         # @return [undefined]
         def emit_argument_propagation
-          node = arguments.first
-          emit(node) if arguments.one? && !NOT_STANDALONE.include?(node.type)
+          return unless arguments.one?
+
+          node = Mutest::Util.one(arguments)
+
+          emit(node) unless NOT_STANDALONE.include?(node.type)
         end
 
         # Emit receiver mutations
