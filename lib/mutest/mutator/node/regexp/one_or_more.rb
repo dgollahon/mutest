@@ -10,6 +10,9 @@ module Mutest
             regexp_possessive_one_or_more: :regexp_possessive_interval
           )
 
+          # -1 marks an infinite upper bound
+          UNBOUNDED = -1
+
           handle(*MAP.keys)
 
           children :min, :max, :subject
@@ -18,10 +21,12 @@ module Mutest
           #
           # @return [undefined]
           def dispatch
-            emit(s(MAP.fetch(node.type), 2, -1, subject))
+            emit(s(MAP.fetch(node.type), 2, UNBOUNDED, subject))
             emit_subject_mutations
             emit(subject)
           end
+
+          private_constant(*constants(false))
         end # OneOrMore
       end # Regexp
     end # Node
