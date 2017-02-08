@@ -9,6 +9,15 @@ Mutest::Meta::Example.add :kwrestarg do
 end
 
 Mutest::Meta::Example.add :kwrestarg do
+  source 'def foo(**_bar); end'
+
+  mutation 'def foo; end'
+  mutation 'def foo(**_bar); _bar = {}; end'
+  mutation 'def foo(**_bar); raise; end'
+  mutation 'def foo(**_bar); super; end'
+end
+
+Mutest::Meta::Example.add :kwrestarg do
   source 'def foo(**); end'
 
   mutation 'def foo; end'
