@@ -61,7 +61,7 @@ module Mutest
             # @return [String]
             def text
               if type.equal?(:interval)
-                interval_text + suffix
+                Interval.new(min, max).to_s + suffix
               else
                 suffix
               end
@@ -95,13 +95,35 @@ module Mutest
               QUANTIFIER_MAP.fetch(node.type)
             end
 
-            # Interval text constructed from min and max
-            #
-            # @return [String]
-            def interval_text
-              interval = [min, max].map { |num| num if num > 0 }.uniq
-              "{#{interval.join(',')}}"
-            end
+            class Interval
+              include Concord.new(:min, :max)
+
+              def initialize(*)
+                super
+
+                unless valid_min? && valid_max?
+                  fail ArgumentError, 'Unexpected quantifier interval bound.'
+                end
+              end
+
+              def to_s
+                "{#{compacted_interval.join(',')}}"
+              end
+
+              private
+
+              def compacted_interval
+                [min, max].map { |bound| bound if bound > 0 }.uniq
+              end
+
+              def valid_min?
+                min >= 0
+              end
+
+              def valid_max?
+                max > 0 || max.equal?(-1)
+              end
+            end # Interval
           end # ASTToExpression
 
           ASTToExpression::QUANTIFIER_MAP.keys.each(&method(:register))

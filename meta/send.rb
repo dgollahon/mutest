@@ -29,6 +29,37 @@ Mutest::Meta::Example.add :send do
 end
 
 Mutest::Meta::Example.add :send do
+  source 'A.const_get(:B, true)'
+
+  singleton_mutations
+  mutation 'A'
+  mutation 'A::B'
+  mutation 'self.const_get(:B, true)'
+  mutation 'A.const_get'
+  mutation 'A.const_get(nil, true)'
+  mutation 'A.const_get(self, true)'
+  mutation 'A.const_get(:B__mutest__, true)'
+  mutation 'A.const_get(true)'
+  mutation 'A.const_get(:B, nil)'
+  mutation 'A.const_get(:B, false)'
+  mutation 'A.const_get(:B)'
+end
+
+Mutest::Meta::Example.add :send do
+  source 'A.const_get(:B)'
+
+  singleton_mutations
+  mutation 'A::B'
+  mutation 'A.const_get'
+  mutation 'A'
+  mutation ':B'
+  mutation 'A.const_get(nil)'
+  mutation 'A.const_get(self)'
+  mutation 'A.const_get(:B__mutest__)'
+  mutation 'self.const_get(:B)'
+end
+
+Mutest::Meta::Example.add :send do
   source 'A.const_get(bar)'
 
   singleton_mutations

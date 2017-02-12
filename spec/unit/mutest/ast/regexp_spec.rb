@@ -623,3 +623,32 @@ RegexpSpec.expect_mapping(/\*/, :regexp_zero_or_more_escape) do
   s(:regexp_root_expression,
     s(:regexp_zero_or_more_escape))
 end
+
+RSpec.describe Mutest::AST::Regexp::Transformer::Quantifier do # rubocop:disable RSpec/FilePath
+  def regexp(lower_bound, upper_bound)
+    sexp =
+      s(:regexp_root_expression,
+        s(:regexp_greedy_interval, lower_bound, upper_bound,
+          s(:regexp_literal_literal, 'a')))
+
+    Mutest::AST::Regexp.to_expression(sexp).to_re
+  end
+
+  shared_examples 'an invalid quantifier range' do |lower_bound, upper_bound|
+    it 'raises an error' do
+      expect { regexp(lower_bound, upper_bound) }
+        .to raise_error(ArgumentError, 'Unexpected quantifier interval bound.')
+    end
+  end
+
+  include_examples 'an invalid quantifier range', -1, 1
+  include_examples 'an invalid quantifier range',  1, 0
+
+  it 'treats 0 as a sentinel value' do
+    expect(regexp(0, 1)).to eql(/a{,1}/)
+  end
+
+  it 'treats -1 as a sentinel value' do
+    expect(regexp(1, -1)).to eql(/a{1,}/)
+  end
+end
