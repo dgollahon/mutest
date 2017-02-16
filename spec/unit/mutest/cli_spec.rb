@@ -139,16 +139,9 @@ Options:
     context 'with use flag' do
       context 'when integration exists' do
         let(:flags) { %w[--use rspec] }
-
-        before do
-          expect(Kernel).to receive(:require)
-            .with('mutest/integration/rspec')
-            .and_call_original
-        end
+        let(:expected_integration) { Mutest::Integration::Rspec }
 
         it_should_behave_like 'a cli parser'
-
-        let(:expected_integration) { Mutest::Integration::Rspec }
       end
 
       context 'when integration does NOT exist' do

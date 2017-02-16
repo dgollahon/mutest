@@ -15,8 +15,8 @@ module Mutest
     # @param name [String]
     #
     # @return [Class<Integration>]
-    def self.setup(kernel, name)
-      kernel.require("mutest/integration/#{name}")
+    def self.setup(_kernel, name)
+      require("mutest/integration/#{name}")
       const_get(name.capitalize)
     end
 
