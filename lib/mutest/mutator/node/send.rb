@@ -13,11 +13,11 @@ module Mutest
         SELECTOR_REPLACEMENTS = IceNine.deep_freeze(
           __send__:      %i[public_send],
           :[] =>         %i[at fetch key?],
-          :< =>          %i[== <= eql? equal?],
+          :< =>          %i[== eql? equal?],
           :<= =>         %i[< == eql? equal?],
           :== =>         %i[eql? equal?],
           :=== =>        %i[kind_of?],
-          :> =>          %i[== >= eql? equal?],
+          :> =>          %i[== eql? equal?],
           :>= =>         %i[> == eql? equal?],
           '=~':          %i[match?],
           at:            %i[fetch key?],
