@@ -207,6 +207,7 @@ require 'mutest/reporter/cli/printer/test_result'
 require 'mutest/reporter/cli/tput'
 require 'mutest/reporter/cli/format'
 require 'mutest/repository'
+require 'mutest/requirer'
 require 'mutest/zombifier'
 
 module Mutest
@@ -231,6 +232,7 @@ module Mutest
         process: Process
       ),
       jobs:              ::Parallel.processor_count,
+      requirer:          Requirer.new,
       kernel:            Kernel,
       load_path:         $LOAD_PATH,
       matcher:           Matcher::Config::DEFAULT,

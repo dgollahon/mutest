@@ -16,6 +16,7 @@ module Mutest
       :matcher,
       :open3,
       :pathname,
+      :requirer,
       :requires,
       :reporter,
       :zombie

@@ -139,16 +139,15 @@ Options:
     context 'with use flag' do
       context 'when using the existing integration with rspec' do
         let(:flags) { %w[--use rspec] }
+        let(:expected_integration) { Mutest::Integration::Rspec }
 
         before do
-          expect(Kernel).to receive(:require)
+          expect(Mutest::Config::DEFAULT.requirer).to receive(:require)
             .with('mutest/integration/rspec')
             .and_call_original
         end
 
         it_should_behave_like 'a cli parser'
-
-        let(:expected_integration) { Mutest::Integration::Rspec }
       end
 
       context 'when specifying the default null integration explicitely' do
@@ -156,7 +155,7 @@ Options:
         let(:expected_integration) { Mutest::Integration::Null }
 
         before do
-          expect(Kernel).to receive(:require)
+          expect(Mutest::Config::DEFAULT.requirer).to receive(:require)
             .with('mutest/integration/null')
             .and_call_original
         end
