@@ -11,13 +11,13 @@ RSpec.describe Mutest::Integration do
   end
 
   describe '.setup' do
-    subject { described_class.setup(kernel, name) }
+    subject { described_class.setup(requirer, name) }
 
-    let(:name)   { 'null'               }
-    let(:kernel) { class_double(Kernel) }
+    let(:name)     { 'null'               }
+    let(:requirer) { Mutest::Requirer.new }
 
     before do
-      expect(kernel).to receive(:require)
+      expect(requirer).to receive(:require)
         .with('mutest/integration/null')
     end
 
