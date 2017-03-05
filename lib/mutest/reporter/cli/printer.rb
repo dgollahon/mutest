@@ -51,7 +51,7 @@ module Mutest
 
         # Visit a collection of objects
         #
-        # @return [Class::Printer] printer
+        # @return [Class] Printer
         # @return [Enumerable<Object>] collection
         #
         # @return [undefined]
@@ -63,7 +63,7 @@ module Mutest
 
         # Visit object
         #
-        # @param [Class::Printer] printer
+        # @param [Class] Printer
         # @param [Object] object
         #
         # @return [undefined]

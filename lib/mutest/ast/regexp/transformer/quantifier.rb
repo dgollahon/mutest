@@ -69,7 +69,7 @@ module Mutest
 
             # Type of quantifier
             #
-            # @return [:zero_or_more,:one_or_more,:interval]
+            # @return [Symbol] :zero_or_more, :one_or_more, or :interval
             def type
               quantifier.type
             end
@@ -83,7 +83,7 @@ module Mutest
 
             # The quantifier "mode"
             #
-            # @return [:greedy,:possessive,:reluctant]
+            # @return [Symbol] :greedy, :possessive, or :reluctant
             def mode
               quantifier.mode
             end

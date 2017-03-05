@@ -20,7 +20,7 @@ module Mutest
 
     # Initialize object
     #
-    # @param [Array<String>]
+    # @param arguments [Array<String>]
     #
     # @return [undefined]
     def initialize(arguments)

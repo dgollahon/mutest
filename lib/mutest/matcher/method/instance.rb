@@ -47,7 +47,7 @@ module Mutest
 
             # Source location
             #
-            # @return [Array{String,Fixnum}]
+            # @return [Array<String,Fixnum>]
             def source_location
               scope
                 .unmemoized_instance_method(method_name)

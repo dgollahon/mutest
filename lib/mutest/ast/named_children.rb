@@ -20,7 +20,7 @@ module Mutest
 
         # Mutated nodes children
         #
-        # @return [Array<Parser::AST::Node]
+        # @return [Array<Parser::AST::Node>]
         def children
           node.children
         end
