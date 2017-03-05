@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Master (Unreleased)]
 
+### Fixed
+
+- Now `mutest` can REALLY be run without being in the bundle. [[#50](https://github.com/backus/mutest/pull/50/files) ([@dgollahon][])]
+
 ## [0.0.5] - 2017-03-04
 
-### Added
+### Fixed
 
 - Now `mutest` can be run without being in the bundle. [[#46](https://github.com/backus/mutest/pull/46/files) ([@mvz][])]
 
