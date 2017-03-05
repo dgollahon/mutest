@@ -34,7 +34,7 @@ module Mutest
 
             # Transform nodes and their children into expressions
             #
-            # @return [Regexp::Expression]
+            # @return [Regexp::Expression::Base]
             def transform
               expression_class.new(expression_token).tap do |expression|
                 expression.expressions = subexpressions

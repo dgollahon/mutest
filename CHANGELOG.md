@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Removed
 - Boolean to `nil` mutations (`true` -> `nil`; `false` -> `nil`) [[#42](https://github.com/backus/mutest/pull/42/files) ([@dgollahon][])]
 
+### Fixed
+- Invalid yard doc type annotations [[#51](https://github.com/backus/mutest/pull/51/files) ([@backus][])]
+
 ## [0.0.6] - 2017-03-04
 
 ### Fixed

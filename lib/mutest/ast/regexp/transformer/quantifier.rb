@@ -49,7 +49,7 @@ module Mutest
 
             # Transform ast into quantifier attached to expression
             #
-            # @return [Regexp::Expression]
+            # @return [Regexp::Expression::Base]
             def transform
               Regexp.to_expression(subject).dup.tap do |expression|
                 expression.quantify(type, text, min, max, mode)

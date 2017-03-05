@@ -27,7 +27,7 @@ module Mutest
 
           # Inverse node
           #
-          # @return [Parser::AST::Node]
+          # @return [undefined]
           def emit_inverse
             emit(s(MAP.fetch(node.type), *children))
           end
