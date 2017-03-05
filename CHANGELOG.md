@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Master (Unreleased)]
 
+## [0.0.5] - 2017-03-04
+
 ### Added
 
 - Now `mutest` can be run without being in the bundle. [[#46](https://github.com/backus/mutest/pull/46/files) ([@mvz][])]
@@ -21,7 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Less strict relational operator mutations (`<` -> `<=`; `>` -> `>=`) [[#47](https://github.com/backus/mutest/pull/47/files) ([@backus][])]
 - Unused `ffi` dependency [[#40](https://github.com/backus/mutest/pull/40/files) ([@mvz][])]
 
-## [0.0.3] - 2017-01-30
+## [0.0.3] - 2017-01-31
 
 ### Fixed
 
@@ -32,6 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 First proper RubyGems release
 
 ### Added
+
 - Hash hint mutation (`def foo(opts); end` -> `def foo(**opts); end`) [[#24](https://github.com/backus/mutest/pull/24/files) ([@dgollahon][])]
 - Unused restarg mutations (`def(*args); end` -> `def(*_args); end`; `def(**opts); end` -> `def(**_opts); end` [[#18](https://github.com/backus/mutest/pull/18/files) ([@dgollahon][])]
 - Select/Reject mutations (`a.select(&b)` -> `a.reject(&b)`, `a.reject(&b)` -> `a.select(&b)`) [[#15](https://github.com/backus/mutest/pull/15/files) ([@dgollahon][])]
@@ -46,7 +49,8 @@ First proper RubyGems release
 
 <!-- Version diffs -->
 
-[Master (Unreleased)]: https://github.com/backus/mutest/compare/v0.0.4...HEAD
+[Master (Unreleased)]: https://github.com/backus/mutest/compare/v0.0.5...HEAD
+[0.0.5]: https://github.com/backus/mutest/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/backus/mutest/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/backus/mutest/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/backus/mutest/compare/7a50870929325127db8578ade9c8656f356131ba...v0.0.2
