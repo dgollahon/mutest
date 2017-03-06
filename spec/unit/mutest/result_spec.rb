@@ -16,7 +16,7 @@ RSpec.describe Mutest::Result do
       expect(object.frozen?).to be(true)
     end
 
-    it 'it makes DSL methods from Mutest::Result available' do
+    it 'makes DSL methods from Mutest::Result available' do
       expect(object.length).to be(1)
     end
   end
