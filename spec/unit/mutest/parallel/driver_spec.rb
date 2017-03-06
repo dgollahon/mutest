@@ -11,7 +11,7 @@ RSpec.describe Mutest::Parallel::Driver do
       expect(binding).to receive(:call).with(:stop)
     end
 
-    it_should_behave_like 'a command method'
+    it_behaves_like 'a command method'
   end
 
   describe '#status' do

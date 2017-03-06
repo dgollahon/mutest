@@ -87,14 +87,14 @@ RSpec.describe Mutest::Matcher::Method::Instance, '#call' do
     let(:scope)       { base::WithMemoizer }
     let(:method_line) { 13                 }
 
-    it_should_behave_like 'a method matcher'
+    it_behaves_like 'a method matcher'
   end
 
   context 'when method is defined once with a memoizer' do
     let(:scope)       { base::WithMemoizer }
     let(:method_line) { 15                 }
 
-    it_should_behave_like 'a method matcher'
+    it_behaves_like 'a method matcher'
   end
 
   context 'when method is defined multiple times' do
@@ -103,7 +103,7 @@ RSpec.describe Mutest::Matcher::Method::Instance, '#call' do
       let(:method_line)  { 24                                         }
       let(:method_arity) { 1                                          }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
 
     context 'on the same line' do
@@ -111,7 +111,7 @@ RSpec.describe Mutest::Matcher::Method::Instance, '#call' do
       let(:method_line)  { 29                                            }
       let(:method_arity) { 1                                             }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
 
     context 'on the same line with different scope' do
@@ -119,7 +119,7 @@ RSpec.describe Mutest::Matcher::Method::Instance, '#call' do
       let(:method_line)  { 33                                                 }
       let(:method_arity) { 1                                                  }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
   end
 end
