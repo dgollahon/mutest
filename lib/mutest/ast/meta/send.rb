@@ -65,6 +65,12 @@ module Mutest
           Const.new(receiver).possible_top_level?
         end
 
+        def bareword?
+          receiver.nil? &&
+            arguments.empty? &&
+            node.loc.last_column == node.loc.selector.last_column
+        end
+
         private
 
         # Test if node is `proc { ... }`
