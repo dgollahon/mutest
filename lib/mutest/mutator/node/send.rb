@@ -170,7 +170,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_lambda_mutation
-          emit(s(:send, nil, :lambda)) if meta.proc?
+          emit_type(nil, :lambda) if meta.proc?
         end
 
         # Emit mutation for `#dig`
@@ -188,7 +188,7 @@ module Mutest
 
           return emit(fetch_mutation) if tail.empty?
 
-          emit(s(:send, fetch_mutation, :dig, *tail))
+          emit_type(fetch_mutation, :dig, *tail)
         end
 
         # Emit mutation `foo[n..-1]` -> `foo.drop(n)`
@@ -201,7 +201,7 @@ module Mutest
 
           return unless ending.eql?(s(:int, -1))
 
-          emit(s(:send, receiver, :drop, start))
+          emit_type(receiver, :drop, start)
         end
 
         # Emit mutation from `to_i` to `Integer(...)`
@@ -210,7 +210,7 @@ module Mutest
         def emit_integer_mutation
           return unless selector.equal?(:to_i)
 
-          emit(s(:send, nil, :Integer, receiver))
+          emit_type(nil, :Integer, receiver)
         end
 
         # Emit mutation from `Array(a)` to `[a]`
