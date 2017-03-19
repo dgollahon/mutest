@@ -14,7 +14,9 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
-          emit_expression_mutations
+          emit_expression_mutations do |node|
+            !n_nil?(node)
+          end
           emit(expression)
         end
       end # Splat

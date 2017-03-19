@@ -4,7 +4,6 @@ Mutest::Meta::Example.add :splat do
   singleton_mutations
   mutation 'foo'
   mutation 'foo(nil)'
-  mutation 'foo(*nil)'
   mutation 'foo(bar)'
   mutation 'foo(self)'
   mutation 'foo(*self)'
@@ -19,7 +18,6 @@ Mutest::Meta::Example.add :splat do
   mutation 'a = self'
   mutation 'a = []'
   mutation 'a = [nil]'
-  mutation 'a = [*nil]'
   mutation 'a = [self]'
   mutation 'a = [*self]'
   mutation 'a = [bar]'

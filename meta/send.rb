@@ -640,7 +640,6 @@ Mutest::Meta::Example.add :send do
   mutation 'foo[self]'
   mutation 'foo[bar]'
   mutation 'foo[*self]'
-  mutation 'foo[*nil]'
   mutation 'self[*bar]'
 end
 
