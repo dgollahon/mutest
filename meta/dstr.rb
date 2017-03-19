@@ -8,4 +8,6 @@ Mutest::Meta::Example.add :dstr do
   mutation '"foo#{bar}#{self}"'
   mutation '"foo#{nil}baz"'
   mutation '"foo#{self}baz"'
+  mutation '"foo__mutest__#{bar}baz"'
+  mutation '"foo#{bar}baz__mutest__"'
 end

@@ -6,6 +6,8 @@ module Mutest
         class String < self
           handle(:str)
 
+          children :value
+
           private
 
           # Emit mutations
@@ -13,6 +15,7 @@ module Mutest
           # @return [undefined]
           def dispatch
             emit_singletons
+            emit_type(value + Util::Symbol::POSTFIX)
           end
         end # String
       end # Literal
