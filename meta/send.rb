@@ -388,18 +388,6 @@ Mutest::Meta::Example.add :send do
 end
 
 Mutest::Meta::Example.add :send do
-  source 'foo(*bar)'
-
-  singleton_mutations
-  mutation 'foo'
-  mutation 'foo(nil)'
-  mutation 'foo(bar)'
-  mutation 'foo(self)'
-  mutation 'foo(*nil)'
-  mutation 'foo(*self)'
-end
-
-Mutest::Meta::Example.add :send do
   source 'foo(&bar)'
 
   singleton_mutations
