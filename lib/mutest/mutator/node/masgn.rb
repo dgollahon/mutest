@@ -14,6 +14,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
+          emit_right_mutations
         end
       end # MultipleAssignment
     end # Node
