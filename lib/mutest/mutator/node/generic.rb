@@ -4,6 +4,7 @@ module Mutest
       # Generic mutator
       class Generic < self
         unsupported_nodes = %i[
+          cbase
           ensure
           redo
           retry

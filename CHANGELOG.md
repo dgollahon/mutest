@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Master (Unreleased)]
 
+### Added
+
+- Block-pass mutations (`foo(&method(:bar))` -> `foo(&public_method(:bar))`) [[#54](https://github.com/backus/mutest/pull/54/files) ([@dgollahon][])]
+
 ## [0.0.6] - 2017-03-04
 
 ### Fixed

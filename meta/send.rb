@@ -404,6 +404,8 @@ Mutest::Meta::Example.add :send do
 
   singleton_mutations
   mutation 'foo'
+  mutation 'foo(&nil)'
+  mutation 'foo(&self)'
 end
 
 Mutest::Meta::Example.add :send do
