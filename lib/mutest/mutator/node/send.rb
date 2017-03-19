@@ -113,7 +113,10 @@ module Mutest
         # Emit mutations which only correspond to one selector
         #
         # @return [undefined]
+        #
+        # ignore :reek:TooManyStatements: { max_statements: 8 }
         def emit_selector_specific_mutations
+          emit_method_method_selector_replacements
           emit_const_get_mutation
           emit_integer_mutation
           emit_array_mutation
@@ -132,7 +135,25 @@ module Mutest
           RECEIVER_SELECTOR_REPLACEMENTS
             .fetch(receiver.children.last, EMPTY_HASH)
             .fetch(selector, EMPTY_ARRAY)
-            .each(&method(:emit_selector))
+            .each(&public_method(:emit_selector))
+        end
+
+        # Emit selector mutations for [public_]method calls
+        #
+        # - Mutates `foo.method(:to_s)` to `foo.method(:to_str)`
+        # - Mutates `foo.public_method('to_s')` to `foo.public_method('to_str')`
+        #
+        # @return [undefined]
+        def emit_method_method_selector_replacements
+          return unless meta.method_object_selector? && meta.arguments.one?
+
+          arg = Mutest::Util.one(meta.arguments)
+
+          return unless n_sym?(arg) || n_str?(arg)
+
+          selector_replacements(*arg).each do |replacement|
+            emit_type(receiver, selector, s(arg.type, replacement))
+          end
         end
 
         # Emit mutation from `!!foo` to `foo`
@@ -214,7 +235,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_selector_replacement
-          SELECTOR_REPLACEMENTS.fetch(selector, EMPTY_ARRAY).each(&method(:emit_selector))
+          selector_replacements(selector).each(&public_method(:emit_selector))
         end
 
         # Emit naked receiver mutation
@@ -266,6 +287,17 @@ module Mutest
             METHOD_OPERATORS.include?(selector) ||
             meta.attribute_assignment?
           )
+        end
+
+        # ignore :reek:UtilityFunction:
+        def selector_replacements(selector)
+          replacements = SELECTOR_REPLACEMENTS.fetch(selector.to_sym, EMPTY_ARRAY)
+
+          if selector.instance_of?(String)
+            replacements.map(&:to_s)
+          else
+            replacements
+          end
         end
       end # Send
     end # Node

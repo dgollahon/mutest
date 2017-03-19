@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- Selector mutations for `[public_]method` methods (`foo.method(:to_s)` -> `foo.method(:to_str)`) [[#56](https://github.com/backus/mutest/pull/56/files) ([@dgollahon][])]
 - Block-pass symbol#to_proc mutations (`foo(&:to_s)` -> `foo(&:to_str)`) [[#55](https://github.com/backus/mutest/pull/55/files) ([@dgollahon][])]
 - Block-pass mutations (`foo(&method(:bar))` -> `foo(&public_method(:bar))`) [[#54](https://github.com/backus/mutest/pull/54/files) ([@dgollahon][])]
 

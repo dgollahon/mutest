@@ -12,6 +12,7 @@ module Mutest
 
         INDEX_ASSIGNMENT_SELECTOR            = :[]=
         ATTRIBUTE_ASSIGNMENT_SELECTOR_SUFFIX = '='.freeze
+        METHOD_METHOD_SELECTORS              = %i[method public_method].freeze
 
         # Arguments of mutated node
         #
@@ -63,6 +64,11 @@ module Mutest
           return false unless receiver && n_const?(receiver)
 
           Const.new(receiver).possible_top_level?
+        end
+
+        # Test if this is a selector that returns a method object
+        def method_object_selector?
+          METHOD_METHOD_SELECTORS.include?(selector)
         end
 
         private

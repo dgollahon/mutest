@@ -878,3 +878,59 @@ Mutest::Meta::Example.add :send do
   mutation 'foo.Array(nil)'
   mutation 'foo.Array(self)'
 end
+
+Mutest::Meta::Example.add :send do
+  source 'foo.method(:to_s)'
+
+  singleton_mutations
+  mutation 'foo'
+  mutation 'foo.public_method(:to_s)'
+  mutation ':to_s'
+  mutation 'self.method(:to_s)'
+  mutation 'foo.method'
+  mutation 'foo.method(nil)'
+  mutation 'foo.method(self)'
+  mutation 'foo.method(:to_s__mutest__)'
+  mutation 'foo.method(:to_str)'
+end
+
+Mutest::Meta::Example.add :send do
+  source "foo.public_method('to_i')"
+
+  singleton_mutations
+  mutation 'foo'
+  mutation '"to_i"'
+  mutation 'self.public_method("to_i")'
+  mutation 'foo.public_method'
+  mutation 'foo.public_method(nil)'
+  mutation 'foo.public_method(self)'
+  mutation 'foo.public_method("to_int")'
+end
+
+Mutest::Meta::Example.add :send do
+  source 'foo.method(bar, baz)'
+
+  singleton_mutations
+  mutation 'foo'
+  mutation 'foo.public_method(bar, baz)'
+  mutation 'self.method(bar, baz)'
+  mutation 'foo.method'
+  mutation 'foo.method(nil, baz)'
+  mutation 'foo.method(self, baz)'
+  mutation 'foo.method(baz)'
+  mutation 'foo.method(bar, nil)'
+  mutation 'foo.method(bar, self)'
+  mutation 'foo.method(bar)'
+end
+
+Mutest::Meta::Example.add :send do
+  source "foo.bar('to_s')"
+
+  singleton_mutations
+  mutation 'foo'
+  mutation '"to_s"'
+  mutation 'self.bar("to_s")'
+  mutation 'foo.bar'
+  mutation 'foo.bar(nil)'
+  mutation 'foo.bar(self)'
+end
