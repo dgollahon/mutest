@@ -32,7 +32,7 @@ module Mutest
 
         # Transform expression
         #
-        # @param expression [Regexp::Expression]
+        # @param expression [Regexp::Expression::Base]
         #
         # @return [Parser::AST::Node]
         def self.to_ast(expression)
@@ -43,7 +43,7 @@ module Mutest
         #
         # @param node [Parser::AST::Node]
         #
-        # @return [Regexp::Expression]
+        # @return [Regexp::Expression::Base]
         def self.to_expression(node)
           self::ASTToExpression.call(node)
         end
@@ -101,7 +101,7 @@ module Mutest
 
           # Call generic transform method and freeze result
           #
-          # @return [Regexp::Expression]
+          # @return [Regexp::Expression::Base]
           def call
             transform.freeze
           end
@@ -110,7 +110,7 @@ module Mutest
 
           # Transformation of ast into expression
           #
-          # @return [Regexp::Expression]
+          # @return [Regexp::Expression::Base]
           abstract_method :transform
 
           # Transformed children of node

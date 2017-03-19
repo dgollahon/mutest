@@ -32,7 +32,7 @@ module Mutest
 
             # Transform node into expression
             #
-            # @return [Regexp::Expression]
+            # @return [Regexp::Expression::Base]
             def transform
               CHARACTER_SET.dup.tap do |expression|
                 expression.members = node.children

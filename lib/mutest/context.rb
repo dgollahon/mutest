@@ -74,7 +74,7 @@ module Mutest
 
     # Scope wrapped by context
     #
-    # @return [Module|Class]
+    # @return [Module,Class]
     attr_reader :scope
 
     def ignore?(node)
