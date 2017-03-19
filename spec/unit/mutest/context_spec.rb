@@ -77,7 +77,7 @@ RSpec.describe Mutest::Context do
         is_expected.to eql('TestApp')
       end
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'with scoped constant name' do
@@ -85,7 +85,7 @@ RSpec.describe Mutest::Context do
         is_expected.to eql('Literal')
       end
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
   end
 

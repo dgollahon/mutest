@@ -35,7 +35,7 @@ describe Mutest::Runner::Sink do
       )
     end
 
-    it_should_behave_like 'a command method'
+    it_behaves_like 'a command method'
   end
 
   describe '#status' do

@@ -17,6 +17,6 @@ RSpec.describe Mutest::Actor::Sender do
       expect(condition_variable).to receive(:signal).ordered
     end
 
-    it_should_behave_like 'a command method'
+    it_behaves_like 'a command method'
   end
 end

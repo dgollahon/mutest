@@ -6,7 +6,7 @@ RSpec.describe Mutest::Integration::Null do
 
     it { is_expected.to eql([]) }
 
-    it_should_behave_like 'an idempotent method'
+    it_behaves_like 'an idempotent method'
   end
 
   describe '#call' do

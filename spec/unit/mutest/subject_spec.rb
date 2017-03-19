@@ -52,7 +52,7 @@ RSpec.describe Mutest::Subject do
   describe '#prepare' do
     subject { object.prepare }
 
-    it_should_behave_like 'a command method'
+    it_behaves_like 'a command method'
   end
 
   describe '#node' do
@@ -60,7 +60,7 @@ RSpec.describe Mutest::Subject do
 
     it { is_expected.to be(node) }
 
-    it_should_behave_like 'an idempotent method'
+    it_behaves_like 'an idempotent method'
   end
 
   describe '#mutations' do

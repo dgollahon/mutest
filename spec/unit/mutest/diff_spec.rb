@@ -30,7 +30,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when there is no diff' do
@@ -39,7 +39,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to be(nil) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
   end
 
@@ -65,7 +65,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when there is a diff at begin of hunk' do
@@ -83,7 +83,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when there is a diff NOT at begin of hunk' do
@@ -101,7 +101,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when the diff has a long context at begin' do
@@ -124,7 +124,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when the diff has a long context at end, deleting' do
@@ -147,7 +147,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when the diff has a long context at end, inserting' do
@@ -170,7 +170,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to eql(expectation) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
 
     context 'when there is no diff' do
@@ -179,7 +179,7 @@ RSpec.describe Mutest::Diff do
 
       it { is_expected.to be(nil) }
 
-      it_should_behave_like 'an idempotent method'
+      it_behaves_like 'an idempotent method'
     end
   end
 end

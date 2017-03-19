@@ -85,7 +85,7 @@ RSpec.describe Mutest::CLI do
 
       let(:expected_message) { 'invalid option: --invalid' }
 
-      it_should_behave_like 'an invalid cli run'
+      it_behaves_like 'an invalid cli run'
     end
 
     context 'with unknown option' do
@@ -93,7 +93,7 @@ RSpec.describe Mutest::CLI do
 
       let(:expected_message) { 'invalid option: --invalid' }
 
-      it_should_behave_like 'an invalid cli run'
+      it_behaves_like 'an invalid cli run'
     end
 
     context 'with include help flag' do
@@ -104,7 +104,7 @@ RSpec.describe Mutest::CLI do
         expect(Kernel).to receive(:exit)
       end
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
 
       let(:expected_message) do
         strip_indent(<<-MESSAGE)
@@ -129,7 +129,7 @@ Options:
     context 'with include flag' do
       let(:flags) { %w[--include foo] }
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
 
       it 'configures includes' do
         expect(subject.config.includes).to eql(%w[foo])
@@ -147,7 +147,7 @@ Options:
             .and_call_original
         end
 
-        it_should_behave_like 'a cli parser'
+        it_behaves_like 'a cli parser'
       end
 
       context 'when specifying the default null integration explicitely' do
@@ -160,7 +160,7 @@ Options:
             .and_call_original
         end
 
-        it_should_behave_like 'a cli parser'
+        it_behaves_like 'a cli parser'
       end
 
       context 'when integration does NOT exist' do
@@ -183,13 +183,13 @@ Options:
         expect($stdout).to receive(:puts).with("mutest-#{Mutest::VERSION}")
       end
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
     end
 
     context 'with jobs flag' do
       let(:flags) { %w[--jobs 0] }
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
 
       it 'configures expected coverage' do
         expect(subject.config.jobs).to be(0)
@@ -199,7 +199,7 @@ Options:
     context 'with require flags' do
       let(:flags) { %w[--require foo --require bar] }
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
 
       it 'configures requires' do
         expect(subject.config.requires).to eql(%w[foo bar])
@@ -223,7 +223,7 @@ Options:
         )
       end
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
     end
 
     context 'with subject-ignore flag' do
@@ -233,13 +233,13 @@ Options:
         default_matcher_config.with(ignore_expressions: [parse_expression('Foo::Bar')])
       end
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
     end
 
     context 'with fail-fast flag' do
       let(:flags) { %w[--fail-fast] }
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
 
       it 'sets the fail fast option' do
         expect(subject.config.fail_fast).to be(true)
@@ -249,7 +249,7 @@ Options:
     context 'with zombie flag' do
       let(:flags) { %w[--zombie] }
 
-      it_should_behave_like 'a cli parser'
+      it_behaves_like 'a cli parser'
 
       it 'sets the zombie option' do
         expect(subject.config.zombie).to be(true)

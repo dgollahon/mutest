@@ -47,7 +47,7 @@ RSpec.describe Mutest::Matcher::Method::Singleton, '#call' do
     let(:scope)       { base::DefinedOnSelf }
     let(:method_line) { 61                  }
 
-    it_should_behave_like 'a method matcher'
+    it_behaves_like 'a method matcher'
   end
 
   context 'when defined on constant' do
@@ -55,14 +55,14 @@ RSpec.describe Mutest::Matcher::Method::Singleton, '#call' do
       let(:scope)       { base::DefinedOnConstant::InsideNamespace }
       let(:method_line) { 71                                       }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
 
     context 'outside namespace' do
       let(:scope)       { base::DefinedOnConstant::OutsideNamespace }
       let(:method_line) { 78                                        }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
   end
 
@@ -72,14 +72,14 @@ RSpec.describe Mutest::Matcher::Method::Singleton, '#call' do
       let(:method_line)  { 97                                                   }
       let(:method_arity) { 1                                                    }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
 
     context 'with different name' do
       let(:scope)        { base::DefinedMultipleTimes::SameLine::DifferentName }
       let(:method_line)  { 101                                                 }
 
-      it_should_behave_like 'a method matcher'
+      it_behaves_like 'a method matcher'
     end
   end
 end

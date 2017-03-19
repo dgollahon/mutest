@@ -47,7 +47,7 @@ RSpec.describe Mutest::Mutation do
         .and_return(Mutest::Loader)
     end
 
-    it_should_behave_like 'a command method'
+    it_behaves_like 'a command method'
   end
 
   describe '#code' do
@@ -55,7 +55,7 @@ RSpec.describe Mutest::Mutation do
 
     it { is_expected.to eql('8771a') }
 
-    it_should_behave_like 'an idempotent method'
+    it_behaves_like 'an idempotent method'
   end
 
   describe '#original_source' do
@@ -63,7 +63,7 @@ RSpec.describe Mutest::Mutation do
 
     it { is_expected.to eql('original') }
 
-    it_should_behave_like 'an idempotent method'
+    it_behaves_like 'an idempotent method'
   end
 
   describe '#source' do
@@ -71,7 +71,7 @@ RSpec.describe Mutest::Mutation do
 
     it { is_expected.to eql('nil') }
 
-    it_should_behave_like 'an idempotent method'
+    it_behaves_like 'an idempotent method'
   end
 
   describe '.success?' do
@@ -124,6 +124,6 @@ RSpec.describe Mutest::Mutation do
 
     it { is_expected.to eql('test:subject:8771a') }
 
-    it_should_behave_like 'an idempotent method'
+    it_behaves_like 'an idempotent method'
   end
 end

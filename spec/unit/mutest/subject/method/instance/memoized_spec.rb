@@ -36,7 +36,7 @@ RSpec.describe Mutest::Subject::Method::Instance::Memoized do
       expect { subject }.to change { scope.instance_methods.include?(:foo) }.from(true).to(false)
     end
 
-    it_should_behave_like 'a command method'
+    it_behaves_like 'a command method'
   end
 
   describe '#mutations', mutest_expression: 'Mutest::Subject#mutations' do
