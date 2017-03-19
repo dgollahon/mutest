@@ -8,8 +8,6 @@ module Mutest
 
           children :value
 
-          PREFIX = '__mutest__'.freeze
-
           private
 
           # Emit mutations

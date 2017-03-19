@@ -905,6 +905,7 @@ Mutest::Meta::Example.add :send do
   mutation 'foo.public_method(nil)'
   mutation 'foo.public_method(self)'
   mutation 'foo.public_method("to_int")'
+  mutation 'foo.public_method("to_i__mutest__")'
 end
 
 Mutest::Meta::Example.add :send do
@@ -930,6 +931,7 @@ Mutest::Meta::Example.add :send do
   mutation 'foo'
   mutation '"to_s"'
   mutation 'self.bar("to_s")'
+  mutation 'foo.bar("to_s__mutest__")'
   mutation 'foo.bar'
   mutation 'foo.bar(nil)'
   mutation 'foo.bar(self)'

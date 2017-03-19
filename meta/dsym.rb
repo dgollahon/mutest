@@ -9,4 +9,6 @@ Mutest::Meta::Example.add :dsym do
   mutation ':"#{"foo"}#{self}#{"baz"}"'
   mutation ':"#{"foo"}#{bar}#{nil}"'
   mutation ':"#{"foo"}#{bar}#{self}"'
+  mutation ':"foo__mutest__#{bar}baz"'
+  mutation ':"foo#{bar}baz__mutest__"'
 end
