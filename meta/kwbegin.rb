@@ -3,5 +3,4 @@ Mutest::Meta::Example.add :kwbegin do
 
   singleton_mutations
   mutation 'begin; false; end'
-  mutation 'begin; nil; end'
 end

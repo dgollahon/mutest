@@ -39,7 +39,6 @@ Mutest::Meta::Example.add :send do
   mutation 'A.const_get(self, true)'
   mutation 'A.const_get(:B__mutest__, true)'
   mutation 'A.const_get(true)'
-  mutation 'A.const_get(:B, nil)'
   mutation 'A.const_get(:B, false)'
   mutation 'A.const_get(:B)'
 end
@@ -651,9 +650,7 @@ end
     mutation 'true'
     mutation 'false'
     mutation "false #{operator} false"
-    mutation "nil   #{operator} false"
     mutation "true  #{operator} true"
-    mutation "true  #{operator} nil"
   end
 end
 

@@ -4,7 +4,6 @@ Mutest::Meta::Example.add :ivasgn do
   singleton_mutations
   mutation '@a__mutest__ = true'
   mutation '@a = false'
-  mutation '@a = nil'
 end
 
 Mutest::Meta::Example.add :ivasgn do

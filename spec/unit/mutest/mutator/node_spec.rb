@@ -20,9 +20,8 @@ RSpec.describe Mutest::Mutator::Node do
         def dispatch
           left
           emit_left(s(:nil))
-          emit_right_mutations do |node|
-            node.eql?(s(:nil))
-          end
+          emit_left_mutations
+          emit_right_mutations { false }
         end
       end
     end
@@ -32,12 +31,10 @@ RSpec.describe Mutest::Mutator::Node do
     end
 
     specify do
-      expect(apply).to eql(
-        [
-          s(:and, s(:nil), s(:true)),
-          s(:and, s(:true), s(:nil))
-        ].to_set
-      )
+      expect(apply).to eql([
+        s(:and, s(:nil),   s(:true)),
+        s(:and, s(:false), s(:true))
+      ].to_set)
     end
   end
 end

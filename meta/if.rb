@@ -26,11 +26,9 @@ Mutest::Meta::Example.add :if do
 
   # mutation of if body
   mutation 'if condition; false; else false; end'
-  mutation 'if condition; nil;   else false; end'
 
   # mutation of else body
   mutation 'if condition; true;  else true;  end'
-  mutation 'if condition; true;  else nil;   end'
 end
 
 Mutest::Meta::Example.add :if do
@@ -39,7 +37,6 @@ Mutest::Meta::Example.add :if do
   singleton_mutations
   mutation 'if !condition; true;  end'
   mutation 'if condition;  false; end'
-  mutation 'if condition;  nil;   end'
   mutation 'if true;       true;  end'
   mutation 'if false;      true;  end'
   mutation 'if nil;        true;  end'
@@ -55,7 +52,6 @@ Mutest::Meta::Example.add :if do
   mutation 'unless true;       true;  end'
   mutation 'unless false;      true;  end'
   mutation 'unless condition;  false; end'
-  mutation 'unless condition;  nil;   end'
   mutation 'if     condition;  true;  end'
   mutation 'true'
 end
@@ -66,7 +62,6 @@ Mutest::Meta::Example.add :if do
   singleton_mutations
   mutation 'false if /foo/'
   mutation 'true if //'
-  mutation 'nil if /foo/'
   mutation 'true if true'
   mutation 'true if false'
   mutation 'true if nil'
