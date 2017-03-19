@@ -1,9 +1,10 @@
 module Mutest
   class Mutator
     class Node
-      # Mutation emitter to handle noop nodes
-      class Noop < self
-        handle(:block_pass, :cbase)
+      class BlockPass < self
+        handle(:block_pass)
+
+        children :arg
 
         private
 
@@ -11,9 +12,9 @@ module Mutest
         #
         # @return [undefined]
         def dispatch
-          # noop
+          emit_arg_mutations
         end
-      end # Noop
+      end # BlockPass
     end # Node
   end # Mutator
 end # Mutest
