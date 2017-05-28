@@ -8,7 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- Right hand side mutations for multi-assignment nodes (`a, b = foo` -> `a, b = self`) [[#60](https://github.com/backus/mutest/pull/60/files) ([@dgollahon][])]
 - String literal mutations (`'foo'` -> `'foo__mutest__'`) [[#58](https://github.com/backus/mutest/pull/58/files) ([@dgollahon][])]
 - Selector mutations for `[public_]method` methods (`foo.method(:to_s)` -> `foo.method(:to_str)`) [[#56](https://github.com/backus/mutest/pull/56/files) ([@dgollahon][])]
 - Block-pass symbol#to_proc mutations (`foo(&:to_s)` -> `foo(&:to_str)`) [[#55](https://github.com/backus/mutest/pull/55/files) ([@dgollahon][])]
