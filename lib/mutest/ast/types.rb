@@ -2,7 +2,6 @@ module Mutest
   module AST
     # Groups of node types
     #
-    # :reek:TooManyConstants
     # rubocop:disable Metrics/ModuleLength
     module Types
       symbolset = ->(strings) { strings.map(&:to_sym).to_set.freeze }

@@ -14,8 +14,6 @@ module Mutest
     # @param parent [nil,Mutest::Mutator::Node]
     #
     # @return [Set<Parser::AST::Node>]
-    #
-    # :reek:LongParameterList
     def self.mutate(node, filter = ->(_) {}, parent = nil)
       self::REGISTRY.lookup(node.type).call(node, filter, parent)
     end
