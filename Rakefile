@@ -1,12 +1,6 @@
-require 'devtools'
-
-Devtools.init_rake_tasks
-
-Rake.application.load_imports
-
-task('metrics:mutant').clear
+desc 'Run mutest on itself'
 namespace :metrics do
-  task mutant: :coverage do
+  task :mutest do
     arguments = %w[
       bundle exec mutest
       --include lib

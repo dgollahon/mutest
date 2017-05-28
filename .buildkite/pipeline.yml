@@ -1,8 +1,10 @@
 steps:
-  - command: "build/run 2.3.3 'rake metrics:coverage'"
+  - command: "build/run 2.3.3 'rspec spec/unit'"
     label: ":rspec: RSpec"
     agents:
       - queue=elastic
+    env:
+      COVERAGE: 'true'
 
   - name: ':rspec: Corpus tests (rubyspec)'
     command: build/run 2.3.3 'rspec --tag corpus:rubyspec'
@@ -25,27 +27,12 @@ steps:
       - queue=elastic
 
   - name: ':skull: Mutest'
-    command: build/run 2.3.3 'rake metrics:mutant'
+    command: build/run 2.3.3 'rake metrics:mutest'
     timeout_in_minutes: 10
     agents:
       - queue=elastic
 
   - name: ':rubocop: Rubocop'
-    command: build/run 2.3.3 'rake metrics:rubocop'
-    agents:
-      - queue=elastic
-
-  - name: ':japanese_ogre: Flay'
-    command: build/run 2.3.3 'rake metrics:flay'
-    agents:
-      - queue=elastic
-
-  - name: ':imp: Flog'
-    command: build/run 2.3.3 'rake metrics:flog'
-    agents:
-      - queue=elastic
-
-  - name: ':hankey: Reek'
-    command: build/run 2.3.3 'rake metrics:reek'
+    command: build/run 2.3.3 'rubocop --config config/rubocop.yml'
     agents:
       - queue=elastic

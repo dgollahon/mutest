@@ -113,8 +113,6 @@ module Mutest
         # Emit mutations which only correspond to one selector
         #
         # @return [undefined]
-        #
-        # ignore :reek:TooManyStatements: { max_statements: 8 }
         def emit_selector_specific_mutations
           emit_method_method_selector_replacements
           emit_const_get_mutation
@@ -289,7 +287,6 @@ module Mutest
           )
         end
 
-        # ignore :reek:UtilityFunction:
         def selector_replacements(selector)
           replacements = SELECTOR_REPLACEMENTS.fetch(selector.to_sym, EMPTY_ARRAY)
 

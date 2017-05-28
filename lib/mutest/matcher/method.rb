@@ -1,8 +1,6 @@
 module Mutest
   class Matcher
     # Abstract base class for method matchers
-    #
-    # :reek:TooManyMethods { max_methods: 11 }
     class Method < self
       include AbstractType,
               Adamantium::Flat,

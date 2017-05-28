@@ -22,10 +22,19 @@ require 'tempfile'
 require 'concord'
 require 'anima'
 require 'adamantium'
-require 'devtools/spec_helper'
 require 'unparser/cli'
 require 'mutest'
 require 'mutest/meta'
+require 'rspec/its'
+require 'timeout'
+
+module MutestSpec
+  SPECS_PATH       = Pathname.new(__dir__).expand_path.freeze
+  PROJECT_ROOT     = SPECS_PATH.parent.freeze
+  UNIT_TEST_TIMOUT = 10.0
+end # MutestSpec
+
+Dir.glob(MutestSpec::SPECS_PATH.join('{shared,support}/**/*.rb')).each(&method(:require))
 
 $LOAD_PATH << File.join(TestApp.root, 'lib')
 
@@ -62,6 +71,17 @@ RSpec.configure do |config|
   config.include(MessageHelper)
   config.include(ParserHelper)
   config.include(Mutest::AST::Sexp)
+
+  # Define metadata for all tests which live under spec/unit
+  config.define_derived_metadata(file_path: %r{\bspec/unit/}) do |metadata|
+    # Set the type of these tests as 'unit'
+    metadata[:type] = :unit
+  end
+
+  # Set a modest timeout to kill slow tests when running `mutest`.
+  config.around(:each, type: :unit) do |example|
+    Timeout.timeout(MutestSpec::UNIT_TEST_TIMOUT, &example)
+  end
 
   config.after(:suite) do
     $stderr = STDERR

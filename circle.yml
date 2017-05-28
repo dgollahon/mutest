@@ -4,4 +4,7 @@ machine:
     version: '2.3.3'
 test:
   override:
-    - bundle exec rake ci
+    - bundle exec rubocop --config config/rubocop.yml
+    - COVERAGE=true bundle exec rspec spec/unit
+    - bundle exec rspec spec/integration
+    - bundle exec rake metrics:mutest
