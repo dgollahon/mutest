@@ -38,5 +38,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('equalizer',     '~> 0.0.9')
   gem.add_runtime_dependency('anima',         '~> 0.3.0')
   gem.add_runtime_dependency('concord',       '~> 0.1.5')
-  gem.add_runtime_dependency('regexp_parser', '~> 0.4.1')
+  gem.add_runtime_dependency('regexp_parser', '~> 0.4.3')
 end
