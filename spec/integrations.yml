@@ -2,7 +2,7 @@
 - name: rubyspec
   namespace: Rubyspec
   repo_uri: 'https://github.com/ruby/rubyspec.git'
-  repo_ref: 'origin/master'
+  repo_ref: 'e6665ae^' # TODO: ignore bad_syntax.rb
   mutation_coverage: false
   mutation_generation: true
   expected_errors:
