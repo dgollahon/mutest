@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Master (Unreleased)]
 
+## [0.0.8] - 2017-11-08
+
+### Added
+
+- Added support for RSpec 3.7 [[#88](https://github.com/backus/mutest/pull/88/files) ([@damireh][])]
+
 ## [0.0.7] - 2017-06-18
 
 ### Added
@@ -67,7 +73,8 @@ First proper RubyGems release
 
 <!-- Version diffs -->
 
-[Master (Unreleased)]: https://github.com/backus/mutest/compare/v0.0.7...HEAD
+[Master (Unreleased)]: https://github.com/backus/mutest/compare/v0.0.8...HEAD
+[0.0.8]: https://github.com/backus/mutest/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/backus/mutest/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/backus/mutest/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/backus/mutest/compare/v0.0.4...v0.0.5
@@ -80,3 +87,4 @@ First proper RubyGems release
 [@backus]: https://github.com/backus
 [@dgollahon]: https://github.com/dgollahon
 [@mvz]: https://github.com/mvz
+[@damireh]: https://github.com/damireh

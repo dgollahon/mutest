@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    mutest (0.0.7)
+    mutest (0.0.8)
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2.0)
       anima (~> 0.3.0)
@@ -137,4 +137,4 @@ DEPENDENCIES
   simplecov (~> 0.13.0)
 
 BUNDLED WITH
-   1.15.1
+   1.16.0
