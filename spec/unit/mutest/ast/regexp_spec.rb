@@ -347,6 +347,11 @@ RegexpSpec.expect_mapping(/\H/, :regexp_hex_type) do
     s(:regexp_nonhex_type))
 end
 
+RegexpSpec.expect_mapping(/\X/, :regexp_xgrapheme_type) do
+  s(:regexp_root_expression,
+    s(:regexp_xgrapheme_type))
+end
+
 RegexpSpec.expect_mapping(/\}/, :regexp_interval_close_escape) do
   s(:regexp_root_expression,
     s(:regexp_interval_close_escape))
