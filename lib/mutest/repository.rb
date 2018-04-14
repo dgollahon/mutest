@@ -26,7 +26,7 @@ module Mutest
       # Test if diff changes file at line range
       #
       # @param [Pathname] path
-      # @param [Range<Fixnum>] line_range
+      # @param [Range<Integer>] line_range
       #
       # @return [Boolean]
       #

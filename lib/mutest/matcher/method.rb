@@ -96,14 +96,14 @@ module Mutest
 
         # Source file line
         #
-        # @return [Fixnum]
+        # @return [Integer]
         def source_line
           source_location.last
         end
 
         # Full source location
         #
-        # @return [Array<String,Fixnum>]
+        # @return [Array<String,Integer>]
         def source_location
           target_method.source_location
         end

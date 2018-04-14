@@ -12,7 +12,7 @@ module Mutest
       #
       # @param [Parser::AST::Node] node
       #
-      # @param [Fixnum] index
+      # @param [Integer] index
       #
       # @return [undefined]
       def self.define_named_child(name, index)
@@ -42,7 +42,7 @@ module Mutest
 
       # Dispatch on child index
       #
-      # @param [Fixnum] index
+      # @param [Integer] index
       #
       # @return [undefined]
       def mutate_child(index, &block)
@@ -55,7 +55,7 @@ module Mutest
 
       # Emit delete child mutation
       #
-      # @param [Fixnum] index
+      # @param [Integer] index
       #
       # @return [undefined]
       def delete_child(index)
@@ -66,7 +66,7 @@ module Mutest
 
       # Emit updated child
       #
-      # @param [Fixnum] index
+      # @param [Integer] index
       # @param [Parser::AST::Node] node
       #
       # @return [undefined]
@@ -140,7 +140,7 @@ module Mutest
       #
       # @param [Range] range
       #
-      # @return [Enumerable<Fixnum>]
+      # @return [Enumerable<Integer>]
       def children_indices(range)
         range.begin.upto(children.length + range.end)
       end

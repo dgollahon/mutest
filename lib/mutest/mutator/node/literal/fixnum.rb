@@ -3,7 +3,7 @@ module Mutest
     class Node
       class Literal < self
         # Mutator for fixnum literals
-        class Fixnum < self
+        class Integer < self
           handle(:int)
 
           private
@@ -29,7 +29,7 @@ module Mutest
           def value
             children.first
           end
-        end # Fixnum
+        end # Integer
       end # Literal
     end # Node
   end # Mutator
