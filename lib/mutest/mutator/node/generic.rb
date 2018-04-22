@@ -31,6 +31,7 @@ module Mutest
           complex
           __FILE__
           __LINE__
+          __ENCODING__
         ]
 
         unsupported_regexp_nodes = AST::Types::REGEXP.to_a - %i[
