@@ -56,6 +56,7 @@ module Mutest
         regexp_character_set
         regexp_character_set
         regexp_codepoint_list_escape
+        regexp_codepoint_escape
         regexp_comment_free_space
         regexp_comment_group
         regexp_control_escape
@@ -97,6 +98,7 @@ module Mutest
         regexp_nonword_type
         regexp_nonhex_type
         regexp_number_backref
+        regexp_octal_escape
         regexp_one_or_more_escape
         regexp_open_conditional
         regexp_options_group

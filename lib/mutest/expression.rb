@@ -18,7 +18,7 @@ module Mutest
     #
     # @param [Expression] other
     #
-    # @return [Fixnum]
+    # @return [Integer]
     def match_length(other)
       if eql?(other)
         syntax.length

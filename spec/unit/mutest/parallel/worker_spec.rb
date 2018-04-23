@@ -37,7 +37,7 @@ RSpec.describe Mutest::Parallel::Worker do
         message_sequence.add(:worker, :stop)
       end
 
-      let(:index)           { instance_double(Fixnum)                                             }
+      let(:index)           { instance_double(0.class)                                            }
       let(:job_result)      { Mutest::Parallel::JobResult.new(job: job, payload: result_payload)  }
       let(:job)             { Mutest::Parallel::Job.new(index: index, payload: payload)           }
 

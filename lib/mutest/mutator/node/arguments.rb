@@ -78,7 +78,7 @@ module Mutest
 
         # Multiple left hand side childs
         #
-        # @return [Enumerable<Parser::AST::Node, Fixnum>]
+        # @return [Enumerable<Parser::AST::Node, Integer>]
         def mlhs_childs_with_index
           children.each_with_index.select do |child, _index|
             n_mlhs?(child)

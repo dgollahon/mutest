@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 2.1'
 
-  gem.add_runtime_dependency('parser',        '~> 2.3.1', '>= 2.3.1.4')
+  gem.add_runtime_dependency('parser',        '>= 2.5.0.1', '< 2.6')
   gem.add_runtime_dependency('ast',           '~> 2.2')
   gem.add_runtime_dependency('diff-lcs',      '~> 1.2')
   gem.add_runtime_dependency('parallel',      '~> 1.3')
@@ -38,5 +38,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('equalizer',     '~> 0.0.9')
   gem.add_runtime_dependency('anima',         '~> 0.3.0')
   gem.add_runtime_dependency('concord',       '~> 0.1.5')
-  gem.add_runtime_dependency('regexp_parser', '~> 0.4.1')
+  gem.add_runtime_dependency('regexp_parser', '~> 0.4.9')
 end
