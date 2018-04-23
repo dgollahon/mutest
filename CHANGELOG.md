@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Master (Unreleased)]
 
+## [0.0.9] - 2018-04-22
+
+### Changed
+
+- Updated `parser` and `regexp_parser` dependency requirements [[#89](https://github.com/backus/mutest/pull/89/files) ([@dgollahon][])]
+
+### Fixed
+
+- Resolved Fixnum warnings [[#89](https://github.com/backus/mutest/pull/89/files) ([@dgollahon][])]
+
 ## [0.0.8] - 2017-11-08
 
 ### Added
