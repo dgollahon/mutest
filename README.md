@@ -4,6 +4,22 @@ mutest
 
 `mutest` is a mutation testing tool for ruby designed to help audit the thoroughness of your test suite and encourage you to write more robust code.
 
+## Relationship to `mutant`
+
+`mutest` is a fork of the [mutant](https://github.com/mbj/mutant) project with a few minor additions. There are a handful of mutations which have been added, removed, or altered (see the [CHANGELOG](CHANGELOG.md) for details) as well as an inline disable comment system. This means that `mutest` allows you to do something like this:
+
+```ruby
+# mutest:disable
+dont_mutate(me: true) # This line is not mutated because of the significant comment above.
+mutate(me: true) # This line would continue to be mutated.
+```
+
+The `mutant` project, however, only allows disabling mutations on the method selector level and these subjects must be passed as a command line argument to the `mutant` executable.
+
+Otherwise, `mutest` project is effectively identical to `mutant`, which is the brainchild and excellent work of [Markus Schirp](https://github.com/mbj).
+
+###### Note: Referring to the mutant documentation may be helpful for using `mutest`, as it is generally applicable.
+
 ## How it works
 
 `mutest` parses your ruby code, inserts modifications, and then runs your test suite. If your test suite still _passes_ after `mutest` has mutated your code, you have an _alive_ mutation--meaning your tests do not thoroughly cover the modified part of your code. If your tests _fail_ after the code has been modified, the mutation is _killed_. This means that your test suite was able to detect the semantic change and provide adequate coverage of that condition.
