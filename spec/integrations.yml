@@ -17,12 +17,10 @@
 - name: regexp_parser
   namespace: Regexp
   repo_uri: 'https://github.com/ammar/regexp_parser.git'
-  repo_ref: 'v0.4.9'
+  repo_ref: 'v1.2.0'
   mutation_coverage: false
   mutation_generation: true
-  expected_errors:
-    "Regexp::Syntax::Ruby::V233 does not implement: [escape:codepoint]":
-     - regexp_parser/test/parser/test_escapes.rb
+  expected_errors: {}
 - name: axiom
   namespace: Axiom
   repo_uri: 'https://github.com/dkubb/axiom.git'

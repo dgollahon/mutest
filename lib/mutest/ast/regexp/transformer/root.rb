@@ -16,7 +16,7 @@ module Mutest
             #
             # @return [Regexp::Expression::Root]
             def transform
-              ::Regexp::Expression::Root.new.tap do |root|
+              ::Regexp::Expression::Root.build.tap do |root|
                 root.expressions = subexpressions
               end
             end

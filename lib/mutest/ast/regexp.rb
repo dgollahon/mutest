@@ -2,10 +2,6 @@ module Mutest
   module AST
     # Regexp source mapper
     module Regexp
-      UNSUPPORTED_EXPRESSION_TYPE = :conditional
-
-      private_constant(*constants(false))
-
       # Parse regex string into expression
       #
       # @param regexp [String]
@@ -13,17 +9,6 @@ module Mutest
       # @return [Regexp::Expression::Base]
       def self.parse(regexp)
         ::Regexp::Parser.parse(regexp)
-      end
-
-      # Check if expression is supported by mapper
-      #
-      # @param expression [Regexp::Expression::Base]
-      #
-      # @return [Boolean]
-      def self.supported?(expression)
-        expression.terminal? || expression.all? do |subexp|
-          !subexp.type.equal?(UNSUPPORTED_EXPRESSION_TYPE) && supported?(subexp)
-        end
       end
 
       # Convert expression into ast node

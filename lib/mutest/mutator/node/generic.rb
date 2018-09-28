@@ -44,6 +44,7 @@ module Mutest
           regexp_greedy_one_or_more
           regexp_greedy_zero_or_more
           regexp_hex_type
+          regexp_linebreak_type
           regexp_nondigit_type
           regexp_nonhex_type
           regexp_nonspace_type
