@@ -13,6 +13,6 @@ namespace :metrics do
 
     arguments.concat(%w[-- Mutest*])
 
-    Kernel.system(*arguments) or fail 'Mutant task is not successful'
+    Kernel.system(*arguments) or fail 'Mutest task is not successful'
   end
 end
