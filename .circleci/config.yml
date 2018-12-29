@@ -1,0 +1,38 @@
+defaults: &defaults
+  working_directory: ~/mutant
+  docker:
+    - image: circleci/ruby:2.3.3
+version: 2
+jobs:
+  unit_specs:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: bundle install
+      - run: COVERAGE=true bundle exec rspec spec/unit
+  integration_specs:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rspec spec/integration
+  metrics:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rubocop --config config/rubocop.yml
+  mutest:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rake metrics:mutest
+workflows:
+  version: 2
+  test:
+    jobs:
+      - unit_specs
+      - integration_specs
+      - metrics
+      - mutest
