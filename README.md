@@ -28,7 +28,9 @@ For full examples and a more detailed explanation of the technique, check out th
 
 ## Installation
 
-`mutest` is currently only compatible with `rspec`. To install the `rspec` integration, run:
+`mutest` is compatible with `rspec` and `minitest`. Integrations are provided
+by the `mutest-rspec` and `mutest-minitest` gems, respectively. For example, to
+install the `rspec` integration, run:
 
 ```shell
 $ gem install mutest-rspec
@@ -58,6 +60,8 @@ to your Gemfile.
 
 ###### Run `mutest` on only the changes inside the MyProject namespace since a git revision
 `mutest --include lib --require my_project --use rspec --since HEAD~1 'MyProject*'`
+
+To use the `minitest` integration instead, pass `--use minitest`.
 
 ## Changes
 
