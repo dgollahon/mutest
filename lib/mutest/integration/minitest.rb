@@ -12,15 +12,16 @@ module Minitest
   # @api private
   #
   # @return [nil]
-  def self.autorun; end
+  def self.autorun
+  end
 end # Minitest
 
 module Mutest
   class Integration
     # Minitest integration
     class Minitest < self
-      TEST_FILE_PATTERN     = './test/**/{test_*,*_test}.rb'
-      IDENTIFICATION_FORMAT = 'minitest:%s#%s'
+      TEST_FILE_PATTERN     = './test/**/{test_*,*_test}.rb'.freeze
+      IDENTIFICATION_FORMAT = 'minitest:%s#%s'.freeze
 
       private_constant(*constants(false))
 
@@ -34,7 +35,7 @@ module Mutest
         #
         # @return [String]
         def identification
-          IDENTIFICATION_FORMAT % [klass, test_method]
+          format(IDENTIFICATION_FORMAT, klass, test_method)
         end
         memoize :identification
 
@@ -54,7 +55,6 @@ module Mutest
         def expression_syntax
           klass.resolve_cover_expression
         end
-
       end # TestCase
 
       private_constant(*constants(false))
@@ -110,7 +110,7 @@ module Mutest
       end
       memoize :all_tests
 
-    private
+      private
 
       # The index of all tests to runnable test cases
       #

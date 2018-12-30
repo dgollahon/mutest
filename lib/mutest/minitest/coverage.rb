@@ -36,7 +36,7 @@ module Mutest
         try_superclass_cover_expression
       end
 
-    private
+      private
 
       # Attempt to resolve superclass cover expressio
       #
@@ -48,7 +48,6 @@ module Mutest
 
         superclass.resolve_cover_expression
       end
-
     end # Coverage
   end # Minitest
 end # Mutest

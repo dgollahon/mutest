@@ -13,8 +13,9 @@ Gem::Specification.new do |gem|
 
   gem.require_paths = %w[lib]
 
-  exclusion = `git ls-files -- lib/mutest/{minitest,integration}`.split("\n")
-    .reject { |filename| filename =~ %r{/null.rb\z} }
+  exclusion =
+    `git ls-files -- lib/mutest/{minitest,integration}`.split("\n")
+      .reject { |filename| filename =~ %r{/null.rb\z} }
 
   gem.files            = `git ls-files`.split("\n") - exclusion
   gem.test_files       = `git ls-files -- spec/{unit,integration}`.split("\n")
