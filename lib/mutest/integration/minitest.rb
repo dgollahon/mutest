@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 require 'minitest'
-require 'mutant/minitest/coverage'
+require 'mutest/minitest/coverage'
 
 module Minitest
   # Prevent autorun from running tests when the VM closes
   #
-  # Mutant needs control about the exit status of the VM and
+  # Mutest needs control about the exit status of the VM and
   # the moment of test execution
   #
   # @api private
@@ -15,7 +15,7 @@ module Minitest
   def self.autorun; end
 end # Minitest
 
-module Mutant
+module Mutest
   class Integration
     # Minitest integration
     class Minitest < self
@@ -171,4 +171,4 @@ module Mutant
       end
     end # Minitest
   end # Integration
-end # Mutant
+end # Mutest

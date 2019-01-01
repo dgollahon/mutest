@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'mutant/minitest/coverage'
+require 'mutest/minitest/coverage'
 
 class LiteralTest < Minitest::Test
   cover 'TestApp::Literal*'

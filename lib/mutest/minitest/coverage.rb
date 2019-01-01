@@ -2,7 +2,7 @@
 
 require 'minitest'
 
-module Mutant
+module Mutest
   module Minitest
     module Coverage
       # Setup coverage declaration for current class
@@ -51,6 +51,6 @@ module Mutant
 
     end # Coverage
   end # Minitest
-end # Mutant
+end # Mutest
 
-Minitest::Test.extend(Mutant::Minitest::Coverage)
+Minitest::Test.extend(Mutest::Minitest::Coverage)

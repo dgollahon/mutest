@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
 
   gem.require_paths = %w[lib]
 
-  exclusion = `git ls-files -- lib/mutant/{minitest,integration}`.split("\n")
+  exclusion = `git ls-files -- lib/mutest/{minitest,integration}`.split("\n")
     .reject { |filename| filename =~ %r{/null.rb\z} }
 
   gem.files            = `git ls-files`.split("\n") - exclusion
