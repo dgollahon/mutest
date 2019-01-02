@@ -70,3 +70,4 @@ For updates to the project, check out the [CHANGELOG](CHANGELOG.md)!
 ## Credit
 
 * Markus Schirp did an amazing job on [mutant](https://github.com/mbj/mutant) which this fork is based on.
+* The `minitest` integration was originally sponsored by [Arkency](https://arkency.com/).
