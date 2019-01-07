@@ -33,8 +33,7 @@ module Mutest
 
     # Kill mutation under isolation with integration
     #
-    # @param [Isolation] isolation
-    # @param [Integration] integration
+    # @param [Mutation] mutation
     #
     # @return [Result::Test]
     #
