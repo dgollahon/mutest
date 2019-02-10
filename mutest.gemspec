@@ -22,7 +22,7 @@ Gem::Specification.new do |gem|
   gem.extra_rdoc_files = %w[LICENSE]
   gem.executables      = %w[mutest]
 
-  gem.required_ruby_version = '>= 2.1'
+  gem.required_ruby_version = '>= 2.3'
 
   gem.add_runtime_dependency('parser',        '>= 2.5.0.1', '< 2.6')
   gem.add_runtime_dependency('ast',           '~> 2.2')
