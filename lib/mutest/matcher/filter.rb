@@ -14,6 +14,6 @@ module Mutest
           .call(env)
           .select(&predicate.method(:call))
       end
-    end # Filter
-  end # Matcher
-end # Mutest
+    end
+  end
+end

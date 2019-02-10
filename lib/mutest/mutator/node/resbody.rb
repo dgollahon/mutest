@@ -23,12 +23,14 @@ module Mutest
         # @return [undefined]
         def mutate_captures
           return unless captures
+
           mutate_with(Util::Array::Element, captures.children) do |matchers|
             next if matchers.any?(&method(:n_nil?))
+
             emit_captures(s(:array, *matchers))
           end
         end
-      end # Resbody
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

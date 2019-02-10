@@ -38,8 +38,8 @@ module Mutest
 
             [0.0, 1.0, -original]
           end
-        end # Float
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

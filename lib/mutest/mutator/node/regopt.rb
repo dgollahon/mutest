@@ -22,7 +22,7 @@ module Mutest
         def mutated_flags
           (children - MUTATED_FLAGS)
         end
-      end # Regopt
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

@@ -8,15 +8,16 @@ module MutestSpec
     # An event being observed by the VM handlers
     class EventObservation
       include Concord::Public.new(:type, :payload)
-    end # EventObservation
+    end
 
     # An event being expected, can advance the VM
     class EventExpectation
-      include AbstractType, Anima.new(
+      include Anima.new(
         :expected_payload,
         :trigger_requires,
         :return_value
       )
+      include AbstractType
 
       DEFAULTS = IceNine.deep_freeze(trigger_requires: [])
 
@@ -25,9 +26,7 @@ module MutestSpec
       end
 
       def handle(vm, observation)
-        unless match?(observation)
-          fail "Unexpected event observation: #{observation.inspect}, expected #{inspect}"
-        end
+        raise "Unexpected event observation: #{observation.inspect}, expected #{inspect}" unless match?(observation)
 
         trigger_requires.each(&vm.method(:require))
 
@@ -42,12 +41,12 @@ module MutestSpec
 
       # Expectation and advance on require calls
       class Require < self
-      end # Require
+      end
 
       # Expectation and advance on eval calls
       class Eval < self
-      end # Eval
-    end # EventExpectation
+      end
+    end
 
     # A fake implementation of Kernel#require
     def require(logical_name)
@@ -74,9 +73,9 @@ module MutestSpec
     private
 
     def handle_event(observation)
-      fail "Unexpected event: #{observation.type} / #{observation.payload}" if expected_events.empty?
+      raise "Unexpected event: #{observation.type} / #{observation.payload}" if expected_events.empty?
 
       expected_events.slice!(0).handle(self, observation).return_value
     end
-  end # RubyVM
-end # MutestSpec
+  end
+end

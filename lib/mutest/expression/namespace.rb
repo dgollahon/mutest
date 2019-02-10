@@ -2,12 +2,13 @@ module Mutest
   class Expression
     # Abstract base class for expressions matching namespaces
     class Namespace < self
-      include AbstractType, Anima.new(:scope_name)
+      include Anima.new(:scope_name)
+      include AbstractType
       private(*anima.attribute_names)
 
       # Recursive namespace expression
       class Recursive < self
-        REGEXP = /\A#{SCOPE_NAME_PATTERN}?\*\z/
+        REGEXP = /\A#{SCOPE_NAME_PATTERN}?\*\z/.freeze
 
         # Initialize object
         #
@@ -48,14 +49,14 @@ module Mutest
             0
           end
         end
-      end # Recursive
+      end
 
       # Exact namespace expression
       class Exact < self
         MATCHER = Matcher::Scope
         private_constant(*constants(false))
 
-        REGEXP = /\A#{SCOPE_NAME_PATTERN}\z/
+        REGEXP = /\A#{SCOPE_NAME_PATTERN}\z/.freeze
 
         # Matcher matcher on expression
         #
@@ -69,7 +70,7 @@ module Mutest
         # @return [String]
         alias_method :syntax, :scope_name
         public :syntax
-      end # Exact
-    end # Namespace
-  end # Expression
-end # Mutest
+      end
+    end
+  end
+end

@@ -15,7 +15,7 @@ module Mutest
             delete_child(index)
           end
         end
-      end # MLHS
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

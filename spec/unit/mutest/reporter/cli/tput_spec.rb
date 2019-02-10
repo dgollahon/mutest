@@ -38,9 +38,11 @@ RSpec.describe Mutest::Reporter::CLI::Tput do
     context 'when ed fails' do
       let(:tput_ed?) { false }
       let(:tput_cd?) { true }
+
       before do
         expect_command('tput cd', '[cd]', tput_cd?)
       end
+
       its(:prepare) { is_expected.to eql('[reset][sc]') }
       its(:restore) { is_expected.to eql('[rc][cd]')    }
     end

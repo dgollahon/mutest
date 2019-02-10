@@ -1,7 +1,8 @@
 module Mutest
   # A source file representation
   class SourceFile
-    include Concord::Public.new(:path, :ast), Adamantium
+    include Adamantium
+    include Concord::Public.new(:path, :ast)
 
     COMMENT_TEXT = '# mutest:disable'.freeze
 
@@ -22,7 +23,7 @@ module Mutest
     # TODO: Support inline comment disable
     def ignore?(node)
       location = node.location
-      return false unless location && location.expression
+      return false unless location&.expression
 
       disable_lines.include?(location.line)
     end
@@ -43,5 +44,5 @@ module Mutest
         comment.text.eql?(COMMENT_TEXT)
       end
     end
-  end # SourceFile
-end # Mutest
+  end
+end

@@ -7,6 +7,7 @@ RSpec.describe Mutest::Integration do
 
   describe '#setup' do
     subject { object.setup }
+
     it_behaves_like 'a command method'
   end
 

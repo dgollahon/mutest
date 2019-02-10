@@ -67,6 +67,7 @@ RSpec.describe Mutest::Reporter::CLI::Printer do
 
       context 'on failure' do
         let(:success?) { false }
+
         it_reports Mutest::Color::RED.format('foo bar') << "\n"
       end
     end
@@ -155,6 +156,7 @@ RSpec.describe Mutest::Reporter::CLI::Printer do
 
     context 'when output is NOT a tty?' do
       let(:tty?) { false }
+
       it_reports "foo\n"
     end
   end

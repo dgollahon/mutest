@@ -23,7 +23,35 @@ Mutest::Meta::Example.add :case do
   RUBY
 end
 
-# rubocop:disable Metrics/BlockLength
+Mutest::Meta::Example.add :case do
+  source <<-RUBY
+    case true
+    when true
+    end
+  RUBY
+
+  singleton_mutations
+
+  mutation <<-RUBY
+    case true
+    when true
+      raise
+    end
+  RUBY
+
+  mutation <<-RUBY
+    case false
+    when true
+    end
+  RUBY
+
+  mutation <<-RUBY
+    case true
+    when false
+    end
+  RUBY
+end
+
 Mutest::Meta::Example.add :case do
   source <<-RUBY
     case condition

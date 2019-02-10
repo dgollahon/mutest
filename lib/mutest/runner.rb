@@ -1,7 +1,9 @@
 module Mutest
   # Runner baseclass
   class Runner
-    include Adamantium::Flat, Concord.new(:env), Procto.call(:result)
+    include Procto.call(:result)
+    include Concord.new(:env)
+    include Adamantium::Flat
 
     # Initialize object
     #
@@ -43,6 +45,7 @@ module Mutest
         status = driver.status
         reporter.progress(status)
         break if status.done
+
         sleep.call(reporter.delay)
       end
 
@@ -77,5 +80,5 @@ module Mutest
     def config
       env.config
     end
-  end # Runner
-end # Mutest
+  end
+end

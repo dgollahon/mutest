@@ -1,7 +1,9 @@
 module Mutest
   # Commandline parser / runner
   class CLI
-    include Adamantium::Flat, Equalizer.new(:config), Procto.call(:config)
+    include Procto.call(:config)
+    include Equalizer.new(:config)
+    include Adamantium::Flat
 
     # Error failed when CLI argv is invalid
     Error = Class.new(RuntimeError)
@@ -192,5 +194,5 @@ module Mutest
     def add_matcher(attribute, value)
       with(matcher: config.matcher.add(attribute, value))
     end
-  end # CLI
-end # Mutest
+  end
+end

@@ -12,7 +12,7 @@ module Mutest
             def call
               quantify(ast(expression.text))
             end
-          end # ExpressionToAST
+          end
 
           # Mapper from `Parser::AST::Node` to `Regexp::Expression`
           class ASTToExpression < Transformer::ASTToExpression
@@ -47,11 +47,11 @@ module Mutest
               token.text = Util.one(node.children)
               expression_class.new(token)
             end
-          end # ASTToExpression
+          end
 
           ASTToExpression::TABLE.types.each(&method(:register))
-        end # Text
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+        end
+      end
+    end
+  end
+end

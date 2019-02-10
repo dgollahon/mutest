@@ -1,7 +1,8 @@
 module Mutest
   # An AST Parser
   class Parser
-    include Adamantium::Mutable, Equalizer.new
+    include Equalizer.new
+    include Adamantium::Mutable
 
     # Initialize object
     #
@@ -18,5 +19,5 @@ module Mutest
     def open(path)
       @cache[path] ||= SourceFile.read(path)
     end
-  end # Parser
-end # Mutest
+  end
+end

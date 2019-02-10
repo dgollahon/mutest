@@ -29,6 +29,7 @@ module Mutest
           emit_body(N_RAISE)
 
           return unless body
+
           emit(body)
           emit_body_mutations
 
@@ -45,7 +46,7 @@ module Mutest
 
           emit(s(:send, send, body_meta.selector, *body_meta.arguments))
         end
-      end # Block
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

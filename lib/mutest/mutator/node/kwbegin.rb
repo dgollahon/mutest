@@ -14,7 +14,7 @@ module Mutest
           super()
           emit_singletons
         end
-      end # Kwbegin
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

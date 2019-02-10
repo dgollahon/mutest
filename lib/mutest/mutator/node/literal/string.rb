@@ -17,8 +17,8 @@ module Mutest
             emit_singletons
             emit_type(value + Util::Symbol::POSTFIX)
           end
-        end # String
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

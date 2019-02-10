@@ -14,7 +14,7 @@ module Mutest
           emit_singletons
           emit(N_EMPTY_SUPER)
         end
-      end # ZSuper
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

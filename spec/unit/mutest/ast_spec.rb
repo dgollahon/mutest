@@ -28,7 +28,7 @@ RSpec.describe Mutest::AST do
     end
 
     context 'on non Parser::AST::Node child' do
-      let(:block)   { ->(node) { fail if node.equal?(child_a) } }
+      let(:block)   { ->(node) { raise if node.equal?(child_a) } }
       let(:child_a) { AST::Node.new(:foo) }
 
       it 'does not yield that node' do

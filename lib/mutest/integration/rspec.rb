@@ -19,7 +19,7 @@ module Mutest
     #   for unique reference.
     class Rspec < self
       ALL_EXPRESSION       = Expression::Namespace::Recursive.new(scope_name: nil)
-      EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/
+      EXPRESSION_CANDIDATE = /\A([^ ]+)(?: )?/.freeze
       LOCATION_DELIMITER   = ':'.freeze
       EXIT_SUCCESS         = 0
       CLI_OPTIONS          = IceNine.deep_freeze(%w[spec --fail-fast])
@@ -142,6 +142,6 @@ module Mutest
           examples.keep_if(&predicate)
         end
       end
-    end # Rspec
-  end # Integration
-end # Mutest
+    end
+  end
+end

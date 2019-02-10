@@ -4,7 +4,9 @@ module Mutest
     module Meta
       # Metadata for const nodes
       class Const
-        include NamedChildren, Concord.new(:node), NodePredicates
+        include NodePredicates
+        include Concord.new(:node)
+        include NamedChildren
 
         children :base, :name
 
@@ -16,7 +18,7 @@ module Mutest
         def possible_top_level?
           base.nil? || n_cbase?(base)
         end
-      end # Const
-    end # Meta
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

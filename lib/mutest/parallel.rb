@@ -19,7 +19,7 @@ module Mutest
         binding.call(__method__)
         self
       end
-    end # Driver
+    end
 
     # Run async computation returning driver
     #
@@ -48,42 +48,46 @@ module Mutest
       #
       # @return [Boolean]
       abstract_method :stop?
-    end # Sink
+    end
 
     # Job to push to workers
     class Job
-      include Adamantium::Flat, Anima.new(
+      include Anima.new(
         :index,
         :payload
       )
-    end # Job
+      include Adamantium::Flat
+    end
 
     # Job result object received from workers
     class JobResult
-      include Adamantium::Flat, Anima.new(
+      include Anima.new(
         :job,
         :payload
       )
-    end # JobResult
+      include Adamantium::Flat
+    end
 
     # Parallel run configuration
     class Config
-      include Adamantium::Flat, Anima.new(
+      include Anima.new(
         :env,
         :jobs,
         :processor,
         :sink,
         :source
       )
-    end # Config
+      include Adamantium::Flat
+    end
 
     # Parallel execution status
     class Status
-      include Adamantium::Flat, Anima.new(
+      include Anima.new(
         :active_jobs,
         :done,
         :payload
       )
-    end # Status
-  end # Parallel
-end # Mutest
+      include Adamantium::Flat
+    end
+  end
+end

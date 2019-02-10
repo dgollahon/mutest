@@ -23,5 +23,5 @@ module Mutest
         subject.source_line
       )
     end
-  end # Loader
-end # Mutest
+  end
+end

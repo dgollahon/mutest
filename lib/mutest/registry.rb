@@ -20,8 +20,9 @@ module Mutest
     #
     # @return [self]
     def register(type, klass)
-      fail RegistryError, "Invalid type registration: #{type.inspect}" unless AST::Types::ALL.include?(type)
-      fail RegistryError, "Duplicate type registration: #{type.inspect}" if contents.key?(type)
+      raise RegistryError, "Invalid type registration: #{type.inspect}" unless AST::Types::ALL.include?(type)
+      raise RegistryError, "Duplicate type registration: #{type.inspect}" if contents.key?(type)
+
       contents[type] = klass
       self
     end
@@ -36,8 +37,8 @@ module Mutest
     #   raises argument error when class cannot be found
     def lookup(type)
       contents.fetch(type) do
-        fail RegistryError, "No entry for: #{type.inspect}"
+        raise RegistryError, "No entry for: #{type.inspect}"
       end
     end
-  end # Registry
-end # Mutest
+  end
+end

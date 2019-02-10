@@ -12,7 +12,7 @@ module Mutest
             def call
               quantify(ast(*children))
             end
-          end # ExpressionToAST
+          end
 
           # Mapper from `Parser::AST::Node` to `Regexp::Expression`
           class ASTToExpression < Transformer::ASTToExpression
@@ -40,11 +40,11 @@ module Mutest
                 expression.expressions = subexpressions
               end
             end
-          end # ASTToExpression
+          end
 
           ASTToExpression::TABLE.types.each(&method(:register))
-        end # Recursive
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+        end
+      end
+    end
+  end
+end

@@ -19,7 +19,7 @@ module Mutest
           emit_body(nil)
           emit_body(N_RAISE)
         end
-      end # ConditionalLoop
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

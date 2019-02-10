@@ -69,7 +69,7 @@ module Mutest
 
         method =
           MAP.fetch(type) do
-            fail Actor::ProtocolError, "Unexpected message: #{type.inspect}"
+            raise Actor::ProtocolError, "Unexpected message: #{type.inspect}"
           end
         __send__(method, payload)
       end
@@ -176,6 +176,6 @@ module Mutest
       def sink
         config.sink
       end
-    end # Master
-  end # Parallel
-end # Mutest
+    end
+  end
+end

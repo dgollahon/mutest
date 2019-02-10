@@ -13,7 +13,7 @@ module Mutest
         def emit_values
           values.each(&method(:emit_type))
         end
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

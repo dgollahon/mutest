@@ -2,11 +2,12 @@ module Mutest
   class Matcher
     # Subject matcher configuration
     class Config
-      include Adamantium, Anima.new(
+      include Anima.new(
         :ignore_expressions,
         :match_expressions,
         :subject_filters
       )
+      include Adamantium
 
       INSPECT_FORMAT      = "#<#{self} %s>".freeze
       ATTRIBUTE_DELIMITER = ' '.freeze
@@ -74,6 +75,6 @@ module Mutest
             .join(ENUM_DELIMITER)
         )
       end
-    end # Config
-  end # Matcher
-end # Mutest
+    end
+  end
+end

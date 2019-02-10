@@ -79,10 +79,10 @@ module Mutest
             name = node.children.fetch(NAME_INDEX)
             name.to_s.eql?(context.unqualified_name)
           end
-        end # Evaluator
+        end
 
         private_constant(*constants(false))
-      end # Singleton
-    end # Method
-  end # Matcher
-end # Mutest
+      end
+    end
+  end
+end

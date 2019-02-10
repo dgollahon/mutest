@@ -2,7 +2,8 @@ module Mutest
   module Actor
     # Unbound mailbox
     class Mailbox
-      include Adamantium::Flat, Concord::Public.new(:receiver, :sender)
+      include Concord::Public.new(:receiver, :sender)
+      include Adamantium::Flat
 
       # New mailbox
       #
@@ -26,6 +27,6 @@ module Mutest
       def bind(other)
         Binding.new(self, other)
       end
-    end # Mailbox
-  end # Actor
-end # Mutest
+    end
+  end
+end

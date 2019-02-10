@@ -23,7 +23,7 @@ module Mutest
             emit_arg(s(:sym, method))
           end
         end
-      end # BlockPass
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

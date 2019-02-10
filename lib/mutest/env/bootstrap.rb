@@ -2,7 +2,9 @@ module Mutest
   class Env
     # Bootstrap environment
     class Bootstrap
-      include Adamantium::Flat, Concord::Public.new(:config), Procto.call(:env)
+      include Procto.call(:env)
+      include Concord::Public.new(:config)
+      include Adamantium::Flat
 
       SEMANTICS_MESSAGE_FORMAT =
         "%<message>s. Fix your lib to follow normal ruby semantics!\n" \
@@ -83,7 +85,7 @@ module Mutest
       #   otherwise
       def scope_name(scope)
         scope.name
-      rescue => exception
+      rescue StandardError => exception
         semantics_warning(
           CLASS_NAME_RAISED_EXCEPTION,
           exception:   exception.inspect,
@@ -154,6 +156,6 @@ module Mutest
         message = format % options
         warn(format(SEMANTICS_MESSAGE_FORMAT, message: message))
       end
-    end # Bootstrap
-  end # Env
-end # Mutest
+    end
+  end
+end

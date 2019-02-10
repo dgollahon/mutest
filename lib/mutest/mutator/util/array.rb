@@ -17,7 +17,7 @@ module Mutest
               emit(dup)
             end
           end
-        end # Presence
+        end
 
         # Array element mutator
         class Element < Util
@@ -35,8 +35,8 @@ module Mutest
               end
             end
           end
-        end # Element
-      end # Array
-    end # Util
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

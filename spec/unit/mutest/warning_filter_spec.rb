@@ -54,8 +54,8 @@ RSpec.describe Mutest::WarningFilter do
     it 'resets to original stderr after execution with exception ' do
       original = $stderr
       begin
-        object.use { fail }
-      rescue
+        object.use { raise }
+      rescue StandardError
         :make_rubo_cop_happy
       end
       expect($stderr).to be(original)
@@ -64,7 +64,6 @@ RSpec.describe Mutest::WarningFilter do
     it 'returns warnings generated within block' do
       warnings =
         object.use do
-          # rubocop:disable Security/Eval
           eval(<<-RUBY)
             Class.new do
               def foo

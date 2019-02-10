@@ -10,6 +10,7 @@ RSpec.describe Mutest::Matcher::Config do
 
     context 'with one expression' do
       let(:object) { described_class::DEFAULT.add(:match_expressions, parse_expression('Foo')) }
+
       it { is_expected.to eql('#<Mutest::Matcher::Config match_expressions: [Foo]>') }
     end
 

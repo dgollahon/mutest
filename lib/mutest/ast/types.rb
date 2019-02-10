@@ -136,6 +136,6 @@ module Mutest
 
       # All node types mutest handles
       ALL = symbolset.((Parser::Meta::NODE_TYPES + EXTRA) - BLACKLIST)
-    end # Types
-  end # AST
-end # Mutest
+    end
+  end
+end

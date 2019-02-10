@@ -15,7 +15,7 @@ module Mutest
         def dispatch
           emit_singletons
         end
-      end # MultipleAssignment
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

@@ -6,7 +6,8 @@ module MutestSpec
       requires: []
     )
 
-    include Adamantium, Anima.new(*DEFAULTS.keys)
+    include Anima.new(*DEFAULTS.keys)
+    include Adamantium
 
     def self.new(attributes = DEFAULTS)
       super(DEFAULTS.merge(attributes))
@@ -15,10 +16,11 @@ module MutestSpec
     DOES_NOT_EXIST = new
 
     alias_method :file?, :file
-  end # FileState
+  end
 
   class FakePathname
-    include Adamantium, Concord.new(:file_system, :pathname)
+    include Concord.new(:file_system, :pathname)
+    include Adamantium
 
     def join(*arguments)
       self.class.new(
@@ -44,10 +46,11 @@ module MutestSpec
     def state
       file_system.state(pathname.to_s)
     end
-  end # FakePathname
+  end
 
   class FileSystem
-    include Adamantium, Concord.new(:file_states)
+    include Concord.new(:file_states)
+    include Adamantium
 
     def state(filename)
       file_states.fetch(filename, FileState::DOES_NOT_EXIST)
@@ -56,5 +59,5 @@ module MutestSpec
     def path(filename)
       FakePathname.new(self, Pathname.new(filename))
     end
-  end # FileSystem
-end # MutestSpec
+  end
+end

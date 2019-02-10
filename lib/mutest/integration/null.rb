@@ -22,6 +22,6 @@ module Mutest
           tests:   tests
         )
       end
-    end # Null
-  end # Integration
-end # Mutest
+    end
+  end
+end

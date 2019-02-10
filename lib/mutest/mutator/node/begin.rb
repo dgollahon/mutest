@@ -15,7 +15,7 @@ module Mutest
             emit(child)
           end
         end
-      end # Begin
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

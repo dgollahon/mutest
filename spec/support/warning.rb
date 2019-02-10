@@ -17,7 +17,7 @@ module MutestSpec
     def self.assert_no_warnings
       return if EXTRACTOR.warnings.empty?
 
-      fail UnexpectedWarnings, EXTRACTOR.warnings.to_a
+      raise UnexpectedWarnings, EXTRACTOR.warnings.to_a
     end
 
     class UnexpectedWarnings < StandardError
@@ -26,12 +26,13 @@ module MutestSpec
       def initialize(warnings)
         super(MSG % warnings.join("\n"))
       end
-    end # UnexpectedWarnings
+    end
 
     class Extractor < DelegateClass(IO)
-      PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/
+      PATTERN = /\A(?:.+):(?:\d+): warning: (?:.+)\n\z/.freeze
 
-      include Equalizer.new(:whitelist, :seen, :io), Memoizable
+      include Memoizable
+      include Equalizer.new(:whitelist, :seen, :io)
 
       def initialize(io, whitelist)
         @whitelist = whitelist
@@ -63,11 +64,11 @@ module MutestSpec
       end
 
       attr_reader :whitelist, :seen, :io
-    end # Extractor
+    end
 
     warnings  = Pathname.new(__dir__).join('warnings.yml').freeze
     whitelist = IceNine.deep_freeze(YAML.safe_load(warnings.read))
 
     EXTRACTOR = Extractor.new(STDERR, whitelist)
-  end # Warning
-end # MutestSpec
+  end
+end

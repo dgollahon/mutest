@@ -3,7 +3,7 @@ module Mutest
   module Actor
     # Error raised when actor signalling protocol is violated
     class ProtocolError < RuntimeError
-    end # ProtocolError
+    end
 
     # Undefined message payload
     Undefined = Class.new do
@@ -30,7 +30,7 @@ module Mutest
       def self.new(_type, _payload = Undefined)
         super
       end
-    end # Message
+    end
 
     # Binding to other actors sender for simple RPC
     class Binding
@@ -44,9 +44,10 @@ module Mutest
       def call(type)
         other.call(Message.new(type, mailbox.sender))
         message = mailbox.receiver.call
-        fail ProtocolError, "Expected #{type} but got #{message.type}" unless type.equal?(message.type)
+        raise ProtocolError, "Expected #{type} but got #{message.type}" unless type.equal?(message.type)
+
         message.payload
       end
-    end # Binding
-  end # Actor
-end # Mutest
+    end
+  end
+end

@@ -44,7 +44,7 @@ module Mutest
           emit(s(:send, left, operation, right))
           emit(s(:send, left.children.first, :"#{left.children.last}=", right))
         end
-      end # OpAsgn
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

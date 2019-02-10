@@ -20,6 +20,6 @@ module Mutest
 
         EMPTY_ARRAY
       end
-    end # Expression
-  end # Selector
-end # Mutest
+    end
+  end
+end

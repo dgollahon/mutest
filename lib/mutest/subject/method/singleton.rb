@@ -13,7 +13,7 @@ module Mutest
           scope.singleton_class.__send__(:undef_method, name)
           self
         end
-      end # Singleton
-    end # Method
-  end # Subject
-end # Mutest
+      end
+    end
+  end
+end

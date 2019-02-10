@@ -14,7 +14,8 @@ module Mutest
     # @return [nil]
     #   otherwise
     def self.find_last_path(node, &predicate)
-      fail ArgumentError, 'block expected' unless block_given?
+      raise ArgumentError, 'block expected' unless block_given?
+
       path = []
       walk(node, [node]) do |candidate, stack|
         path = stack.dup if predicate.call(candidate)
@@ -40,5 +41,5 @@ module Mutest
       end
     end
     private_class_method :walk
-  end # AST
-end # Mutest
+  end
+end

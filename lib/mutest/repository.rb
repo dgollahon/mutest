@@ -5,7 +5,8 @@ module Mutest
 
     # Subject filter based on repository diff
     class SubjectFilter
-      include Adamantium, Concord.new(:diff)
+      include Concord.new(:diff)
+      include Adamantium
 
       # Test if subject was touched in diff
       #
@@ -15,11 +16,12 @@ module Mutest
       def call(subject)
         diff.touches?(subject.source_path, subject.source_lines)
       end
-    end # SubjectFilter
+    end
 
     # Diff between two objects in repository
     class Diff
-      include Adamantium, Anima.new(:config, :from, :to)
+      include Anima.new(:config, :from, :to)
+      include Adamantium
 
       HEAD = 'HEAD'.freeze
 
@@ -43,7 +45,7 @@ module Mutest
 
         stdout, status = config.open3.capture2(*command, binmode: true)
 
-        fail RepositoryError, "Command #{command} failed!" unless status.success?
+        raise RepositoryError, "Command #{command} failed!" unless status.success?
 
         !stdout.empty?
       end
@@ -75,6 +77,6 @@ module Mutest
         working_directory = config.pathname.pwd
         path.ascend { |parent| return true if working_directory.eql?(parent) }
       end
-    end # Diff
-  end # Repository
-end # Mutest
+    end
+  end
+end

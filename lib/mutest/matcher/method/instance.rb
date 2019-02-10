@@ -53,11 +53,11 @@ module Mutest
                 .unmemoized_instance_method(method_name)
                 .source_location
             end
-          end # Memoized
-        end # Evaluator
+          end
+        end
 
         private_constant(*constants(false))
-      end # Instance
-    end # Method
-  end # Matcher
-end # Mutest
+      end
+    end
+  end
+end

@@ -19,8 +19,8 @@ module Mutest
           def dispatch
             emit(s(MAP.fetch(node.type)))
           end
-        end # Boolean
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

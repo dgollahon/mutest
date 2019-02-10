@@ -4,7 +4,8 @@ module Mutest
     module Meta
       # Metadata for optional argument nodes
       class Optarg
-        include NamedChildren, Concord.new(:node)
+        include Concord.new(:node)
+        include NamedChildren
 
         UNDERSCORE = '_'.freeze
 
@@ -18,7 +19,7 @@ module Mutest
         def used?
           !name.to_s.start_with?(UNDERSCORE)
         end
-      end # Optarg
-    end # Meta
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

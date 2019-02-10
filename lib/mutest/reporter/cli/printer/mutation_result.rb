@@ -118,8 +118,8 @@ module Mutest
           def original_node
             mutation.subject.node
           end
-        end # MutationResult
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

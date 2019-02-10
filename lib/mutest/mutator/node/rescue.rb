@@ -51,6 +51,7 @@ module Mutest
         # @return [undefined]
         def mutate_body
           return unless body
+
           emit_body_mutations
           emit(body)
         end
@@ -60,10 +61,11 @@ module Mutest
         # @return [undefined]
         def mutate_else_body
           return unless else_body
+
           emit_else_body_mutations
           emit_concat(else_body)
         end
-      end # Rescue
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

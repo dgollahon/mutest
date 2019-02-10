@@ -1,31 +1,55 @@
 ---
 require:
   - rubocop-rspec
-  - rubocop/devtools
 AllCops:
   Exclude:
   - 'test_app/**/*'
   - 'tmp/**/*'
   - vendor/**/*
   DisplayCopNames: true
-  TargetRubyVersion: 2.2
-# This ends up being too spammy
-Style/Documentation:
-  Enabled: false
-Style/ExtraSpacing:
+  TargetRubyVersion: 2.3
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+Layout/ExtraSpacing:
   AllowForAlignment: true
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+Layout/IndentArray:
+  EnforcedStyle: consistent
+Layout/IndentHash:
+  EnforcedStyle: consistent
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: new_line
+  Enabled: true
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
 Metrics/LineLength:
   Max: 100
 Metrics/BlockLength:
-  Exclude:
-  # Ignore migration DSL
-  - db/migrations/**/*
-  # Ignore RSpec DSL
-  - spec/**/*
-  # Ignore Rake task DSL
-  - Rakefile
-Style/IfUnlessModifier:
-  MaxLineLength: 100
+  Enabled: false
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+Style/AccessModifierDeclarations:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
 Style/Next:
   EnforcedStyle: always
 Style/PercentLiteralDelimiters:
@@ -51,187 +75,28 @@ Style/Send:
   Enabled: true
 Style/AutoResourceCleanup:
   Enabled: true
-Style/FirstArrayElementLineBreak:
-  Enabled: true
-Style/FirstHashElementLineBreak:
-  Enabled: true
-Style/FirstMethodArgumentLineBreak:
-  Enabled: true
-Style/FirstMethodParameterLineBreak:
-  Enabled: true
-Style/MultilineArrayBraceLayout:
-  Enabled: true
-Style/MultilineAssignmentLayout:
-  EnforcedStyle: new_line
-  Enabled: true
-Style/MultilineHashBraceLayout:
-  Enabled: true
-Style/MultilineMethodCallBraceLayout:
-  Enabled: true
-Style/MultilineMethodDefinitionBraceLayout:
-  Enabled: true
 Style/OptionHash:
   Enabled: true
 Style/StringMethods:
   Enabled: true
-Style/IndentArray:
-  EnforcedStyle: consistent
-Style/IndentHash:
-  EnforcedStyle: consistent
-MultilineMethodCallIndentation:
-  EnforcedStyle: indented
 Style/Alias:
   EnforcedStyle: prefer_alias_method
-Style/AlignHash:
-  EnforcedColonStyle: table
-Style/SignalException:
-  EnforcedStyle: semantic
 Style/SingleLineBlockParams:
   Enabled: false
-# We prefer being able to write
-#
-#   foo(*%w[bar baz qux norf hello goodbye])
-#
-# over
-#
-#   foo('bar', 'baz', 'qux', 'norf', 'hello', 'goodbye')
-#
-# because
-#
-#   1. the `%w` signals that all elements are strings without interpolation
-#   2. the `%w` case is more compact
-#
-# The only exception is method invocations with a single argument. These
-# cases should be `foo('bar')` and never `foo(*%w[bar])`
-#
-Lint/UnneededSplatExpansion:
-  Enabled: false
-# We only use guard clauses when it guards two or more statements:
-#
-#    # bad
-#    def foo
-#      return if bar
-#
-#      baz
-#    end
-#
-#    # good
-#    def foo
-#      baz if bar
-#    end
-#
-# This includes conditionals with an `else` branch:
-#
-#    # bad
-#    def foo
-#      return qux if bar
-#
-#      baz
-#    end
-#
-#    # good
-#    def foo
-#      if bar
-#        qux
-#      else
-#        baz
-#      end
-#    end
-#
-# It is up to the author of the code in question if the condition concerns
-# exactly two statements
-#
-#    # ok
-#    def foo
-#      return if bar
-#
-#      baz
-#      qux
-#    end
-#
-#    # also ok
-#    def foo
-#      if bar
-#        baz
-#        qux
-#      end
-#    end
-#
-# Use a guard clause if more than two statements are being guarded by the conditional
-#
-#    # bad
-#    def foo
-#      if bar
-#        baz
-#        qux
-#        norf
-#      end
-#    end
-#
-#    # good
-#    def foo
-#      return if bar
-#
-#      baz
-#      qux
-#      norf
-#    end
 Style/GuardClause:
   Enabled: false
-# Prefer writing an empty method on two lines
-#
-#    # good
-#    def foo
-#    end
-#
-#    # bar
-#    def foo; end
-#
 Style/EmptyMethod:
   EnforcedStyle: expanded
-# RuboCop disables end alignment by default. Explanation:
-#
-#     The end alignment cops are in the Lint category because the bad
-#     indentation could be something more serious than just a style issue.
-#     It could be a mistake in which keyword you think you're matching with the end.
-#     (ruby -w warns for these too, by the way.) So for this reason I don't think
-#     we can add auto-correct for these cops.
-#
-# From https://github.com/bbatsov/rubocop/pull/1789#issuecomment-92308357
-#
-# I think we have more than enough tools that sound the alarms if we have
-# such an obvious mistake like mismatched tokens.
-#
-#   - Our specs are likely to fail
-#   - RuboCop will flag it regardless, it just doesn't autocorrect it by default
-#   - Ruby will emit a warning which we configure to fail our specs
-#
-# So I think it is safe to enable autocorrect for end alignment cops because it
-# does not seem unsafe and it improves workflow to be able to autocorrect alignment
-Lint/DefEndAlignment:
-  AutoCorrect: true
-# See explanation for `Lint/DefEndAlignment`
-Lint/EndAlignment:
-  AutoCorrect: true
 
 # TODO is inlined so that it takes precedence.
 
-# This configuration was generated by
-# `rubocop --auto-gen-config --exclude-limit 0`
-# on 2017-01-27 00:08:49 -0800 using RuboCop version 0.47.1.
-# The point is for the user to remove these configuration records
-# one by one as the offenses are removed from the code base.
-# Note that changes in the inspected code, or installation of new
-# versions of RuboCop, may require this file to be generated again.
+Lint/BooleanSymbol:
+  Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith, AutoCorrect.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
+Lint/InterpolationCheck:
+  Enabled: false
 
-# Offense count: 4
-# Cop supports --auto-correct.
-Lint/UnifiedInteger:
+Lint/MissingCopEnableDirective:
   Enabled: false
 
 # Offense count: 10
@@ -251,16 +116,25 @@ Metrics/LineLength:
 Style/AndOr:
   Enabled: false
 
+Style/EvalWithLocation:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Enabled: false
+
 # Offense count: 150
 # Cop supports --auto-correct.
-Style/FirstMethodArgumentLineBreak:
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: SupportedStyles, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
-Style/IndentHash:
+Layout/IndentHash:
   EnforcedStyle: special_inside_parentheses
 
 # Offense count: 21
@@ -277,8 +151,7 @@ Style/LambdaCall:
 Style/Next:
   Enabled: false
 
-# Devtools Cops
-Devtools/GroupSingleLineLet:
+Style/StderrPuts:
   Enabled: false
 
 # RSpec Cops
@@ -302,6 +175,15 @@ RSpec/DescribeClass:
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/ExpectChange:
+  Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
 
 # Offense count: 89
 # Configuration parameters: CustomIncludeMethods.
@@ -339,11 +221,20 @@ RSpec/FilePath:
     - 'spec/unit/mutest/matcher/scope_spec.rb'
     - 'spec/unit/mutest/matcher/static_spec.rb'
 
+RSpec/ImplicitSubject:
+  Enabled: false
+
 # Offense count: 5
 # Configuration parameters: AssignmentOnly.
 RSpec/InstanceVariable:
   Exclude:
     - 'spec/unit/mutest/parallel/master_spec.rb'
+
+RSpec/IteratedExpectation:
+  Enabled: false
+
+RSpec/LetBeforeExamples:
+  Enabled: false
 
 # Offense count: 93
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -381,6 +272,12 @@ RSpec/NestedGroups:
     - 'spec/unit/mutest/reporter/cli_spec.rb'
     - 'spec/unit/mutest/repository/diff_spec.rb'
     - 'spec/unit/mutest/runner/sink_spec.rb'
+
+RSpec/ScatteredLet:
+  Enabled: false
+
+RSpec/VoidExpect:
+  Enabled: false
 
 # Offense count: 18
 # Configuration parameters: IgnoreSymbolicNames.

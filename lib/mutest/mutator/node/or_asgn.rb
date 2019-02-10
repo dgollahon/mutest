@@ -16,11 +16,12 @@ module Mutest
           emit_singletons
           emit_right_mutations
           return if n_ivasgn?(left)
+
           emit_left_mutations do |node|
             AST::Types::ASSIGNABLE_VARIABLES.include?(node.type)
           end
         end
-      end # OrAsgn
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

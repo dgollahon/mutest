@@ -20,8 +20,8 @@ module RegexpSpec
       NONE = Object.new.freeze
 
       include Equalizer.new(:token, :text, :mode, :min, :max)
-    end # Quantifier
-  end # Expression
+    end
+  end
 
   RSpec.shared_context 'regexp transformation' do
     let(:parsed)     { Mutest::AST::Regexp.parse(regexp)      }
@@ -66,6 +66,7 @@ module RegexpSpec
     RSpec.describe Mutest::AST::Regexp::Transformer.lookup(type) do
       context "when mapping #{regexp.inspect}" do
         let(:regexp) { regexp }
+
         let(:expected, &block)
 
         include_context 'regexp transformation'
@@ -74,7 +75,7 @@ module RegexpSpec
       end
     end
   end
-end # RegexpSpec
+end
 
 RegexpSpec.expect_mapping(/A/, :regexp_root_expression) do
   s(:regexp_root_expression,

@@ -14,15 +14,15 @@ RSpec.describe Mutest::AST::Meta::Send do
   let(:public_method_call)     { parse("foo.public_method('bar')") }
 
   class Expectation
-    include Adamantium,
-            Anima.new(
-              :name,
-              :assignment,
-              :attribute_assignment,
-              :index_assignment,
-              :binary_method_operator,
-              :method_object_selector
-            )
+    include Anima.new(
+      :name,
+      :assignment,
+      :attribute_assignment,
+      :index_assignment,
+      :binary_method_operator,
+      :method_object_selector
+    )
+    include Adamantium
 
     ALL = [
       [:method_call,            false, false, false, false, false],
@@ -35,7 +35,7 @@ RSpec.describe Mutest::AST::Meta::Send do
     ].map do |values|
       new(Hash[anima.attribute_names.zip(values)])
     end.freeze
-  end # Expectation
+  end
 
   # Rspec should have a build in for this kind of "n-dimensional assertion with context"
   (Expectation.anima.attribute_names - %i[name]).each do |name|

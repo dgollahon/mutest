@@ -32,7 +32,7 @@ module MutestSpec
   SPECS_PATH       = Pathname.new(__dir__).expand_path.freeze
   PROJECT_ROOT     = SPECS_PATH.parent.freeze
   UNIT_TEST_TIMOUT = 10.0
-end # MutestSpec
+end
 
 Dir.glob(MutestSpec::SPECS_PATH.join('{shared,support}/**/*.rb')).each(&method(:require))
 
@@ -43,7 +43,7 @@ require 'test_app'
 module Fixtures
   TEST_CONFIG = Mutest::Config::DEFAULT.with(reporter: Mutest::Reporter::Null.new)
   TEST_ENV    = Mutest::Env::Bootstrap.(TEST_CONFIG)
-end # Fixtures
+end
 
 module ParserHelper
   def generate(node)
@@ -57,13 +57,13 @@ module ParserHelper
   def parse_expression(string)
     Mutest::Config::DEFAULT.expression_parser.(string)
   end
-end # ParserHelper
+end
 
 module MessageHelper
   def message(*arguments)
     Mutest::Actor::Message.new(*arguments)
   end
-end # MessageHelper
+end
 
 RSpec.configure do |config|
   config.extend(SharedContext)

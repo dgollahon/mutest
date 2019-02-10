@@ -1,7 +1,8 @@
 module Mutest
   # Class to colorize strings
   class Color
-    include Adamantium::Flat, Concord.new(:code)
+    include Concord.new(:code)
+    include Adamantium::Flat
 
     # Format text with color
     #
@@ -35,5 +36,5 @@ module Mutest
     RED   = Color.new(31)
     GREEN = Color.new(32)
     BLUE  = Color.new(34)
-  end # Color
-end # Mutest
+  end
+end

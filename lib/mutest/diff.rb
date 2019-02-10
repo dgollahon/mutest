@@ -1,7 +1,8 @@
 module Mutest
   # Class to create diffs from source code
   class Diff
-    include Adamantium::Flat, Concord.new(:old, :new)
+    include Concord.new(:old, :new)
+    include Adamantium::Flat
 
     ADDITION = '+'.freeze
     DELETION = '-'.freeze
@@ -30,6 +31,7 @@ module Mutest
     #   otherwise
     def colorized_diff
       return unless diff
+
       diff.lines.map(&self.class.method(:colorize_line)).join
     end
     memoize :colorized_diff
@@ -107,5 +109,5 @@ module Mutest
       end.format(line)
     end
     private_class_method :colorize_line
-  end # Diff
-end # Mutest
+  end
+end

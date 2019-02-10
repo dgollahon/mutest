@@ -22,7 +22,7 @@ module Mutest
         io.pipe(binmode: true) do |pipes|
           parent(*pipes, &block)
         end
-      rescue => exception
+      rescue StandardError => exception
         raise Error, exception
       end
 
@@ -67,6 +67,6 @@ module Mutest
           yield
         end
       end
-    end # Fork
-  end # Isolation
-end # Mutest
+    end
+  end
+end

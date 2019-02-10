@@ -14,7 +14,7 @@ module Mutest
           super()
           emit_singletons
         end
-      end # Dsym
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

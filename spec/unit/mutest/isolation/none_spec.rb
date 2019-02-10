@@ -7,7 +7,7 @@ RSpec.describe Mutest::Isolation::None do
     end
 
     it 'wraps *all* exceptions' do
-      expect { object.call { fail 'foo' } }.to raise_error(
+      expect { object.call { raise 'foo' } }.to raise_error(
         Mutest::Isolation::Error,
         'foo'
       )

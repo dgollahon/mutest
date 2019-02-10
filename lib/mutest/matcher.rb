@@ -1,7 +1,8 @@
 module Mutest
   # Abstract matcher to find subjects to mutate
   class Matcher
-    include Adamantium::Flat, AbstractType
+    include AbstractType
+    include Adamantium::Flat
 
     # Call matcher
     #
@@ -10,5 +11,5 @@ module Mutest
     # @return [Enumerable<Subject>]
     #
     abstract_method :call
-  end # Matcher
-end # Mutest
+  end
+end

@@ -9,9 +9,8 @@ gem 'pry-byebug',       '~> 3.4'
 gem 'rake',             '~> 12'
 gem 'rspec',            '~> 3.6'
 gem 'rspec-its',        '~> 1.2.0'
-gem 'rubocop',          '~> 0.47.1'
-gem 'rubocop-devtools', git: 'https://github.com/backus/rubocop-devtools.git'
-gem 'rubocop-rspec',    '~> 1.10.0'
+gem 'rubocop',          '~> 0.63'
+gem 'rubocop-rspec',    '~> 1.32'
 gem 'simplecov',        '~> 0.13.0'
 
 # Lock to 1.10 in tests until https://git.io/vHjug is released

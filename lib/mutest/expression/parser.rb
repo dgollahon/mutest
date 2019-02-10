@@ -5,7 +5,7 @@ module Mutest
 
       class ParserError < RuntimeError
         include AbstractType
-      end # ParserError
+      end
 
       # Error raised on invalid expressions
       class InvalidExpressionError < ParserError; end
@@ -23,7 +23,7 @@ module Mutest
       # @raise [ParserError]
       #   otherwise
       def call(input)
-        try_parse(input) or fail InvalidExpressionError, "Expression: #{input.inspect} is not valid"
+        try_parse(input) or raise InvalidExpressionError, "Expression: #{input.inspect} is not valid"
       end
 
       # Try to parse input into expression
@@ -38,10 +38,11 @@ module Mutest
       def try_parse(input)
         expressions = expressions(input)
         case expressions.length
-        when 0, 1
-          expressions.first
+        when 0 # rubocop:disable Lint/EmptyWhen
+        when 1
+          Util.one(expressions)
         else
-          fail AmbiguousExpressionError, "Ambiguous expression: #{input.inspect}"
+          raise AmbiguousExpressionError, "Ambiguous expression: #{input.inspect}"
         end
       end
 
@@ -59,6 +60,6 @@ module Mutest
           aggregate << expression if expression
         end
       end
-    end # Parser
-  end # Expression
-end # Mutest
+    end
+  end
+end

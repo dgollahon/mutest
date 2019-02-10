@@ -39,8 +39,8 @@ module Mutest
           def object
             super().payload
           end
-        end # StatusProgressive
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

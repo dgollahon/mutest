@@ -69,15 +69,15 @@ module Mutest
           handle :def
 
           children :name, :arguments, :body
-        end # Instance
+        end
 
         # Mutator for singleton method defines
         class Singleton < self
           handle :defs
 
           children :subject, :name, :arguments, :body
-        end # Singleton
-      end # Define
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

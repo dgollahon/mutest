@@ -54,7 +54,7 @@ module Mutest
         def body_index
           children.length - 1
         end
-      end # When
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

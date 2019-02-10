@@ -16,6 +16,7 @@ module Mutest
           def dispatch
             mutate_name
             return unless value # op asgn
+
             emit_value_mutations
             emit_remove_const
           end
@@ -35,8 +36,8 @@ module Mutest
               emit_name(name.upcase)
             end
           end
-        end # ConstantAssignment
-      end # NamedValue
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

@@ -22,8 +22,8 @@ module Mutest
             emit_subject_mutations
             emit(subject)
           end
-        end # ZeroOrMore
-      end # Regexp
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

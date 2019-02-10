@@ -12,7 +12,7 @@ module Mutest
     def self.one(array)
       return array.first if array.one?
 
-      fail SizeError, "expected size to be exactly 1 but size was #{array.size}"
+      raise SizeError, "expected size to be exactly 1 but size was #{array.size}"
     end
-  end # Util
-end # Mutest
+  end
+end

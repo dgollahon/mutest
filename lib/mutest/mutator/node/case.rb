@@ -37,11 +37,13 @@ module Mutest
         def emit_else_mutations
           else_branch = children.last
           else_index = children.length - 1
+
           return unless else_branch
+
           mutate_child(else_index)
           emit_child_update(else_index, nil)
         end
-      end # Case
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end
