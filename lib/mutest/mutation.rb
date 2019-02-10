@@ -1,7 +1,8 @@
 module Mutest
   # Represent a mutated node with its subject
   class Mutation
-    include AbstractType, Adamantium::Flat
+    include Adamantium::Flat
+    include AbstractType
     include Concord::Public.new(:subject, :node)
 
     CODE_DELIMITER = "\0".freeze
@@ -84,18 +85,18 @@ module Mutest
     class Evil < self
       SYMBOL            = 'evil'.freeze
       TEST_PASS_SUCCESS = false
-    end # Evil
+    end
 
     # Neutral mutation that should not cause mutations to fail tests
     class Neutral < self
       SYMBOL            = 'neutral'.freeze
       TEST_PASS_SUCCESS = true
-    end # Neutral
+    end
 
     # Noop mutation, special case of neutral
     class Noop < Neutral
       SYMBOL            = 'noop'.freeze
       TEST_PASS_SUCCESS = true
-    end # Noop
-  end # Mutation
-end # Mutest
+    end
+  end
+end

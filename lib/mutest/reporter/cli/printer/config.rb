@@ -17,8 +17,8 @@ module Mutest
             info 'Includes:        %s',      object.includes
             info 'Requires:        %s',      object.requires
           end
-        end # Config
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

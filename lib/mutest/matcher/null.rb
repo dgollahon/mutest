@@ -12,6 +12,6 @@ module Mutest
       def call(_env)
         EMPTY_ARRAY
       end
-    end # Null
-  end # Matcher
-end # Mutest
+    end
+  end
+end

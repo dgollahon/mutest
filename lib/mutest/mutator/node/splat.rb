@@ -19,7 +19,7 @@ module Mutest
           end
           emit(expression)
         end
-      end # Splat
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

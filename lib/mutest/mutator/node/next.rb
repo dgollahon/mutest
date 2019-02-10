@@ -16,7 +16,7 @@ module Mutest
           children.each_index(&method(:delete_child))
           emit(s(:break, *children))
         end
-      end # Next
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

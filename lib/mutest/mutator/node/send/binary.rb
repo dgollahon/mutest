@@ -38,8 +38,8 @@ module Mutest
           def emit_not_equality_mutation(new_operator)
             emit(n_not(s(:send, left, new_operator, right)))
           end
-        end # Binary
-      end # Send
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

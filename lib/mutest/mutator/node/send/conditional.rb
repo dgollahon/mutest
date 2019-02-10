@@ -14,8 +14,8 @@ module Mutest
             super()
             emit(s(:send, *children))
           end
-        end # Conditional
-      end # Send
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

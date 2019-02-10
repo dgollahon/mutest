@@ -1,7 +1,9 @@
 module Mutest
   # Subject of a mutation
   class Subject
-    include AbstractType, Adamantium::Flat, Enumerable
+    include Enumerable
+    include Adamantium::Flat
+    include AbstractType
     include Concord::Public.new(:context, :node)
 
     # Mutations for this subject
@@ -90,5 +92,5 @@ module Mutest
     def wrap_node(node)
       node
     end
-  end # Subject
-end # Mutest
+  end
+end

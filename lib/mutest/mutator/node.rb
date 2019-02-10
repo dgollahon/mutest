@@ -3,8 +3,12 @@ module Mutest
   class Mutator
     # Abstract base class for node mutators
     class Node < self
-      include AbstractType, Unparser::Constants
-      include AST::NamedChildren, AST::NodePredicates, AST::Sexp, AST::Nodes
+      include Unparser::Constants
+      include AbstractType
+      include AST::Nodes
+      include AST::Sexp
+      include AST::NodePredicates
+      include AST::NamedChildren
 
       TAUTOLOGY = ->(_input) { true }
 
@@ -49,6 +53,7 @@ module Mutest
         block ||= TAUTOLOGY
         mutate(children.fetch(index), self).each do |mutation|
           next unless block.call(mutation)
+
           emit_child_update(index, mutation)
         end
       end
@@ -115,7 +120,7 @@ module Mutest
       # @return [nil]
       #   otherwise
       def parent_node
-        parent.node if parent
+        parent&.node
       end
 
       # Parent type
@@ -126,7 +131,7 @@ module Mutest
       # @return [nil]
       #   otherwise
       def parent_type
-        parent_node.type if parent_node
+        parent_node&.type
       end
 
       # Test if the node is the left of an or_asgn or op_asgn
@@ -154,6 +159,6 @@ module Mutest
           yield child, index unless children.one?
         end
       end
-    end # Node
-  end # Mutator
-end # Mutest
+    end
+  end
+end

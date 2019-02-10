@@ -33,7 +33,8 @@ module Mutest
         # @raise [RuntimeError]
         #   in case example cannot be build
         def example
-          fail 'source not defined' unless @node
+          raise 'source not defined' unless @node
+
           Example.new(
             file:      @file,
             node:      @node,
@@ -50,7 +51,8 @@ module Mutest
         #
         # @return [undefined]
         def source(input)
-          fail 'source already defined' if @node
+          raise 'source already defined' if @node
+
           @node = node(input)
         end
 
@@ -61,9 +63,8 @@ module Mutest
         # @return [undefined]
         def mutation(input)
           node = node(input)
-          if @expected.include?(node)
-            fail "Mutation for input: #{input.inspect} is already expected"
-          end
+          raise "Mutation for input: #{input.inspect} is already expected" if @expected.include?(node)
+
           @expected << node
         end
 
@@ -98,10 +99,10 @@ module Mutest
           when ::Parser::AST::Node
             input
           else
-            fail "Cannot coerce to node: #{input.inspect}"
+            raise "Cannot coerce to node: #{input.inspect}"
           end
         end
-      end # DSL
-    end # Example
-  end # Meta
-end # Mutest
+      end
+    end
+  end
+end

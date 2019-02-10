@@ -82,11 +82,13 @@ RSpec.describe Mutest::Reporter::CLI do
 
     context 'when on CI' do
       let(:ci?) { true }
+
       it { is_expected.to eql(described_class.new(output, progressive_format)) }
     end
 
     context 'when output is not a tty?' do
       let(:tty?) { false }
+
       it { is_expected.to eql(described_class.new(output, progressive_format)) }
     end
 

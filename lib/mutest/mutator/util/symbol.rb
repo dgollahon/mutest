@@ -13,7 +13,7 @@ module Mutest
         def dispatch
           emit((input.to_s + POSTFIX).to_sym)
         end
-      end # Symbol
-    end # Util
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

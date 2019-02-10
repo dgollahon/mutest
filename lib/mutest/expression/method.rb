@@ -22,7 +22,7 @@ module Mutest
 
       private_constant(*constants(false))
 
-      REGEXP = /\A#{SCOPE_NAME_PATTERN}#{SCOPE_SYMBOL_PATTERN}#{METHOD_NAME_PATTERN}\z/
+      REGEXP = /\A#{SCOPE_NAME_PATTERN}#{SCOPE_SYMBOL_PATTERN}#{METHOD_NAME_PATTERN}\z/.freeze
 
       # Syntax of expression
       #
@@ -49,6 +49,6 @@ module Mutest
       def scope
         Object.const_get(scope_name)
       end
-    end # Method
-  end # Expression
-end # Mutest
+    end
+  end
+end

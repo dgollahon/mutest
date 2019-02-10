@@ -14,8 +14,8 @@ module Mutest
           def dispatch
             emit(s(:regexp_eos_anchor))
           end
-        end # EndOfStringOrBeforeEndOfLineAnchor
-      end # Regexp
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

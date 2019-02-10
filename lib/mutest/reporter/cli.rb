@@ -80,6 +80,6 @@ module Mutest
       def write(frame)
         output.write(frame)
       end
-    end # CLI
-  end # Reporter
-end # Mutest
+    end
+  end
+end

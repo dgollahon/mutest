@@ -21,6 +21,6 @@ module Mutest
       def n_not(node)
         s(:send, node, :!)
       end
-    end # Sexp
-  end # AST
-end # Mutest
+    end
+  end
+end

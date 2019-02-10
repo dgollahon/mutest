@@ -4,12 +4,13 @@ module Mutest
     module Meta
       # Metadata for resbody nodes
       class Resbody
-        include NamedChildren, Concord.new(:node)
+        include Concord.new(:node)
+        include NamedChildren
 
         children :captures, :assignment, :body
 
         public :captures, :assignment, :body
-      end # Resbody
-    end # Meta
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

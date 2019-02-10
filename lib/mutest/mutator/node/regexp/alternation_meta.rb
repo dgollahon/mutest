@@ -14,8 +14,8 @@ module Mutest
           def dispatch
             children.each_index(&method(:delete_child))
           end
-        end # AlternationMeta
-      end # Regexp
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

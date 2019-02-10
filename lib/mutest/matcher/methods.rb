@@ -2,7 +2,8 @@ module Mutest
   class Matcher
     # Abstract base class for matcher that returns method subjects from scope
     class Methods < self
-      include AbstractType, Concord.new(:scope)
+      include Concord.new(:scope)
+      include AbstractType
 
       CANDIDATE_NAMES = IceNine.deep_freeze(%i[
         public_instance_methods
@@ -80,7 +81,7 @@ module Mutest
           scope.singleton_class
         end
         memoize :candidate_scope, freezer: :noop
-      end # Singleton
+      end
 
       # Matcher for instance methods
       class Instance < self
@@ -103,7 +104,7 @@ module Mutest
         def candidate_scope
           scope
         end
-      end # Instance
-    end # Methods
-  end # Matcher
-end # Mutest
+      end
+    end
+  end
+end

@@ -11,13 +11,15 @@ module FakeActor
     end
 
     def verify(other)
-      fail "Got:\n#{other.inspect}\nExpected:\n#{inspect}" unless eql?(other)
-      block.call(other.message) if block
+      raise "Got:\n#{other.inspect}\nExpected:\n#{inspect}" unless eql?(other)
+
+      block&.call(other.message)
     end
-  end # Expectation
+  end
 
   class MessageSequence
-    include Adamantium::Flat, Concord::Public.new(:messages)
+    include Concord::Public.new(:messages)
+    include Adamantium::Flat
 
     def self.new
       super([])
@@ -29,23 +31,26 @@ module FakeActor
     end
 
     def sending(expectation)
-      fail "Unexpected send: #{expectation.inspect}" if messages.empty?
+      raise "Unexpected send: #{expectation.inspect}" if messages.empty?
+
       expected = messages.shift
       expected.verify(expectation)
       self
     end
 
     def receiving(name)
-      fail "No message to read for #{name.inspect}" if messages.empty?
+      raise "No message to read for #{name.inspect}" if messages.empty?
+
       expected = messages.shift
-      fail "Unexpected message #{expected.inspect} for #{name.inspect}" unless expected.name.eql?(name)
+      raise "Unexpected message #{expected.inspect} for #{name.inspect}" unless expected.name.eql?(name)
+
       expected.message
     end
 
     def consumed?
       messages.empty?
     end
-  end # MessageSequence
+  end
 
   class Env
     include Concord.new(:messages, :mailbox_names)
@@ -68,10 +73,10 @@ module FakeActor
 
     def next_name
       @mailbox_names.shift.tap do |name|
-        name or fail 'Tried to spawn actor when no name available'
+        name or raise 'Tried to spawn actor when no name available'
       end
     end
-  end # Env
+  end
 
   class Mailbox
     include Concord.new(:name, :messages)
@@ -87,7 +92,7 @@ module FakeActor
     def bind(sender)
       Mutest::Actor::Binding.new(self, sender)
     end
-  end # Mailbox
+  end
 
   class Sender
     include Concord.new(:name, :messages)
@@ -95,7 +100,7 @@ module FakeActor
     def call(message)
       messages.sending(Expectation.new(name, message))
     end
-  end # Sender
+  end
 
   class Receiver
     include Concord::Public.new(:name, :messages)
@@ -103,5 +108,5 @@ module FakeActor
     def call
       messages.receiving(name)
     end
-  end # Receiver
-end # FakeActor
+  end
+end

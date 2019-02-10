@@ -39,9 +39,9 @@ module Mutest
             def emit_index_read
               emit_type(receiver, :[], *children[INDEX_RANGE])
             end
-          end # Assign
-        end # Index
-      end # Send
-    end # Node
-  end # Mutator
-end # Mutest
+          end
+        end
+      end
+    end
+  end
+end

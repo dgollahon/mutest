@@ -16,8 +16,8 @@ module Mutest
             end
             visit_collection(MutationResult, alive_mutation_results)
           end
-        end # SubjectResult
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

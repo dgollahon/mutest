@@ -19,7 +19,7 @@ module Mutest
           end
           emit_right_mutations
         end
-      end # AndAsgn
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

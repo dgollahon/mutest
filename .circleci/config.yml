@@ -21,7 +21,7 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: bundle exec rubocop --config config/rubocop.yml
+      - run: bundle exec rubocop
   mutest:
     <<: *defaults
     steps:

@@ -1,7 +1,8 @@
 module Mutest
   # An abstract context where mutations can be applied to.
   class Context
-    include Adamantium::Flat, Concord::Public.new(:scope, :source_file)
+    include Concord::Public.new(:scope, :source_file)
+    include Adamantium::Flat
     extend AST::Sexp
 
     NAMESPACE_DELIMITER = '::'.freeze
@@ -94,5 +95,5 @@ module Mutest
       scope.name.split(NAMESPACE_DELIMITER)
     end
     memoize :name_nesting
-  end # Context
-end # Mutest
+  end
+end

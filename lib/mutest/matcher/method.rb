@@ -2,13 +2,13 @@ module Mutest
   class Matcher
     # Abstract base class for method matchers
     class Method < self
-      include AbstractType,
-              Adamantium::Flat,
-              Concord::Public.new(:scope, :target_method, :evaluator)
+      include Concord::Public.new(:scope, :target_method, :evaluator)
+      include Adamantium::Flat
+      include AbstractType
 
       # Methods within rbx kernel directory are precompiled and their source
       # cannot be accessed via reading source location. Same for methods created by eval.
-      BLACKLIST = %r{\A(kernel/|\(eval\)\z)}
+      BLACKLIST = %r{\A(kernel/|\(eval\)\z)}.freeze
 
       SOURCE_LOCATION_WARNING_FORMAT =
         '%s does not have a valid source location, unable to emit subject'.freeze
@@ -31,11 +31,11 @@ module Mutest
       # logic would be implemented directly on the Matcher::Method
       # instance
       class Evaluator
-        include AbstractType,
-                Adamantium,
-                Concord.new(:scope, :target_method, :env),
-                Procto.call,
-                AST::NodePredicates
+        include AST::NodePredicates
+        include Procto.call
+        include Concord.new(:scope, :target_method, :env)
+        include Adamantium
+        include AbstractType
 
         # Matched subjects
         #
@@ -128,9 +128,9 @@ module Mutest
           AST.find_last_path(ast, &method(:match?))
         end
         memoize :matched_node_path
-      end # Evaluator
+      end
 
       private_constant(*constants(false))
-    end # Method
-  end # Matcher
-end # Mutest
+    end
+  end
+end

@@ -2,7 +2,9 @@ module Mutest
   class Matcher
     # Compiler for complex matchers
     class Compiler
-      include Concord.new(:config), AST::Sexp, Procto.call(:result)
+      include Procto.call(:result)
+      include AST::Sexp
+      include Concord.new(:config)
 
       # Generated matcher
       #
@@ -29,7 +31,7 @@ module Mutest
         def call(subject)
           expression.prefix?(subject.expression)
         end
-      end # SubjectPrefix
+      end
 
       private
 
@@ -50,6 +52,6 @@ module Mutest
       def filtered_subjects
         Morpher::Evaluator::Predicate::Boolean::And.new(config.subject_filters)
       end
-    end # Compiler
-  end # Matcher
-end # Mutest
+    end
+  end
+end

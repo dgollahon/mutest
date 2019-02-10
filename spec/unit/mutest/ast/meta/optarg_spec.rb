@@ -15,6 +15,7 @@ RSpec.describe Mutest::AST::Meta::Optarg do
 
     context 'when name is prefixed with an underscore' do
       let(:name) { :_foo }
+
       it { is_expected.to be false }
     end
   end

@@ -24,8 +24,8 @@ module Mutest
           def char(char)
             output.write(colorize(status_color, char))
           end
-        end # MutationProgressResult
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

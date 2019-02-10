@@ -7,5 +7,5 @@ module Mutest
     # @return [Object]
     #   the blocks result
     abstract_method :call
-  end # Isolation
-end # Mutest
+  end
+end

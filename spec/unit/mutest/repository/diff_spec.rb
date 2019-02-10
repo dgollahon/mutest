@@ -31,7 +31,7 @@ describe Mutest::Repository::Diff do
         expect(config.kernel).to receive(:system)
           .ordered
           .with(
-            *%W[git ls-files --error-unmatch -- #{path}],
+            *%W[git ls-files --error-unmatch -- #{path}], # rubocop:disable Lint/UnneededSplatExpansion
             out: File::NULL,
             err: File::NULL
           ).and_return(git_ls_success?)

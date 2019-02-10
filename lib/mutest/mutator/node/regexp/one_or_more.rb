@@ -27,8 +27,8 @@ module Mutest
           end
 
           private_constant(*constants(false))
-        end # OneOrMore
-      end # Regexp
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

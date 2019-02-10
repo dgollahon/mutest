@@ -36,8 +36,8 @@ module Mutest
           def wrap_node(mutest)
             s(:begin, mutest, s(:send, nil, :memoize, s(:args, s(:sym, name))))
           end
-        end # Memoized
-      end # Instance
-    end # Method
-  end # Subject
-end # Mutest
+        end
+      end
+    end
+  end
+end

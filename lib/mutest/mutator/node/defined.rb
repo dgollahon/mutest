@@ -18,7 +18,7 @@ module Mutest
 
           emit_expression_mutations { |node| !n_self?(node) }
         end
-      end # Defined
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

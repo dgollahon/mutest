@@ -15,10 +15,11 @@ module Mutest
         def dispatch
           emit_singletons
           return unless value
+
           emit(value)
           emit_value_mutations
         end
-      end # Return
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

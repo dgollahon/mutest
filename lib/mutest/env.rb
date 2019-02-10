@@ -1,7 +1,7 @@
 module Mutest
   # Abstract base class for mutest environments
   class Env
-    include Adamantium::Flat, Anima.new(
+    include Anima.new(
       :actor_env,
       :config,
       :integration,
@@ -11,6 +11,7 @@ module Mutest
       :selector,
       :subjects
     )
+    include Adamantium::Flat
 
     SEMANTICS_MESSAGE =
       "Fix your lib to follow normal ruby semantics!\n" \
@@ -54,5 +55,5 @@ module Mutest
         tests:   tests
       )
     end
-  end # Env
-end # Mutest
+  end
+end

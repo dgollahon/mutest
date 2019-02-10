@@ -3,7 +3,8 @@ module Mutest
     class Example
       # Example verification
       class Verification
-        include Adamantium::Flat, Concord.new(:example, :mutations)
+        include Concord.new(:example, :mutations)
+        include Adamantium::Flat
 
         # Test if mutation was verified successfully
         #
@@ -16,7 +17,7 @@ module Mutest
         #
         # @return [String]
         def error_report
-          fail 'no error report on successful validation' if success?
+          raise 'no error report on successful validation' if success?
 
           YAML.dump(
             'file'            => example.file,
@@ -79,7 +80,7 @@ module Mutest
           example.expected - mutations.map(&:node)
         end
         memoize :missing
-      end # Verification
-    end # Example
-  end # Meta
-end # Mutest
+      end
+    end
+  end
+end

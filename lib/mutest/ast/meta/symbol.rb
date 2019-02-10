@@ -4,12 +4,13 @@ module Mutest
     module Meta
       # Metadata for symbol nodes
       class Symbol
-        include NamedChildren, Concord.new(:node)
+        include Concord.new(:node)
+        include NamedChildren
 
         children :name
 
         public :name
-      end # Symbol
-    end # Meta
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

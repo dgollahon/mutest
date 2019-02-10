@@ -16,7 +16,7 @@ module Mutest
           emit_singletons
           emit_regexp_mutations
         end
-      end # MatchCurrentLine
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

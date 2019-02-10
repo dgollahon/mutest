@@ -45,6 +45,6 @@ module Mutest
       def self.to_expression(node)
         Transformer.lookup(node.type).to_expression(node)
       end
-    end # Regexp
-  end # AST
-end # Mutest
+    end
+  end
+end

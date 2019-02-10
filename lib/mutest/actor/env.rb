@@ -23,6 +23,6 @@ module Mutest
       def new_mailbox
         Mailbox.new
       end
-    end # Env
-  end # Actor
-end # Mutest
+    end
+  end
+end

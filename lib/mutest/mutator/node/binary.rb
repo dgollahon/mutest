@@ -58,7 +58,7 @@ module Mutest
         def emit_left_negation
           emit(s(node.type, n_not(left), right))
         end
-      end # Binary
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

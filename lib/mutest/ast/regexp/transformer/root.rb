@@ -20,9 +20,9 @@ module Mutest
                 root.expressions = subexpressions
               end
             end
-          end # ASTToExpression
-        end # Root
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+          end
+        end
+      end
+    end
+  end
+end

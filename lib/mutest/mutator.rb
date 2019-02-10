@@ -3,10 +3,10 @@ module Mutest
   class Mutator
     REGISTRY = Registry.new
 
-    include Adamantium::Flat,
-            Concord.new(:input, :filter, :parent),
-            AbstractType,
-            Procto.call(:output)
+    include Procto.call(:output)
+    include AbstractType
+    include Concord.new(:input, :filter, :parent)
+    include Adamantium::Flat
 
     # Lookup and invoke dedicated AST mutator
     #
@@ -111,5 +111,5 @@ module Mutest
 
       mutator.call(nodes, filter).each(&block)
     end
-  end # Mutator
-end # Mutest
+  end
+end

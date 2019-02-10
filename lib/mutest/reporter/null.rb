@@ -9,6 +9,6 @@ module Mutest
           self
         end
       end
-    end # Null
-  end # Reporter
-end # Mutest
+    end
+  end
+end

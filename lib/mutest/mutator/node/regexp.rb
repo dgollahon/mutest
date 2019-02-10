@@ -12,7 +12,7 @@ module Mutest
           def dispatch
             children.each_index(&method(:mutate_child))
           end
-        end # RootExpression
+        end
 
         # Mutator for beginning of line anchor `^`
         class BeginningOfLineAnchor < Node
@@ -26,8 +26,8 @@ module Mutest
           def dispatch
             emit(s(:regexp_bos_anchor))
           end
-        end # BeginningOfLineAnchor
-      end # Regexp
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

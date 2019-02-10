@@ -3,10 +3,10 @@ module Mutest
     class CLI
       # CLI runner status printer base class
       class Printer
-        include AbstractType,
-                Adamantium::Flat,
-                Concord.new(:output, :object),
-                Procto.call(:run)
+        include Procto.call(:run)
+        include Concord.new(:output, :object)
+        include Adamantium::Flat
+        include AbstractType
 
         private_class_method :new
 
@@ -118,7 +118,7 @@ module Mutest
         #
         # @api private
         alias_method :color?, :tty?
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+      end
+    end
+  end
+end

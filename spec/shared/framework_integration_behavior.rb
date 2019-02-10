@@ -2,7 +2,7 @@ RSpec.shared_examples_for 'framework integration' do
   around do |example|
     Bundler.with_clean_env do
       Dir.chdir(TestApp.root) do
-        Kernel.system("bundle install --gemfile=#{gemfile}") || fail('Bundle install failed!')
+        Kernel.system("bundle install --gemfile=#{gemfile}") || raise('Bundle install failed!')
         ENV['BUNDLE_GEMFILE'] = gemfile
         example.run
       end

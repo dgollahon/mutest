@@ -13,8 +13,8 @@ module Mutest
             visit_collection(SubjectResult, failed_subject_results)
             visit(EnvProgress, object)
           end
-        end # EnvResult
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

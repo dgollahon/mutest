@@ -10,6 +10,6 @@ module Mutest
       def call(_env)
         subjects
       end
-    end # Static
-  end # Matcher
-end # Mutest
+    end
+  end
+end

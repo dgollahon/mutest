@@ -16,7 +16,7 @@ module Mutest
           Rational(amount_mutations_killed, amount_mutation_results)
         end
       end
-    end # Coverage
+    end
 
     # Class level mixin
     module ClassMethods
@@ -35,7 +35,7 @@ module Mutest
         end
         memoize(name)
       end
-    end # ClassMethods
+    end
 
     private_constant(*constants(false))
 
@@ -64,11 +64,13 @@ module Mutest
 
     # Env result object
     class Env
-      include Coverage, Result, Anima.new(
+      include Anima.new(
         :env,
         :runtime,
         :subject_results
       )
+      include Result
+      include Coverage
 
       # Test if run is successful
       #
@@ -103,25 +105,28 @@ module Mutest
       def amount_subjects
         env.subjects.length
       end
-    end # Env
+    end
 
     # Test result
     class Test
-      include Result, Anima.new(
+      include Anima.new(
         :output,
         :passed,
         :runtime,
         :tests
       )
-    end # Test
+      include Result
+    end
 
     # Subject result
     class Subject
-      include Coverage, Result, Anima.new(
+      include Anima.new(
         :mutation_results,
         :subject,
         :tests
       )
+      include Result
+      include Coverage
 
       sum :killtime, :mutation_results
       sum :runtime,  :mutation_results
@@ -178,14 +183,15 @@ module Mutest
         mutation_results.select(&:success?)
       end
       memoize :killed_mutation_results
-    end # Subject
+    end
 
     # Mutation result
     class Mutation
-      include Result, Anima.new(
+      include Anima.new(
         :mutation,
         :test_result
       )
+      include Result
 
       # The runtime
       #
@@ -207,6 +213,6 @@ module Mutest
       def success?
         mutation.class.success?(test_result)
       end
-    end # Mutation
-  end # Result
-end # Mutest
+    end
+  end
+end

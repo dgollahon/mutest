@@ -17,18 +17,18 @@ module Mutest
             :env
           )
 
-          # rubocop:disable SpaceInsideBrackets
+          # rubocop:disable Layout/SpaceInsideArrayLiteralBrackets
           FORMATS = IceNine.deep_freeze([
-            [:info,   'Subjects:        %s',      :amount_subjects          ],
-            [:info,   'Mutations:       %s',      :amount_mutations         ],
-            [:info,   'Results:         %s',      :amount_mutation_results  ],
-            [:info,   'Kills:           %s',      :amount_mutations_killed  ],
-            [:info,   'Alive:           %s',      :amount_mutations_alive   ],
-            [:info,   'Runtime:         %0.2fs',  :runtime                  ],
-            [:info,   'Killtime:        %0.2fs',  :killtime                 ],
-            [:info,   'Overhead:        %0.2f%%', :overhead_percent         ],
-            [:info,   'Mutations/s:     %0.2f',   :mutations_per_second     ],
-            [:status, 'Coverage:        %0.2f%%', :coverage_percent         ]
+            [:info,   'Subjects:        %s',      :amount_subjects        ],
+            [:info,   'Mutations:       %s',      :amount_mutations       ],
+            [:info,   'Results:         %s',      :amount_mutation_results],
+            [:info,   'Kills:           %s',      :amount_mutations_killed],
+            [:info,   'Alive:           %s',      :amount_mutations_alive ],
+            [:info,   'Runtime:         %0.2fs',  :runtime                ],
+            [:info,   'Killtime:        %0.2fs',  :killtime               ],
+            [:info,   'Overhead:        %0.2f%%', :overhead_percent       ],
+            [:info,   'Mutations/s:     %0.2f',   :mutations_per_second   ],
+            [:status, 'Coverage:        %0.2f%%', :coverage_percent       ]
           ])
 
           # Run printer
@@ -69,8 +69,8 @@ module Mutest
           def overhead_percent
             (overhead / killtime) * 100
           end
-        end # EnvProgress
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

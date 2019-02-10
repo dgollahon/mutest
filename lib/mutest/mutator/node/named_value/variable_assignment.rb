@@ -40,8 +40,8 @@ module Mutest
               emit_name(:"#{prefix}#{name}")
             end
           end
-        end # VariableAssignment
-      end # NamedValue
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

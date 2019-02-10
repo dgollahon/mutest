@@ -37,6 +37,6 @@ module Mutest
       def scope
         context.scope
       end
-    end # Method
-  end # Subject
-end # Mutest
+    end
+  end
+end

@@ -29,8 +29,8 @@ module Mutest
           def value
             children.first
           end
-        end # Integer
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

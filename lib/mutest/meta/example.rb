@@ -1,7 +1,8 @@
 module Mutest
   module Meta
     class Example
-      include Adamantium, Anima.new(:file, :node, :node_type, :expected)
+      include Anima.new(:file, :node, :node_type, :expected)
+      include Adamantium
 
       # Verification instance for example
       #
@@ -27,6 +28,6 @@ module Mutest
         end
       end
       memoize :generated
-    end # Example
-  end # Meta
-end # Mutest
+    end
+  end
+end

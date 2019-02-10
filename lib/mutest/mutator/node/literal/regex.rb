@@ -69,8 +69,8 @@ module Mutest
           def body
             children.slice(0...-1)
           end
-        end # Regex
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

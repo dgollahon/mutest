@@ -13,8 +13,8 @@ module Mutest
           # @return [undefined]
           def dispatch
           end
-        end # Nil
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

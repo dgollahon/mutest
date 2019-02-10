@@ -68,6 +68,7 @@ module Mutest
       logical_name = logical_name.to_s
       loaded = original.call(logical_name)
       return loaded unless include?(logical_name)
+
       @zombified << logical_name
       zombify(find(logical_name))
       true
@@ -89,7 +90,7 @@ module Mutest
         return path if path.file?
       end
 
-      fail LoadError, "Cannot find file #{file_name.inspect} in load path"
+      raise LoadError, "Cannot find file #{file_name.inspect} in load path"
     end
 
     # Zombify contents of file
@@ -115,5 +116,5 @@ module Mutest
     def namespaced_node(source_path)
       s(:module, s(:const, nil, namespace), ::Parser::CurrentRuby.parse(source_path.read))
     end
-  end # Zombifier
-end # Mutest
+  end
+end

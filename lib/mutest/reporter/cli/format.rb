@@ -4,7 +4,8 @@ module Mutest
       # CLI output format
       #
       class Format
-        include AbstractType, Anima.new(:tty)
+        include Anima.new(:tty)
+        include AbstractType
 
         # Start representation
         #
@@ -42,7 +43,7 @@ module Mutest
               buffer.public_send(name, *args, &block)
             end
           end
-        end # Output
+        end
 
         private
 
@@ -86,7 +87,7 @@ module Mutest
           def new_buffer
             StringIO.new
           end
-        end # Progressive
+        end
 
         # Format for framed rewindable output
         class Framed < self
@@ -128,8 +129,8 @@ module Mutest
             buffer = StringIO.new
             buffer << tput.restore
           end
-        end # Framed
-      end # Format
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

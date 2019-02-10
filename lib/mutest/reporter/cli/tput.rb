@@ -3,7 +3,8 @@ module Mutest
     class CLI
       # Interface to the optionally present tput binary
       class Tput
-        include Adamantium, Concord::Public.new(:prepare, :restore)
+        include Concord::Public.new(:prepare, :restore)
+        include Adamantium
 
         private_class_method :new
 
@@ -37,7 +38,7 @@ module Mutest
           stdout if exitstatus.success?
         end
         private_class_method :capture
-      end # Tput
-    end # CLI
-  end # Reporter
-end # Mutest
+      end
+    end
+  end
+end

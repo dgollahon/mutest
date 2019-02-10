@@ -20,5 +20,5 @@ module Mutest
         end
       end
     end
-  end # RequireHighjack
-end # Mutest
+  end
+end

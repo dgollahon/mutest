@@ -38,7 +38,7 @@ module Mutest
   def self.ci?
     ENV.key?('CI')
   end
-end # Mutest
+end
 
 require 'mutest/version'
 require 'mutest/env'
@@ -242,5 +242,5 @@ module Mutest
       reporter:          Reporter::CLI.build($stdout),
       zombie:            false
     )
-  end # Config
-end # Mutest
+  end
+end

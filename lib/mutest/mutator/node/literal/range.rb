@@ -31,8 +31,8 @@ module Mutest
           def emit_inverse
             emit(s(MAP.fetch(node.type), *children))
           end
-        end # Range
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

@@ -4,7 +4,7 @@ module Mutest
   # Does not reference any "external" volatile state. The configuration applied
   # to current environment is being represented by the Mutest::Env object.
   class Config
-    include Adamantium::Flat, Anima.new(
+    include Anima.new(
       :expression_parser,
       :fail_fast,
       :integration,
@@ -21,9 +21,10 @@ module Mutest
       :reporter,
       :zombie
     )
+    include Adamantium::Flat
 
     %i[fail_fast zombie].each do |name|
       define_method(:"#{name}?") { public_send(name) }
     end
-  end # Config
-end # Mutest
+  end
+end

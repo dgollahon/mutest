@@ -24,7 +24,7 @@ module Mutest
         def children
           node.children
         end
-      end # InstanceMethods
+      end
 
       # Methods mixed in at class level
       module ClassMethods
@@ -80,7 +80,7 @@ module Mutest
           define_method(name, &block)
           private(name)
         end
-      end # ClassMethods
-    end # NamedChildren
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

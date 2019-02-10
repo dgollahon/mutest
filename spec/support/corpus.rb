@@ -31,7 +31,7 @@ module MutestSpec
 
       DEFAULT_MUTATION_COUNT = 0
 
-      include Adamantium, Anima.new(
+      include Anima.new(
         :expected_errors,
         :mutation_coverage,
         :mutation_generation,
@@ -40,6 +40,7 @@ module MutestSpec
         :repo_uri,
         :repo_ref
       )
+      include Adamantium
 
       # Verify mutation coverage
       #
@@ -95,6 +96,7 @@ module MutestSpec
       # @return [self]
       def checkout
         return self if noinstall?
+
         TMP.mkdir unless TMP.directory?
 
         if repo_path.exist?
@@ -158,6 +160,7 @@ module MutestSpec
       # @return [undefined]
       def install_mutest
         return if noinstall?
+
         relative = ROOT.relative_path_from(repo_path)
         repo_path.join('Gemfile').open('a') do |file|
           file << "gem 'mutest', path: '#{relative}'\n"
@@ -241,7 +244,7 @@ module MutestSpec
         if block_given?
           yield
         else
-          fail "System command failed!: #{arguments.join(' ')}"
+          raise "System command failed!: #{arguments.join(' ')}"
         end
       end
 
@@ -253,9 +256,10 @@ module MutestSpec
           def initialize(*error_info)
             super(MESSAGE % error_info)
           end
-        end # UnnecessaryExpectation
+        end
 
-        include Concord.new(:map), Adamantium
+        include Adamantium
+        include Concord.new(:map)
 
         # Assert that we expect to encounter the provided exception for this path
         #
@@ -295,7 +299,7 @@ module MutestSpec
         def to_h
           map
         end
-      end # ErrorWhitelist
+      end
 
       LOADER =
         Morpher.build do
@@ -326,6 +330,6 @@ module MutestSpec
         end
 
       ALL = LOADER.call(YAML.load_file(ROOT.join('spec', 'integrations.yml')))
-    end # Project
-  end # Corpus
-end # MutestSpec
+    end
+  end
+end

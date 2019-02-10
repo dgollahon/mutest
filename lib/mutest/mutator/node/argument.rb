@@ -23,6 +23,7 @@ module Mutest
         # @return [undefined]
         def emit_name_mutation
           return if skip?
+
           emit_name(:"#{UNDERSCORE}#{name}")
         end
 
@@ -61,8 +62,8 @@ module Mutest
           def emit_required_mutation
             emit(s(TYPE_MAP.fetch(node.type), name))
           end
-        end # Optional
-      end # Argument
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

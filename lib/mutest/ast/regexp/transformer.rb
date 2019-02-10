@@ -52,7 +52,11 @@ module Mutest
         class ExpressionToAST
           PREFIX = :regexp
 
-          include Concord.new(:expression), Procto.call, AST::Sexp, AbstractType, Adamantium
+          include Adamantium
+          include AbstractType
+          include AST::Sexp
+          include Procto.call
+          include Concord.new(:expression)
 
           private
 
@@ -93,11 +97,14 @@ module Mutest
           def type
             :"#{PREFIX}_#{expression.token}_#{expression.type}"
           end
-        end # ExpressionToAST
+        end
 
         # Abstract node transformer
         class ASTToExpression
-          include Concord.new(:node), Procto.call, AbstractType, Adamantium
+          include Adamantium
+          include AbstractType
+          include Procto.call
+          include Concord.new(:node)
 
           # Call generic transform method and freeze result
           #
@@ -119,7 +126,7 @@ module Mutest
           def subexpressions
             node.children.map(&Regexp.public_method(:to_expression))
           end
-        end # ASTToExpression
+        end
 
         # Mixin for node transformers
         #
@@ -143,7 +150,8 @@ module Mutest
               new(table)
             end
 
-            include Concord.new(:table), Adamantium
+            include Adamantium
+            include Concord.new(:table)
 
             # Types defined by the table
             #
@@ -160,7 +168,7 @@ module Mutest
             def lookup(type)
               table.fetch(type)
             end
-          end # Table
+          end
 
           private
 
@@ -177,8 +185,8 @@ module Mutest
           def expression_class
             self.class::TABLE.lookup(node.type).regexp_class
           end
-        end # LookupTable
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+        end
+      end
+    end
+  end
+end

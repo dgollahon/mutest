@@ -4,12 +4,13 @@ module Mutest
     module Meta
       # Metadata for restarg nodes
       class Restarg
-        include NamedChildren, Concord.new(:node)
+        include Concord.new(:node)
+        include NamedChildren
 
         children :name
 
         public :name
-      end # Restarg
-    end # Meta
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

@@ -39,7 +39,7 @@ RSpec.describe Mutest::Runner do
       Mutest::Parallel::Config.new(
         env:       actor_env,
         jobs:      1,
-        processor: ->(_object) { fail },
+        processor: ->(_object) { raise },
         sink:      Mutest::Runner::Sink.new(env),
         source:    Mutest::Parallel::Source::Array.new(env.mutations)
       )

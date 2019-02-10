@@ -15,9 +15,9 @@ module Mutest
       #   if block terminates abnormal
       def call
         yield
-      rescue => exception
+      rescue StandardError => exception
         raise Error, exception
       end
-    end # None
-  end # Isolation
-end # Mutest
+    end
+  end
+end

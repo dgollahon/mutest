@@ -1,7 +1,9 @@
 module Mutest
   # Abstract base class mutest test framework integrations
   class Integration
-    include AbstractType, Adamantium::Flat, Concord.new(:config)
+    include Concord.new(:config)
+    include Adamantium::Flat
+    include AbstractType
 
     # Setup integration
     #
@@ -47,5 +49,5 @@ module Mutest
     def expression_parser
       config.expression_parser
     end
-  end # Integration
-end # Mutest
+  end
+end

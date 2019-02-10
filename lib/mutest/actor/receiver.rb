@@ -2,7 +2,8 @@ module Mutest
   module Actor
     # Receiver side of an actor
     class Receiver
-      include Adamantium::Flat, Concord.new(:condition_variable, :mutex, :messages)
+      include Concord.new(:condition_variable, :mutex, :messages)
+      include Adamantium::Flat
 
       # Receives a message, blocking
       #
@@ -12,7 +13,7 @@ module Mutest
           message = try_blocking_receive
           return message unless message.equal?(Undefined)
         end
-        fail ProtocolError
+        raise ProtocolError
       end
 
       private
@@ -34,6 +35,6 @@ module Mutest
           end
         end
       end
-    end # Receiver
-  end # Actor
-end # Mutest
+    end
+  end
+end

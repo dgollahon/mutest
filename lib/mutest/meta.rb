@@ -14,7 +14,7 @@ module Mutest
       #
       # @return [undefined]
       def self.add(type, &block)
-        file = caller.first.split(':in', 2).first
+        file = caller(1..1).first.split(':in', 2).first
         ALL << DSL.call(file, type, block)
       end
 
@@ -28,6 +28,6 @@ module Mutest
       class << self
         undef_method :add
       end
-    end # Example
-  end # Meta
-end # Mutest
+    end
+  end
+end

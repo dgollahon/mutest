@@ -73,7 +73,7 @@ module Mutest
             mutate_child(index) if child.instance_of?(::Parser::AST::Node)
           end
         end
-      end # Generic
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

@@ -35,5 +35,5 @@ module Mutest
     #
     # @return [Float]
     abstract_method :delay
-  end # Reporter
-end # Mutest
+  end
+end

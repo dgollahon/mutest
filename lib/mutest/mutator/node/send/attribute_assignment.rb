@@ -32,8 +32,8 @@ module Mutest
           def emit_attribute_read
             emit_type(receiver, selector[ATTRIBUTE_RANGE].to_sym)
           end
-        end # AttributeAssignment
-      end # Send
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

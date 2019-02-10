@@ -34,6 +34,7 @@ module Mutest
           children.each_with_index do |child, index|
             mutate(child).each do |mutest|
               next if invalid_argument_replacement?(mutest, index)
+
               emit_child_update(index, mutest)
             end
           end
@@ -84,7 +85,7 @@ module Mutest
             n_mlhs?(child)
           end
         end
-      end # Arguments
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

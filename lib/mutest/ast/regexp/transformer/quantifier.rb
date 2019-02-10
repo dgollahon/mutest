@@ -21,7 +21,7 @@ module Mutest
             def type
               :"regexp_#{expression.mode}_#{expression.token}"
             end
-          end # ExpressionToAST
+          end
 
           # Mapper from `Parser::AST::Node` to `Regexp::Expression`
           class ASTToExpression < Transformer::ASTToExpression
@@ -101,9 +101,7 @@ module Mutest
               def initialize(*)
                 super
 
-                unless valid_min? && valid_max?
-                  fail ArgumentError, 'Unexpected quantifier interval bound.'
-                end
+                raise ArgumentError, 'Unexpected quantifier interval bound.' unless valid_min? && valid_max?
               end
 
               def to_s
@@ -113,7 +111,7 @@ module Mutest
               private
 
               def compacted_interval
-                [min, max].map { |bound| bound if bound > 0 }.uniq
+                [min, max].map { |bound| bound if bound.positive? }.uniq
               end
 
               def valid_min?
@@ -121,14 +119,14 @@ module Mutest
               end
 
               def valid_max?
-                max > 0 || max.equal?(-1)
+                max.positive? || max.equal?(-1)
               end
-            end # Interval
-          end # ASTToExpression
+            end
+          end
 
           ASTToExpression::QUANTIFIER_MAP.keys.each(&method(:register))
-        end # Quantifier
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+        end
+      end
+    end
+  end
+end

@@ -15,8 +15,10 @@ module Mutest
             emit_singletons
             emit_type
             mutate_body
+
             return unless children.one?
-            emit(children.first)
+
+            emit(Mutest::Util.one(children))
           end
 
           # Mutate body
@@ -30,8 +32,8 @@ module Mutest
               mutate_child(index)
             end
           end
-        end # Array
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

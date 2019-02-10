@@ -31,11 +31,11 @@ module XSpec
     end
 
     def exception(_, exception)
-      fail exception
+      raise exception
     end
 
     def yields(observation, yields)
-      block = observation.block or fail 'No block passed where expected'
+      block = observation.block or raise 'No block passed where expected'
 
       validate_block_arity(observation, yields)
 
@@ -48,12 +48,13 @@ module XSpec
 
       # block allows anything we can skip the check
       return if observed.equal?(-1)
-      fail 'Optargs currently not supported' if observed < -1
+      raise 'Optargs currently not supported' if observed < -1
+
       block_arity_mismatch(observation, expected, observed) unless expected.equal?(observed)
     end
 
     def block_arity_mismatch(observation, expected, observed)
-      fail "block arity mismatch, expected #{expected} observed #{observed}\nobservation:\n#{observation.inspect}"
+      raise "block arity mismatch, expected #{expected} observed #{observed}\nobservation:\n#{observation.inspect}"
     end
 
     alias_method :yields_return, :yields
@@ -67,23 +68,23 @@ module XSpec
 
     def self.assert_valid_events(event_list)
       event_list.map(&:first).each do |event|
-        fail "Invalid event: #{event}" unless VALID_EVENTS.include?(event)
+        raise "Invalid event: #{event}" unless VALID_EVENTS.include?(event)
       end
     end
     private_class_method :assert_valid_events
 
     def self.assert_not_empty(event_list)
-      fail 'no events' if event_list.empty?
+      raise 'no events' if event_list.empty?
     end
     private_class_method :assert_not_empty
 
     def self.assert_total(event_list)
       return unless event_list[0..-2].map(&:first).any?(&TERMINATE_EVENTS.method(:include?))
 
-      fail "Reaction not total: #{event_list}"
+      raise "Reaction not total: #{event_list}"
     end
     private_class_method :assert_total
-  end # MessageReaction
+  end
 
   class MessageExpectation
     include Anima.new(:receiver, :selector, :arguments, :reaction)
@@ -118,30 +119,30 @@ module XSpec
       end
 
       def error(message)
-        fail "#{message},\n observation:\n #{observation.inspect}\n expectation:\n #{expectation.inspect}"
+        raise "#{message},\n observation:\n #{observation.inspect}\n expectation:\n #{expectation.inspect}"
       end
 
       def trigger_exception
         exception = expectation.exception
-        fail exception if exception
+        raise exception if exception
       end
-    end # Verifier
-  end # MessageExpectation
+    end
+  end
 
   class MessageObservation
     include Anima.new(:receiver, :selector, :arguments, :block)
-  end # MessageObservation
+  end
 
   class ExpectationVerifier
     include Concord.new(:expectations)
 
     def call(observation)
-      expectation = expectations.shift or fail "No expected message but observed #{observation}"
+      expectation = expectations.shift or raise "No expected message but observed #{observation}"
       expectation.call(observation)
     end
 
     def assert_done
-      expectations.empty? or fail "unconsumed expectations:\n#{expectations.map(&:inspect).join}"
+      expectations.empty? or raise "unconsumed expectations:\n#{expectations.map(&:inspect).join}"
     end
 
     # rubocop:disable MethodLength
@@ -171,5 +172,5 @@ module XSpec
 
       verifier.assert_done
     end
-  end # ExpectationVerifier
-end # XSpec
+  end
+end

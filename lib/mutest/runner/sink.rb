@@ -58,6 +58,6 @@ module Mutest
         subject_result = @subject_results.fetch(subject) { return EMPTY_ARRAY }
         subject_result.mutation_results
       end
-    end # Sink
-  end # Runner
-end # Mutest
+    end
+  end
+end

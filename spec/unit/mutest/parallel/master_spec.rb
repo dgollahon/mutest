@@ -67,7 +67,7 @@ RSpec.describe Mutest::Parallel::Master do
     def stop?
       @stop
     end
-  end # FakeSink
+  end
 
   # Needed because of rubies undefined-ivar-read-is-nil stuff
   describe 'object initialization' do
@@ -79,6 +79,8 @@ RSpec.describe Mutest::Parallel::Master do
   end
 
   describe '.call' do
+    subject { described_class.call(config) }
+
     before do
       expect(Mutest::Parallel::Worker).to receive(:run).with(
         mailbox:   actor_env.mailbox(:worker_a),
@@ -86,8 +88,6 @@ RSpec.describe Mutest::Parallel::Master do
         parent:    actor_env.mailbox(:master).sender
       ).and_return(worker_a)
     end
-
-    subject { described_class.call(config) }
 
     context 'with multiple workers configured' do
       let(:config)           { super().with(jobs: 2) }

@@ -2,11 +2,12 @@ module Mutest
   module Parallel
     # Parallel execution worker
     class Worker
-      include Adamantium::Flat, Anima.new(
+      include Anima.new(
         :mailbox,
         :parent,
         :processor
       )
+      include Adamantium::Flat
 
       # Run worker
       #
@@ -49,7 +50,7 @@ module Mutest
         when :stop
           true
         else
-          fail Actor::ProtocolError, "Unknown command: #{type.inspect}"
+          raise Actor::ProtocolError, "Unknown command: #{type.inspect}"
         end
       end
 
@@ -71,6 +72,6 @@ module Mutest
           )
         )
       end
-    end # Worker
-  end # Parallel
-end # Mutest
+    end
+  end
+end

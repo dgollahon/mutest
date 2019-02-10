@@ -58,8 +58,8 @@ module Mutest
           def print_mutation_results
             visit_collection(MutationProgressResult, object.mutation_results)
           end
-        end # SubjectProgress
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

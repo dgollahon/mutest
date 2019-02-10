@@ -6,6 +6,6 @@ module Mutest
 
       def disabled?
       end
-    end # Util
-  end # Mutator
-end # Mutest
+    end
+  end
+end

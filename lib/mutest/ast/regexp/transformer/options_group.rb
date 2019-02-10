@@ -14,7 +14,7 @@ module Mutest
             def call
               quantify(ast(expression.options, *children))
             end
-          end # ExpressionToAST
+          end
 
           # Mapper from `Parser::AST::Node` to `Regexp::Expression`
           class ASTToExpression < Transformer::ASTToExpression
@@ -57,9 +57,9 @@ module Mutest
 
               "(?#{flags}-:"
             end
-          end # ASTToExpression
-        end # OptionsGroup
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+          end
+        end
+      end
+    end
+  end
+end

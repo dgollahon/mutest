@@ -21,8 +21,8 @@ module Mutest
             puts(OUTPUT_HEADER)
             puts(object.output)
           end
-        end # TestResult
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

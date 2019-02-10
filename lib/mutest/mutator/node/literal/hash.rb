@@ -44,9 +44,9 @@ module Mutest
               emit_key_mutations
               emit_value_mutations
             end
-          end # Pair
-        end # Hash
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+          end
+        end
+      end
+    end
+  end
+end

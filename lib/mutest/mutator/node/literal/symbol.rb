@@ -17,8 +17,8 @@ module Mutest
             emit_singletons
             mutate_with(Util::Symbol, value, &method(:emit_type))
           end
-        end # Symbol
-      end # Literal
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

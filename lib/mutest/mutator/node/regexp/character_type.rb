@@ -22,8 +22,8 @@ module Mutest
           def dispatch
             emit(s(MAP.fetch(node.type)))
           end
-        end # CharacterType
-      end # Regexp
-    end # Node
-  end # Mutator
-end # Mutest
+        end
+      end
+    end
+  end
+end

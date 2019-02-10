@@ -46,12 +46,13 @@ module Mutest
         # @raise [NoJobError]
         #   when no next job is available
         def next
-          fail NoJobError unless next?
+          raise NoJobError unless next?
+
           jobs.fetch(@next_index).tap do
             @next_index += 1
           end
         end
-      end # Array
-    end # Source
-  end # Parallel
-end # Mutest
+      end
+    end
+  end
+end

@@ -84,7 +84,7 @@ RSpec.describe Mutest::Env::Bootstrap do
       let(:invalid_class) do
         Class.new do
           def self.name
-            fail
+            raise
           end
         end
       end

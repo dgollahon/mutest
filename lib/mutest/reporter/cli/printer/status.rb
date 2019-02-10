@@ -26,6 +26,7 @@ module Mutest
           # @return [undefined]
           def job_status
             return if active_jobs.empty?
+
             info(ACTIVE_JOB_HEADER)
             active_jobs.sort_by(&:index).each do |job|
               info(ACTIVE_JOB_FORMAT, job.index, job.payload.identification)
@@ -42,8 +43,8 @@ module Mutest
               active_subjects.include?(subject_result.subject)
             end
           end
-        end # Status
-      end # Printer
-    end # CLI
-  end # Reporter
-end # Mutest
+        end
+      end
+    end
+  end
+end

@@ -270,6 +270,7 @@ module Mutest
         # @return [undefined]
         def mutate_receiver
           return unless receiver
+
           emit_implicit_self
           emit_receiver_mutations do |node|
             !n_nil?(node)
@@ -296,7 +297,7 @@ module Mutest
             replacements
           end
         end
-      end # Send
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

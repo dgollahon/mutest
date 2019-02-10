@@ -4,7 +4,9 @@ module Mutest
     module Meta
       # Metadata for send nodes
       class Send
-        include NamedChildren, Concord.new(:node), NodePredicates
+        include NodePredicates
+        include Concord.new(:node)
+        include NamedChildren
 
         children :receiver, :selector
 
@@ -89,7 +91,7 @@ module Mutest
             n_const?(receiver)    &&
             Const.new(receiver).name.equal?(:Proc)
         end
-      end # Send
-    end # Meta
-  end # AST
-end # Mutest
+      end
+    end
+  end
+end

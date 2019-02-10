@@ -15,7 +15,7 @@ module Mutest
         def dispatch
           emit_body_mutations if body
         end
-      end # Class
-    end # Node
-  end # Mutator
-end # Mutest
+      end
+    end
+  end
+end

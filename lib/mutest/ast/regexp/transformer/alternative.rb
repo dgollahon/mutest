@@ -31,9 +31,9 @@ module Mutest
                 alt.expressions = subexpressions
               end
             end
-          end # ASTToExpression
-        end # Alternative
-      end # Transformer
-    end # Regexp
-  end # AST
-end # Mutest
+          end
+        end
+      end
+    end
+  end
+end
