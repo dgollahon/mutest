@@ -37,5 +37,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('parser',        '>= 2.5.0.1', '< 2.6')
   gem.add_runtime_dependency('procto',        '~> 0.0.2')
   gem.add_runtime_dependency('regexp_parser', '~> 0.4.9')
-  gem.add_runtime_dependency('unparser',      '~> 0.2.5')
+  gem.add_runtime_dependency('unparser',      '~> 0.4.2')
 end

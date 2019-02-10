@@ -10,7 +10,7 @@ module Mutest
     #
     # @return [undefined]
     def self.read(path)
-      new(path, *::Parser::CurrentRuby.parse_with_comments(path.read))
+      new(path, *Unparser.parse_with_comments(path.read))
     end
 
     def initialize(path, ast, comments)

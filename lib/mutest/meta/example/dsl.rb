@@ -95,7 +95,7 @@ module Mutest
         def node(input)
           case input
           when String
-            Unparser::Preprocessor.run(::Parser::CurrentRuby.parse(input))
+            Unparser::Preprocessor.run(Unparser.parse(input))
           when ::Parser::AST::Node
             input
           else

@@ -18,6 +18,7 @@ module Mutest
           xstr
           back_ref
           sclass
+          lambda
           match_with_lvasgn
           while_post
           until_post

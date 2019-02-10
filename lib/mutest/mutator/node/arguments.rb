@@ -22,9 +22,21 @@ module Mutest
         # @return [undefined]
         def emit_argument_presence
           emit_type
+
           mutate_with(Util::Array::Presence, children) do |children|
-            emit_type(*children)
+            if children.one? && n_mlhs?(Mutest::Util.one(children))
+              emit_procarg(Mutest::Util.one(children))
+            else
+              emit_type(*children)
+            end
           end
+        end
+
+        # Emit procarg form
+        #
+        # @return [undefined]
+        def emit_procarg(arg)
+          emit_type(s(:procarg0, *arg))
         end
 
         # Emit argument mutations
