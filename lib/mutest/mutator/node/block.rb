@@ -14,7 +14,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
-          emit(send)
+          emit(send) unless n_lambda?(send)
           emit_send_mutations(&method(:n_send?))
           emit_arguments_mutations
 

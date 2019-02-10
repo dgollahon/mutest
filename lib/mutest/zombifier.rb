@@ -114,7 +114,7 @@ module Mutest
     #
     # @return [Parser::AST::Node]
     def namespaced_node(source_path)
-      s(:module, s(:const, nil, namespace), ::Parser::CurrentRuby.parse(source_path.read))
+      s(:module, s(:const, nil, namespace), Unparser.parse(source_path.read))
     end
   end
 end

@@ -12,7 +12,6 @@ module Mutest
 
         SELECTOR_REPLACEMENTS = IceNine.deep_freeze(
           __send__:      %i[public_send],
-          :[] =>         %i[at fetch key?],
           :< =>          %i[== eql? equal?],
           :<= =>         %i[< == eql? equal?],
           :== =>         %i[eql? equal?],
@@ -63,17 +62,7 @@ module Mutest
         # @return [undefined]
         def dispatch
           emit_singletons
-          if meta.index_assignment?
-            run(Index::Assign)
-          else
-            non_index_dispatch
-          end
-        end
 
-        # Perform non index dispatch
-        #
-        # @return [undefined]
-        def non_index_dispatch
           if meta.binary_method_operator?
             run(Binary)
           elsif meta.attribute_assignment?
@@ -121,7 +110,6 @@ module Mutest
           emit_dig_mutation
           emit_double_negation_mutation
           emit_lambda_mutation
-          emit_drop_mutation
         end
 
         # Emit selector mutations specific to top level constants
@@ -189,19 +177,6 @@ module Mutest
           emit_type(fetch_mutation, :dig, *tail)
         end
 
-        # Emit mutation `foo[n..-1]` -> `foo.drop(n)`
-        #
-        # @return [undefined]
-        def emit_drop_mutation
-          return if !selector.equal?(:[]) || !arguments.one? || !n_irange?(Mutest::Util.one(arguments))
-
-          start, ending = *arguments.first
-
-          return unless ending.eql?(s(:int, -1))
-
-          emit_type(receiver, :drop, start)
-        end
-
         # Emit mutation from `to_i` to `Integer(...)`
         #
         # @return [undefined]
@@ -258,11 +233,7 @@ module Mutest
         #
         # @return [undefined]
         def emit_argument_propagation
-          return unless arguments.one?
-
-          node = Mutest::Util.one(arguments)
-
-          emit(node) unless NOT_STANDALONE.include?(node.type)
+          emit_propagation(Mutest::Util.one(arguments)) if arguments.one?
         end
 
         # Emit receiver mutations
