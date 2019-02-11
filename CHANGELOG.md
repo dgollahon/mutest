@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Master (Unreleased)]
 
+## [0.0.10] - 2019-02-10
+
+### Fixed
+- Fix ruby 2.5 inline rescue/ensure/else support  (and probably other invalid mutations) [[#102](https://github.com/dgollahon/mutest/pull/102/files)] ([@dgollahon][])]
+
+### Changed
 - Drop support for ruby 2.1 and 2.2. [[#100](https://github.com/dgollahon/mutest/pull/100/files)] ([@dgollahon][])]
 
 ## [0.0.9] - 2018-04-22
